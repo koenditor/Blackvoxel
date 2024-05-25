@@ -771,7 +771,8 @@ bool ZString::SearchInString_Forward (ZString const * StringToFind, ZMemSize & O
 
 bool ZString::SearchInString_Backward(ZString const * StringToFind, ZMemSize & OutPosition, ZMemSize Start)
 {
-  ZMemSize i,j;
+  signed long i;
+  ZMemSize j;
   bool Found;
 
   // xxxx0  4

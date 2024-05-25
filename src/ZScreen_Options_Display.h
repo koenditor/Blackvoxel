@@ -65,8 +65,8 @@ class ZScreen_Options_Display : public ZScreen
     {
       public:
         ZString Name;
-        ULong   Resolution_x;
-        ULong   Resolution_y;
+        int   Resolution_x;
+        int   Resolution_y;
     };
 
     static int ResolutionCompare(ZObject * Object_1, ZObject * Object_2);

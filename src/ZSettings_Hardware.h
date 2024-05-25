@@ -52,8 +52,8 @@ class ZSettings_Hardware
 {
   public:
     // Resolution and screen
-    ULong Setting_Resolution_h;
-    ULong Setting_Resolution_v;
+    int Setting_Resolution_h;
+    int Setting_Resolution_v;
     ULong Setting_ViewPort_Offset_x;
     ULong Setting_ViewPort_Offset_y;
     ULong Setting_ViewPort_Size_x;

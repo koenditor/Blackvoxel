@@ -77,7 +77,7 @@ class ZGenericCanva
 
     void SetSize(Long Width, Long Height)
     {
-      if (Canva) delete Canva;
+      if (Canva) delete[] Canva;
       this->Width = Width; this->Height = Height;
       ElementCount = Width * Height;
       Canva = new Type[ElementCount];
@@ -87,7 +87,7 @@ class ZGenericCanva
     {
       if (MinMax_H) { delete MinMax_H;  }
       if (MinMax_V) { delete MinMax_V;  }
-      if (Canva) delete Canva;
+      if (Canva) delete[] Canva;
 
       Canva = 0;
       ElementCount = 0;

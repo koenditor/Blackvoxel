@@ -191,7 +191,7 @@ class ZVoxelWorld : public ZObject
     bool RayCast_Vector(const ZVector3d & Pos, const ZVector3d & Vector, const ZRayCast_in * In, ZRayCast_out * Out, bool InvertCollision = false );
     bool RayCast_Vector_special(const ZVector3d & Pos, const ZVector3d & Vector, const ZRayCast_in * In, ZRayCast_out * Out, bool InvertCollision = false );
 
-    bool RayCast2(double x, double y, double z, double yaw, double pitch, double roll, ZVoxelCoords & PointedCube, ZVoxelCoords CubeBeforePointed  );
+    //bool RayCast2(double x, double y, double z, double yaw, double pitch, double roll, ZVoxelCoords & PointedCube, ZVoxelCoords CubeBeforePointed  );
 
     void SectorUpdateFaceCulling(Long x, Long y, Long z, bool Isolated = false);
     void SectorUpdateFaceCulling2(Long x, Long y, Long z, bool Isolated = false); // Old

@@ -58,10 +58,11 @@
 #  include "ZGeneralObject.h"
 #endif
 
+#define ZOA_INITIALSIZE 80
+
 class ZObjectArray : public ZGeneralObject
 {
   protected:
-    enum {INITIALSIZE = 80};
     ZObject * * ExpandableArray;
     ZSize MemSize;
     ZSize MaxIndex;

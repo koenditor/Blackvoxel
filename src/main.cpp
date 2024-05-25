@@ -153,7 +153,7 @@
 #endif
 
 #ifndef Z_ZGENERICCANVA_H
-#  include "z/ZGenericCanva.h"
+#  include "z/ZGenericCanva_2.h"
 #endif
 
 #ifndef Z_ZOS_SPECIFIC_VARIOUS_H

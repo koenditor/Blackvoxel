@@ -156,7 +156,7 @@ Bool ZGame_Events::KeyDown( SDL_Scancode KeySym )
                     switch (Actor->LearningModePage)
                     {
                       default: Actor->LearningModePage = 1;
-                              // Robots and co...
+                              [[fallthrough]];
                       case 1: Inv->SetSlot(SlotNum++, 108, 8192);
                               Inv->SetSlot(SlotNum++, 236, 8192);
                               Inv->SetSlot(SlotNum++, 256, 1);
@@ -312,6 +312,7 @@ Bool ZGame_Events::KeyUp( SDL_Scancode KeySym )
     case SDL_SCANCODE_X:  { GameEnv->EventManager.ManualCall_MouseButtonRelease(4); break; }
     case SDL_SCANCODE_N:  { GameEnv->EventManager.ManualCall_MouseButtonRelease(5); break; }
     case SDL_SCANCODE_U:  { GameEnv->Stop_Programmable_Robots = false; break; }
+    default: break;
 
   }
   return(true);

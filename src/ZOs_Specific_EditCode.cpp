@@ -54,7 +54,7 @@ bool ZEditCode::EditCode(ZString * Tool, ZString * File)
 
   if ((!Tool) || (!Tool->Len))
   {
-    DefaultTool = "gedit";
+    DefaultTool = "xdg-open";
     Tool = &DefaultTool;
   }
 

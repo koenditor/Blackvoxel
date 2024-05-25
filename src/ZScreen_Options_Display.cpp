@@ -40,7 +40,7 @@ int ZScreen_Options_Display::ResolutionCompare(ZObject * Object_1, ZObject * Obj
   else
   {
     if      (Ob1->Resolution_y > Ob2->Resolution_y) return(1);
-    else if (Ob1->Resolution_y > Ob2->Resolution_y) return(-1);
+    else if (Ob1->Resolution_y < Ob2->Resolution_y) return(-1);
     else    return(0);
   }
 }
@@ -49,11 +49,10 @@ ULong ZScreen_Options_Display::ProcessScreen(ZGame * GameEnv)
 {
   ZVector2f Size;
   ZVector2f Pos;
-  ULong i,j,k;
+  ULong j;
   ULong Count;
   bool Found;
-  int numModes;
-  int numDisplays;
+  int numModes, numDisplays, i, k;
   SDL_DisplayMode mode;
 
   ZResolution * Res;
@@ -116,10 +115,10 @@ ULong ZScreen_Options_Display::ProcessScreen(ZGame * GameEnv)
 
   Found = false;
   Count = Resolution_Array.GetCount();
-  for (i=0; i<Count; i++)
+  for (j=0; j<Count; j++)
   {
-    Res = (ZResolution *)Resolution_Array.GetEntry(i);
-    if ((Res->Resolution_x == (ULong)GameEnv->DesktopResolution.x) && (Res->Resolution_y ==(ULong)GameEnv->DesktopResolution.y )) Found = true;
+    Res = (ZResolution *)Resolution_Array.GetEntry(j);
+    if ((Res->Resolution_x == GameEnv->DesktopResolution.x) && (Res->Resolution_y == GameEnv->DesktopResolution.y )) Found = true;
   }
   if (!Found)
   {
@@ -135,9 +134,9 @@ ULong ZScreen_Options_Display::ProcessScreen(ZGame * GameEnv)
 
   Found = false;
   Count = Resolution_Array.GetCount();
-  for (i=0; i<Count; i++)
+  for (j=0; j<Count; j++)
   {
-    Res = (ZResolution *)Resolution_Array.GetEntry(i);
+    Res = (ZResolution *)Resolution_Array.GetEntry(j);
     if ((Res->Resolution_x == GameEnv->Settings_Hardware->Setting_Resolution_h) && (Res->Resolution_y == GameEnv->Settings_Hardware->Setting_Resolution_v )) Found = true;
   }
   if (!Found)
@@ -160,10 +159,10 @@ ULong ZScreen_Options_Display::ProcessScreen(ZGame * GameEnv)
 
   ActualResolutionChoice = 0;
   Count = Resolution_Array.GetCount();
-  for (i=0; i<Count; i++)
+  for (j=0; j<Count; j++)
   {
-    Res = (ZResolution *)Resolution_Array.GetEntry(i);
-    if ((Res->Resolution_x == GameEnv->Settings_Hardware->Setting_Resolution_h) && (Res->Resolution_y == GameEnv->Settings_Hardware->Setting_Resolution_v )) ActualResolutionChoice = i;
+    Res = (ZResolution *)Resolution_Array.GetEntry(j);
+    if ((Res->Resolution_x == GameEnv->Settings_Hardware->Setting_Resolution_h) && (Res->Resolution_y == GameEnv->Settings_Hardware->Setting_Resolution_v )) ActualResolutionChoice = j;
   }
 
 
@@ -175,10 +174,10 @@ ULong ZScreen_Options_Display::ProcessScreen(ZGame * GameEnv)
   char ** StringArray;
   NumElements = Resolution_Array.GetCount();
   StringArray = new char *[NumElements];
-  for (i=0;i<NumElements;i++)
+  for (j=0;j<NumElements;j++)
   {
-    Res = (ZResolution *)Resolution_Array.GetEntry(i);
-    StringArray[i] = Res->Name.String;
+    Res = (ZResolution *)Resolution_Array.GetEntry(j);
+    StringArray[j] = Res->Name.String;
   }
 
 

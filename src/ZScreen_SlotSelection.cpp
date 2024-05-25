@@ -167,8 +167,7 @@ ULong ZScreen_SlotSelection::ProcessScreen(ZGame * GameEnv)
           SlotSize.y = floor(SlotSize.y);
           Slot[i].SetTexture(11);
 
-          if (SlotUsed[i]) Slot[i].SetColor(1.0f,1.0f,1.0f);
-          else             Slot[i].SetColor(1.0f,1.0f,1.0f);
+          Slot[i].SetColor(1.0f,1.0f,1.0f);
 
           Slot[i].SetPosition( SlotPos.x , SlotPos.y );
           Slot[i].SetSize(SlotSize.x, SlotSize.y );

@@ -1528,6 +1528,7 @@ void ZVoxelSector::Draw_safe_Tree_Type_1(ZVoxelSector * Sector, ZVector3L * Coor
   Direction.Len = 10.0;
   Direction.pitch = 90.0;
   Direction.yaw = 90.0;
+  Direction.roll = 0.0; // TODO: Find out what this function does
 
   Draw_subtree_1( Sector, &Point, &Direction, &Random, 0.0);
 }
@@ -1604,6 +1605,7 @@ void ZVoxelSector::Draw_safe_Tree_Type_2( ZVector3L * Coords)
   Direction.Len = 10.0;
   Direction.pitch = 90.0;
   Direction.yaw = 90.0;
+  Direction.roll = 0.0; // TODO: Find out what this function does
 
   this->Draw_subtree_2( &Point, &Direction, &Random, 0.0);
 }
@@ -1683,6 +1685,7 @@ void ZVoxelSector::Draw_safe_Tree_Type_3( ZVector3L * Coords)
   Direction.Len = 40.0;
   Direction.pitch = 90.0;
   Direction.yaw = 90.0;
+  Direction.roll = 0.0; // TODO: Find out what this function does
 
   Draw_subtree_3( &Point, &Direction, &Random, 0.0);
 }

@@ -58,10 +58,6 @@
 #  include "z/ZString.h"
 #endif
 
-//ifndef Z_ZGENERICCANVA_H
-//  include "z/ZGenericCanva.h"
-//endif
-
 #ifndef Z_ZGENERICCANVA2_H
 #  include "z/ZGenericCanva_2.h"
 #endif

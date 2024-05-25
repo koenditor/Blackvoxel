@@ -88,14 +88,14 @@ Bool ZObjectArray::SetEntry(ZSize Index,ZObject & Data)
 
   if (!ExpandableArray)
   {
-    NewSize = (INITIALSIZE < (Index)) ? Index + INITIALSIZE : INITIALSIZE;
+    NewSize = (ZOA_INITIALSIZE < (Index)) ? Index + ZOA_INITIALSIZE : ZOA_INITIALSIZE;
     if (!(ExpandableArray = new ZObject *[NewSize])) return(ZFALSE);
     MemSize = NewSize;
     for (i=0;i<MemSize;i++) ExpandableArray[i]=0;
   }
   if (Index >= MemSize)
   {
-    NewSize = ((MemSize * 2) <= (Index)) ? Index + INITIALSIZE : MemSize * 2; 
+    NewSize = ((MemSize * 2) <= (Index)) ? Index + ZOA_INITIALSIZE : MemSize * 2; 
     if (!(NewArray = new ZObject *[NewSize])) return(ZFALSE);
     for (i=0;i<MemSize;i++) NewArray[i] = ExpandableArray[i];
     for (i=MemSize;i<MemSize*2;i++) NewArray[i] = 0;

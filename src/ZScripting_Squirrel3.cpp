@@ -1110,7 +1110,7 @@ SQInteger function_GetFirstUsedSlot(HSQUIRRELVM v)
 
   for (i=0;i<ZVoxelExtension_Programmable::Storage_NumSlots;i++)
   {
-    if (S->Extension->VoxelQuantity[i]>0 && S->Extension->VoxelType!=0) {sq_pushinteger(v,i); return(1);}
+    if (S->Extension->VoxelQuantity[i]>0) {sq_pushinteger(v,i); return(1);}
   }
 
   sq_pushinteger(v,-1);

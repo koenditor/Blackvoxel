@@ -30,7 +30,7 @@
 #include "stdlib.h"
 
 #ifndef Z_ZGENERICCANVA_H
-#  include "z/ZGenericCanva.h"
+#  include "z/ZGenericCanva_2.h"
 #endif
 
 #ifndef Z_ZVOXELGFX_TREE_STRAIGHT_H
@@ -790,8 +790,7 @@ void ZWorldGenesis::GenerateZone_WaterLands(ZVoxelSector * VoxelSector, Long Hei
 
         if (Deep >=0)
         {
-          if (Deep2 > 0) VoxelType = 0;
-          else VoxelType = 0;
+          VoxelType = 0;
         }
         else          VoxelType = 10;
 
@@ -924,8 +923,7 @@ void ZWorldGenesis::GenerateZone_AcidHills(ZVoxelSector * VoxelSector, Long Heig
 
         if (Deep >=0)
         {
-          if (Voxel_y > 0) VoxelType = 0;
-          else VoxelType = 0;
+          VoxelType = 0;
         }
         else          VoxelType = 10;
 

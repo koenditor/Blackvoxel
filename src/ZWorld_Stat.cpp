@@ -84,5 +84,5 @@ void ZWorld_Stat::Get_Stat_DistanceToMineForVoxelType(UShort VoxelType)
   printf(">Stats for VoxelType : %d\n",(ULong)VoxelType);
   for (j = Start; j<=End; j++) if (StatTable[j]>0) printf("[%d]=%d (%lf %%)\n", j, StatTable[j], 100.0 / EntryCount * ((double)StatTable[j]) );
 
-  delete StatTable;
+  delete[] StatTable;
 }

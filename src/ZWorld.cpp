@@ -597,7 +597,7 @@ void ZVoxelWorld::SectorUpdateFaceCulling2(Long x, Long y, Long z, bool Isolated
 
 
 
-bool ZVoxelWorld::RayCast2(double x, double y, double z, double yaw, double pitch, double roll, ZVoxelCoords & PointedCube, ZVoxelCoords CubeBeforePointed  )
+/*bool ZVoxelWorld::RayCast2(double x, double y, double z, double yaw, double pitch, double roll, ZVoxelCoords & PointedCube, ZVoxelCoords CubeBeforePointed  )
 {
   ZVector3d Delta_h;
   ZVector3d Offset_h;
@@ -653,7 +653,7 @@ bool ZVoxelWorld::RayCast2(double x, double y, double z, double yaw, double pitc
   // printf("\n");
   return(false);
   //printf("first_h_x : %lf first_h_y %lf\n",first_h_x,first_h_y);
-}
+}*/
 
 
 bool ZVoxelWorld::RayCast(const ZRayCast_in * In, ZRayCast_out * Out )

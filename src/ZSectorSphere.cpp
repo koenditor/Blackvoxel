@@ -77,7 +77,7 @@ void ZSectorSphere::Sort()
 
   SortBuffer = new ZSphereEntry[nSlots];
   if (nSlots>0) PartSort(0,nSlots, SortBuffer);
-  delete SortBuffer;
+  delete[] SortBuffer;
 }
 
 ZSectorSphere::ZSectorSphere()

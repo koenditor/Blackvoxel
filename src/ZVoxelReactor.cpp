@@ -3192,10 +3192,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                                             {
                                               for (i=0;i<Ext->GetSlotCount();i++)
                                               {
-                                                if (Ext->VoxelType!=0 && Ext->VoxelQuantity!=0)
-                                                {
-                                                  if (!Transformation->MatchEntry(Ext->VoxelType[i], Ext->VoxelQuantity[i])) {Validated = false; break;}
-                                                }
+                                                if (!Transformation->MatchEntry(Ext->VoxelType[i], Ext->VoxelQuantity[i])) {Validated = false; break;}
                                               }
                                             }
                                             if (Validated) break;

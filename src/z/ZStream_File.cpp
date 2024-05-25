@@ -465,7 +465,7 @@ bool ZStream_File::CopyFileFrom(ZStream &SrcStream)
       }
       SrcStream.Close();
     }
-    delete Buffer;
+    delete[] Buffer;
   }
   return(ReturnValue);
 }
@@ -490,7 +490,7 @@ bool ZStream_File::AppendToOpenedFileFrom(ZStream &SrcStream)
       }
       SrcStream.Close();
     }
-    delete Buffer;
+    delete[] Buffer;
   }
   return(ReturnValue);
 }
@@ -526,9 +526,9 @@ bool ZStream_File::CompareFileFrom(ZStream &SrcStream)
         }
         SrcStream.Close();
       }
-      delete Buffer2;
+      delete[] Buffer2;
     }
-    delete Buffer1;
+    delete[] Buffer1;
   }
   return(ReturnValue);
 }
