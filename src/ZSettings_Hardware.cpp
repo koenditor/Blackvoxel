@@ -55,14 +55,14 @@ ZSettings_Hardware::ZSettings_Hardware()
   Setting_SoundVolume  = 100.0;
   Setting_MouseFactor = 2.5;
   Setting_MouseFlipY = false;
-  Setting_Key_MoveForward = 'w';
-  Setting_Key_MoveBackward = 's';
-  Setting_Key_MoveLeft = 'a';
-  Setting_Key_MoveRight= 'd';
-  Setting_Key_MoveUp   = 'q';
-  Setting_Key_MoveDown = 'z';
-  Setting_Key_Jump = ' ';
-  Setting_Key_Inventory = 'i';
+  Setting_Key_MoveForward = SDL_SCANCODE_W;
+  Setting_Key_MoveBackward = SDL_SCANCODE_S;
+  Setting_Key_MoveLeft = SDL_SCANCODE_A;
+  Setting_Key_MoveRight= SDL_SCANCODE_D;
+  Setting_Key_MoveUp   = SDL_SCANCODE_Q;
+  Setting_Key_MoveDown = SDL_SCANCODE_Z;
+  Setting_Key_Inventory = SDL_SCANCODE_I;
+  Setting_Key_Jump = SDL_SCANCODE_SPACE;
   Set_RenderDistance_Horiz = 0;
   Set_RenderDistance_Vert = 0;
   RenderingDistance_Horizontal = 8;
@@ -120,15 +120,15 @@ bool ZSettings_Hardware::Load()
         if (Token=="Setting_Mouse_Factor")      Setting_MouseFactor       = Line.GetDouble();
         if (Token=="Setting_MouseFlipY")        Setting_MouseFlipY       = (Line.GetULong() > 0) ? true : false;
 
-        if (Token=="Setting_Key_MoveForward")   Setting_Key_MoveForward   = (UShort)Line.GetULong();
-        if (Token=="Setting_Key_MoveBackward")  Setting_Key_MoveBackward  = (UShort)Line.GetULong();
-        if (Token=="Setting_Key_MoveLeft")      Setting_Key_MoveLeft      = (UShort)Line.GetULong();
-        if (Token=="Setting_Key_MoveRight")     Setting_Key_MoveRight     = (UShort)Line.GetULong();
-        if (Token=="Setting_Key_MoveUp")        Setting_Key_MoveUp        = (UShort)Line.GetULong();
-        if (Token=="Setting_Key_MoveDown")      Setting_Key_MoveDown      = (UShort)Line.GetULong();
+        if (Token=="Setting_Key_MoveForward")   Setting_Key_MoveForward   = (SDL_Scancode)Line.GetULong();
+        if (Token=="Setting_Key_MoveBackward")  Setting_Key_MoveBackward  = (SDL_Scancode)Line.GetULong();
+        if (Token=="Setting_Key_MoveLeft")      Setting_Key_MoveLeft      = (SDL_Scancode)Line.GetULong();
+        if (Token=="Setting_Key_MoveRight")     Setting_Key_MoveRight     = (SDL_Scancode)Line.GetULong();
+        if (Token=="Setting_Key_MoveUp")        Setting_Key_MoveUp        = (SDL_Scancode)Line.GetULong();
+        if (Token=="Setting_Key_MoveDown")      Setting_Key_MoveDown      = (SDL_Scancode)Line.GetULong();
 
-        if (Token=="Setting_Key_Jump")          Setting_Key_Jump          = (UShort)Line.GetULong();
-        if (Token=="Setting_Key_Inventory")     Setting_Key_Inventory     = (UShort)Line.GetULong();
+        if (Token=="Setting_Key_Jump")          Setting_Key_Jump          = (SDL_Scancode)Line.GetULong();
+        if (Token=="Setting_Key_Inventory")     Setting_Key_Inventory     = (SDL_Scancode)Line.GetULong();
 
         // These values are now computed automaticaly
         // Use Set_RenderDistance_Horiz & Set_RenderDistance_Vert to force values.

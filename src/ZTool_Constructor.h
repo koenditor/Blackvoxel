@@ -38,6 +38,8 @@
 #  include "ZDestructionProgress.h"
 #endif
 
+#include "SDL2/SDL_stdinc.h"
+
 class ZGame;
 
 class ZTool_Constructor : public ZTool
@@ -72,7 +74,7 @@ class ZTool_Constructor : public ZTool
     virtual bool Tool_MouseButtonClick(ULong Button);
     virtual bool Tool_MouseButtonRelease(ULong Button);
 
-    virtual bool Tool_StillEvents(double FrameTime, bool * MouseButtonMatrix, UByte * KeyboardMatrix );
+    bool Tool_StillEvents(double FrameTime, bool * MouseButtonMatrix, const Uint8 * KeyboardMatrix ) override;
 
     virtual void Start_Tool();
     virtual void End_Tool();

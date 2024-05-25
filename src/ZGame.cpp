@@ -27,7 +27,7 @@
 #include <GL/glew.h>
 #include <math.h>
 #include <stdio.h>
-#include "SDL/SDL.h"
+#include "SDL2/SDL.h"
 #include <GL/glew.h>
 #include "ZRender_Basic.h"
 
@@ -211,18 +211,20 @@ bool ZGame::Init_GraphicMode(ZLog * InitLog)
 
   // Getting system info
 
-  const SDL_VideoInfo* info = NULL;
-  info = SDL_GetVideoInfo( );
-  DesktopResolution.x = info->current_w;
-  DesktopResolution.y = info->current_h;
+  SDL_DisplayMode dm;
+  if(!SDL_GetDesktopDisplayMode(0, &dm)){
+    LogMsg << "Line 216 Zgame.cpp";
+  };
+  DesktopResolution.x = dm.w;
+  DesktopResolution.y = dm.h;
 
-  LogMsg << "Info : SDL Infos [current_w:"<<info->current_w<<"][current_h:"<<info->current_h<<"][BitsPerPixel:"<<info->vfmt->BitsPerPixel<<"]";
+  LogMsg << "Info : SDL Infos [current_w:"<<dm.w<<"][current_h:"<<dm.h<<"][BitsPerPixel:"<<SDL_BITSPERPIXEL(dm.format)<<"]";
   InitLog->Log(3, ZLog::IMINFO, LogMsg);
 
   // Flags like Fullscreen attributes
 
-  Uint32 Flags = SDL_OPENGL;
-  if (Settings_Hardware->Setting_FullScreen) Flags |= SDL_FULLSCREEN;
+  Uint32 Flags = SDL_WINDOW_OPENGL;
+  if (Settings_Hardware->Setting_FullScreen) Flags |= SDL_WINDOW_FULLSCREEN;
   // else                                    Flags |= SDL_RESIZABLE;
 
   // §§§ Todo : Write better code.
@@ -241,7 +243,7 @@ bool ZGame::Init_GraphicMode(ZLog * InitLog)
     DesktopResolution.y >>= 1;
 
     // Force windowed mode because full screen is broken with windows GUI scalling.
-    Flags &= ~ SDL_FULLSCREEN;
+    Flags &= ~ SDL_WINDOW_FULLSCREEN;
   }
 #endif
 
@@ -252,7 +254,7 @@ bool ZGame::Init_GraphicMode(ZLog * InitLog)
     HardwareResolution.x = DesktopResolution.x;
     HardwareResolution.y = DesktopResolution.y;
     // If not full screen, lower resolution to take account of borders.
-    if (!(Flags & SDL_FULLSCREEN))
+    if (!(Flags & SDL_WINDOW_FULLSCREEN))
     {
       HardwareResolution.x -= 50;HardwareResolution.y -= 100;
 
@@ -281,7 +283,7 @@ bool ZGame::Init_GraphicMode(ZLog * InitLog)
   {
     if ( Settings_Hardware->Setting_FullScreen )
     {
-      Flags &= ~ SDL_FULLSCREEN;
+      Flags &= ~ SDL_WINDOW_FULLSCREEN;
     }
     if (Settings_Hardware->Setting_Resolution_h == 0 && Settings_Hardware->Setting_Resolution_v == 0)
     {
@@ -294,13 +296,16 @@ bool ZGame::Init_GraphicMode(ZLog * InitLog)
 
   if (Settings_Hardware->Setting_NoframeWindow)
   {
-    Flags |= SDL_NOFRAME;
+    Flags |= SDL_WINDOW_BORDERLESS;
   }
 
   // Starting video mode
 
-  SDL_WM_SetCaption("BlackVoxel", NULL);
-  screen = SDL_SetVideoMode(HardwareResolution.x, HardwareResolution.y, 32, Flags );
+  screen = SDL_CreateWindow("BlackVoxel",
+                          SDL_WINDOWPOS_UNDEFINED,
+                          SDL_WINDOWPOS_UNDEFINED,
+                          HardwareResolution.x, HardwareResolution.y,
+                          SDL_WINDOW_FULLSCREEN | SDL_WINDOW_OPENGL);
   if ( screen == NULL )
   {
     ZString ErrorMsg; ErrorMsg << "*** ERROR : SDL library : Unable to init display mode [" << SDL_GetError() << "]";
@@ -313,7 +318,11 @@ bool ZGame::Init_GraphicMode(ZLog * InitLog)
 
     HardwareResolution.x = DesktopResolution.x;
     HardwareResolution.y = DesktopResolution.y;
-    screen = SDL_SetVideoMode(HardwareResolution.x, HardwareResolution.y, 32, Flags );
+    screen = SDL_CreateWindow("BlackVoxel",
+                            SDL_WINDOWPOS_UNDEFINED,
+                            SDL_WINDOWPOS_UNDEFINED,
+                            HardwareResolution.x, HardwareResolution.y,
+                            SDL_WINDOW_FULLSCREEN | SDL_WINDOW_OPENGL);
 
     // If failsafe failled, resign to surrender...
 
@@ -342,7 +351,7 @@ bool ZGame::Init_GraphicMode(ZLog * InitLog)
     glViewport( Settings_Hardware->Setting_ViewPort_Offset_x, Settings_Hardware->Setting_ViewPort_Offset_y, Settings_Hardware->Setting_ViewPort_Size_x, Settings_Hardware->Setting_ViewPort_Size_y);
   }
 
-  if (!COMPILEOPTION_NOMOUSECAPTURE) SDL_ShowCursor(SDL_DISABLE);
+  if (!COMPILEOPTION_NOMOUSECAPTURE) 
 
   Initialized_GraphicMode = true;
   InitLog->Log(2, ZLog::INFO, "Ended Ok : Graphics Mode Init");
@@ -563,11 +572,14 @@ bool ZGame::Cleanup_OpenGLGameSettings(ZLog * InitLog)
 
 bool ZGame::Init_Glew(ZLog * InitLog)
 {
+
+  SDL_GL_CreateContext(this->screen);
+  
   GLenum err;
 
   InitLog->Log(1, ZLog::INFO, "Starting : Glew");
   if (!Initialized_GraphicMode)    {ZString Err = "Can't init Glew : GraphicMode init not completed"; InitLog->Log(3, ZLog::FAIL, Err); return(false);}
-  if ((err = glewInit()) != GLEW_OK)
+  if ((err = glewContextInit()) != GLEW_OK)
   {
     printf("Can't init Glew : %s\n", glewGetErrorString(err));
     return(false);
@@ -588,7 +600,7 @@ bool ZGame::Cleanup_Glew(ZLog * InitLog)
 bool ZGame::Init_LoadingScreen(ZLog * InitLog)
 {
   InitLog->Log(1, ZLog::INFO, "Starting : LoadingScreen");
-  ZLoadingScreen::Display(HardwareResolution.x, HardwareResolution.y);
+  ZLoadingScreen::Display(HardwareResolution.x, HardwareResolution.y, screen);
   InitLog->Log(0, ZLog::INFO, "Ended Ok : LoadingScreen");
   Initialized_LoadingScreen = true;
   return(true);

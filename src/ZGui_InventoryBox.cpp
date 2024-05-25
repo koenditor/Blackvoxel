@@ -25,7 +25,7 @@
 
 #include "ZGui_InventoryBox.h"
 #include <GL/glew.h>
-#include "SDL/SDL.h"
+#include "SDL2/SDL.h"
 
 void ZInventoryBox::Render(Frame_Dimensions * ParentPosition)
 {
@@ -198,12 +198,12 @@ void ZInventoryBox::DropItem(ZFrame * Item, UShort nButton)
       if (nButton == 3)
       {
         ULong TransfertQuantity = 1;
-        if (GuiManager->EventManager->Keyboard_Matrix[SDLK_LSHIFT] ||
-            GuiManager->EventManager->Keyboard_Matrix[SDLK_RSHIFT]    )  TransfertQuantity = 10;
-        if (GuiManager->EventManager->Keyboard_Matrix[SDLK_LCTRL]  ||
-            GuiManager->EventManager->Keyboard_Matrix[SDLK_RCTRL]     ) TransfertQuantity = 100;
-        if (GuiManager->EventManager->Keyboard_Matrix[SDLK_LALT]   ||
-            GuiManager->EventManager->Keyboard_Matrix[SDLK_RALT]      ) TransfertQuantity = 1000;
+        if (GuiManager->EventManager->Keyboard_Matrix[SDL_SCANCODE_LSHIFT] ||
+            GuiManager->EventManager->Keyboard_Matrix[SDL_SCANCODE_RSHIFT]    )  TransfertQuantity = 10;
+        if (GuiManager->EventManager->Keyboard_Matrix[SDL_SCANCODE_LCTRL]  ||
+            GuiManager->EventManager->Keyboard_Matrix[SDL_SCANCODE_RCTRL]     ) TransfertQuantity = 100;
+        if (GuiManager->EventManager->Keyboard_Matrix[SDL_SCANCODE_LALT]   ||
+            GuiManager->EventManager->Keyboard_Matrix[SDL_SCANCODE_RALT]      ) TransfertQuantity = 1000;
         if (TransfertQuantity>*In_Quantity) TransfertQuantity = *In_Quantity;
         if (*In_Quantity>1)
         {

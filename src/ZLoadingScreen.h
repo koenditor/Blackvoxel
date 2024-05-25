@@ -33,7 +33,7 @@
 class ZLoadingScreen
 {
   public:
-    static void Display(int Width, int Height);
+    static void Display(int Width, int Height, SDL_Window *window);
 
 };
 

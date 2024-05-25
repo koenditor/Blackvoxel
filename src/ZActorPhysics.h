@@ -54,6 +54,8 @@
 #  include "z/ZStream_SpecialRamStream.h"
 #endif
 
+#include "SDL2/SDL_stdinc.h"
+
 class ZActorPhysicEngine;
 class ZGame;
 
@@ -177,7 +179,7 @@ class ZActor
     virtual void Action_MouseMove( Long Delta_x, Long Delta_y) {}
     virtual void Action_MouseButtonClick( ULong Button) {}
     virtual void Action_MouseButtonRelease( ULong Button) {}
-    virtual bool Action_StillEvents( bool * MouseMatrix, UByte * KeyboardMatrix);
+    virtual bool Action_StillEvents(bool * MouseMatrix, const Uint8 * KeyboardMatrix);
     virtual void Action_NextBuildingMaterial();
     virtual void Action_PrevBuildingMaterial();
     virtual void Action_NextTool();

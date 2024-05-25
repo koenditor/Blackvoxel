@@ -19,7 +19,7 @@
 #include <GL/glew.h>
 #include <math.h>
 #include <stdio.h>
-#include "SDL/SDL.h"
+#include "SDL2/SDL.h"
 
 #  include "ZRender_Basic.h"
 
@@ -623,7 +623,7 @@ void ZRender_Basic::Render()
            Stat_FaceLeft,Stat_FaceRight,Stat_FaceFront,Stat_FaceBack);*/
 
     //printf("RenderedSectors : %lu\n",RenderedSectors);
-    //SDL_GL_SwapBuffers( );
+    //SDL_GL_SwapWindow(GameEnv->screen);
 }
 
 /*

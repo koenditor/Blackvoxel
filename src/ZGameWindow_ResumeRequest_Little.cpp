@@ -26,7 +26,7 @@
 #include "ZGameWindow_ResumeRequest_Little.h"
 
 #include "ZGame.h"
-#include "SDL/SDL.h"
+#include "SDL2/SDL.h"
 
 void ZGameWindow_ResumeRequest_Little::Show()
 {
@@ -78,9 +78,9 @@ void ZGameWindow_ResumeRequest_Little::Show()
   MainWindow->AddFrame(&Title);
   Rp.y += Size.y + 30.0f;
 
-  SDL_ShowCursor(SDL_ENABLE);
-  SDL_WM_GrabInput(SDL_GRAB_OFF);
-  //SDL_WarpMouse((Uint16)(MainWindow_Pos.x + MainWindow_Size.x / 2.0f),(Uint16)(MainWindow_Pos.y + MainWindow_Size.y / 2.0f));
+  
+  SDL_SetRelativeMouseMode(SDL_FALSE);
+  ////SDL_WarpMouse((Uint16)(MainWindow_Pos.x + MainWindow_Size.x / 2.0f),(Uint16)(MainWindow_Pos.y + MainWindow_Size.y / 2.0f));
   GameEnv->Game_Events->SetDisableMouseEvents();
   Flag_Shown = true;
 }
@@ -89,8 +89,8 @@ void ZGameWindow_ResumeRequest_Little::Hide()
 {
   GameEnv->GuiManager.Frame_PopModal();
   GameEnv->GuiManager.RemoveFrame(MainWindow);
-  //SDL_ShowCursor(SDL_DISABLE);
-  //SDL_WM_GrabInput(SDL_GRAB_ON);
+  //
+  //SDL_SetRelativeMouseMode(SDL_TRUE);
   //GameEnv->Game_Events->SetEnableMouseEvents();
   Flag_Shown = false;
 }
@@ -103,8 +103,8 @@ Bool ZGameWindow_ResumeRequest_Little::MouseButtonClick(UShort nButton, Short Ab
   //if (CloseBox.Is_MouseClick())
   {
     this->Hide();
-    SDL_ShowCursor(SDL_DISABLE);
-    SDL_WM_GrabInput(SDL_GRAB_ON);
+    
+    SDL_SetRelativeMouseMode(SDL_TRUE);
     GameEnv->Game_Events->SetEnableMouseEvents();
   }
 

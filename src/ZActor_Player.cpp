@@ -545,7 +545,7 @@ void ZActor_Player::Action_MouseButtonRelease( ULong Button)
   }
 }
 
-bool ZActor_Player::Action_StillEvents( bool * MouseMatrix, UByte * KeyboardMatrix)
+bool ZActor_Player::Action_StillEvents( bool * MouseMatrix, const Uint8 * KeyboardMatrix)
 {
   UShort ToolNum;
   ZTool * Tool;
@@ -579,10 +579,10 @@ bool ZActor_Player::Action_StillEvents( bool * MouseMatrix, UByte * KeyboardMatr
   if (ActorMode == 8)
   {
 
-    if (KeyboardMatrix[SDLK_AMPERSAND]) { KeyboardMatrix[SDLK_AMPERSAND]=0; Spinner_VomitMode = !Spinner_VomitMode; }
-    if (!KeyboardMatrix[SDLK_LCTRL])
+    if (KeyboardMatrix[SDL_SCANCODE_KP_AMPERSAND]) { Spinner_VomitMode = !Spinner_VomitMode; }
+    if (!KeyboardMatrix[SDL_SCANCODE_LCTRL])
     {
-      if (!KeyboardMatrix[SDLK_LSHIFT])
+      if (!KeyboardMatrix[SDL_SCANCODE_LSHIFT])
       {
         if (KeyboardMatrix[GameEnv->Settings_Hardware->Setting_Key_MoveForward])  Spinner_Distance -= 0.1 * FrameTime;
         if (KeyboardMatrix[GameEnv->Settings_Hardware->Setting_Key_MoveBackward]) Spinner_Distance += 0.1 * FrameTime;
@@ -606,8 +606,8 @@ bool ZActor_Player::Action_StillEvents( bool * MouseMatrix, UByte * KeyboardMatr
        if (KeyboardMatrix[GameEnv->Settings_Hardware->Setting_Key_MoveLeft]) Spinner_Origin = 0.0;
        if (KeyboardMatrix[GameEnv->Settings_Hardware->Setting_Key_MoveBackward])
        {
-         KeyboardMatrix[GameEnv->Settings_Hardware->Setting_Key_MoveBackward] = 0;
-         if (KeyboardMatrix[SDLK_LSHIFT])
+         // KeyboardMatrix[GameEnv->Settings_Hardware->Setting_Key_MoveBackward] = 0;
+         if (KeyboardMatrix[SDL_SCANCODE_LSHIFT])
          {
            ZString FileSpec;
            ZStream_File Stream;

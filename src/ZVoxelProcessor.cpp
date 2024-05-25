@@ -24,7 +24,7 @@
  */
 
 #include "ZVoxelProcessor.h"
-#include "SDL/SDL.h"
+#include "SDL2/SDL.h"
 
 #ifndef Z_ZGAME_H
 #  include "ZGame.h"
@@ -68,7 +68,7 @@ void ZVoxelProcessor::Start()
 {
   VoxelReactor.Init(this->GameEnv);
   ThreadContinue = true;
-  Thread = (SDL_Thread * )SDL_CreateThread(thread_func, this);
+  Thread = (SDL_Thread * )SDL_CreateThread(thread_func, NULL, this);
 }
 
 void ZVoxelProcessor::End()

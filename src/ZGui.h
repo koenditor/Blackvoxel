@@ -66,6 +66,8 @@ struct Frame_Dimensions
 #  include <stdio.h>
 #endif
 
+#include "SDL2/SDL_keycode.h"
+
 typedef ZBox3f Frame_Dimensions;
 
 class ZGraphicUserManager;
@@ -233,8 +235,8 @@ class ZFrame : public ZObject
     virtual void Show_Frame(Bool ShowState = true)  { Flag_Show_Frame = ShowState; }
     virtual void Show_Childs(Bool ShowState = true) { Flag_Show_Childs= ShowState; }
 
-    virtual Bool KeyDown( UShort KeySym ) { return true; }
-    virtual Bool KeyUp( UShort KeySym )   { return true; }
+    virtual Bool KeyDown( SDL_Scancode KeySym ) { return true; }
+    virtual Bool KeyUp( SDL_Scancode KeySym )   { return true; }
     virtual Bool MouseMove ( Short Relative_x, Short Relative_y, UShort Absolute_x, UShort Absolute_y);
 
     virtual Bool MouseButtonClick  (UShort nButton, Short Absolute_x, Short Absolute_y);
@@ -327,8 +329,8 @@ class ZGraphicUserManager : public ZEventConsumer
 
     // Event Input
 
-    virtual Bool KeyDown( UShort KeySym );
-    virtual Bool KeyUp( UShort KeySym );
+    virtual Bool KeyDown( SDL_Scancode KeySym );
+    virtual Bool KeyUp( SDL_Scancode KeySym );
     virtual Bool MouseMove ( Short Relative_x, Short Relative_y, UShort Absolute_x, UShort Absolute_y);
     virtual Bool MouseButtonClick  (UShort nButton, Short Absolute_x, Short Absolute_y);
     virtual Bool MouseButtonRelease(UShort nButton, Short Absolute_x, Short Absolute_y);

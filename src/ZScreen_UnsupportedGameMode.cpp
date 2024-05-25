@@ -102,7 +102,7 @@ ULong ZScreen_UnsupportedGameMode::ProcessScreen(ZGame * GameEnv)
 
     // On montre à l'utilisateur ce qui a été rendu
 
-    SDL_GL_SwapBuffers();
+    SDL_GL_SwapWindow(GameEnv->screen);
 
     // On met le programme en pause pendant 10 millièmes de seconde
 

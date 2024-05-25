@@ -169,7 +169,7 @@ ULong ZScreen_ChooseOption::ProcessScreen(ZGame * GameEnv)
           if (Quit.Is_MouseClick())    {ResultCode = CHOICE_QUIT;    Loop=false;}
 
           GameEnv->GuiManager.Render();
-          SDL_GL_SwapBuffers();
+          SDL_GL_SwapWindow(GameEnv->screen);
           SDL_Delay(10);
         }
 
@@ -297,7 +297,7 @@ ULong ZScreen_ChooseOption::ProcessScreen_OldLook(ZGame * GameEnv)
           if (Quit.Is_MouseClick())    {ResultCode = CHOICE_QUIT;    Loop=false;}
 
           GameEnv->GuiManager.Render();
-          SDL_GL_SwapBuffers();
+          SDL_GL_SwapWindow(GameEnv->screen);
           SDL_Delay(10);
         }
 

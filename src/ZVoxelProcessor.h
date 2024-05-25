@@ -47,7 +47,7 @@
 #endif
 
 #ifndef _SDL_thread_h
-#  include "SDL/SDL_thread.h"
+#  include "SDL2/SDL_thread.h"
 #endif
 
 #ifndef A_COMPILESETTINGS_H

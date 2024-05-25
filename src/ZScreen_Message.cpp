@@ -66,10 +66,10 @@ ULong ZScreen_Message::ProcessScreen(ZGame * GameEnv)
     if (Timer) Timer-=1;
     else Frame_Proceed.Show(true);
 
-    if (GameEnv->EventManager.Is_KeyPressed(SDLK_SPACE,1)) Loop = false;
+    if (GameEnv->EventManager.Is_KeyPressed(SDL_SCANCODE_SPACE,1)) Loop = false;
 
     GameEnv->GuiManager.Render();
-    SDL_GL_SwapBuffers();
+    SDL_GL_SwapWindow(GameEnv->screen);
     SDL_Delay(10);
   }
   GameEnv->GuiManager.RemoveAllFrames();

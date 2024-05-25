@@ -42,6 +42,8 @@
 #  include "z/ZObject_Lists.h"
 #endif
 
+#include "SDL2/SDL_keycode.h"
+
 
 class ZEventTable
 {
@@ -53,8 +55,8 @@ class ZEventTable
 class ZEventConsumer : public ZObject
 {
   public:
-    virtual Bool KeyDown( UShort KeySym )  = 0;
-    virtual Bool KeyUp( UShort KeySym )    = 0;
+    virtual Bool KeyDown( SDL_Scancode KeySym )  = 0;
+    virtual Bool KeyUp( SDL_Scancode KeySym )    = 0;
     virtual Bool MouseMove ( Short Relative_x, Short Relative_y, UShort Absolute_x, UShort Absolute_y) = 0;
     virtual Bool MouseButtonClick  (UShort nButton, Short Absolute_x, Short Absolute_y) = 0;
     virtual Bool MouseButtonRelease(UShort nButton, Short Absolute_x, Short Absolute_y) = 0;
@@ -124,8 +126,6 @@ class ZEventManager
 
     void ManualCall_MouseButtonClick(UShort ButtonCode);
     void ManualCall_MouseButtonRelease(UShort ButtonCode);
-    void ManualCall_KeyPress(UShort Keycode);
-    void ManualCall_KeyRelease(UShort Keycode);
 };
 
 #endif

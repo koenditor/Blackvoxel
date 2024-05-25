@@ -25,30 +25,31 @@
 
 
 #  include "ZEventManager.h"
-#include "SDL/SDL.h"
+#include "SDL2/SDL.h"
 
 bool ZEventManager::ProcessEvents()
 {
   SDL_Event event;
   ZListItem * Item;
+  ushort button;
 
   while( SDL_PollEvent(&event) )
   {
     switch( event.type )
     {
-      case SDL_KEYDOWN: Keyboard_Matrix[event.key.keysym.sym] = 1;
+      case SDL_KEYDOWN: 
                         if ((Item = ConsumerList.GetFirst()))
                           do
                           {
-                            ((ZEventConsumer *)Item->Object)->KeyDown( event.key.keysym.sym);
+                            ((ZEventConsumer *)Item->Object)->KeyDown( event.key.keysym.scancode);
                           } while((Item = ConsumerList.GetNext(Item)));
                         break;
 
-      case SDL_KEYUP:   Keyboard_Matrix[event.key.keysym.sym] = 0;
+      case SDL_KEYUP:   
                         if ((Item = ConsumerList.GetFirst()))
                           do
                           {
-                            ((ZEventConsumer *)Item->Object)->KeyUp( event.key.keysym.sym);
+                            ((ZEventConsumer *)Item->Object)->KeyUp( event.key.keysym.scancode);
                           } while((Item = ConsumerList.GetNext(Item)));
                         break;
 
@@ -67,6 +68,19 @@ bool ZEventManager::ProcessEvents()
                                 do
                                 {
                                   ((ZEventConsumer *)Item->Object)->MouseButtonClick( event.button.button, MouseX, MouseY );
+                                } while((Item = ConsumerList.GetNext(Item)));
+                                break;
+
+      case SDL_MOUSEWHEEL:
+                                if (event.wheel.preciseY<0)
+                                  button = 4;
+                                else 
+                                  button = 5;
+                                MouseButton[button]=true;
+                                if ((Item = ConsumerList.GetFirst()))
+                                do
+                                {
+                                  ((ZEventConsumer *)Item->Object)->MouseButtonClick( button, MouseX, MouseY );
                                 } while((Item = ConsumerList.GetNext(Item)));
                                 break;
 
@@ -121,26 +135,3 @@ void ZEventManager::ManualCall_MouseButtonRelease(UShort ButtonCode)
     } while((Item = ConsumerList.GetNext(Item)));
 }
 
-void ZEventManager::ManualCall_KeyPress(UShort Keycode)
-{
-  ZListItem * Item;
-
-  Keyboard_Matrix[Keycode] = 1;
-  if ((Item = ConsumerList.GetFirst()))
-  do
-  {
-    ((ZEventConsumer *)Item->Object)->KeyDown( Keycode);
-  } while((Item = ConsumerList.GetNext(Item)));
-}
-
-void ZEventManager::ManualCall_KeyRelease(UShort Keycode)
-{
-  ZListItem * Item;
-
-  Keyboard_Matrix[Keycode] = 1;
-  if ((Item = ConsumerList.GetFirst()))
-  do
-  {
-    ((ZEventConsumer *)Item->Object)->KeyUp( Keycode);
-  } while((Item = ConsumerList.GetNext(Item)));
-}

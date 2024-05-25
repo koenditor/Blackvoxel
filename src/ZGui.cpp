@@ -27,7 +27,7 @@
 #include <GL/glew.h>
 #include <math.h>
 #include <stdio.h>
-#include "SDL/SDL.h"
+#include "SDL2/SDL.h"
 
 ZGraphicUserManager::ZGraphicUserManager()
 {
@@ -136,7 +136,7 @@ void RemoveFrame(ZFrame * Frame)
 
 
 
-Bool ZGraphicUserManager::KeyDown( UShort KeySym )
+Bool ZGraphicUserManager::KeyDown( SDL_Scancode KeySym )
 {
   ZMemSize i;
 
@@ -148,7 +148,7 @@ Bool ZGraphicUserManager::KeyDown( UShort KeySym )
   return(true);
 }
 
-Bool ZGraphicUserManager::KeyUp( UShort KeySym )
+Bool ZGraphicUserManager::KeyUp( SDL_Scancode KeySym )
 {
   ZMemSize i;
 

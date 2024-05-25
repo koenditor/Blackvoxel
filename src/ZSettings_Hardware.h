@@ -46,6 +46,8 @@
 #  include "ZOs_Specific_HardwareDependent.h"
 #endif
 
+#include "SDL2/SDL_scancode.h"
+
 class ZSettings_Hardware
 {
   public:
@@ -70,14 +72,14 @@ class ZSettings_Hardware
     bool   Setting_MouseFlipY;
 
     // Keyboard
-    UShort Setting_Key_MoveForward;
-    UShort Setting_Key_MoveBackward;
-    UShort Setting_Key_MoveLeft;
-    UShort Setting_Key_MoveRight;
-    UShort Setting_Key_MoveUp;
-    UShort Setting_Key_MoveDown;
-    UShort Setting_Key_Jump;
-    UShort Setting_Key_Inventory;
+    SDL_Scancode Setting_Key_MoveForward;
+    SDL_Scancode Setting_Key_MoveBackward;
+    SDL_Scancode Setting_Key_MoveLeft;
+    SDL_Scancode Setting_Key_MoveRight;
+    SDL_Scancode Setting_Key_MoveUp;
+    SDL_Scancode Setting_Key_MoveDown;
+    SDL_Scancode Setting_Key_Jump;
+    SDL_Scancode Setting_Key_Inventory;
 
     // Graphic quality;
 

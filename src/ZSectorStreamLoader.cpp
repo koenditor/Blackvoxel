@@ -24,7 +24,7 @@
  */
 
 #include "ZSectorStreamLoader.h"
-#include "SDL/SDL.h"
+#include "SDL2/SDL.h"
 
 ULong debug_deletecount = 0;
 
@@ -129,7 +129,7 @@ ZFileSectorLoader::~ZFileSectorLoader()
 bool ZFileSectorLoader::Init()
 {
   ThreadContinue = true;
-  Thread = (SDL_Thread * )SDL_CreateThread(thread_func, this);
+  Thread = (SDL_Thread * )SDL_CreateThread(thread_func, NULL, this);
   if (!SectorCreator.LoadTemplateImages()) return(false);
   return(true);
 }

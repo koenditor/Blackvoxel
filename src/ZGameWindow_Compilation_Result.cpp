@@ -27,7 +27,7 @@
 #include "ZGameWindow_Compilation_Result.h"
 
 #include "ZGame.h"
-#include "SDL/SDL.h"
+#include "SDL2/SDL.h"
 
 void ZGameWindow_Compilation_Result::Show()
 {
@@ -106,9 +106,9 @@ void ZGameWindow_Compilation_Result::Show()
   Rp.y += Size.y + 5.0f;
   // RobotDisplay
 
-  SDL_ShowCursor(SDL_ENABLE);
-  SDL_WM_GrabInput(SDL_GRAB_OFF);
-  //SDL_WarpMouse((Uint16)(MainWindow_Pos.x + MainWindow_Size.x / 2.0f),(Uint16)(MainWindow_Pos.y + MainWindow_Size.y / 2.0f));
+  
+  SDL_SetRelativeMouseMode(SDL_FALSE);
+  ////SDL_WarpMouse((Uint16)(MainWindow_Pos.x + MainWindow_Size.x / 2.0f),(Uint16)(MainWindow_Pos.y + MainWindow_Size.y / 2.0f));
   GameEnv->Game_Events->SetDisableMouseEvents();
   Flag_Shown = true;
 }
@@ -117,8 +117,8 @@ void ZGameWindow_Compilation_Result::Hide()
 {
   GameEnv->GuiManager.Frame_PopModal();
   GameEnv->GuiManager.RemoveFrame(MainWindow);
-  //SDL_ShowCursor(SDL_DISABLE);
-  //SDL_WM_GrabInput(SDL_GRAB_ON);
+  //
+  //SDL_SetRelativeMouseMode(SDL_TRUE);
   //GameEnv->Game_Events->SetEnableMouseEvents();
   Flag_Shown = false;
 }

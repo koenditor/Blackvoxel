@@ -42,7 +42,7 @@
 #endif
 
 
-#include "SDL/SDL.h"
+#include "SDL2/SDL.h"
 
 //define COMPILEOPTION_ONLYSCHOOLMODE
 #define ZMODESELECTION_SLOTCOUNT 2
@@ -58,7 +58,7 @@ ULong ZScreen_ModeSelection::ProcessScreen(ZGame * GameEnv)
 
 // Clear the Screen
 
-glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); SDL_GL_SwapBuffers( );
+glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); SDL_GL_SwapWindow(GameEnv->screen);
 
 
 
@@ -276,7 +276,7 @@ glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); SDL_GL_SwapBuffers( );
 
       // Show the work to the user.
 
-      SDL_GL_SwapBuffers();
+      SDL_GL_SwapWindow(GameEnv->screen);
 
       // Wait for 10 milliseconds in order to avoid over refreshing.
       // Over refreshing in the menu screens would be a waste of power.

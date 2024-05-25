@@ -27,7 +27,7 @@
 
 #include "ZGame.h"
 #include "ZActorPhysics.h"
-#include "SDL/SDL.h"
+#include "SDL2/SDL.h"
 
 void ZGameWindow_AsmExtendedRegisters::Show()
 {
@@ -131,9 +131,9 @@ void ZGameWindow_AsmExtendedRegisters::Show()
   Rp.x = Ip.x;
 */
 
-  SDL_ShowCursor(SDL_ENABLE);
-  SDL_WM_GrabInput(SDL_GRAB_OFF);
-  //SDL_WarpMouse((Uint16)(MainWindow_Pos.x + MainWindow_Size.x / 2.0f),(Uint16)(MainWindow_Pos.y + MainWindow_Size.y / 2.0f));
+  
+  SDL_SetRelativeMouseMode(SDL_FALSE);
+  ////SDL_WarpMouse((Uint16)(MainWindow_Pos.x + MainWindow_Size.x / 2.0f),(Uint16)(MainWindow_Pos.y + MainWindow_Size.y / 2.0f));
   GameEnv->Game_Events->SetDisableMouseEvents();
   Flag_Shown = true;
 }
@@ -141,8 +141,8 @@ void ZGameWindow_AsmExtendedRegisters::Show()
 void ZGameWindow_AsmExtendedRegisters::Hide()
 {
   GameEnv->GuiManager.RemoveFrame(MainWindow);
-  //SDL_ShowCursor(SDL_DISABLE);
-  //SDL_WM_GrabInput(SDL_GRAB_ON);
+  //
+  //SDL_SetRelativeMouseMode(SDL_TRUE);
   //GameEnv->Game_Events->SetEnableMouseEvents();
   Flag_Shown = false;
 }

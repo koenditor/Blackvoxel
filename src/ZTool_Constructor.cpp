@@ -183,7 +183,7 @@ bool ZTool_Constructor::Tool_MouseButtonRelease(ULong Button)
 }
 
 
-bool ZTool_Constructor::Tool_StillEvents(double FrameTime, bool * MouseButtonMatrix, UByte * KeyboardMatrix )
+bool ZTool_Constructor::Tool_StillEvents(double FrameTime, bool * MouseButtonMatrix, const Uint8 * KeyboardMatrix )
 {
   ZString Reason;
   ZActor_Player * Actor;

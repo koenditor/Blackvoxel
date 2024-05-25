@@ -19,7 +19,7 @@
 #include "ZWorld.h"
 #include "stdio.h"
 #include "math.h"
-#include "SDL/SDL.h"
+#include "SDL2/SDL.h"
 
 // Sector deblocking coordinates
 

@@ -35,7 +35,7 @@
 #endif
 
 #ifndef _SDL_H
-#  include "SDL/SDL.h"
+#  include "SDL2/SDL.h"
 #endif
 
 #ifndef Z_ZVOXELTYPE_H
@@ -402,7 +402,7 @@ class ZGame
 
   // Screen Informations
 
-  SDL_Surface * screen;
+  SDL_Window * screen;
   ZVector2L ScreenResolution;   // Taille réelle de la zone d'affichage.
   ZVector2L HardwareResolution; // Resolution qui est demandée à SDL.
   ZVector2L DesktopResolution;  // Résolution du bureau.

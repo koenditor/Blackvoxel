@@ -34,6 +34,8 @@
 #  include "ZEventManager.h"
 #endif
 
+#include "SDL2/SDL_keyboard.h"
+
 class ZGame;
 
 class ZGame_Events : public ZEventConsumer
@@ -41,7 +43,7 @@ class ZGame_Events : public ZEventConsumer
   protected:
     ZEventManager * EventManager;
     ZGame         * GameEnv;
-    UByte         * Keyboard_Matrix;
+    const Uint8   * Keyboard_Matrix;
     bool          * Mouse_Matrix;
     bool          EnableMouseEvents;
     double        LastFrameTime;
@@ -50,9 +52,8 @@ class ZGame_Events : public ZEventConsumer
     ZGame_Events()
     {
       ULong i;
-      Keyboard_Matrix = new UByte[1024];
+      Keyboard_Matrix = SDL_GetKeyboardState(NULL);
       Mouse_Matrix    = new bool[128];
-      for (i=0;i<1024;i++) Keyboard_Matrix[i] = 0;
       for (i=0;i<128;i++)  Mouse_Matrix[i] = false;
       EnableMouseEvents = true;
       EventManager = 0;
@@ -62,11 +63,11 @@ class ZGame_Events : public ZEventConsumer
 
     ~ZGame_Events()
     {
-      if (Keyboard_Matrix) delete [] Keyboard_Matrix;
+      // if (Keyboard_Matrix) delete [] Keyboard_Matrix;
     }
 
-    virtual Bool KeyDown( UShort KeySym );
-    virtual Bool KeyUp( UShort KeySym );
+    virtual Bool KeyDown( SDL_Scancode KeySym );
+    virtual Bool KeyUp( SDL_Scancode KeySym );
     virtual Bool MouseMove (Short Relative_x, Short Relative_y, UShort Absolute_x, UShort Absolute_y);
     virtual Bool MouseButtonClick  (UShort nButton, Short Absolute_x, Short Absolute_y);
     virtual Bool MouseButtonRelease(UShort nButton, Short Absolute_x, Short Absolute_y);
@@ -79,14 +80,14 @@ class ZGame_Events : public ZEventConsumer
     virtual void SetEnableMouseEvents()  {EnableMouseEvents = true; }
     virtual void SetDisableMouseEvents() {EnableMouseEvents = false;}
 
-    bool Is_KeyPressed(UShort KeyCode, bool Reset)
-    {
-      bool IsPressed;
+    // bool Is_KeyPressed(UShort KeyCode, bool Reset)
+    // {
+      // bool IsPressed;
 
-      IsPressed = Keyboard_Matrix[KeyCode] ? true : false;
-      if (Reset) Keyboard_Matrix[KeyCode] = 0;
-      return IsPressed;
-    }
+      // IsPressed = Keyboard_Matrix[KeyCode] ? true : false;
+      // if (Reset) Keyboard_Matrix[KeyCode] = 0;
+      // return IsPressed;
+    // }
     bool Is_MouseButtonPressed(UShort ButtonCode, bool Reset)
      {
        bool IsPressed;

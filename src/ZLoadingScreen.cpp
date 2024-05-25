@@ -24,7 +24,7 @@
  */
 
 #include <GL/glew.h>
-#include "SDL/SDL.h"
+#include "SDL2/SDL.h"
 
 #ifndef A_COMPILESETTINGS_H
 #  include "ACompileSettings.h"
@@ -50,7 +50,7 @@
 // The used texture is deleted at the end in order
 // to save GPU memory.
 
-void ZLoadingScreen::Display(int Width, int Height)
+void ZLoadingScreen::Display(int Width, int Height, SDL_Window *window)
 {
   ZBitmapImage Texture;
   ZString FileSpec;
@@ -120,7 +120,7 @@ void ZLoadingScreen::Display(int Width, int Height)
 
    // Display the buffer
 
-   SDL_GL_SwapBuffers( );
+   SDL_GL_SwapWindow(window);
 
    // Delete the used texture to free some memory in GPU.
 

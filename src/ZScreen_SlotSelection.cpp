@@ -45,7 +45,7 @@ ULong ZScreen_SlotSelection::ProcessScreen(ZGame * GameEnv)
 
       // Effacer l'écran
 
-      glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); SDL_GL_SwapBuffers( );
+      glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); SDL_GL_SwapWindow(GameEnv->screen);
 
       // Régler la transparence
 
@@ -229,8 +229,8 @@ ULong ZScreen_SlotSelection::ProcessScreen(ZGame * GameEnv)
               if (Slot[i].Is_MouseClick()) { ChoosedSlot = i+1;Loop = false; }
             }
 
-            if (GameEnv->EventManager.Is_KeyPressed(SDLK_n,true)) {Loop = false; Redisplay = true; SlotOffset += 16;}
-            if (GameEnv->EventManager.Is_KeyPressed(SDLK_p,true)) {Loop = false; Redisplay = true; if (SlotOffset >=16) SlotOffset -= 16; }
+            if (GameEnv->EventManager.Is_KeyPressed(SDL_SCANCODE_N,true)) {Loop = false; Redisplay = true; SlotOffset += 16;}
+            if (GameEnv->EventManager.Is_KeyPressed(SDL_SCANCODE_P,true)) {Loop = false; Redisplay = true; if (SlotOffset >=16) SlotOffset -= 16; }
 
             // Demander au gestionnaire de boite d'effectuer le rendu graphique
 
@@ -238,7 +238,7 @@ ULong ZScreen_SlotSelection::ProcessScreen(ZGame * GameEnv)
 
             // On montre à l'utilisateur ce qui a été rendu
 
-            SDL_GL_SwapBuffers();
+            SDL_GL_SwapWindow(GameEnv->screen);
 
             // On met le programme en pause pendant 10 millièmes de seconde
 

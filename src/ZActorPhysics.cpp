@@ -26,7 +26,7 @@
 #include "ZActorPhysics.h"
 #include <math.h>
 #include <stdio.h>
-#include "SDL/SDL.h"
+#include "SDL2/SDL.h"
 #include "ZHighPerfTimer.h"
 
 #include "ZVoxelType.h"
@@ -110,9 +110,8 @@ void ZActor::Action_MouseButtonRelease(ULong Button)
 }
 */
 
-bool ZActor::Action_StillEvents( bool * MouseMatrix, UByte * KeyboardMatrix)
-{
-  return(true);
+bool ZActor::Action_StillEvents(bool* MouseMatrix, const Uint8* KeyboardMatrix){
+  return true;
 }
 
 void ZActor::Action_NextBuildingMaterial()

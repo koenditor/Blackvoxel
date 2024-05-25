@@ -32,6 +32,7 @@ Long SoundBuffer[65536];
 
 void ZSound::mixaudio(void *unused, Uint8 *stream, int len)
 {
+  SDL_memset(stream, 0, len);
   Sound * Snd, * OldSound;
   ZMemSize PlayLen,i,Buffer_Len, Buffer_RemainLen;
 

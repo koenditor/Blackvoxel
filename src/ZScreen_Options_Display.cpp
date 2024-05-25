@@ -49,9 +49,12 @@ ULong ZScreen_Options_Display::ProcessScreen(ZGame * GameEnv)
 {
   ZVector2f Size;
   ZVector2f Pos;
-  ULong i,j;
+  ULong i,j,k;
   ULong Count;
   bool Found;
+  int numModes;
+  int numDisplays;
+  SDL_DisplayMode mode;
 
   ZResolution * Res;
   ZObjectArray Resolution_Array;
@@ -81,29 +84,29 @@ ULong ZScreen_Options_Display::ProcessScreen(ZGame * GameEnv)
   // Add the SDL resolutions.
 
   {
-    SDL_Rect** modes;
-
-    modes = SDL_ListModes(NULL, SDL_FULLSCREEN|SDL_OPENGL ); // SDL_FULLSCREEN|SDL_OPENGL
-
-
-    for(i=0;modes[i];i++)
+    numDisplays = SDL_GetNumVideoDisplays();
+    for(i=0;i<numDisplays;i++)
     {
-      Found = false;
-      // printf("Resolution : %u x %u\n",modes[i]->w, modes[i]->h);
-      Count = Resolution_Array.GetCount();
-      for(j=0;j<Count;j++)
-      {
-        Res = (ZResolution *)Resolution_Array.GetEntry(j);
-        if ((Res->Resolution_x == modes[i]->w) && (Res->Resolution_y == modes[i]->h)) Found = true;
-      }
-      if (!Found)
-      {
-        Res = new ZResolution;
-        Res->Resolution_x = modes[i]->w; Res->Resolution_y = modes[i]->h;
-        Res->Name.Append_ULong(Res->Resolution_x);
-        Res->Name.Append_pchar("*");
-        Res->Name.Append_ULong(Res->Resolution_y);
-        Resolution_Array.Add(*Res);
+      numModes = SDL_GetNumDisplayModes(i);
+      for(k=0;k<numModes;k++){
+        SDL_GetDisplayMode(i, k, &mode);
+        Found = false;
+        // printf("Resolution : %u x %u\n",modes[i]->w, modes[i]->h);
+        Count = Resolution_Array.GetCount();
+        for(j=0;j<Count;j++)
+        {
+          Res = (ZResolution *)Resolution_Array.GetEntry(j);
+          if ((Res->Resolution_x == mode.w) && (Res->Resolution_y == mode.h)) Found = true;
+        }
+        if (!Found)
+        {
+          Res = new ZResolution;
+          Res->Resolution_x = mode.w; Res->Resolution_y = mode.h;
+          Res->Name.Append_ULong(Res->Resolution_x);
+          Res->Name.Append_pchar("*");
+          Res->Name.Append_ULong(Res->Resolution_y);
+          Resolution_Array.Add(*Res);
+        }
       }
     }
     // printf("Resolution Bureau : %lu x %lu\n",(UNum)GameEnv->DesktopResolution.x, (UNum)GameEnv->DesktopResolution.y);
@@ -315,7 +318,7 @@ ULong ZScreen_Options_Display::ProcessScreen(ZGame * GameEnv)
       if (Frame_Save.Is_MouseClick()) { Loop = false; }
 
       GameEnv->GuiManager.Render();
-      SDL_GL_SwapBuffers( );
+      SDL_GL_SwapWindow(GameEnv->screen);
       SDL_Delay(10);
 
     }
@@ -365,7 +368,7 @@ ULong ZScreen_Options_Display::ProcessScreen(ZGame * GameEnv)
   {
     SDL_Rect** modes;
 
-    modes = SDL_ListModes(NULL, SDL_FULLSCREEN|SDL_OPENGL ); // SDL_FULLSCREEN|SDL_OPENGL
+    modes = SDL_ListModes(NULL, SDL_WINDOW_FULLSCREEN|SDL_WINDOW_OPENGL ); // SDL_WINDOW_FULLSCREEN|SDL_WINDOW_OPENGL
 
 
     for(i=0;modes[i];i++)
@@ -567,7 +570,7 @@ ULong ZScreen_Options_Display::ProcessScreen(ZGame * GameEnv)
       if (Frame_Save.Is_MouseClick()) { Loop = false; }
 
       GameEnv->GuiManager.Render();
-      SDL_GL_SwapBuffers( );
+      SDL_GL_SwapWindow(GameEnv->screen);
       SDL_Delay(10);
 
     }

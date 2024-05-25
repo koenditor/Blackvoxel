@@ -31,6 +31,8 @@
 #  include "ZGame.h"
 #endif
 
+#include<stdio.h>
+
 ZDestructionProgress::ZDestructionProgress()
 {
   GameEnv = 0;
@@ -90,7 +92,7 @@ bool ZDestructionProgress::DoMine(double Amount)
 
    Mining_MaterialResistanceCounter -= Amount;
 
-   GameEnv->GameProgressBar->SetCompletion( (100.0 / Mining_Hardness) * (Mining_Hardness - Mining_MaterialResistanceCounter)   );
+   GameEnv->GameProgressBar->SetCompletion( 100.0f - 100.0f*Mining_MaterialResistanceCounter/Mining_Hardness );
 
    if (Mining_MaterialResistanceCounter < 0.0)
    {

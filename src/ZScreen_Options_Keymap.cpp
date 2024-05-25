@@ -76,7 +76,7 @@ ULong ZScreen_Options_Keymap::ProcessScreen(ZGame * GameEnv)
   ZFrame_FontFrame  KeyTitle[NumLines];
   ZVector2f         Position[NumLines];
   char const *            Title[NumLines];
-  UShort * Value[NumLines];
+  SDL_Scancode * Value[NumLines];
 
   Title[0] = "MOVE FORWARD";   Value[0] = &GameEnv->Settings_Hardware->Setting_Key_MoveForward;
   Title[1] = "MOVE BACKWARD";  Value[1] = &GameEnv->Settings_Hardware->Setting_Key_MoveBackward;
@@ -144,7 +144,7 @@ ULong ZScreen_Options_Keymap::ProcessScreen(ZGame * GameEnv)
       if (Frame_Save.Is_MouseClick()) { Loop = false; }
 
       GameEnv->GuiManager.Render();
-      SDL_GL_SwapBuffers( );
+      SDL_GL_SwapWindow(GameEnv->screen);
       SDL_Delay(10);
 
     }
@@ -255,7 +255,7 @@ ULong ZScreen_Options_Keymap::ProcessScreen(ZGame * GameEnv)
       if (Frame_Save.Is_MouseClick()) { Loop = false; }
 
       GameEnv->GuiManager.Render();
-      SDL_GL_SwapBuffers( );
+      SDL_GL_SwapWindow(GameEnv->screen);
       SDL_Delay(10);
 
     }

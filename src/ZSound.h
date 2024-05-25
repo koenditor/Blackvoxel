@@ -43,7 +43,7 @@
 #endif
 
 #ifndef _SDL_audio_h
-#  include <SDL/SDL_audio.h>
+#  include <SDL2/SDL_audio.h>
 #endif
 
 #ifndef A_COMPILESETTINGS_H

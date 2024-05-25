@@ -34,6 +34,8 @@
 #  include "z/ZTypes.h"
 #endif
 
+#include "SDL2/SDL_stdinc.h"
+
 #define ZTOOL_TOOLTYPESCOUNT 256
 
 class ZGame;
@@ -55,7 +57,7 @@ class ZTool
 
     virtual bool Tool_MouseButtonClick(ULong Button) {return(false);}
     virtual bool Tool_MouseButtonRelease(ULong Button) {return(false);}
-    virtual bool Tool_StillEvents(double FrameTime, bool * MouseButtonMatrix, UByte * KeyboardMatrix ) {return(true);};
+    virtual bool Tool_StillEvents(double FrameTime, bool * MouseButtonMatrix, const Uint8 * KeyboardMatrix ) {return(true);};
 
 };
 

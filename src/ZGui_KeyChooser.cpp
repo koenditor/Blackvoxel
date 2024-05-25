@@ -24,16 +24,16 @@
  */
 
 #include "ZGui_KeyChooser.h"
-#include "SDL/SDL.h"
+#include "SDL2/SDL.h"
 #include <GL/glew.h>
 
 
-Bool ZFrame_KeyChooser::KeyDown( UShort KeySym )
+Bool ZFrame_KeyChooser::KeyDown( SDL_Scancode KeySym )
 {
   ZVector2f Size;
   Actual_KeySet = KeySym;
   // DisplayText = (ULong)KeySym;
-  DisplayText = SDL_GetKeyName((SDLKey)KeySym);
+  DisplayText = SDL_GetScancodeName(KeySym);
   DisplayText.MakeUpper();
   Text.SetDisplayText(DisplayText.String);
   Text.GetTextDisplaySize(&Size);
@@ -45,13 +45,13 @@ Bool ZFrame_KeyChooser::KeyDown( UShort KeySym )
   return(true);
 }
 
-void ZFrame_KeyChooser::SetKey(UShort Key)
+void ZFrame_KeyChooser::SetKey( SDL_Scancode Key)
 {
   ZVector2f Size;
 
   Actual_KeySet = Key;
 
-  DisplayText = SDL_GetKeyName((SDLKey)Key);
+  DisplayText = SDL_GetScancodeName(Key);
   DisplayText.MakeUpper();
   Text.SetDisplayText(DisplayText.String);
   Text.GetTextDisplaySize(&Size);

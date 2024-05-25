@@ -28,7 +28,7 @@
 //#  include <GL/glext.h>
 // #  include <GL/glut.h>
 #endif
-    #include "SDL/SDL.h"
+    #include "SDL2/SDL.h"
     #include "bmploader.h"
 
     #include "math.h"
@@ -220,8 +220,7 @@ int main(int argc, char *argv[])
 
       // ***************************************** Main Title Screen ****************************************************
 
-      SDL_ShowCursor(SDL_ENABLE);
-      SDL_WM_GrabInput(SDL_GRAB_OFF);
+      SDL_SetRelativeMouseMode(SDL_FALSE);
 
       ZScreen_Main Screen_Main;
 
@@ -312,8 +311,7 @@ int main(int argc, char *argv[])
 
           if (!COMPILEOPTION_NOMOUSECAPTURE)
           {
-            SDL_ShowCursor(SDL_DISABLE);
-            SDL_WM_GrabInput(SDL_GRAB_ON);
+            SDL_SetRelativeMouseMode(SDL_TRUE);
           }
 
           // Pre-Gameloop Initialisations.
@@ -388,7 +386,7 @@ int main(int argc, char *argv[])
 
             // Swapping OpenGL Surfaces.
 
-            SDL_GL_SwapBuffers( );
+            SDL_GL_SwapWindow(GameEnv.screen);
             //PerfTable[10] = Timer.GetIntermediateSlice();
 
 

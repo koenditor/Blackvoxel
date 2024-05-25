@@ -56,7 +56,7 @@ class ZFrame_KeyChooser : public ZFrame
   protected:
     ZTileStyle * FontTileStyle;
     ZTileSet   * GUITileSet;
-    UShort     Actual_KeySet;
+    SDL_Scancode     Actual_KeySet;
     ZString    DisplayText;
   public:
     // ZTileFrame       BackTile;
@@ -73,7 +73,7 @@ class ZFrame_KeyChooser : public ZFrame
       FontTileStyle = 0;
       GUITileSet = 0;
       //BackTile.SetTile(6);
-      Actual_KeySet = 65;
+      Actual_KeySet = SDL_SCANCODE_A;
       Text.SetDisplayText("A");
       Flag_Show_Frame = false;
       Flag_Enable_Proc_GetFocus = true;
@@ -115,12 +115,12 @@ class ZFrame_KeyChooser : public ZFrame
       Dimensions.Width = Width ; Dimensions.Height = Height;
     }
 
-    virtual void SetKey(UShort Key);
-    virtual UShort GetKey() { return(Actual_KeySet); }
+    virtual void SetKey( SDL_Scancode Key);
+    virtual SDL_Scancode GetKey() { return(Actual_KeySet); }
 
 
     virtual void GetFocus();
-    virtual Bool KeyDown( UShort KeySym );
+    virtual Bool KeyDown( SDL_Scancode KeySym );
     virtual void KeyChanged() {}
     bool Is_KeyChanged (bool Reset = true)     { bool res; res = Event_KeyChanged;  if (Reset) Event_KeyChanged = false;  return(res); }
 

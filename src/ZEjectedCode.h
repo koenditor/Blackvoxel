@@ -26,6 +26,8 @@
 #ifndef ZEJECTEDCODE_H_
 #define ZEJECTEDCODE_H_
 
+#include "SDL2/SDL_Keyboard.h"
+
 void EjectedCode
 {
   // Texture Loading
@@ -196,28 +198,28 @@ void MouseHandler( int dx, int dy)
 void KeyHandler (ZGame & GameEnv)
 {
   ZActor * Actor;
-  UByte * Keyboard_Matrix;
+  UByte * keyboardState;
 
-  Keyboard_Matrix = GameEnv.EventManager.Keyboard_Matrix;
+  keyboardState = SDL_GetKeyboardState(NULL);
 
-   if ( Keyboard_Matrix[SDLK_z] ) {Player.x += sin(Player.Yaw/180 * 3.14159265)*100; Player.z -=cos(Player.Yaw/180 * 3.14159265)*100; }
-   if ( Keyboard_Matrix[SDLK_s] ) {Player.x -= sin(Player.Yaw/180 * 3.14159265)*100; Player.z +=cos(Player.Yaw/180 * 3.14159265)*100; }
+   if ( keyboardState[SDL_SCANCODE_Z] ) {Player.x += sin(Player.Yaw/180 * 3.14159265)*100; Player.z -=cos(Player.Yaw/180 * 3.14159265)*100; }
+   if ( keyboardState[SDL_SCANCODE_S] ) {Player.x -= sin(Player.Yaw/180 * 3.14159265)*100; Player.z +=cos(Player.Yaw/180 * 3.14159265)*100; }
 
 
   Actor = GameEnv.PhysicEngine->GetSelectedActor();
 
   if (Actor)
   {
-    if ( Keyboard_Matrix[SDLK_q] ) { Actor->Action_GoLeftStraff((double)RenderTime * 1.5); }
-    if ( Keyboard_Matrix[SDLK_d] ) { Actor->Action_GoRightStraff((double)RenderTime  * 1.5); }
-    if ( Keyboard_Matrix[SDLK_z] ) { Actor->Action_GoForward((double)RenderTime  * 1.5); }
-    if ( Keyboard_Matrix[SDLK_s] ) { Actor->Action_GoBackward((double)RenderTime  * 1.5); }
-    if ( Keyboard_Matrix[SDLK_SPACE]){Actor->Action_Jump((double)RenderTime * 4.0  * 1.5);}
-    if ( Keyboard_Matrix[SDLK_a] ) { Actor->Action_GoUp((double)RenderTime  * 1.5); }
-    if ( Keyboard_Matrix[SDLK_w] ) { Actor->Action_GoDown((double)RenderTime  * 1.5); }
-    if ( Keyboard_Matrix[SDLK_KP_PLUS] ) { Actor->Action_NextBuildingMaterial(); Keyboard_Matrix[SDLK_KP_PLUS] = 0; }
-    if ( Keyboard_Matrix[SDLK_KP_MINUS] ) { Actor->Action_PrevBuildingMaterial(); Keyboard_Matrix[SDLK_KP_MINUS] = 0; }
-    if ( Keyboard_Matrix[SDLK_i] )
+    if ( keyboardState[SDL_SCANCODE_Q] ) { Actor->Action_GoLeftStraff((double)RenderTime * 1.5); }
+    if ( keyboardState[SDL_SCANCODE_D] ) { Actor->Action_GoRightStraff((double)RenderTime  * 1.5); }
+    if ( keyboardState[SDL_SCANCODE_Z] ) { Actor->Action_GoForward((double)RenderTime  * 1.5); }
+    if ( keyboardState[SDL_SCANCODE_S] ) { Actor->Action_GoBackward((double)RenderTime  * 1.5); }
+    if ( keyboardState[SDL_SCANCODESPACE]){Actor->Action_Jump((double)RenderTime * 4.0  * 1.5);}
+    if ( keyboardState[SDL_SCANCODE_A] ) { Actor->Action_GoUp((double)RenderTime  * 1.5); }
+    if ( keyboardState[SDL_SCANCODE_W] ) { Actor->Action_GoDown((double)RenderTime  * 1.5); }
+    if ( keyboardState[SDL_SCANCODEKP_PLUS] ) { Actor->Action_NextBuildingMaterial(); keyboardState[SDL_SCANCODEKP_PLUS] = 0; }
+    if ( keyboardState[SDL_SCANCODEKP_MINUS] ) { Actor->Action_PrevBuildingMaterial(); keyboardState[SDL_SCANCODEKP_MINUS] = 0; }
+    if ( keyboardState[SDL_SCANCODE_I] )
     {
 //      printf("Main Memory SectorCount:%lu\n", World.Info_GetSectorsInMemory()); World.Info_PrintHashStats();
 
@@ -227,14 +229,14 @@ void KeyHandler (ZGame & GameEnv)
       GLint Total_Memory = 0;
       glGetIntegerv(/*GL_GPU_MEM_INFO_TOTAL_AVAILABLE_MEM_NVX*/ 0x9048,&Total_Memory);
       printf("GPU MEMORY FREE(Ko): %d/%d\n",Availlable_VRam, Total_Memory);
-      Keyboard_Matrix[SDLK_i]=0;
+      keyboardState[SDL_SCANCODE_I]=0;
     }
   }
-  if ( Keyboard_Matrix[SDLK_b] ) {debug_break = true; }
-  if ( Keyboard_Matrix[SDLK_g] ) {Actor->Velocity.y = 15000.0; }
-  if ( Keyboard_Matrix[SDLK_h] ) { Keyboard_Matrix[SDLK_h]=0; }
-  if ( Keyboard_Matrix[SDLK_k] ) {Actor->Velocity.z += 15000.0; Actor->Velocity.y += 1000.0;Keyboard_Matrix[SDLK_k] = 0; }
-  if ( Keyboard_Matrix[SDLK_F8])
+  if ( keyboardState[SDL_SCANCODE_B] ) {debug_break = true; }
+  if ( keyboardState[SDL_SCANCODE_G] ) {Actor->Velocity.y = 15000.0; }
+  if ( keyboardState[SDL_SCANCODE_H] ) { keyboardState[SDL_SCANCODE_H]=0; }
+  if ( keyboardState[SDL_SCANCODE_K] ) {Actor->Velocity.z += 15000.0; Actor->Velocity.y += 1000.0;keyboardState[SDL_SCANCODE_K] = 0; }
+  if ( keyboardState[SDL_SCANCODEF8])
   {
     ELong lx,ly,lz;
     lx = (floor(Actor->Location.x / 256.0 / 16.0));
@@ -250,12 +252,12 @@ void KeyHandler (ZGame & GameEnv)
 //      World.FindSector( f_x,f_y,f_z )->DebugOut("out.txt");
     printf("Sector : %ld %ld %ld : %lf,%lf,%lf\n",f_x,f_y,f_z, floor(Actor->Location.x / 256.0), floor(Actor->Location.y / 256.0), floor(Actor->Location.z / 256.0));
 
-    Keyboard_Matrix[SDLK_F8] = 0;
+    keyboardState[SDL_SCANCODEF8] = 0;
   }
 
 /*
 
-  if ( Keyboard_Matrix[SDLK_F7])
+  if ( keyboardState[SDL_SCANCODEF7])
   {
     ELong lx,ly,lz;
     lx = (floor(Actor->Location.x / 256.0 / 16.0));
@@ -275,51 +277,51 @@ void KeyHandler (ZGame & GameEnv)
     Sector->Flag_Render_Dirty = true;
     Sector->Flag_Void_Regular = false;
     Sector->Flag_Void_Transparent = false;
-    Keyboard_Matrix[SDLK_F7] = 0;
+    keyboardState[SDL_SCANCODEF7] = 0;
   }
 */
 
 
 /*
-  if ( Keyboard_Matrix[SDLK_z] ) {Player.x += sin(Player.Yaw/180 * 3.14159265)*100; Player.z -=cos(Player.Yaw/180 * 3.14159265)*100; }
-  if ( Keyboard_Matrix[SDLK_s] ) {Player.x -= sin(Player.Yaw/180 * 3.14159265)*100; Player.z +=cos(Player.Yaw/180 * 3.14159265)*100; }
+  if ( keyboardState[SDL_SCANCODE_Z] ) {Player.x += sin(Player.Yaw/180 * 3.14159265)*100; Player.z -=cos(Player.Yaw/180 * 3.14159265)*100; }
+  if ( keyboardState[SDL_SCANCODE_S] ) {Player.x -= sin(Player.Yaw/180 * 3.14159265)*100; Player.z +=cos(Player.Yaw/180 * 3.14159265)*100; }
 
-  if ( Keyboard_Matrix[SDLK_q] ) {Player.x += cos(Player.Yaw/180 * 3.14159265)*100; Player.z +=sin(Player.Yaw/180 * 3.14159265)*100; }
-  if ( Keyboard_Matrix[SDLK_d] ) {Player.x -= cos(Player.Yaw/180 * 3.14159265)*100; Player.z -=sin(Player.Yaw/180 * 3.14159265)*100; }
-  if ( Keyboard_Matrix[SDLK_f] ) {Plf Z_ZSCREEN_SLOTSELECTION_H
+  if ( keyboardState[SDL_SCANCODE_Q] ) {Player.x += cos(Player.Yaw/180 * 3.14159265)*100; Player.z +=sin(Player.Yaw/180 * 3.14159265)*100; }
+  if ( keyboardState[SDL_SCANCODE_D] ) {Player.x -= cos(Player.Yaw/180 * 3.14159265)*100; Player.z -=sin(Player.Yaw/180 * 3.14159265)*100; }
+  if ( keyboardState[SDL_SCANCODE_F] ) {Plf Z_ZSCREEN_SLOTSELECTION_H
   //#  include "ZScree,_SlotSelection.h"
   //#endifayer.y += 100; }
-  if ( Keyboard_Matrix[SDLK_c] ) {Player.y -= 100; }
+  if ( keyboardState[SDL_SCANCODE_C] ) {Player.y -= 100; }
 
-  if ( Keyboard_Matrix[SDLK_e] ) {Player.Yaw -= 5.0; }
-  if ( Keyboard_Matrix[SDLK_a] ) {Player.Yaw += 5.0; }
+  if ( keyboardState[SDL_SCANCODE_E] ) {Player.Yaw -= 5.0; }
+  if ( keyboardState[SDL_SCANCODE_A] ) {Player.Yaw += 5.0; }
 
-  if ( Keyboard_Matrix[SDLK_y] ) {SpecialValue += 1.0; if (SpecialValue >= 360.0) SpecialValue-=360.0; printf("SV1: %f\n",SpecialValue); }
-  if ( Keyboard_Matrix[SDLK_h] ) {SpecialValue -= 1.0; if (SpecialValue <0.0) SpecialValue+=360.0;printf("SV1: %f\n",SpecialValue); }
-  if ( Keyboard_Matrix[SDLK_o] ) {SpecialValue3 += 1; printf("SV3: %ld\n",SpecialValue3); }
-  if ( Keyboard_Matrix[SDLK_l] ) {SpecialValue3 -= 1; printf("SV3: %ld\n",SpecialValue3); }
-  if ( Keyboard_Matrix[SDLK_p] ) {SpecialValue4 += 1; printf("SV4: %ld\n",SpecialValue4); }
-  if ( Keyboard_Matrix[SDLK_m] ) {SpecialValue4 -= 1; printf("SV4: %ld\n",SpecialValue4); }
+  if ( keyboardState[SDL_SCANCODE_Y] ) {SpecialValue += 1.0; if (SpecialValue >= 360.0) SpecialValue-=360.0; printf("SV1: %f\n",SpecialValue); }
+  if ( keyboardState[SDL_SCANCODE_H] ) {SpecialValue -= 1.0; if (SpecialValue <0.0) SpecialValue+=360.0;printf("SV1: %f\n",SpecialValue); }
+  if ( keyboardState[SDL_SCANCODE_O] ) {SpecialValue3 += 1; printf("SV3: %ld\n",SpecialValue3); }
+  if ( keyboardState[SDL_SCANCODE_L] ) {SpecialValue3 -= 1; printf("SV3: %ld\n",SpecialValue3); }
+  if ( keyboardState[SDL_SCANCODE_P] ) {SpecialValue4 += 1; printf("SV4: %ld\n",SpecialValue4); }
+  if ( keyboardState[SDL_SCANCODE_M] ) {SpecialValue4 -= 1; printf("SV4: %ld\n",SpecialValue4); }
 */
 
-  if ( Keyboard_Matrix[SDLK_n] )  { SDL_WM_GrabInput(SDL_GRAB_OFF); SDL_ShowCursor(SDL_ENABLE); }
-  if ( Keyboard_Matrix[SDLK_F2] ) { SDL_WM_GrabInput(SDL_GRAB_ON); SDL_ShowCursor(SDL_DISABLE); }
-  if ( Keyboard_Matrix[SDLK_F1] ) { SDL_WM_GrabInput(SDL_GRAB_OFF); SDL_ShowCursor(SDL_ENABLE); }
-  //if ( Keyboard_Matrix[SDLK_F5] ) { World.Save(); }
-  //if ( Keyboard_Matrix[SDLK_F9] ) { World.Load(); }
+  if ( keyboardState[SDL_SCANCODE_N] )  { SDL_SetRelativeMouseMode(SDL_FALSE);  }
+  if ( keyboardState[SDL_SCANCODEF2] ) { SDL_SetRelativeMouseMode(SDL_TRUE);  }
+  if ( keyboardState[SDL_SCANCODEF1] ) { SDL_SetRelativeMouseMode(SDL_FALSE);  }
+  //if ( keyboardState[SDL_SCANCODEF5] ) { World.Save(); }
+  //if ( keyboardState[SDL_SCANCODEF9] ) { World.Load(); }
 
-  if ( Keyboard_Matrix[SDLK_F12] )  { SDL_WM_GrabInput(SDL_GRAB_OFF); SDL_ShowCursor(SDL_ENABLE); exit(0); }
+  if ( keyboardState[SDL_SCANCODEF12] )  { SDL_SetRelativeMouseMode(SDL_FALSE);  }
   //int fps = 1000 / RenderTime;
-  if ( Keyboard_Matrix[SDLK_r] ) { printf("nCubes : %ld  Render Time: %lu ms Trans : %ld PureRend : %ld x:%lf y:%lf z:%lf \n", nCubesDisplayed, RenderTime, Time_Transform, Time_PureRender, Player.x, Player.y, Player.z );}
+  if ( keyboardState[SDL_SCANCODE_R] ) { printf("nCubes : %ld  Render Time: %lu ms Trans : %ld PureRend : %ld x:%lf y:%lf z:%lf \n", nCubesDisplayed, RenderTime, Time_Transform, Time_PureRender, Player.x, Player.y, Player.z );}
 
 
-  if ( Keyboard_Matrix[SDLK_b] ) { RenderType = 0; }
-  if ( Keyboard_Matrix[SDLK_v] ) { RenderType = 1; }
-  if ( Keyboard_Matrix[SDLK_i] ) { RenderType = 2; }
-  if ( Keyboard_Matrix[SDLK_u] ) { RenderType = 3; }
-  if ( Keyboard_Matrix[SDLK_j] ) { RenderType = 4; }
+  if ( keyboardState[SDL_SCANCODE_B] ) { RenderType = 0; }
+  if ( keyboardState[SDL_SCANCODE_V] ) { RenderType = 1; }
+  if ( keyboardState[SDL_SCANCODE_I] ) { RenderType = 2; }
+  if ( keyboardState[SDL_SCANCODE_U] ) { RenderType = 3; }
+  if ( keyboardState[SDL_SCANCODE_J] ) { RenderType = 4; }
 
-  if ( Keyboard_Matrix[SDLK_1] ) { Player.Yaw = 0.0; Player.Pitch = 0.0; Player.Roll  = 0.0; }
+  if ( keyboardState[SDL_SCANCODE1] ) { Player.Yaw = 0.0; Player.Pitch = 0.0; Player.Roll  = 0.0; }
 
 }
 
@@ -327,7 +329,7 @@ void KeyHandler (ZGame & GameEnv)
 
 
     GLuint Nom[128];
-    char Keyboard_Matrix[1024];
+    char keyboardState[1024];
 
     bool debug_break = 0;
 
@@ -371,10 +373,10 @@ void KeyHandler (ZGame & GameEnv)
       {
         switch( event.type )
         {
-          case SDL_KEYDOWN: Keyboard_Matrix[event.key.keysym.sym] = 1;
-                          if (event.key.keysym.sym == SDLK_p) Continue = false;
+          case SDL_KEYDOWN: keyboardState[event.key.keysym.sym] = 1;
+                          if (event.key.keysym.sym == SDL_SCANCODE_P) Continue = false;
                             break;
-          case SDL_KEYUP: Keyboard_Matrix[event.key.keysym.sym] = 0;
+          case SDL_KEYUP: keyboardState[event.key.keysym.sym] = 0;
                             break;
           case SDL_MOUSEMOTION:
                           MouseHandler(event.motion.xrel, event.motion.yrel);
