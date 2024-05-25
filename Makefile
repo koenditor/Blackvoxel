@@ -48,8 +48,11 @@ endif
 CXX?=g++
 PROGNAME=blackvoxel
 CXXFLAGS+=-I "src/sc_Squirrel3/include"  -DCOMPILEOPTION_DEMO=0 -DDEVELOPPEMENT_ON=0 -DCOMPILEOPTION_SPECIAL=0 -DCOMPILEOPTION_DATAFILESPATH="\"$(BV_DATA_LOCATION_DIR)\""
-SRC= $(wildcard src/*.cpp) $(wildcard src/z/*.cpp)
-OBJ= $(SRC:src/%.cpp=obj/%.o)
+SRC := $(wildcard src/*.cpp) $(wildcard src/z/*.cpp)
+OBJ := $(patsubst src/%.cpp,obj/%.o,$(SRC))
+DEP := $(patsubst src/%.cpp,obj/%.d,$(SRC))
+
+# WARNING := -Wall -Wextra
 
 # Operating system and architecture detection
 
@@ -80,20 +83,15 @@ else
   endif
 endif
 
-
-obj/%.o: src/%.cpp
-	@mkdir -p obj/z
-	$(CXX) -o $@ -c $< $(CXXFLAGS) 
-
 all: $(PROGNAME)
 
-$(PROGNAME): $(OBJ) squirrel
-	$(CXX) -o $(PROGNAME) $(OBJ) $(LDFLAGS)
+$(PROGNAME): $(OBJ) src/sc_Squirrel3/lib/libsquirrel.a
+	$(CXX) $(WARNING) -o $(PROGNAME) $(OBJ) $(LDFLAGS) 
 
 installable: BV_DATA_LOCATION_DIR=$(BV_DATA_INSTALL_DIR)
 installable: all
 
-squirrel: 
+src/sc_Squirrel3/lib/libsquirrel.a: 
 	cd src/sc_Squirrel3 ; $(MAKE) sq$(CPU_BITS)
 
 clean:
@@ -190,3 +188,9 @@ debian_binary_package_install:
 	chmod -R u=rwX,g=rX,o=rX $(DESTDIR)/usr/share/applications/blackvoxel.desktop
 	
 .PHONY: clean mrproper squirrel install debian_binary_package_install
+
+-include $(DEP)
+
+obj/%.o: src/%.cpp Makefile
+	@mkdir -p obj/z
+	$(CXX) $(WARNING) $(CXXFLAGS) -MMD -MP -c $< -o $@ 
