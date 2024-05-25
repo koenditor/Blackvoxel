@@ -98,7 +98,6 @@ squirrel:
 
 clean:
 	@rm -rf obj
-	@cd src/sc_Squirrel3 ; $(MAKE) clean
 	@rm -f $(PROGNAME)
 
 mrproper: clean

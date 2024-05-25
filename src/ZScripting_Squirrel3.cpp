@@ -67,7 +67,7 @@ extern ZGame * Ge;
 class ZStoreSq3
 {
   public:
-    ZStoreSq3() {GameEnv=Ge; Allow_WorldManipulations = false; v=0; VoxelPosition = 0; HasMoved = false; Extension = 0;LaunchContext=0;}
+    ZStoreSq3() {GameEnv=Ge; Allow_WorldManipulations = false; v=0; VoxelPosition = 0; HasMoved = false; Extension = 0;LaunchContext=0; Running=0; }
     HSQUIRRELVM v;
     ZGame * GameEnv;
     ZVoxelExtension_Programmable * Extension;
@@ -75,6 +75,7 @@ class ZStoreSq3
     bool HasMoved;
     ULong LaunchContext;
     ZVector3L VoxelPosition;
+    bool Running;
 };
 
 void printfunc(HSQUIRRELVM v,const SQChar *s,...)
@@ -2803,7 +2804,7 @@ void ZScripting_Squirrel3::RunScript(const char * FunctionName, bool AllowWorldM
     sq_pushroottable(S->v); //pushes the global table
     sq_pushstring(S->v,_SC(FunctionName),-1);
 
-    sq_setrunning(S->v,true); // Personnallized Squirrel function
+    S->Running = true;
     if(SQ_SUCCEEDED(sq_get(S->v,-2))) { //gets the field 'foo' from the global table
             sq_pushroottable(S->v); //push the 'this' (in this case is the global table)
             // sq_pushinteger(S->v,n);
@@ -2812,7 +2813,7 @@ void ZScripting_Squirrel3::RunScript(const char * FunctionName, bool AllowWorldM
             sq_call(S->v,1,SQFalse,SQTrue); //calls the function
     }
     sq_settop(S->v,top); //restores the original stack size
-    sq_setrunning(S->v,false);
+    S->Running = false;
 }
 
 void ZScripting_Squirrel3::StopProgram()
@@ -2821,7 +2822,10 @@ void ZScripting_Squirrel3::StopProgram()
 
   if (!S) return;
   if (!S->v) return;
-  if (sq_isrunningprog(S->v)) sq_stoprunningprog(S->v);
+  if (S->Running){
+    Cleanup();
+    Init();
+  }
 }
 
 bool ZScripting_Squirrel3::IsRunningProgram()
@@ -2830,7 +2834,7 @@ bool ZScripting_Squirrel3::IsRunningProgram()
 
   if (!S) return(false);
   if (!S->v) return(false);
-  return(sq_isrunningprog(S->v));
+  return(S->Running);
 }
 
 bool ZScripting_Squirrel3::LoadAndCompileScript()
