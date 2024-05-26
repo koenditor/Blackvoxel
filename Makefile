@@ -47,7 +47,7 @@ endif
 # Base options
 CXX := g++
 PROGNAME :=blackvoxel
-CXXFLAGS +=-I "src/sc_Squirrel3/include"  -DCOMPILEOPTION_DEMO=0 -DDEVELOPPEMENT_ON=0 -DCOMPILEOPTION_SPECIAL=0 -DCOMPILEOPTION_DATAFILESPATH="\"$(BV_DATA_LOCATION_DIR)\""
+CXXFLAGS +=-O2 -I "src/sc_Squirrel3/include"  -DCOMPILEOPTION_DEMO=0 -DDEVELOPPEMENT_ON=0 -DCOMPILEOPTION_SPECIAL=0 -DCOMPILEOPTION_DATAFILESPATH="\"$(BV_DATA_LOCATION_DIR)\""
 SRC := $(wildcard src/*.cpp) $(wildcard src/z/*.cpp)
 OBJ := $(patsubst src/%.cpp,obj/%.o,$(SRC))
 DEP := $(patsubst src/%.cpp,obj/%.d,$(SRC))
