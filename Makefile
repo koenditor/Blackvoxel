@@ -47,7 +47,7 @@ endif
 # Base options
 CXX := g++
 PROGNAME :=blackvoxel
-CXXFLAGS +=-O2 -I "src/sc_Squirrel3/include"  -DCOMPILEOPTION_DEMO=0 -DDEVELOPPEMENT_ON=0 -DCOMPILEOPTION_SPECIAL=0 -DCOMPILEOPTION_DATAFILESPATH="\"$(BV_DATA_LOCATION_DIR)\""
+CXXFLAGS +=-O2 -I "squirrel/include"  -DCOMPILEOPTION_DEMO=0 -DDEVELOPPEMENT_ON=0 -DCOMPILEOPTION_SPECIAL=0 -DCOMPILEOPTION_DATAFILESPATH="\"$(BV_DATA_LOCATION_DIR)\""
 SRC := $(wildcard src/*.cpp) $(wildcard src/z/*.cpp)
 OBJ := $(patsubst src/%.cpp,obj/%.o,$(SRC))
 DEP := $(patsubst src/%.cpp,obj/%.d,$(SRC))
@@ -65,7 +65,7 @@ WARNING += -Wno-unused-parameter -Wno-maybe-uninitialized
 ifeq ($(OS),Windows_NT)
   CPU_BITS=32
   CXXFLAGS+= -O3 -c -fmessage-length=0 -march=i686
-  LDFLAGS+= -s -Xlinker --large-address-aware -mwindows -L"src/sc_Squirrel3/lib" -lmingw32 -lSDL2main -lSDL2 -llibglew32 -lglu32 -lopengl32 -llibglut -lsquirrel -lsqstdlib
+  LDFLAGS+= -s -Xlinker --large-address-aware -mwindows -L"squirrel/lib" -lmingw32 -lSDL2main -lSDL2 -llibglew32 -lglu32 -lopengl32 -llibglut -lsquirrel -lsqstdlib
 else
   # Unix like operating systems
   CPU_BITS= $(shell getconf LONG_BIT)
@@ -74,31 +74,31 @@ else
 
   ifeq ($(KERNELNAME),Linux)
     CXXFLAGS+= -O3 -c -fmessage-length=0
-    LDFLAGS+=-s -zrelro -L"src/sc_Squirrel3/lib" -lGLU -lSDL2 -lGLEW -lGL -lsquirrel -lsqstdlib
+    LDFLAGS+=-s -zrelro -L"squirrel/lib" -lGLU -lSDL2 -lGLEW -lGL -lsquirrel -lsqstdlib
   else ifeq ($(KERNELNAME), FreeBSD)
     # To be done...
     CXXFLAGS+= -O3 -c -fmessage-length=0
-    LDFLAGS+=-s -L"src/sc_Squirrel3/lib" -lGLU -lSDL2 -lGLEW -lGL -lsquirrel -lsqstdlib
+    LDFLAGS+=-s -L"squirrel/lib" -lGLU -lSDL2 -lGLEW -lGL -lsquirrel -lsqstdlib
   else ifeq ($(KERNELNAME), Darwin)
     CXXFLAGS+= -O3 -c -fmessage-length=0
-    LDFLAGS+=-s -L"src/sc_Squirrel3/lib" -L"/usr/local/Cellar/glew" -L"/usr/local/Cellar/sdl2" -I"/usr/local/Cellar/glew" -I"/usr/local/Cellar/sdl2" -framework Cocoa -framework OpenGL -lSDL2main -lSDL2 -lGLEW -lsquirrel -lsqstdlib
+    LDFLAGS+=-s -L"squirrel/lib" -L"/usr/local/Cellar/glew" -L"/usr/local/Cellar/sdl2" -I"/usr/local/Cellar/glew" -I"/usr/local/Cellar/sdl2" -framework Cocoa -framework OpenGL -lSDL2main -lSDL2 -lGLEW -lsquirrel -lsqstdlib
   else
     # Unknow kernel... trying default flags
     CXXFLAGS+= -O3 -c -fmessage-length=0
-    LDFLAGS+=-s -L"src/sc_Squirrel3/lib" -lGLU -lSDL2 -lGLEW -lGL -lsquirrel -lsqstdlib
+    LDFLAGS+=-s -L"squirrel/lib" -lGLU -lSDL2 -lGLEW -lGL -lsquirrel -lsqstdlib
   endif
 endif
 
 all: $(PROGNAME)
 
-$(PROGNAME): $(OBJ) src/sc_Squirrel3/lib/libsquirrel.a
+$(PROGNAME): $(OBJ) squirrel/lib/libsquirrel.a
 	@$(CXX) $(WARNING) -o $(PROGNAME) $(OBJ) $(LDFLAGS) 
 
 installable: BV_DATA_LOCATION_DIR=$(BV_DATA_INSTALL_DIR)
 installable: all
 
-src/sc_Squirrel3/lib/libsquirrel.a: 
-	cd src/sc_Squirrel3 ; $(MAKE) sq$(CPU_BITS)
+squirrel/lib/libsquirrel.a: 
+	cd squirrel ; $(MAKE) sq$(CPU_BITS)
 
 clean:
 	@rm -rf obj
