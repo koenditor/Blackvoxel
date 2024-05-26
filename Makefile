@@ -45,14 +45,20 @@ override BV_DATA_INSTALL_DIR:="$(DESTDIR)$(BV_DATA_INSTALL_DIR)"
 endif
 
 # Base options
-CXX?=g++
-PROGNAME=blackvoxel
-CXXFLAGS+=-I "src/sc_Squirrel3/include"  -DCOMPILEOPTION_DEMO=0 -DDEVELOPPEMENT_ON=0 -DCOMPILEOPTION_SPECIAL=0 -DCOMPILEOPTION_DATAFILESPATH="\"$(BV_DATA_LOCATION_DIR)\""
+CXX := g++
+PROGNAME :=blackvoxel
+CXXFLAGS +=-I "src/sc_Squirrel3/include"  -DCOMPILEOPTION_DEMO=0 -DDEVELOPPEMENT_ON=0 -DCOMPILEOPTION_SPECIAL=0 -DCOMPILEOPTION_DATAFILESPATH="\"$(BV_DATA_LOCATION_DIR)\""
 SRC := $(wildcard src/*.cpp) $(wildcard src/z/*.cpp)
 OBJ := $(patsubst src/%.cpp,obj/%.o,$(SRC))
 DEP := $(patsubst src/%.cpp,obj/%.d,$(SRC))
 
-# WARNING := -Wall -Wextra
+WARNING := -Wall -Wextra -Wduplicated-cond -Wduplicated-branches -Wlogical-op -Wrestrict -Wunused-function -Werror
+
+# TODO: add these
+#WARNING += -Wformat=2 -Wnull-dereference -Wold-style-cast -Wshadow -Wuseless-cast -Wdouble-promotion
+
+# TODO: remove these
+WARNING += -Wno-unused-parameter -Wno-maybe-uninitialized
 
 # Operating system and architecture detection
 
@@ -86,7 +92,7 @@ endif
 all: $(PROGNAME)
 
 $(PROGNAME): $(OBJ) src/sc_Squirrel3/lib/libsquirrel.a
-	$(CXX) $(WARNING) -o $(PROGNAME) $(OBJ) $(LDFLAGS) 
+	@$(CXX) $(WARNING) -o $(PROGNAME) $(OBJ) $(LDFLAGS) 
 
 installable: BV_DATA_LOCATION_DIR=$(BV_DATA_INSTALL_DIR)
 installable: all
@@ -193,4 +199,4 @@ debian_binary_package_install:
 
 obj/%.o: src/%.cpp Makefile
 	@mkdir -p obj/z
-	$(CXX) $(WARNING) $(CXXFLAGS) -MMD -MP -c $< -o $@ 
+	@$(CXX) $(WARNING) $(CXXFLAGS) -MMD -MP -c $< -o $@ 
