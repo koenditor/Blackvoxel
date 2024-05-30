@@ -121,8 +121,8 @@ class ZSectorModifTracker
 
     inline bool Get(ULong Index)
     {
-      register UByte Remain;
-      register ULong Offset;
+      UByte Remain;
+      ULong Offset;
 
       if (LastUpdateCycleNum != ActualCycleNum) return(false);
 

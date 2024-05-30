@@ -123,7 +123,7 @@ class ZVoxelExtension_FusionElement : public ZVoxelExtension
     double Seuil = 0.001;
 
     ULong i;
-    register double m;
+    double m;
 
     for (i=0;i<Material_MaxQuantity;i++)
     {

@@ -258,7 +258,7 @@ class ZVMachine_T1 : public ZVMachine
    {
      if (!(Address >> 31))
      {
-       register ZMemSize a;
+       ZMemSize a;
        a = (ZMemSize)& Memory;
        a += (Address & (ZVMACHINE_MEMSIZE-1));
        return(*(ULong *)a);
@@ -278,7 +278,7 @@ class ZVMachine_T1 : public ZVMachine
    {
      if (!(Address >> 31))
      {
-       register ZMemSize a;
+       ZMemSize a;
        a = (ZMemSize)& Memory;
        a += (Address & (ZVMACHINE_MEMSIZE-1));
        *(ULong *)a = Data;

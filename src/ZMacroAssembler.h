@@ -712,7 +712,7 @@ class ZMacroAssembler
 
   bool inline ExpectRegisterOnToken(AssemblyData * Asd, ZParser_Token & Token_Register, ULong & Register)
   {
-    // Ensure token is a register number.
+    // Ensure token is a number.
 
     if (   Token_Register.TokenType != ZParser_Token::TK_KEYWORD
         || Token_Register.KeyWordId < KW_REG_R0
@@ -723,7 +723,7 @@ class ZMacroAssembler
       return(false);
     }
 
-    // Convert token to register number
+    // Convert token to number
 
     Register = Token_Register.KeyWordId - KW_REG_R0;
 

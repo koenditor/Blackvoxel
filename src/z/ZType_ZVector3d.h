@@ -286,7 +286,7 @@ class ZVector3d
 
   inline double Distance(ZVector3d & SecondPoint)
   {
-    register double t1,t2;
+    double t1,t2;
 
     t1 = SecondPoint.x - x;
     t2 = t1 * t1;
@@ -365,7 +365,7 @@ class ZVector3d
 
   inline void Transform( ZTransformParam * FastParam )
   {
-    register double xp1,zp1,yp1;
+    double xp1,zp1,yp1;
 
     x += FastParam->Translate_x;
     y += FastParam->Translate_y;

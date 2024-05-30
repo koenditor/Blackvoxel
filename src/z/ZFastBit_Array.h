@@ -75,8 +75,8 @@ class ZFastBit_Array
 
     inline void Set(ZMemSize Index, bool Data)
     {
-      register UByte Remain;
-      register ZMemSize Offset;
+      UByte Remain;
+      ZMemSize Offset;
       Remain = Index;
       Offset = Index >> 5;
       Remain &= 0x1f;
@@ -89,8 +89,8 @@ class ZFastBit_Array
 
     inline bool Get(ZMemSize Index)
     {
-      register UByte Remain;
-      register ZMemSize Offset;
+      UByte Remain;
+      ZMemSize Offset;
       Remain = Index;
       Offset = Index >> 5;
 #if COMPILEOPTION_BOUNDCHECKINGSLOW==1
@@ -142,8 +142,8 @@ class ZFastBit_Array_64k
 
     inline bool Get(UShort Index)
     {
-      register UByte Remain;
-      register ULong Offset;
+      UByte Remain;
+      ULong Offset;
       Remain = Index;
       Offset = Index >> 5;
       Remain &= 0x1f;

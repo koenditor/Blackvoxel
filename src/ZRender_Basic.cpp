@@ -1145,7 +1145,7 @@ void ZRender_Basic::MakeSectorRenderingData_Sorted(ZVoxelSector * Sector)
 
       for (i=0;i<RenderBucket->VoxelCount;i++)
       {
-        register ULong Pck;
+        ULong Pck;
 
         // Gettint Voxel Informations from the table.
 

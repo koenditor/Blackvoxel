@@ -116,7 +116,7 @@ class ZRender_Sorter
       Bucket = BucketHash[VoxelType].Bucket;
     }
 
-    register ULong PackedInfos;
+    ULong PackedInfos;
 
     PackedInfos =  ( ( ( ( (x << 8) | y) << 8) | z) << 8 ) | CullingInfos;
     Bucket->RenderTable[Bucket->VoxelCount++].PackedInfos = PackedInfos;
@@ -126,7 +126,7 @@ class ZRender_Sorter
 
   void ProcessSector(ZVoxelSector * Sector)
   {
-    register ULong x,y,z, Offset;
+    ULong x,y,z, Offset;
 
     Start();
 

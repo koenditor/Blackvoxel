@@ -188,7 +188,7 @@ class ZVector3B
 
   inline double Distance( const ZVector3B & Vec3B ) const
   {
-    register double dist, tmp;
+    double dist, tmp;
     tmp = (double)(x-Vec3B.x);
     dist = tmp*tmp;
     tmp = (double)(y-Vec3B.y);

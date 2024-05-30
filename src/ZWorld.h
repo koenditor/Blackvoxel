@@ -255,7 +255,7 @@ class ZVoxelWorld : public ZObject
             NewSector->Data[Offset]        = Loc.Sector->Data[Loc.Offset];
             if (VoxelTypeManager->VoxelTable[ Loc.Sector->Data[Loc.Offset] ]->Is_HasAllocatedMemoryExtension)
             {
-              register ZVoxelExtension * Extension;
+              ZVoxelExtension * Extension;
 
               Extension = (ZVoxelExtension *) Loc.Sector->OtherInfos[Loc.Offset];
               NewSector->OtherInfos[Offset] = (ZMemSize)Extension->GetNewCopy();

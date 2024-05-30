@@ -413,8 +413,8 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
 {
   Long x,y,z;
 
-  // register ULong MainOffset asm ("r8");
-  register ULong MainOffset;
+  // ULong MainOffset asm ("r8");
+  ULong MainOffset;
   UShort VoxelType;
   ZVoxelSector * SectorTable[64];
   ZVoxelSector * Sector;
@@ -480,7 +480,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
           }
 
       // Make the sector table
-      register UShort * DisplayData, * VoxelP;
+      UShort * DisplayData, * VoxelP;
       VoxelP = DisplayData = Sector->Data;
       ZFastBit_Array_64k * ActiveTable = VoxelTypeManager->ActiveTable;
       bool                 IsActiveVoxels = false;
@@ -511,8 +511,8 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             ULong i;
                             for(i=0;i<5;i++)
                             {
-                              register Long cx,cy,cz;
-                              register ULong SecondaryOffset;
+                              Long cx,cy,cz;
+                              ULong SecondaryOffset;
 
                               cx = x+bp6[i].x; cy = y+bp6[i].y; cz = z+bp6[i].z;
                               SecondaryOffset = If_x[cx]+If_y[cy]+If_z[cz];
@@ -541,7 +541,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             ULong SecondaryOffset[32];
                             ULong i,vCount,j;
                             bool  DirEn[4];
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
 
                             // Test if we can fall downward
                               i=0;
@@ -589,7 +589,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             ULong SecondaryOffset[32];
                             ULong i,vCount,WaveCount,j;
                             bool  DirEn[4],WaveDirEn[4];
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
 
                             // Test if we can fall downward
                               i=0;
@@ -677,7 +677,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                               ULong SecondaryOffset[32];
                               ULong i,j, FallCount,SnoopCount, GrindCount;
                               bool  FallEn[4],SnoopEn[4],GrindEn[6];
-                              register Long cx,cy,cz;
+                              Long cx,cy,cz;
                               ZVoxelLocation Location;
 
                               // Test if we can fall downward
@@ -789,7 +789,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             ULong SecondaryOffset[32];
                             ULong i;
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
 
                             // Test if we can fall downward
                               i=0;
@@ -814,7 +814,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             ULong SecondaryOffset[32];
                             ULong i;
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
 
                               i=0;
                               cx = x+1 ; cy = y+1 ; cz = z+1;
@@ -845,7 +845,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                               ULong SecondaryOffset[32];
                               ULong i,j, MoveCount;
                               bool  MoveEn[6];
-                              register Long cx,cy,cz;
+                              Long cx,cy,cz;
 
                               // If it reaches end of life destroy it...
 
@@ -890,8 +890,8 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             ZVoxelSector * St[32];
                             UShort * Vp[32];
                             ULong i,vCount,j;
-                            register Long cx,cy,cz;
-                            register ULong SecondaryOffset;
+                            Long cx,cy,cz;
+                            ULong SecondaryOffset;
                             // Test if we can fall downward
                               i=0;
                               cx = x+1 ; cy = y ; cz = z+1; SecondaryOffset = If_x[cx]+If_y[cy]+If_z[cz];St[i] = SectorTable[ Of_x[cx] + Of_y[cy] + Of_z[cz] ]; Vp[i] = &St[i]->Data[ SecondaryOffset ];
@@ -925,7 +925,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                               UShort * Vp[32];
                               ULong SecondaryOffset[32];
                               ULong i, TriggerCount;
-                              register Long cx,cy,cz;
+                              Long cx,cy,cz;
                               ZVoxelLocation VxLoc;
 
                               Short BlastPower = 30;
@@ -957,7 +957,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                               ULong SecondaryOffset[32];
                               ULong i,j, MoveCount;
                               bool  MoveEn[6];
-                              register Long cx,cy,cz;
+                              Long cx,cy,cz;
 
                               Short BlastPower;
                               UShort LifeTime;
@@ -1012,7 +1012,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             ULong SecondaryOffset[32];
                             ULong i;
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
 
                               i=0;
                               cx = x+1 ; cy = y ; cz = z+1; SecondaryOffset[i] = If_x[cx]+If_y[cy]+If_z[cz];St[i] = SectorTable[ Of_x[cx] + Of_y[cy] + Of_z[cz] ]; Vp[i] = &St[i]->Data[ SecondaryOffset[i] ];
@@ -1047,7 +1047,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             ZVoxelLocation VInfo;
 
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
 
                             Pumpable_Count = Pushable_Count = 0;
                             for(i=0;i<6;i++)
@@ -1087,7 +1087,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             ZVoxelLocation VInfo;
 
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
 
                             Pumpable_Count = Pushable_Count = 0;
                             for(i=0;i<6;i++)
@@ -1127,7 +1127,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             ZVoxelLocation VInfo;
 
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
 
                             for(i=0;i<6;i++)
                             {
@@ -1167,7 +1167,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             UShort VoxelType2, VoxelType3;
 
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
 
 
                             for(i=0;i<6;i++)
@@ -1234,7 +1234,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             UShort * Vp[2];
                             ULong SecondaryOffset[2];
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
                             ULong i;
                             Long Vx,Vy,Vz;
                             Vx = RSx+x; Vy = RSy+y; Vz = RSz+z;
@@ -1274,7 +1274,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             UShort * Vp[2];
                             ULong SecondaryOffset[2];
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
                             ULong i;
                             Long Vx,Vy,Vz;
                             Vx = RSx+x; Vy = RSy+y; Vz = RSz+z;
@@ -1314,7 +1314,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             UShort * Vp[2];
                             ULong SecondaryOffset[2];
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
                             ULong i;
                             Long Vx,Vy,Vz;
                             Vx = RSx+x; Vy = RSy+y; Vz = RSz+z;
@@ -1354,7 +1354,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             UShort * Vp[2];
                             ULong SecondaryOffset[2];
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
                             ULong i;
                             Long Vx,Vy,Vz;
                             Vx = RSx+x; Vy = RSy+y; Vz = RSz+z;
@@ -1396,7 +1396,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             UShort VoxelType2;
                             ZVoxelExtension_MotherMachine * Ext;
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
 
                             Ext = (ZVoxelExtension_MotherMachine *)Sector->OtherInfos[MainOffset];
                             switch (Ext->MachineState )
@@ -1532,7 +1532,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             //
 
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
                             Ext = (ZVoxelExtension_FabMachine *)Sector->OtherInfos[MainOffset];
                             Fab = VoxelTypeManager->VoxelTable[VoxelType]->FabInfos;
                             for (bool Reloop = true; Reloop;)
@@ -1736,7 +1736,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             Ext = (ZVoxelExtension_BlastFurnace *)Sector->OtherInfos[MainOffset];
 
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
                             bool Cont;
 
                             for (i=0, Cont=true; i<6 && Cont ; i++)
@@ -1897,7 +1897,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                      ULong SecondaryOffset[32];
                      ULong i,vCount,j;
                      bool  DirEn[4], GetOut;
-                     register Long cx,cy,cz;
+                     Long cx,cy,cz;
 
                      ZVoxelExtension_FusionElement * Ext, * Ext2;
                      Ext = (ZVoxelExtension_FusionElement *)Sector->OtherInfos[MainOffset];
@@ -2039,7 +2039,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                                ZGenericTable<UShort,ZVoxelExtension_Sequencer::Input_NumSlots> AllowedVoxels;
                                ULong NeededQuantity[ZVoxelExtension_Sequencer::Input_NumSlots];
 
-                               register Long cx,cy,cz;
+                               Long cx,cy,cz;
 
                                Ext = (ZVoxelExtension_Sequencer *)Sector->OtherInfos[MainOffset];
 
@@ -2493,7 +2493,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                              {
                                if (Ext->EvasionCount < 5 || *Vp[0] == 213)
                                {
-                                 // register ULong Rnd = Random.GetNumber();
+                                 // ULong Rnd = Random.GetNumber();
                                  Ext->TargetLocation = VoxelCoords;
 /*
                                  Ext->TargetLocation.x +=  (Rnd & 0x1F) - 16;
@@ -2631,7 +2631,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             UShort * Vp[2];
                             ULong SecondaryOffset[2];
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
                             ULong i;
                             Long Vx,Vy,Vz;
                             Vx = RSx+x; Vy = RSy+y; Vz = RSz+z;
@@ -2671,7 +2671,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             UShort * Vp[2];
                             ULong SecondaryOffset[2];
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
                             ULong i;
                             Long Vx,Vy,Vz;
                             Vx = RSx+x; Vy = RSy+y; Vz = RSz+z;
@@ -2711,7 +2711,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             UShort * Vp[2];
                             ULong SecondaryOffset[2];
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
                             ULong i;
                             Long Vx,Vy,Vz;
                             Vx = RSx+x; Vy = RSy+y; Vz = RSz+z;
@@ -2751,7 +2751,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             UShort * Vp[2];
                             ULong SecondaryOffset[2];
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
                             ULong i;
                             Long Vx,Vy,Vz;
                             Vx = RSx+x; Vy = RSy+y; Vz = RSz+z;
@@ -2796,7 +2796,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             UShort VoxelType2, VoxelType3;
 
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
 
                             if (CycleNum & 15) break;
                             for(i=0;i<6;i++)
@@ -2855,7 +2855,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             ZVoxelLocation VInfo;
 
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
                             if (CycleNum & 15) break;
                             for(i=0;i<6;i++)
                             {
@@ -2898,7 +2898,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             ZVoxelLocation VInfo;
 
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
 
                             if (CycleNum & 31) break;
                             Pumpable_Count = Pushable_Count = 0;
@@ -2940,7 +2940,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             UShort WonVoxelType;
 
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
 
                             Pushable_Count = 0;
 
@@ -2982,7 +2982,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                               ULong SecondaryOffset[32];
                               ULong i,j, FallCount,SnoopCount, GrindCount;
                               bool  FallEn[4],SnoopEn[4],GrindEn[6];
-                              register Long cx,cy,cz;
+                              Long cx,cy,cz;
                               ZVoxelLocation Location;
 
                               // Test if we can fall downward
@@ -3110,7 +3110,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             EgmyWaveManager.ReportObjective(&Vc, VoxelType);
                             //
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
                             Ext = (ZVoxelExtension_FabMachine2 *)Sector->OtherInfos[MainOffset];
                             Fab = VoxelTypeManager->VoxelTable[VoxelType]->FabInfos2;
                             for (bool Reloop = true; Reloop;)
@@ -3265,7 +3265,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             UShort Voxel;
                             ULong Offset;
 
-                            register Long cx,cy,cz;
+                            Long cx,cy,cz;
 
                             // Work only on 1/16 of the cycles (slow run)
                             //if ((CycleNum ^ x ^ y) & 15) break;

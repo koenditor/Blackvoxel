@@ -140,7 +140,7 @@ class ZSound
     {
       ULong i, Len;
       Short * Samples;
-      register double Dat;
+      double Dat;
 
       if (!SoundBank[SoundNum].Used) return;
       Len = SoundBank[SoundNum].SoundLen >> 1;

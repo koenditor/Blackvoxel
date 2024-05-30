@@ -46,7 +46,7 @@ class ZSpinLock
 
   void GetLock()
   {
-    register ZMemSize i;
+    ZMemSize i;
 
     while(true)
     {

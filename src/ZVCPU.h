@@ -262,7 +262,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
               RegisterName<<"R"<<RegisterNum;
               RegisterValue.Append_BinaryNumber_ULong(GeneralRegister[RegisterNum].Reg_ULong);
               return(true);
-      case 17:// Status register in binary format
+      case 17:// Status in binary format
               RegisterName << "....IIII..........SSRRRR....CVNZ";
               RegisterValue.Append_BinaryNumber_ULong(StatusRegister.WholeRegister);
               return(true);
@@ -536,9 +536,9 @@ class BlackCPU : public ZVCPU_Chip_Interface
   void Execute(ULong CycleCount)
   {
     ULong CycleLimit;
-    register UByte Opcode;
-    register int Op1,Op2;
-    register ZStatusRegister Status;
+    UByte Opcode;
+    int Op1,Op2;
+    ZStatusRegister Status;
     int i;
     ULong ChipManagementCycleGranularity = 50, ChipManagementCount;
     
@@ -575,7 +575,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
 
         if (Interrupt_Pending)
         {
-          register int NumInt;
+          int NumInt;
           NumInt = 32 - __builtin_clz(Interrupt_Pending);
           if (NumInt > Status.Flags.InterruptLevel)
           {
@@ -701,8 +701,8 @@ class BlackCPU : public ZVCPU_Chip_Interface
 
           case OPCODE_MOVE_REG_INDDEP_B: // move.b reg, displacement(register)
                                         {
-                                          register ULong Address;
-                                          register UByte Value;
+                                          ULong Address;
+                                          UByte Value;
                                           Op1 = FetchOperand_8(ProgramCounter++); // Register
                                           Op2 = FetchOperand_16(ProgramCounter); ProgramCounter+=2;
                                           Address = GeneralRegister[Status.Flags.LastReg = Op1 & 0x0f].Reg_ULargest + (ULong)((Long)((Short)Op2));
@@ -715,8 +715,8 @@ class BlackCPU : public ZVCPU_Chip_Interface
 
           case OPCODE_MOVE_REG_INDDEP_W: // move.w reg, displacement(register)
                                         {
-                                          register ULong Address;
-                                          register UShort Value;
+                                          ULong Address;
+                                          UShort Value;
                                           Op1 = FetchOperand_8(ProgramCounter++); // Register
                                           Op2 = FetchOperand_16(ProgramCounter); ProgramCounter+=2;
                                           Address = GeneralRegister[Status.Flags.LastReg = Op1 & 0x0f].Reg_ULargest + (ULong)((Long)((Short)Op2));
@@ -730,8 +730,8 @@ class BlackCPU : public ZVCPU_Chip_Interface
 
           case OPCODE_MOVE_REG_INDDEP_L: // move.l reg, displacement(register)
                                         {
-                                          register ULong Address;
-                                          register ULong Value;
+                                          ULong Address;
+                                          ULong Value;
                                           Op1 = FetchOperand_8(ProgramCounter++); // Register
                                           Op2 = FetchOperand_16(ProgramCounter); ProgramCounter+=2;
                                           Address = GeneralRegister[Status.Flags.LastReg = Op1 & 0x0f].Reg_ULargest + (ULong)((Long)((Short)Op2));
@@ -745,8 +745,8 @@ class BlackCPU : public ZVCPU_Chip_Interface
 
           case OPCODE_MOVE_INDDEP_REG_B: // move.b displacement(register), reg
                                         {
-                                          register ULong Address;
-                                          register UByte Value;
+                                          ULong Address;
+                                          UByte Value;
                                           Op1 = FetchOperand_8(ProgramCounter++); // Register
                                           Op2 = FetchOperand_16(ProgramCounter); ProgramCounter+=2;
                                           Address = GeneralRegister[Status.Flags.LastReg = (Op1&0xf0)>>4].Reg_ULargest + (ULong)((Long)((Short)Op2));
@@ -759,8 +759,8 @@ class BlackCPU : public ZVCPU_Chip_Interface
 
           case OPCODE_MOVE_INDDEP_REG_W: // move.w displacement(register), reg
                                         {
-                                          register ULong Address;
-                                          register UShort Value;
+                                          ULong Address;
+                                          UShort Value;
                                           Op1 = FetchOperand_8(ProgramCounter++); // Register
                                           Op2 = FetchOperand_16(ProgramCounter); ProgramCounter+=2;
                                           Address = GeneralRegister[Status.Flags.LastReg = (Op1&0xf0)>>4].Reg_ULargest + (ULong)((Long)((Short)Op2));
@@ -774,8 +774,8 @@ class BlackCPU : public ZVCPU_Chip_Interface
 
           case OPCODE_MOVE_INDDEP_REG_L: // move.l displacement(register), reg
                                         {
-                                          register ULong Address;
-                                          register ULong Value;
+                                          ULong Address;
+                                          ULong Value;
                                           Op1 = FetchOperand_8(ProgramCounter++); // Register
                                           Op2 = FetchOperand_16(ProgramCounter); ProgramCounter+=2;
                                           Address = GeneralRegister[Status.Flags.LastReg = (Op1&0xf0)>>4].Reg_ULargest + (ULong)((Long)((Short)Op2));
@@ -789,9 +789,9 @@ class BlackCPU : public ZVCPU_Chip_Interface
 
           case OPCODE_MOVE_INDDEPOFF_REG_B: // move.b reg, displacement(register+register*x)
                                         {
-                                          register ULong Address;
-                                          register UByte Value;
-                                          register int   Op3;
+                                          ULong Address;
+                                          UByte Value;
+                                          int   Op3;
                                           Op1 = FetchOperand_8(ProgramCounter++); // Register
                                           Op3 = FetchOperand_8(ProgramCounter++); //
                                           Op2 = FetchOperand_16(ProgramCounter); ProgramCounter+=2;
@@ -811,9 +811,9 @@ class BlackCPU : public ZVCPU_Chip_Interface
 
           case OPCODE_MOVE_INDDEPOFF_REG_W: // move.w reg, displacement(register+register*x)
                                         {
-                                          register ULong Address;
-                                          register UByte Value;
-                                          register int   Op3;
+                                          ULong Address;
+                                          UByte Value;
+                                          int   Op3;
                                           Op1 = FetchOperand_8(ProgramCounter++); // Register
                                           Op3 = FetchOperand_8(ProgramCounter++);
                                           Op2 = FetchOperand_16(ProgramCounter); ProgramCounter+=2;
@@ -834,9 +834,9 @@ class BlackCPU : public ZVCPU_Chip_Interface
 
           case OPCODE_MOVE_INDDEPOFF_REG_L: // move.l reg, displacement(register+register*x)
                                         {
-                                          register ULong Address;
-                                          register UByte Value;
-                                          register int   Op3;
+                                          ULong Address;
+                                          UByte Value;
+                                          int   Op3;
                                           Op1 = FetchOperand_8(ProgramCounter++); // Register
                                           Op3 = FetchOperand_8(ProgramCounter++);
                                           Op2 = FetchOperand_16(ProgramCounter); ProgramCounter+=2;
@@ -857,9 +857,9 @@ class BlackCPU : public ZVCPU_Chip_Interface
 
           case OPCODE_MOVE_REG_INDDEPOFF_B: // move.b displacement(register+register*x), rx
                                         {
-                                          register ULong Address;
-                                          register UByte Value;
-                                          register int   Op3;
+                                          ULong Address;
+                                          UByte Value;
+                                          int   Op3;
                                           Op1 = FetchOperand_8(ProgramCounter++); // Register
                                           Op3 = FetchOperand_8(ProgramCounter++);
                                           Op2 = FetchOperand_16(ProgramCounter); ProgramCounter+=2;
@@ -880,9 +880,9 @@ class BlackCPU : public ZVCPU_Chip_Interface
 
           case OPCODE_MOVE_REG_INDDEPOFF_W: // move.w displacement(register+register*x), rx
                                         {
-                                          register ULong Address;
-                                          register UByte Value;
-                                          register int   Op3;
+                                          ULong Address;
+                                          UByte Value;
+                                          int   Op3;
                                           Op1 = FetchOperand_8(ProgramCounter++); // Register
                                           Op3 = FetchOperand_8(ProgramCounter++);
                                           Op2 = FetchOperand_16(ProgramCounter); ProgramCounter+=2;
@@ -898,9 +898,9 @@ class BlackCPU : public ZVCPU_Chip_Interface
 
           case OPCODE_MOVE_REG_INDDEPOFF_L: // move.l displacement(register+register*x), rx
                                         {
-                                          register ULong Address;
-                                          register UByte Value;
-                                          register int   Op3;
+                                          ULong Address;
+                                          UByte Value;
+                                          int   Op3;
                                           Op1 = FetchOperand_8(ProgramCounter++); // Register
                                           Op3 = FetchOperand_8(ProgramCounter++);
                                           Op2 = FetchOperand_16(ProgramCounter); ProgramCounter+=2;
@@ -986,7 +986,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
 
           case OPCODE_INC:              Op1 = FetchOperand_8(ProgramCounter++); // Register + Value
                                         {
-                                          register Long Data, OldData;
+                                          Long Data, OldData;
                                           OldData = GeneralRegister[Op1&0xf].Reg_ULargest;
                                           Data = GeneralRegister[Op1&0xf].Reg_ULargest+= (Op1 >> 4) + 1;
                                           Status.Flags.ZeroFlag     = !Data;
@@ -998,7 +998,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
                                         break;
           case OPCODE_DEC:              Op1 = FetchOperand_8(ProgramCounter++); // Register + Value
                                         {
-                                          register Long Data, OldData;
+                                          Long Data, OldData;
                                           OldData = GeneralRegister[Op1&0xf].Reg_ULargest;
                                           Data = GeneralRegister[Op1&0xf].Reg_ULargest-= (Op1 >> 4) + 1;
                                           Status.Flags.ZeroFlag     = !Data;
@@ -1009,7 +1009,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
                                         break;
 
           case OPCODE_INCLR:             {
-                                          register Long Data, OldData;
+                                          Long Data, OldData;
                                           OldData = GeneralRegister[Status.Flags.LastReg].Reg_ULargest;
                                           Data = (GeneralRegister[Status.Flags.LastReg & 0xf].Reg_ULargest) += (1 << (Status.Flags.LastReg >> 4));
                                           Status.Flags.ZeroFlag     = !Data;
@@ -1020,7 +1020,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
                                         break;
 
           case OPCODE_DECLR:             {
-                                          register Long Data, OldData;
+                                          Long Data, OldData;
                                           OldData = GeneralRegister[Status.Flags.LastReg].Reg_ULargest;
                                           Data = GeneralRegister[Status.Flags.LastReg & 0xf].Reg_ULargest-= (1 << (Status.Flags.LastReg >> 4));
                                           Status.Flags.ZeroFlag     = !Data;
@@ -1033,7 +1033,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
           case OPCODE_ADD_B:            // add.b reg,reg (No carry)
                                         Op1 = FetchOperand_8(ProgramCounter++); // Register
                                         {
-                                          register UByte D1,D2,D3;
+                                          UByte D1,D2,D3;
                                           D1 = GeneralRegister[(Op1&0xf0)>>4].Reg_UByte;
                                           D2 = GeneralRegister[Op1&0xf].Reg_UByte;
                                           D3 = D1+D2;
@@ -1049,7 +1049,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
           case OPCODE_ADD_W:            // add.w reg,reg (No carry)
                                         Op1 = FetchOperand_8(ProgramCounter++); // Register
                                         {
-                                          register UShort D1,D2,D3;
+                                          UShort D1,D2,D3;
                                           D1 = GeneralRegister[(Op1&0xf0)>>4].Reg_UWord;
                                           D2 = GeneralRegister[Op1&0xf].Reg_UWord;
                                           D3 = D1+D2;
@@ -1065,7 +1065,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
           case OPCODE_ADD_L:            // add.l reg,reg (No carry)
                                         Op1 = FetchOperand_8(ProgramCounter++); // Register
                                         {
-                                          register ULong D1,D2,D3;
+                                          ULong D1,D2,D3;
                                           D1 = GeneralRegister[(Op1&0xf0)>>4].Reg_ULong;
                                           D2 = GeneralRegister[Op1&0xf].Reg_ULong;
                                           D3 = D1+D2;
@@ -1081,7 +1081,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
           case OPCODE_SUB_B:            // sub.b reg,reg (No carry)
                                         Op1 = FetchOperand_8(ProgramCounter++); // Register
                                         {
-                                          register UByte D1,D2,D3;
+                                          UByte D1,D2,D3;
                                           D1 = GeneralRegister[(Op1&0xf0)>>4].Reg_UByte;
                                           D2 = GeneralRegister[Op1&0xf].Reg_UByte;
                                           D3 = D2-D1;
@@ -1097,7 +1097,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
           case OPCODE_SUB_W:            // sub.w reg,reg (No carry)
                                         Op1 = FetchOperand_8(ProgramCounter++); // Register
                                         {
-                                          register UShort D1,D2,D3;
+                                          UShort D1,D2,D3;
                                           D1 = GeneralRegister[(Op1&0xf0)>>4].Reg_UWord;
                                           D2 = GeneralRegister[Op1&0xf].Reg_UWord;
                                           D3 = D2-D1;
@@ -1113,7 +1113,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
           case OPCODE_SUB_L:            // sub.l reg,reg (No carry)
                                         Op1 = FetchOperand_8(ProgramCounter++); // Register
                                         {
-                                          register ULong D1,D2,D3;
+                                          ULong D1,D2,D3;
                                           D1 = GeneralRegister[(Op1&0xf0)>>4].Reg_ULong;
                                           D2 = GeneralRegister[Op1&0xf].Reg_ULong;
                                           D3 = D2-D1;
@@ -1262,7 +1262,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
           case OPCODE_ROL_B:            // rol.b reg,reg
                                         Op1 = FetchOperand_8(ProgramCounter++); // Register
                                         {
-                                          register bool Carry;
+                                          bool Carry;
                                           Carry = Status.Flags.CarryFlag;
                                           Status.Flags.CarryFlag = GeneralRegister[(Op1&0xf0)>>4].Reg_SByte < 0;
                                           Status_Test_ZN_8( GeneralRegister[(Op1&0xf0)>>4].Reg_UByte = GeneralRegister[(Op1&0xf0)].Reg_UByte >> GeneralRegister[Op1&0xf].Reg_UByte | (Carry ? 1:0)
@@ -1274,7 +1274,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
           case OPCODE_ROL_W:            // rol.w reg,reg
                                         Op1 = FetchOperand_8(ProgramCounter++); // Register
                                         {
-                                          register bool Carry;
+                                          bool Carry;
                                           Carry = Status.Flags.CarryFlag;
                                           Status.Flags.CarryFlag = GeneralRegister[(Op1&0xf0)>>4].Reg_SWord < 0;
                                           Status_Test_ZN_16( GeneralRegister[(Op1&0xf0)>>4].Reg_UWord = GeneralRegister[(Op1&0xf0)].Reg_UByte >> GeneralRegister[Op1&0xf].Reg_UByte | (Carry ? 1:0)
@@ -1286,7 +1286,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
           case OPCODE_ROL_L:            // rol.l reg,reg
                                         Op1 = FetchOperand_8(ProgramCounter++); // Register
                                         {
-                                          register bool Carry;
+                                          bool Carry;
                                           Carry = Status.Flags.CarryFlag;
                                           Status.Flags.CarryFlag = GeneralRegister[(Op1&0xf0)>>4].Reg_SLong < 0;
                                           Status_Test_ZN_32( GeneralRegister[(Op1&0xf0)>>4].Reg_ULong = GeneralRegister[(Op1&0xf0)].Reg_ULong >> GeneralRegister[Op1&0xf].Reg_UByte | (Carry ? 1:0)
@@ -1298,7 +1298,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
           case OPCODE_ROR_B:            // ror.b reg,reg
                                         Op1 = FetchOperand_8(ProgramCounter++); // Register
                                         {
-                                          register bool Carry;
+                                          bool Carry;
                                           Carry = Status.Flags.CarryFlag;
                                           Status.Flags.CarryFlag = GeneralRegister[(Op1&0xf0)>>4].Reg_SByte | 1;
                                           Status_Test_ZN_8( GeneralRegister[(Op1&0xf0)>>4].Reg_UByte = GeneralRegister[(Op1&0xf0)].Reg_UByte >> GeneralRegister[Op1&0xf].Reg_UByte | (Carry ? 1:0)
@@ -1310,7 +1310,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
           case OPCODE_ROR_W:            // ror.b reg,reg
                                         Op1 = FetchOperand_8(ProgramCounter++); // Register
                                         {
-                                          register bool Carry;
+                                          bool Carry;
                                           Carry = Status.Flags.CarryFlag;
                                           Status.Flags.CarryFlag = GeneralRegister[(Op1&0xf0)>>4].Reg_SWord | 1;
                                           Status_Test_ZN_16( GeneralRegister[(Op1&0xf0)>>4].Reg_UWord = GeneralRegister[(Op1&0xf0)].Reg_UWord >> GeneralRegister[Op1&0xf].Reg_UByte | (Carry ? 1:0)
@@ -1322,7 +1322,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
           case OPCODE_ROR_L:            // ror.b reg,reg
                                         Op1 = FetchOperand_8(ProgramCounter++); // Register
                                         {
-                                          register bool Carry;
+                                          bool Carry;
                                           Carry = Status.Flags.CarryFlag;
                                           Status.Flags.CarryFlag = GeneralRegister[(Op1&0xf0)>>4].Reg_SLong | 1;
                                           Status_Test_ZN_32( GeneralRegister[(Op1&0xf0)>>4].Reg_ULong = GeneralRegister[(Op1&0xf0)].Reg_ULong >> GeneralRegister[Op1&0xf].Reg_UByte | (Carry ? 1:0)
@@ -1392,7 +1392,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
           case OPCODE_CMP_B:            // cmp.b reg,reg
                                         Op1 = FetchOperand_8(ProgramCounter++); // Register
                                         {
-                                          register UByte D1,D2,D3;
+                                          UByte D1,D2,D3;
                                           D1 = GeneralRegister[(Op1&0xf0)>>4].Reg_UByte;
                                           D2 = GeneralRegister[Op1&0xf].Reg_UByte;
                                           D3 = D1-D2;
@@ -1408,7 +1408,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
           case OPCODE_CMP_W:            // cmp.w reg,reg
                                         Op1 = FetchOperand_8(ProgramCounter++); // Register
                                         {
-                                          register UShort D1,D2,D3;
+                                          UShort D1,D2,D3;
                                           D1 = GeneralRegister[(Op1&0xf0)>>4].Reg_UWord;
                                           D2 = GeneralRegister[Op1&0xf].Reg_UWord;
                                           D3 = D1-D2;
@@ -1423,7 +1423,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
           case OPCODE_CMP_L:            // cmp.l reg,reg
                                         Op1 = FetchOperand_8(ProgramCounter++); // Register
                                         {
-                                          register ULong D1,D2,D3;
+                                          ULong D1,D2,D3;
                                           D1 = GeneralRegister[(Op1&0xf0)>>4].Reg_ULong;
                                           D2 = GeneralRegister[Op1&0xf].Reg_ULong;
                                           D3 = D1-D2;
@@ -2745,27 +2745,27 @@ class BlackCPU : public ZVCPU_Chip_Interface
     Out << RegisterOpcode(Db, Fi,  8, 3, OPCODE_MOVE_IMM_B,     "OPCODE_MOVE_IMM_B",     "  XX", "move",    ".b",   "#_8BitsImmediateValue, rx", "0000DDDD IIIIIIII",          "Move  8 bit immediate value to register" );
     Out << RegisterOpcode(Db, Fi, 10, 4, OPCODE_MOVE_IMM_W,     "OPCODE_MOVE_IMM_W",     "  XX", "move",    ".w",   "#16BitsImmediateValue, rx", "0000DDDD IIIIIIII IIIIIIII", "Move 16 bit immediate value to register" );
     Out << RegisterOpcode(Db, Fi, 14, 6, OPCODE_MOVE_IMM_L,     "OPCODE_MOVE_IMM_L",     "  XX", "move",    ".l",   "#32BitsImmediateValue, rx", "0000DDDD IIIIIIII IIIIIIII IIIIIIII IIIIIIII", "Move 32 bits immediate value to register" );
-    Out << RegisterOpcode(Db, Fi,  8, 2, OPCODE_MOVE_IND_REG_B, "OPCODE_MOVE_IND_REG_B", "  XX", "move",    ".b",   "(ry),rx" , "SSSSDDDD", "Move 8 bits memory data pointed by source register to destination register" );
-    Out << RegisterOpcode(Db, Fi, 10, 2, OPCODE_MOVE_IND_REG_W, "OPCODE_MOVE_IND_REG_W", "  XX", "move",    ".w",   "(ry),rx" , "SSSSDDDD", "Move 16 bits memory data pointed by source register to destination register" );
-    Out << RegisterOpcode(Db, Fi, 14, 2, OPCODE_MOVE_IND_REG_L, "OPCODE_MOVE_IND_REG_L", "  XX", "move",    ".l",   "(ry),rx" , "SSSSDDDD", "Move 32 bits memory data pointed by source register to destination register" );
-    Out << RegisterOpcode(Db, Fi,  8, 2, OPCODE_MOVE_REG_IND_B, "OPCODE_MOVE_REG_IND_B", "  XX", "move",    ".b",   "ry,(rx)" , "SSSSDDDD", "Move  8 bits from source register to memory pointed by destination register" );
-    Out << RegisterOpcode(Db, Fi, 10, 2, OPCODE_MOVE_REG_IND_W, "OPCODE_MOVE_REG_IND_W", "  XX", "move",    ".w",   "ry,(rx)" , "SSSSDDDD", "Move 16 bits from source register to memory pointed by destination register" );
-    Out << RegisterOpcode(Db, Fi, 14, 2, OPCODE_MOVE_REG_IND_L, "OPCODE_MOVE_REG_IND_L", "  XX", "move",    ".l",   "ry,(rx)" , "SSSSDDDD", "Move 32 bits from source register to memory pointed by destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_MOVE_REG_REG_B, "OPCODE_MOVE_REG_REG_B", "  XX", "move",    ".b",   "ry,rx"   , "SSSSDDDD", "Move  8 bits from source register to destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_MOVE_REG_REG_W, "OPCODE_MOVE_REG_REG_W", "  XX", "move",    ".w",   "ry,rx"   , "SSSSDDDD", "Move 16 bits from source register to destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_MOVE_REG_REG_L, "OPCODE_MOVE_REG_REG_L", "  XX", "move",    ".l",   "ry,rx"   , "SSSSDDDD", "Move 32 bits from source register to destination register" );
-    Out << RegisterOpcode(Db, Fi, 10, 4, OPCODE_MOVE_REG_INDDEP_B, "OPCODE_MOVE_REG_INDDEP_B", "  XX", "move",    ".b",   "ry,disp(rx)"   , "SSSSDDDD IIIIIIII IIIIIIII", "Move 8 bits from source register to memory pointed by destination register adding displacement" );
-    Out << RegisterOpcode(Db, Fi, 12, 4, OPCODE_MOVE_REG_INDDEP_W, "OPCODE_MOVE_REG_INDDEP_W", "  XX", "move",    ".w",   "ry,disp(rx)"   , "SSSSDDDD IIIIIIII IIIIIIII", "Move 16 bits from source register to memory pointed by destination register adding displacement" );
-    Out << RegisterOpcode(Db, Fi, 16, 4, OPCODE_MOVE_REG_INDDEP_L, "OPCODE_MOVE_REG_INDDEP_L", "  XX", "move",    ".l",   "ry,disp(rx)"   , "SSSSDDDD IIIIIIII IIIIIIII", "Move 32 bits from source register to memory pointed by destination register adding displacement" );
-    Out << RegisterOpcode(Db, Fi, 10, 4, OPCODE_MOVE_INDDEP_REG_B, "OPCODE_MOVE_INDDEP_REG_B", "  XX", "move",    ".b",   "disp(ry),rx"   , "SSSSDDDD IIIIIIII IIIIIIII", "Move 8 bits from memory data pointed by source register adding displacement to destination register" );
-    Out << RegisterOpcode(Db, Fi, 12, 4, OPCODE_MOVE_INDDEP_REG_W, "OPCODE_MOVE_INDDEP_REG_W", "  XX", "move",    ".w",   "disp(ry),rx"   , "SSSSDDDD IIIIIIII IIIIIIII", "Move 16 bits from memory data pointed by source register adding displacement to destination register" );
-    Out << RegisterOpcode(Db, Fi, 16, 4, OPCODE_MOVE_INDDEP_REG_L, "OPCODE_MOVE_INDDEP_REG_L", "  XX", "move",    ".l",   "disp(ry),rx"   , "SSSSDDDD IIIIIIII IIIIIIII", "Move 32 bits from memory data pointed by source register adding displacement to destination register." );
-    Out << RegisterOpcode(Db, Fi, 12, 4, OPCODE_MOVE_REG_INDDEPOFF_B, "OPCODE_MOVE_REG_INDDEPOFF_B", "  XX", "move",    ".b",   "ry,disp(rx+rz*m)"   , "SSSSDDDD MMxxOOOO IIIIIIII IIIIIIII", "Move 8 bits from source register to memory location pointed by the sum of source register + dispmacement + offset register * m" );
-    Out << RegisterOpcode(Db, Fi, 14, 4, OPCODE_MOVE_REG_INDDEPOFF_W, "OPCODE_MOVE_REG_INDDEPOFF_W", "  XX", "move",    ".w",   "ry,disp(rx+rz*m)"   , "SSSSDDDD MMxxOOOO IIIIIIII IIIIIIII", "Move 16 bits from source register to memory location pointed by the sum of source register + dispmacement + offset register * m" );
-    Out << RegisterOpcode(Db, Fi, 18, 4, OPCODE_MOVE_REG_INDDEPOFF_L, "OPCODE_MOVE_REG_INDDEPOFF_L", "  XX", "move",    ".l",   "ry,disp(rx+rz*m)"   , "SSSSDDDD MMxxOOOO IIIIIIII IIIIIIII", "Move 32 bits from source register to memory location pointed by the sum of source register + dispmacement + offset register * m" );
-    Out << RegisterOpcode(Db, Fi, 12, 4, OPCODE_MOVE_INDDEPOFF_REG_B, "OPCODE_MOVE_INDDEPOFF_REG_B", "  XX", "move",    ".b",   "disp(ry+rz*m),rx"   , "SSSSDDDD MMxxOOOO IIIIIIII IIIIIIII", "Move 8 bits from memory location pointed by the sum of source register + dispmacement + offset register * m to destination register" );
-    Out << RegisterOpcode(Db, Fi, 14, 4, OPCODE_MOVE_INDDEPOFF_REG_W, "OPCODE_MOVE_INDDEPOFF_REG_W", "  XX", "move",    ".w",   "disp(ry+rz*m),rx"   , "SSSSDDDD MMxxOOOO IIIIIIII IIIIIIII", "Move 16 bits from memory location pointed by the sum of source register + dispmacement + offset register * m to destination register" );
-    Out << RegisterOpcode(Db, Fi, 18, 4, OPCODE_MOVE_INDDEPOFF_REG_L, "OPCODE_MOVE_INDDEPOFF_REG_L", "  XX", "move",    ".l",   "disp(ry+rz*m),rx"   , "SSSSDDDD MMxxOOOO IIIIIIII IIIIIIII", "Move 32 bits from memory location pointed by the sum of source register + dispmacement + offset register * m to destination register" );
+    Out << RegisterOpcode(Db, Fi,  8, 2, OPCODE_MOVE_IND_REG_B, "OPCODE_MOVE_IND_REG_B", "  XX", "move",    ".b",   "(ry),rx" , "SSSSDDDD", "Move 8 bits memory data pointed by source to destination register" );
+    Out << RegisterOpcode(Db, Fi, 10, 2, OPCODE_MOVE_IND_REG_W, "OPCODE_MOVE_IND_REG_W", "  XX", "move",    ".w",   "(ry),rx" , "SSSSDDDD", "Move 16 bits memory data pointed by source to destination register" );
+    Out << RegisterOpcode(Db, Fi, 14, 2, OPCODE_MOVE_IND_REG_L, "OPCODE_MOVE_IND_REG_L", "  XX", "move",    ".l",   "(ry),rx" , "SSSSDDDD", "Move 32 bits memory data pointed by source to destination register" );
+    Out << RegisterOpcode(Db, Fi,  8, 2, OPCODE_MOVE_REG_IND_B, "OPCODE_MOVE_REG_IND_B", "  XX", "move",    ".b",   "ry,(rx)" , "SSSSDDDD", "Move  8 bits from source to memory pointed by destination register" );
+    Out << RegisterOpcode(Db, Fi, 10, 2, OPCODE_MOVE_REG_IND_W, "OPCODE_MOVE_REG_IND_W", "  XX", "move",    ".w",   "ry,(rx)" , "SSSSDDDD", "Move 16 bits from source to memory pointed by destination register" );
+    Out << RegisterOpcode(Db, Fi, 14, 2, OPCODE_MOVE_REG_IND_L, "OPCODE_MOVE_REG_IND_L", "  XX", "move",    ".l",   "ry,(rx)" , "SSSSDDDD", "Move 32 bits from source to memory pointed by destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_MOVE_REG_REG_B, "OPCODE_MOVE_REG_REG_B", "  XX", "move",    ".b",   "ry,rx"   , "SSSSDDDD", "Move  8 bits from source to destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_MOVE_REG_REG_W, "OPCODE_MOVE_REG_REG_W", "  XX", "move",    ".w",   "ry,rx"   , "SSSSDDDD", "Move 16 bits from source to destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_MOVE_REG_REG_L, "OPCODE_MOVE_REG_REG_L", "  XX", "move",    ".l",   "ry,rx"   , "SSSSDDDD", "Move 32 bits from source to destination register" );
+    Out << RegisterOpcode(Db, Fi, 10, 4, OPCODE_MOVE_REG_INDDEP_B, "OPCODE_MOVE_REG_INDDEP_B", "  XX", "move",    ".b",   "ry,disp(rx)"   , "SSSSDDDD IIIIIIII IIIIIIII", "Move 8 bits from source to memory pointed by destination adding displacement" );
+    Out << RegisterOpcode(Db, Fi, 12, 4, OPCODE_MOVE_REG_INDDEP_W, "OPCODE_MOVE_REG_INDDEP_W", "  XX", "move",    ".w",   "ry,disp(rx)"   , "SSSSDDDD IIIIIIII IIIIIIII", "Move 16 bits from source to memory pointed by destination adding displacement" );
+    Out << RegisterOpcode(Db, Fi, 16, 4, OPCODE_MOVE_REG_INDDEP_L, "OPCODE_MOVE_REG_INDDEP_L", "  XX", "move",    ".l",   "ry,disp(rx)"   , "SSSSDDDD IIIIIIII IIIIIIII", "Move 32 bits from source to memory pointed by destination adding displacement" );
+    Out << RegisterOpcode(Db, Fi, 10, 4, OPCODE_MOVE_INDDEP_REG_B, "OPCODE_MOVE_INDDEP_REG_B", "  XX", "move",    ".b",   "disp(ry),rx"   , "SSSSDDDD IIIIIIII IIIIIIII", "Move 8 bits from memory data pointed by source adding displacement to destination register" );
+    Out << RegisterOpcode(Db, Fi, 12, 4, OPCODE_MOVE_INDDEP_REG_W, "OPCODE_MOVE_INDDEP_REG_W", "  XX", "move",    ".w",   "disp(ry),rx"   , "SSSSDDDD IIIIIIII IIIIIIII", "Move 16 bits from memory data pointed by source adding displacement to destination register" );
+    Out << RegisterOpcode(Db, Fi, 16, 4, OPCODE_MOVE_INDDEP_REG_L, "OPCODE_MOVE_INDDEP_REG_L", "  XX", "move",    ".l",   "disp(ry),rx"   , "SSSSDDDD IIIIIIII IIIIIIII", "Move 32 bits from memory data pointed by source adding displacement to destination register." );
+    Out << RegisterOpcode(Db, Fi, 12, 4, OPCODE_MOVE_REG_INDDEPOFF_B, "OPCODE_MOVE_REG_INDDEPOFF_B", "  XX", "move",    ".b",   "ry,disp(rx+rz*m)"   , "SSSSDDDD MMxxOOOO IIIIIIII IIIIIIII", "Move 8 bits from source to memory location pointed by the sum of source + dispmacement + offset * m" );
+    Out << RegisterOpcode(Db, Fi, 14, 4, OPCODE_MOVE_REG_INDDEPOFF_W, "OPCODE_MOVE_REG_INDDEPOFF_W", "  XX", "move",    ".w",   "ry,disp(rx+rz*m)"   , "SSSSDDDD MMxxOOOO IIIIIIII IIIIIIII", "Move 16 bits from source to memory location pointed by the sum of source + dispmacement + offset * m" );
+    Out << RegisterOpcode(Db, Fi, 18, 4, OPCODE_MOVE_REG_INDDEPOFF_L, "OPCODE_MOVE_REG_INDDEPOFF_L", "  XX", "move",    ".l",   "ry,disp(rx+rz*m)"   , "SSSSDDDD MMxxOOOO IIIIIIII IIIIIIII", "Move 32 bits from source to memory location pointed by the sum of source + dispmacement + offset * m" );
+    Out << RegisterOpcode(Db, Fi, 12, 4, OPCODE_MOVE_INDDEPOFF_REG_B, "OPCODE_MOVE_INDDEPOFF_REG_B", "  XX", "move",    ".b",   "disp(ry+rz*m),rx"   , "SSSSDDDD MMxxOOOO IIIIIIII IIIIIIII", "Move 8 bits from memory location pointed by the sum of source + dispmacement + offset * m to destination register" );
+    Out << RegisterOpcode(Db, Fi, 14, 4, OPCODE_MOVE_INDDEPOFF_REG_W, "OPCODE_MOVE_INDDEPOFF_REG_W", "  XX", "move",    ".w",   "disp(ry+rz*m),rx"   , "SSSSDDDD MMxxOOOO IIIIIIII IIIIIIII", "Move 16 bits from memory location pointed by the sum of source + dispmacement + offset * m to destination register" );
+    Out << RegisterOpcode(Db, Fi, 18, 4, OPCODE_MOVE_INDDEPOFF_REG_L, "OPCODE_MOVE_INDDEPOFF_REG_L", "  XX", "move",    ".l",   "disp(ry+rz*m),rx"   , "SSSSDDDD MMxxOOOO IIIIIIII IIIIIIII", "Move 32 bits from memory location pointed by the sum of source + dispmacement + offset * m to destination register" );
     Out << RegisterOpcode(Db, Fi,  4, 2, OPCODE_MOVEX_IMM_UN,   "OPCODE_MOVEX_IMM_UN",   "  XX", "movex",   ".un",  "#_4BitsSignedValue,rx" , "IIIIDDDD", "Move 4 bits immediate unsigned value expanded to 32 bits destination register" );
     Out << RegisterOpcode(Db, Fi,  4, 2, OPCODE_MOVEX_IMM_SN,   "OPCODE_MOVEX_IMM_SN",   "  XX", "movex",   ".sn",  "#_4BitsSignedValue,rx" , "IIIIDDDD", "Move 4 bits immediate signed value expanded to 32 bits destination register" );
     Out << RegisterOpcode(Db, Fi,  6, 3, OPCODE_MOVEX_IMM_UB,   "OPCODE_MOVEX_IMM_UB",   "  XX", "movex",   ".b",   "#8BitsUnsignedValue,rx", "0000DDDD IIIIIIII", "Move  8 bits immediate unsigned value expanded to 32 bits destination register" );
@@ -2774,46 +2774,46 @@ class BlackCPU : public ZVCPU_Chip_Interface
     Out << RegisterOpcode(Db, Fi,  8, 4, OPCODE_MOVEX_IMM_SW,   "OPCODE_MOVEX_IMM_SW",   "  XX", "movex",   ".sw",  "#16BitsSignedValue,rx" , "0000DDDD IIIIIIII IIIIIIII", "Move 16 bits immediate signed value expanded to 32 bits destination register" );
     Out << RegisterOpcode(Db, Fi,1032,3, OPCODE_PUSHREGS,       "OPCODE_PUSHREGS",       "    ", "pushregs","",     "rx-rx/rx...",            "0MMMMMMM MMMMMMMM", "Push selected registers (by bitmask) to stack" );
     Out << RegisterOpcode(Db, Fi,1032,3, OPCODE_POPREGS,        "OPCODE_POPREGS",        "    ", "popregs", "",     "rx-rx/rx...",            "0MMMMMMM MMMMMMMM", "Pop selected registers (by bitmask) to stack" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_INC,            "OPCODE_INC",            " XXX", "inc",     ".l",   "#4BitSignedValue,rx",    "IIIIDDDD", "Increment selected register with the immediate 4 bit value" );
-    Out << RegisterOpcode(Db, Fi,  2, 1, OPCODE_INCLR,          "OPCODE_INCLR",          " XXX", "inclr",    "",   "",                      "", "Increment last used indirect register or offset" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_DEC,            "OPCODE_DEC",            " XXX", "dec",     ".l",   "#4BitSignedValue,rx",    "IIIIDDDD", "Decrement selected register with the immediate 4 bit value" );
-    Out << RegisterOpcode(Db, Fi,  2, 1, OPCODE_DECLR,          "OPCODE_DECLR",          " XXX", "declr",    "",   "",                      "", "Decrement last used indirect register or offset" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ADD_B,          "OPCODE_ADD_B",          "XXXX", "add",     ".b",   "ry,rx",                  "SSSSDDDD", "8  bit Addition from the source register to the destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ADD_W,          "OPCODE_ADD_W",          "XXXX", "add",     ".w",   "ry,rx",                  "SSSSDDDD", "16 bit Addition from the source register to the destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ADD_L,          "OPCODE_ADD_L",          "XXXX", "add",     ".l",   "ry,rx",                  "SSSSDDDD", "32 bit Addition from the source register to the destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_SUB_B,          "OPCODE_SUB_B",          "XXXX", "sub",     ".b",   "ry,rx",                  "SSSSDDDD", "8  bit substraction from the source register to the destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_SUB_W,          "OPCODE_SUB_W",          "XXXX", "sub",     ".w",   "ry,rx",                  "SSSSDDDD", "16 bit substraction from the source register to the destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_SUB_L,          "OPCODE_SUB_L",          "XXXX", "sub",     ".l",   "ry,rx",                  "SSSSDDDD", "32 bit substraction from the source register to the destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_AND_B,          "OPCODE_AND_B",          "  XX", "and",     ".b",   "ry,rx",                  "SSSSDDDD", "8  bit boolean AND operation from the source register to the destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_AND_W,          "OPCODE_AND_W",          "  XX", "and",     ".w",   "ry,rx",                  "SSSSDDDD", "16  bit boolean AND operation from the source register to the destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_AND_L,          "OPCODE_AND_L",          "  XX", "and",     ".l",   "ry,rx",                  "SSSSDDDD", "32  bit boolean AND operation from the source register to the destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_OR_B,           "OPCODE_OR_B",           "  XX", "or",      ".b",   "ry,rx",                  "SSSSDDDD", "8   bit boolean OR operation from the source register to the destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_OR_W,           "OPCODE_OR_W",           "  XX", "or",      ".w",   "ry,rx",                  "SSSSDDDD", "16  bit boolean OR operation from the source register to the destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_OR_L,           "OPCODE_OR_L",           "  XX", "or",      ".l",   "ry,rx",                  "SSSSDDDD", "32  bit boolean OR operation from the source register to the destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_XOR_B,          "OPCODE_XOR_B",          "  XX", "xor",     ".b",   "ry,rx",                  "SSSSDDDD", "8   bit boolean XOR operation from the source register to the destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_XOR_W,          "OPCODE_XOR_W",          "  XX", "xor",     ".w",   "ry,rx",                  "SSSSDDDD", "16  bit boolean XOR operation from the source register to the destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_XOR_L,          "OPCODE_XOR_L",          "  XX", "xor",     ".l",   "ry,rx",                  "SSSSDDDD", "32  bit boolean XOR operation from the source register to the destination register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ASR_B,          "OPCODE_ASR_B",          "X XX", "asr",     ".b",   "ry,rx",                  "SSSSDDDD", "8   bit arithmetic shift right of the destination register with shift count from the source register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ASR_W,          "OPCODE_ASR_W",          "X XX", "asr",     ".w",   "ry,rx",                  "SSSSDDDD", "16  bit arithmetic shift right of the destination register with shift count from the source register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ASR_L,          "OPCODE_ASR_L",          "X XX", "asr",     ".l",   "ry,rx",                  "SSSSDDDD", "32  bit arithmetic shift right of the destination register with shift count from the source register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_LSL_B,          "OPCODE_LSL_B",          "X XX", "lsl",     ".b",   "ry,rx",                  "SSSSDDDD", "8   bit logical shift left of the destination register with shift count from the source register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_LSL_W,          "OPCODE_LSL_W",          "X XX", "lsl",     ".w",   "ry,rx",                  "SSSSDDDD", "16  bit logical shift left of the destination register with shift count from the source register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_LSL_L,          "OPCODE_LSL_L",          "X XX", "lsl",     ".l",   "ry,rx",                  "SSSSDDDD", "32  bit logical shift left of the destination register with shift count from the source register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_LSR_B,          "OPCODE_LSR_B",          "X XX", "lsr",     ".b",   "ry,rx",                  "SSSSDDDD", "8   bit logical shift right of the destination register with shift count from the source register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_LSR_W,          "OPCODE_LSR_W",          "X XX", "lsr",     ".w",   "ry,rx",                  "SSSSDDDD", "16  bit logical shift right of the destination register with shift count from the source register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_LSR_L,          "OPCODE_LSR_L",          "X XX", "lsr",     ".l",   "ry,rx",                  "SSSSDDDD", "32  bit logical shift right of the destination register with shift count from the source register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ROL_B,          "OPCODE_ROL_B",          "X XX", "rol",     ".b",   "ry,rx",                  "SSSSDDDD", "8   bit left rotation with carry of the destination register with shift count from the source register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ROL_W,          "OPCODE_ROL_W",          "X XX", "rol",     ".w",   "ry,rx",                  "SSSSDDDD", "16  bit left rotation with carry of the destination register with shift count from the source register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ROL_L,          "OPCODE_ROL_L",          "X XX", "rol",     ".l",   "ry,rx",                  "SSSSDDDD", "32  bit left rotation with carry of the destination register with shift count from the source register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ROR_B,          "OPCODE_ROR_B",          "X XX", "ror",     ".b",   "ry,rx",                  "SSSSDDDD", "8   bit right rotation with carry of the destination register with shift count from the source register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ROR_W,          "OPCODE_ROR_W",          "X XX", "ror",     ".w",   "ry,rx",                  "SSSSDDDD", "16  bit right rotation with carry of the destination register with shift count from the source register" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ROR_L,          "OPCODE_ROR_L",          "X XX", "ror",     ".l",   "ry,rx",                  "SSSSDDDD", "32  bit right rotation with carry of the destination register with shift count from the source register" );
-    Out << RegisterOpcode(Db, Fi,150, 2, OPCODE_UMUL_B,         "OPCODE_UMUL_B",         "  XX", "umul",    ".b",   "ry,rx",                  "SSSSDDDD", "8   bit unsigned multiplication of the destination register with the source register" );
-    Out << RegisterOpcode(Db, Fi,150, 2, OPCODE_UMUL_W,         "OPCODE_UMUL_W",         "  XX", "umul",    ".w",   "ry,rx",                  "SSSSDDDD", "16  bit unsigned multiplication of the destination register with the source register" );
-    Out << RegisterOpcode(Db, Fi,150, 2, OPCODE_UMUL_L,         "OPCODE_UMUL_L",         "  XX", "umul",    ".l",   "ry,rx",                  "SSSSDDDD", "32  bit unsigned multiplication of the destination register with the source register" );
-    Out << RegisterOpcode(Db, Fi,150, 2, OPCODE_SMUL_B,         "OPCODE_SMUL_B",         "  XX", "smul",    ".b",   "ry,rx",                  "SSSSDDDD", "8   bit signed multiplication of the destination register with the source register" );
-    Out << RegisterOpcode(Db, Fi,150, 2, OPCODE_SMUL_W,         "OPCODE_SMUL_W",         "  XX", "smul",    ".w",   "ry,rx",                  "SSSSDDDD", "16  bit signed multiplication of the destination register with the source register" );
-    Out << RegisterOpcode(Db, Fi,150, 2, OPCODE_SMUL_L,         "OPCODE_SMUL_L",         "  XX", "smul",    ".l",   "ry,rx",                  "SSSSDDDD", "32  bit signed multiplication of the destination register with the source register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_INC,            "OPCODE_INC",            " XXX", "inc",     ".l",   "#4BitSignedValue,rx",    "IIIIDDDD", "Increment selected with the immediate 4 bit value" );
+    Out << RegisterOpcode(Db, Fi,  2, 1, OPCODE_INCLR,          "OPCODE_INCLR",          " XXX", "inclr",    "",   "",                      "", "Increment last used indirect or offset" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_DEC,            "OPCODE_DEC",            " XXX", "dec",     ".l",   "#4BitSignedValue,rx",    "IIIIDDDD", "Decrement selected with the immediate 4 bit value" );
+    Out << RegisterOpcode(Db, Fi,  2, 1, OPCODE_DECLR,          "OPCODE_DECLR",          " XXX", "declr",    "",   "",                      "", "Decrement last used indirect or offset" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ADD_B,          "OPCODE_ADD_B",          "XXXX", "add",     ".b",   "ry,rx",                  "SSSSDDDD", "8  bit Addition from the source to the destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ADD_W,          "OPCODE_ADD_W",          "XXXX", "add",     ".w",   "ry,rx",                  "SSSSDDDD", "16 bit Addition from the source to the destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ADD_L,          "OPCODE_ADD_L",          "XXXX", "add",     ".l",   "ry,rx",                  "SSSSDDDD", "32 bit Addition from the source to the destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_SUB_B,          "OPCODE_SUB_B",          "XXXX", "sub",     ".b",   "ry,rx",                  "SSSSDDDD", "8  bit substraction from the source to the destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_SUB_W,          "OPCODE_SUB_W",          "XXXX", "sub",     ".w",   "ry,rx",                  "SSSSDDDD", "16 bit substraction from the source to the destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_SUB_L,          "OPCODE_SUB_L",          "XXXX", "sub",     ".l",   "ry,rx",                  "SSSSDDDD", "32 bit substraction from the source to the destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_AND_B,          "OPCODE_AND_B",          "  XX", "and",     ".b",   "ry,rx",                  "SSSSDDDD", "8  bit boolean AND operation from the source to the destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_AND_W,          "OPCODE_AND_W",          "  XX", "and",     ".w",   "ry,rx",                  "SSSSDDDD", "16  bit boolean AND operation from the source to the destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_AND_L,          "OPCODE_AND_L",          "  XX", "and",     ".l",   "ry,rx",                  "SSSSDDDD", "32  bit boolean AND operation from the source to the destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_OR_B,           "OPCODE_OR_B",           "  XX", "or",      ".b",   "ry,rx",                  "SSSSDDDD", "8   bit boolean OR operation from the source to the destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_OR_W,           "OPCODE_OR_W",           "  XX", "or",      ".w",   "ry,rx",                  "SSSSDDDD", "16  bit boolean OR operation from the source to the destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_OR_L,           "OPCODE_OR_L",           "  XX", "or",      ".l",   "ry,rx",                  "SSSSDDDD", "32  bit boolean OR operation from the source to the destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_XOR_B,          "OPCODE_XOR_B",          "  XX", "xor",     ".b",   "ry,rx",                  "SSSSDDDD", "8   bit boolean XOR operation from the source to the destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_XOR_W,          "OPCODE_XOR_W",          "  XX", "xor",     ".w",   "ry,rx",                  "SSSSDDDD", "16  bit boolean XOR operation from the source to the destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_XOR_L,          "OPCODE_XOR_L",          "  XX", "xor",     ".l",   "ry,rx",                  "SSSSDDDD", "32  bit boolean XOR operation from the source to the destination register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ASR_B,          "OPCODE_ASR_B",          "X XX", "asr",     ".b",   "ry,rx",                  "SSSSDDDD", "8   bit arithmetic shift right of the destination with shift count from the source register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ASR_W,          "OPCODE_ASR_W",          "X XX", "asr",     ".w",   "ry,rx",                  "SSSSDDDD", "16  bit arithmetic shift right of the destination with shift count from the source register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ASR_L,          "OPCODE_ASR_L",          "X XX", "asr",     ".l",   "ry,rx",                  "SSSSDDDD", "32  bit arithmetic shift right of the destination with shift count from the source register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_LSL_B,          "OPCODE_LSL_B",          "X XX", "lsl",     ".b",   "ry,rx",                  "SSSSDDDD", "8   bit logical shift left of the destination with shift count from the source register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_LSL_W,          "OPCODE_LSL_W",          "X XX", "lsl",     ".w",   "ry,rx",                  "SSSSDDDD", "16  bit logical shift left of the destination with shift count from the source register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_LSL_L,          "OPCODE_LSL_L",          "X XX", "lsl",     ".l",   "ry,rx",                  "SSSSDDDD", "32  bit logical shift left of the destination with shift count from the source register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_LSR_B,          "OPCODE_LSR_B",          "X XX", "lsr",     ".b",   "ry,rx",                  "SSSSDDDD", "8   bit logical shift right of the destination with shift count from the source register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_LSR_W,          "OPCODE_LSR_W",          "X XX", "lsr",     ".w",   "ry,rx",                  "SSSSDDDD", "16  bit logical shift right of the destination with shift count from the source register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_LSR_L,          "OPCODE_LSR_L",          "X XX", "lsr",     ".l",   "ry,rx",                  "SSSSDDDD", "32  bit logical shift right of the destination with shift count from the source register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ROL_B,          "OPCODE_ROL_B",          "X XX", "rol",     ".b",   "ry,rx",                  "SSSSDDDD", "8   bit left rotation with carry of the destination with shift count from the source register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ROL_W,          "OPCODE_ROL_W",          "X XX", "rol",     ".w",   "ry,rx",                  "SSSSDDDD", "16  bit left rotation with carry of the destination with shift count from the source register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ROL_L,          "OPCODE_ROL_L",          "X XX", "rol",     ".l",   "ry,rx",                  "SSSSDDDD", "32  bit left rotation with carry of the destination with shift count from the source register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ROR_B,          "OPCODE_ROR_B",          "X XX", "ror",     ".b",   "ry,rx",                  "SSSSDDDD", "8   bit right rotation with carry of the destination with shift count from the source register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ROR_W,          "OPCODE_ROR_W",          "X XX", "ror",     ".w",   "ry,rx",                  "SSSSDDDD", "16  bit right rotation with carry of the destination with shift count from the source register" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_ROR_L,          "OPCODE_ROR_L",          "X XX", "ror",     ".l",   "ry,rx",                  "SSSSDDDD", "32  bit right rotation with carry of the destination with shift count from the source register" );
+    Out << RegisterOpcode(Db, Fi,150, 2, OPCODE_UMUL_B,         "OPCODE_UMUL_B",         "  XX", "umul",    ".b",   "ry,rx",                  "SSSSDDDD", "8   bit unsigned multiplication of the destination with the source register" );
+    Out << RegisterOpcode(Db, Fi,150, 2, OPCODE_UMUL_W,         "OPCODE_UMUL_W",         "  XX", "umul",    ".w",   "ry,rx",                  "SSSSDDDD", "16  bit unsigned multiplication of the destination with the source register" );
+    Out << RegisterOpcode(Db, Fi,150, 2, OPCODE_UMUL_L,         "OPCODE_UMUL_L",         "  XX", "umul",    ".l",   "ry,rx",                  "SSSSDDDD", "32  bit unsigned multiplication of the destination with the source register" );
+    Out << RegisterOpcode(Db, Fi,150, 2, OPCODE_SMUL_B,         "OPCODE_SMUL_B",         "  XX", "smul",    ".b",   "ry,rx",                  "SSSSDDDD", "8   bit signed multiplication of the destination with the source register" );
+    Out << RegisterOpcode(Db, Fi,150, 2, OPCODE_SMUL_W,         "OPCODE_SMUL_W",         "  XX", "smul",    ".w",   "ry,rx",                  "SSSSDDDD", "16  bit signed multiplication of the destination with the source register" );
+    Out << RegisterOpcode(Db, Fi,150, 2, OPCODE_SMUL_L,         "OPCODE_SMUL_L",         "  XX", "smul",    ".l",   "ry,rx",                  "SSSSDDDD", "32  bit signed multiplication of the destination with the source register" );
     Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_CMP_B,          "OPCODE_CMP_B",          "XXXX", "cmp",     ".b",   "ry,rx",                  "SSSSDDDD", "8   bit compare of source and destination registers" );
     Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_CMP_W,          "OPCODE_CMP_W",          "XXXX", "cmp",     ".w",   "ry,rx",                  "SSSSDDDD", "16  bit compare of source and destination registers" );
     Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_CMP_L,          "OPCODE_CMP_L",          "XXXX", "cmp",     ".l",   "ry,rx",                  "SSSSDDDD", "32  bit compare of source and destination registers" );
@@ -2839,9 +2839,9 @@ class BlackCPU : public ZVCPU_Chip_Interface
     Out << RegisterOpcode(Db, Fi,  8, 3, OPCODE_BRANCH_BSO,     "OPCODE_BRANCH_BSO",     "    ", "bso", "",       "#16BitsSignedValue",     "IIIIIIII IIIIIIII", "Conditionnal jump on shift overflow" );
     Out << RegisterOpcode(Db, Fi, 12, 1, OPCODE_RTS,            "OPCODE_RTS",            "    ", "rts",     "",     "",                       "",                  "Return from subroutine" );
     Out << RegisterOpcode(Db, Fi, 16, 1, OPCODE_RTI,            "OPCODE_RTI",            "XXXX", "rti",     "",     "",                       "",                  "Return from interrupt" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_EXT_BW,         "OPCODE_EXT_BW",         "  XX", "ext",     ".bw",  "rx",                     "0000DDDD",          "Expand first  8 bits (signed) of the destination register to 16 bits" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_EXT_BL,         "OPCODE_EXT_BL",         "  XX", "ext",     ".bl",  "rx",                     "0000DDDD",          "Expand first  8 bits (signed) of the destination register to 32 bits" );
-    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_EXT_WL,         "OPCODE_EXT_WL",         "  XX", "ext",     ".wl",  "rx",                     "0000DDDD",          "Expand first 16 bits (signed) of the destination register to 32 bits" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_EXT_BW,         "OPCODE_EXT_BW",         "  XX", "ext",     ".bw",  "rx",                     "0000DDDD",          "Expand first  8 bits (signed) of the destination to 16 bits" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_EXT_BL,         "OPCODE_EXT_BL",         "  XX", "ext",     ".bl",  "rx",                     "0000DDDD",          "Expand first  8 bits (signed) of the destination to 32 bits" );
+    Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_EXT_WL,         "OPCODE_EXT_WL",         "  XX", "ext",     ".wl",  "rx",                     "0000DDDD",          "Expand first 16 bits (signed) of the destination to 32 bits" );
     Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_RSR,            "OPCODE_RSR",            "    ", "rsr",     ".l",   "rx",                     "IIIIDDDD",          "Read from special register" );
     Out << RegisterOpcode(Db, Fi,  6, 2, OPCODE_WSR,            "OPCODE_WSR",            "XXXX", "wsr",     ".l",   "rx",                     "IIIIDDDD",          "Write to special register" );
 

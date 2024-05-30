@@ -359,9 +359,9 @@ class BlackCPU
   void Execute(ULong CycleCount)
   {
     ULong ElapsedCycles;
-    register UByte Opcode;
-    register int Op1,Op2;
-    register ZStatusRegister Status;
+    UByte Opcode;
+    int Op1,Op2;
+    ZStatusRegister Status;
     int i;
     
     Status = StatusRegister;
@@ -748,7 +748,7 @@ class BlackCPU
                         Op1 = FetchOperand_8(ProgramCounter++); // Register
 #if Z_ZVCPU_EXPERIMENTAL_ASMCODE==0
                         {
-                          register UByte D1,D2,D3;
+                          UByte D1,D2,D3;
                           D1 = GeneralRegister[(Op1&0xf0)>>4].Reg_UByte;
                           D2 = GeneralRegister[Op1&0xf].Reg_UByte;
                           D3 = D1+D2;
@@ -784,7 +784,7 @@ class BlackCPU
                         Op1 = FetchOperand_8(ProgramCounter++); // Register
 #if Z_ZVCPU_EXPERIMENTAL_ASMCODE==0
                         {
-                          register UShort D1,D2,D3;
+                          UShort D1,D2,D3;
                           D1 = GeneralRegister[(Op1&0xf0)>>4].Reg_UWord;
                           D2 = GeneralRegister[Op1&0xf].Reg_UWord;
                           D3 = D1+D2;
@@ -820,7 +820,7 @@ class BlackCPU
                         Op1 = FetchOperand_8(ProgramCounter++); // Register
 #if Z_ZVCPU_EXPERIMENTAL_ASMCODE==0
                         {
-                          register ULong D1,D2,D3;
+                          ULong D1,D2,D3;
                           D1 = GeneralRegister[(Op1&0xf0)>>4].Reg_ULong;
                           D2 = GeneralRegister[Op1&0xf].Reg_ULong;
                           D3 = D1+D2;
@@ -855,7 +855,7 @@ class BlackCPU
         case OPCODE_SUB_B:   // sub.b reg,reg (No carry)
                         Op1 = FetchOperand_8(ProgramCounter++); // Register
                         {
-                          register UByte D1,D2,D3;
+                          UByte D1,D2,D3;
                           D1 = GeneralRegister[(Op1&0xf0)>>4].Reg_UByte;
                           D2 = GeneralRegister[Op1&0xf].Reg_UByte;
                           D3 = D1-D2;
@@ -1426,7 +1426,7 @@ class BlackCPU
           Op1 = FetchOperand_8(ProgramCounter++); // Register
 #if Z_ZVCPU_EXPERIMENTAL_ASMCODE==0
           {
-            register bool Carry;
+            bool Carry;
             Carry = Status.Flags.CarryFlag;
             Status.Flags.CarryFlag = GeneralRegister[(Op1&0xf0)].Reg_SByte < 0;
             Status_Test_ZN_8( GeneralRegister[(Op1&0xf0)].Reg_UByte = GeneralRegister[(Op1&0xf0)].Reg_UByte >> GeneralRegister[Op1&0xf].Reg_UByte | (Carry ? 1:0)
@@ -1440,7 +1440,7 @@ class BlackCPU
           Op1 = FetchOperand_8(ProgramCounter++); // Register
 #if Z_ZVCPU_EXPERIMENTAL_ASMCODE==0
           {
-            register bool Carry;
+            bool Carry;
             Carry = Status.Flags.CarryFlag;
             Status.Flags.CarryFlag = GeneralRegister[(Op1&0xf0)].Reg_SWord < 0;
             Status_Test_ZN_16( GeneralRegister[(Op1&0xf0)].Reg_UWord = GeneralRegister[(Op1&0xf0)].Reg_UByte >> GeneralRegister[Op1&0xf].Reg_UByte | (Carry ? 1:0)
@@ -1453,7 +1453,7 @@ class BlackCPU
           Op1 = FetchOperand_8(ProgramCounter++); // Register
 #if Z_ZVCPU_EXPERIMENTAL_ASMCODE==0
           {
-            register bool Carry;
+            bool Carry;
             Carry = Status.Flags.CarryFlag;
             Status.Flags.CarryFlag = GeneralRegister[(Op1&0xf0)].Reg_SLong < 0;
             Status_Test_ZN_16( GeneralRegister[(Op1&0xf0)].Reg_ULong = GeneralRegister[(Op1&0xf0)].Reg_ULong >> GeneralRegister[Op1&0xf].Reg_UByte | (Carry ? 1:0)
@@ -1468,7 +1468,7 @@ class BlackCPU
           Op1 = FetchOperand_8(ProgramCounter++); // Register
 #if Z_ZVCPU_EXPERIMENTAL_ASMCODE==0
           {
-            register bool Carry;
+            bool Carry;
             Carry = Status.Flags.CarryFlag;
             Status.Flags.CarryFlag = GeneralRegister[(Op1&0xf0)].Reg_SByte | 1;
             Status_Test_ZN_8( GeneralRegister[(Op1&0xf0)].Reg_UByte = GeneralRegister[(Op1&0xf0)].Reg_UByte >> GeneralRegister[Op1&0xf].Reg_UByte | (Carry ? 1:0)
@@ -1481,7 +1481,7 @@ class BlackCPU
           Op1 = FetchOperand_8(ProgramCounter++); // Register
 #if Z_ZVCPU_EXPERIMENTAL_ASMCODE==0
           {
-            register bool Carry;
+            bool Carry;
             Carry = Status.Flags.CarryFlag;
             Status.Flags.CarryFlag = GeneralRegister[(Op1&0xf0)].Reg_SWord | 1;
             Status_Test_ZN_8( GeneralRegister[(Op1&0xf0)].Reg_UWord = GeneralRegister[(Op1&0xf0)].Reg_UWord >> GeneralRegister[Op1&0xf].Reg_UByte | (Carry ? 1:0)
@@ -1494,7 +1494,7 @@ class BlackCPU
           Op1 = FetchOperand_8(ProgramCounter++); // Register
 #if Z_ZVCPU_EXPERIMENTAL_ASMCODE==0
           {
-            register bool Carry;
+            bool Carry;
             Carry = Status.Flags.CarryFlag;
             Status.Flags.CarryFlag = GeneralRegister[(Op1&0xf0)].Reg_SLong | 1;
             Status_Test_ZN_8( GeneralRegister[(Op1&0xf0)].Reg_ULong = GeneralRegister[(Op1&0xf0)].Reg_ULong >> GeneralRegister[Op1&0xf].Reg_UByte | (Carry ? 1:0)
@@ -1573,7 +1573,7 @@ class BlackCPU
         case OPCODE_CMP_B:// cmp.b reg,reg
           Op1 = FetchOperand_8(ProgramCounter++); // Register
           {
-            register UByte D1,D2,D3;
+            UByte D1,D2,D3;
             D1 = GeneralRegister[(Op1&0xf0)>>4].Reg_UByte;
             D2 = GeneralRegister[Op1&0xf].Reg_UByte;
             D3 = D1-D2;
@@ -1589,7 +1589,7 @@ class BlackCPU
         case OPCODE_CMP_W:// cmp.w reg,reg
           Op1 = FetchOperand_8(ProgramCounter++); // Register
           {
-            register UShort D1,D2,D3;
+            UShort D1,D2,D3;
             D1 = GeneralRegister[(Op1&0xf0)>>4].Reg_UWord;
             D2 = GeneralRegister[Op1&0xf].Reg_UWord;
             D3 = D1-D2;
@@ -1605,7 +1605,7 @@ class BlackCPU
         case OPCODE_CMP_L:// cmp.l reg,reg
           Op1 = FetchOperand_8(ProgramCounter++); // Register
           {
-            register ULong D1,D2,D3;
+            ULong D1,D2,D3;
             D1 = GeneralRegister[(Op1&0xf0)>>4].Reg_UByte;
             D2 = GeneralRegister[Op1&0xf].Reg_UByte;
             D3 = D1-D2;

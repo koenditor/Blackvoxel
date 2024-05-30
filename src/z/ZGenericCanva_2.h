@@ -158,7 +158,7 @@ class ZGenericCanva
     bool ClipCoords( ZLineCoords * LineCoords )
     {
       ULong Start_ClipCode, End_ClipCode;
-      register double sx,sy,ex,ey, dwidth,dheight;
+      double sx,sy,ex,ey, dwidth,dheight;
 
 
       sx = LineCoords->Start.x;
@@ -207,7 +207,7 @@ class ZGenericCanva
 
     void Polygon_Start()
     {
-      register Long i;
+      Long i;
 
       if (!MinMax_H) MinMax_H = new ZMinMax[Width];
       if (!MinMax_V) MinMax_V = new ZMinMax[Height];

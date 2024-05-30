@@ -1749,7 +1749,7 @@ void ZVoxelSector::BlitSector( ZVoxelSector * Source, ZVector3L * Offset)
       SoEnd = zs + xs + SEnd.y;
       for ( ; So < SoEnd; So++, Do++)
       {
-        register UShort VoxelType;
+        UShort VoxelType;
         VoxelType = Source->Data[So];
 
         if (VoxelType)

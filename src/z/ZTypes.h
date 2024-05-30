@@ -35,14 +35,6 @@
 
 #define MulticharConst(a,b,c,d) (a + (b << 8) + (c<<16) + (d<<24))
 
-// Fix register keyword deprecated
-
-
-// TODO: remove ugly hack
-#if __cplusplus > 199711L
-#define register
-#endif
-
 
   enum {ZFALSE = false ,ZTRUE = true};
   enum {ZERROR = 0, ZSUCCESS =-1};
