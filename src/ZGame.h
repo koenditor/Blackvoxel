@@ -122,7 +122,6 @@ class ZGame
              Initialized_TextureManager =
              Initialized_GuiManager =
              Initialized_OpenGLGameSettings =
-             Initialized_Glew =
              Initialized_LoadingScreen =
              Initialized_VoxelTypeManager =
              Initialized_EventManager =
@@ -285,7 +284,6 @@ class ZGame
   bool Initialized_UserDataStorage;
   bool Initialized_Settings;
   bool Initialized_HardwareInfo;
-  bool Initialized_Glew;
   bool Initialized_LoadingScreen;
   bool Initialized_SDL;
   bool Initialized_GraphicMode;
@@ -338,7 +336,6 @@ class ZGame
   bool Init_Settings(ZLog * InitLog);
   bool Init_SDL(ZLog * InitLog);
   bool Init_GraphicMode(ZLog * InitLog);
-  bool Init_Glew(ZLog * InitLog);
   bool Init_LoadingScreen(ZLog * InitLog);
   bool Init_VoxelTypeManager(ZLog * InitLog);
   bool Init_TextureManager(ZLog * InitLog);
@@ -360,7 +357,6 @@ class ZGame
   bool Cleanup_EventManager(ZLog * InitLog);
   bool Cleanup_OpenGLGameSettings(ZLog * InitLog);
   bool Cleanup_LoadingScreen(ZLog * InitLog);
-  bool Cleanup_Glew(ZLog * InitLog);
   bool Cleanup_TileSetsAndFonts(ZLog * InitLog);
   bool Cleanup_Renderer(ZLog * InitLog);
   bool Cleanup_Sound(ZLog * InitLog);
@@ -403,7 +399,7 @@ class ZGame
     result = Init_Settings(InitLog.Sec(1020));           if (!result) return(false);
     result = Init_SDL(InitLog.Sec(1030));                if (!result) return(false);
     result = Init_GraphicMode(InitLog.Sec(1040));        if (!result) return(false);
-    result = Init_Glew(InitLog.Sec(1050));               if (!result) return(false);
+    result = SDL_GL_CreateContext(this->screen);;        if (!result) return(false);
     result = Init_LoadingScreen(InitLog.Sec(1055));      if (!result) return(false);
     result = Init_VoxelTypeManager(InitLog.Sec(1060));   if (!result) return(false);
     result = Init_TextureManager(InitLog.Sec(1070));     if (!result) return(false);
@@ -465,7 +461,6 @@ class ZGame
     if (Initialized_OpenGLGameSettings) Cleanup_OpenGLGameSettings(InitLog.Sec(2080));
     if (Initialized_TextureManager)     Cleanup_TextureManager(InitLog.Sec(2070));
     if (Initialized_VoxelTypeManager)   Cleanup_VoxelTypeManager(InitLog.Sec(2060));
-    if (Initialized_Glew)               Cleanup_Glew(InitLog.Sec(2050));
     if (Initialized_GraphicMode)        Cleanup_GraphicMode(InitLog.Sec(2040));
     if (Initialized_SDL)                Cleanup_SDL(InitLog.Sec(2030));
     if (Initialized_TileSetsAndFonts)   Cleanup_TileSetsAndFonts(InitLog.Sec(2110));

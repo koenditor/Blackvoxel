@@ -546,35 +546,6 @@ bool ZGame::Cleanup_OpenGLGameSettings(ZLog * InitLog)
   return(true);
 }
 
-bool ZGame::Init_Glew(ZLog * InitLog)
-{
-
-  SDL_GL_CreateContext(this->screen);
-  
-  // GLenum err;
-
-  InitLog->Log(1, ZLog::INFO, "Starting : Glew");
-  if (!Initialized_GraphicMode)    {ZString Err = "Can't init Glew : GraphicMode init not completed"; InitLog->Log(3, ZLog::FAIL, Err); return(false);}
-  // if ((err = glewContextInit()) != GLEW_OK)
-  // {
-  //   printf("Can't init Glew : %s\n", glewGetErrorString(err));
-  //   return(false);
-  // }
-  // TODO: Fix dirty hack
-
-
-  InitLog->Log(0, ZLog::INFO, "Ended Ok : Glew");
-  Initialized_Glew = true;
-  return(true);
-}
-
-bool ZGame::Cleanup_Glew(ZLog * InitLog)
-{
-  InitLog->Log(0, ZLog::INFO, "Cleanup : Glew");
-  Initialized_Glew = false;
-  return(true);
-}
-
 bool ZGame::Init_LoadingScreen(ZLog * InitLog)
 {
   InitLog->Log(1, ZLog::INFO, "Starting : LoadingScreen");
@@ -596,7 +567,6 @@ bool ZGame::Init_VoxelTypeManager(ZLog * InitLog)
   ZString Msg;
   InitLog->Log(1, ZLog::INFO, "Starting : VoxelTypeManager Init");
   if (!Initialized_GraphicMode)    {ZString Err ="Can't init VoxelTypeManager : GraphicMode init not completed"; InitLog->Log(3, ZLog::FAIL, Err); return(false);}
-  if (!Initialized_Glew)           {ZString Err ="Can't init VoxelTypeManager : Glew init not completed"; InitLog->Log(4, ZLog::FAIL, Err); return(false);}
   VoxelTypeManager.SetGameEnv(this);
   if (!VoxelTypeManager.LoadVoxelTypes()) { ZString Err ="Can't init VoxelTypeManager."; InitLog->Log(5, ZLog::FAIL, Err); return(false); }
   Msg.Clear() << "Loaded " << VoxelTypeManager.GetTexturesCount() << " Voxel Textures."; InitLog->Log(6, ZLog::INFO, Msg);

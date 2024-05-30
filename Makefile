@@ -74,11 +74,11 @@ else
 
   ifeq ($(KERNELNAME),Linux)
     CXXFLAGS+= -O3 -c -fmessage-length=0
-    LDFLAGS+=-s -zrelro -L"squirrel/lib" -lGLU -lSDL2 -lGLEW -lGL -lsquirrel -lsqstdlib
+    LDFLAGS+=-s -L"squirrel/lib" -lGLU -lSDL2 -lGL -lsquirrel -lsqstdlib
   else ifeq ($(KERNELNAME), FreeBSD)
     # To be done...
     CXXFLAGS+= -O3 -c -fmessage-length=0
-    LDFLAGS+=-s -L"squirrel/lib" -lGLU -lSDL2 -lGLEW -lGL -lsquirrel -lsqstdlib
+    LDFLAGS+=-s -L"squirrel/lib" -lGLU -lSDL2 -lGL -lsquirrel -lsqstdlib
   else ifeq ($(KERNELNAME), Darwin)
     CXXFLAGS+= -O3 -c -fmessage-length=0
     LDFLAGS+=-s -L"squirrel/lib" -L"/usr/local/Cellar/glew" -L"/usr/local/Cellar/sdl2" -I"/usr/local/Cellar/glew" -I"/usr/local/Cellar/sdl2" -framework Cocoa -framework OpenGL -lSDL2main -lSDL2 -lGLEW -lsquirrel -lsqstdlib
