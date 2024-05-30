@@ -23,44 +23,28 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVMACHINE_T1_H
-#define Z_ZVMACHINE_T1_H
+#pragma once 
 
-//#ifndef Z_ZVMACHINE_T1_H
-//#  include "ZVMachine_T1.h"
-//#endif
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
 
-#ifndef Z_ZFASTBIT_ARRAY_H
-#  include "z/ZFastBit_Array.h"
-#endif
 
-#ifndef Z_ZCHIP_PARALLEL_INTERFACE_SERVO_H
-#  include "ZChip_Parallel_Interface_Servo.h"
-#endif
+#include "ACompileSettings.h"
 
-#ifndef Z_ZCHIP_DISPLAY_CONTROLLER_H
-#  include "ZChip_Display_Controller.h"
-#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZVCPU_H
-#  include "ZVCPU.h"
-#endif
+#include "z/ZString.h"
 
-#ifndef Z_ZVMACHINE_H
-#  include "ZVMachine.h"
-#endif
+#include "z/ZFastBit_Array.h"
+
+#include "ZChip_Parallel_Interface_Servo.h"
+
+#include "ZChip_Display_Controller.h"
+
+#include "ZVCPU.h"
+
+#include "ZVMachine.h"
 
 
 // 1M Ram.
@@ -419,5 +403,3 @@ class ZVMachine_T1 : public ZVMachine
     bool ChipSave(ZStream_SpecialRamStream * Stream);
 
 };
-
-#endif /* Z_ZVMACHINE_T1_H */

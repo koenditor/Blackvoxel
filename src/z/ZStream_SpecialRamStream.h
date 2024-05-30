@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSTREAM_SPECIALRAMSTREAM_H
-#define Z_ZSTREAM_SPECIALRAMSTREAM_H
+#pragma once 
 
-//#ifndef Z_ZSTREAM_SPECIALRAMSTREAM_H
-//#  include "ZStream_SpecialRamStream.h"
-//#endif
+#include "ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
-
-#ifndef Z_STREAMS_H
-#  include "ZStreams.h"
-#endif
+#include "ZStreams.h"
 
 class ZString;
 
@@ -405,7 +396,3 @@ class ZStream_SpecialRamStream
   void BufferToString(ZString & OutputString);
 
 };
-
-
-
-#endif /* Z_ZSTREAM_SPECIALRAMSTREAM_H */

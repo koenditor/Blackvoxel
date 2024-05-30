@@ -25,9 +25,7 @@
 
 #include "ZVoxelType_FusionElement.h"
 
-#ifndef Z_ZVOXELEXTENSION_FUSIONELEMENT_H
-#  include "ZVoxelExtension_FusionElement.h"
-#endif
+#include "ZVoxelExtension_FusionElement.h"
 
 #include <stdio.h>
 

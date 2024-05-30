@@ -23,26 +23,20 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSCREEN_GAMEMODESELECTION_H
-#  include "ZScreen_GameModeSelection.h"
-#endif
+#include "ZScreen_GameModeSelection.h"
 
-#include <GL/glew.h>
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "z/ZString.h"
 
-#ifndef Z_ZOS_SPECIFIC_VIEWDOC_H
-#  include "ZOs_Specific_ViewDoc.h"
-#endif
+#include "ZGame.h"
+
+#include "ZOs_Specific_ViewDoc.h"
 
 
 #include "SDL2/SDL.h"
+
+#include "GL/gl.h"
 
 //define COMPILEOPTION_ONLYSCHOOLMODE
 #define ZMODESELECTION_SLOTCOUNT 2

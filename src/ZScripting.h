@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSCRIPTING_H
-#define Z_ZSCRIPTING_H
+#pragma once 
 
-//#ifndef Z_ZSCRIPTING_H
-//#  include "ZScripting.h"
-//#endif
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+
+
+
+
+#include "z/ZString.h"
 
 class ZScript
 {
@@ -50,5 +48,3 @@ class ZScripting
     virtual void RunScript( ZScript * Script) = 0;
     virtual ~ZScripting() {};
 };
-
-#endif /* Z_ZSCRIPTING_H */

@@ -23,33 +23,17 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGUI_KEYCHOOSER_H
-#define Z_ZGUI_KEYCHOOSER_H
+#pragma once 
 
-//#ifndef Z_ZGUI_KEYCHOOSER_H
-//#  include "ZGui_KeyChooser.h"
-//#endif
+#include "z/ZString.h"
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "ZGui.h"
 
+#include "ZTileSets.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui_FontFrame.h"
 
-#ifndef Z_ZTILESETS_H
-#  include "ZTileSets.h"
-#endif
-
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
-
-#ifndef Z_ZGUI_TILEFRAME_H
-#  include "ZGui_TileFrame.h"
-#endif
+#include "ZGui_TileFrame.h"
 
 class ZFrame_KeyChooser : public ZFrame
 {
@@ -125,5 +109,3 @@ class ZFrame_KeyChooser : public ZFrame
     bool Is_KeyChanged (bool Reset = true)     { bool res; res = Event_KeyChanged;  if (Reset) Event_KeyChanged = false;  return(res); }
 
 };
-
-#endif /* Z_ZGUI_KEYCHOOSER_H */

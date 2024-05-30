@@ -23,24 +23,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGUI_CPU_REGISTERS_H
-#define Z_ZGUI_CPU_REGISTERS_H
+#pragma once 
 
-//#ifndef Z_ZGUI_CPU_REGISTERS_H
-//#  include "ZGui_CPU_Registers.h"
-//#endif
+#include "z/ZString.h"
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
-
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
+#include "ZGui_FontFrame.h"
 
 class ZVMachine;
 
@@ -80,5 +69,3 @@ class ZCPURegisters : public ZFrame
     virtual void Render(Frame_Dimensions * ParentPosition);
 
 };
-
-#endif /* Z_ZGUI_CPU_REGISTERS_H */

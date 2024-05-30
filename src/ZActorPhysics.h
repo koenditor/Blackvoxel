@@ -23,36 +23,20 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZACTORPHYSICS_H
-#define Z_ZACTORPHYSICS_H
+#pragma once
 
-//#ifndef Z_ZACTORPHYSICS_H
-//#  include "ZActorPhysics.h"
-//#endif
 
-#ifndef Z_ZWORLD_H
-#  include "ZWorld.h"
-#endif
+#include "ZWorld.h"
 
-#ifndef Z_ZCAMERA_H
-#  include "ZCamera.h"
-#endif
+#include "ZCamera.h"
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
-#ifndef Z_ZINVENTORY_H
-#  include "ZInventory.h"
-#endif
+#include "ZInventory.h"
 
-#ifndef Z_ZTOOLS_H
-#  include "ZTools.h"
-#endif
+#include "ZTools.h"
 
-#ifndef Z_ZSTREAM_SPECIALRAMSTREAM_H
-#  include "z/ZStream_SpecialRamStream.h"
-#endif
+#include "z/ZStream_SpecialRamStream.h"
 
 #include "SDL2/SDL_stdinc.h"
 
@@ -227,5 +211,3 @@ class ZActorPhysicEngine
   ~ZActorPhysicEngine();
 
 };
-
-#endif

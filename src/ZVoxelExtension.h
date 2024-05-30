@@ -23,30 +23,17 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELEXTENSION_H
-#define Z_ZVOXELEXTENSION_H
-
-//#ifndef Z_ZVOXELEXTENSION_H
-//#  include "ZVoxelExtension.h"
-//#endif
+#pragma once 
 
 #include <stddef.h>
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZSTREAM_SPECIALRAMSTREAM_H
-#  include "z/ZStream_SpecialRamStream.h"
-#endif
+#include "z/ZStream_SpecialRamStream.h"
 
-#ifndef Z_ZMEMPOOL_OPTIMIZED_H
-#  include "ZMemPool_Optimized.h"
-#endif
+#include "z/ZMemPool_Optimized.h"
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "ACompileSettings.h"
 
 class ZGame;
 #include <stdio.h>
@@ -92,7 +79,3 @@ class ZVoxelExtension
 #endif
 
 };
-
-
-
-#endif /* Z_ZVOXELEXTENSION_H */

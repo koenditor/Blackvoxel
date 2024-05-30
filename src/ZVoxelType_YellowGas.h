@@ -16,16 +16,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef Z_ZVOXELTYPE_YELLOWGAS_H
-#define Z_ZVOXELTYPE_YELLOWGAS_H
 
-//#ifndef Z_ZVOXELTYPE_YELLOWGAS_H
-//#  include "ZVoxelType_YellowGas.h"
-//#endif
+#pragma once
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_YellowGas : public ZVoxelType
 {
@@ -41,6 +35,3 @@ class ZVoxelType_YellowGas : public ZVoxelType
     virtual ZVoxelExtension * CreateVoxelExtension(bool IsLoadingPhase = true);
 
 };
-
-
-#endif /* Z_ZVOXELTYPE_YELLOWGAS_H */

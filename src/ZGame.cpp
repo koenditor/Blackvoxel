@@ -24,60 +24,36 @@
  */
 
 #include "ZGame.h"
-#include <GL/glew.h>
+
 #include <math.h>
 #include <stdio.h>
 #include "SDL2/SDL.h"
-#include <GL/glew.h>
+
 #include "ZRender_Basic.h"
 
-#ifndef Z_ZVOXEL_H
-#  include "ZVoxel.h"
-#endif
+#include "ZVoxel.h"
 
-#ifndef Z_ZSTREAMS_FILE_H
-#  include "z/ZStream_File.h"
-#endif
+#include "z/ZStream_File.h"
 
-#ifndef Z_ZGAME_DEVHELPERS_H
-#  include "ZGame_DevHelpers.h"
-#endif
+#include "ZGame_DevHelpers.h"
 
-#ifndef Z_ZTOOLS_H
-#  include "ZTools.h"
-#endif
+#include "ZTools.h"
 
-#ifndef Z_ZTOOL_CONSTRUCTOR_H
-#  include "ZTool_Constructor.h"
-#endif
+#include "ZTool_Constructor.h"
 
-#ifndef Z_ZTOOL_SCAN_H
-#  include "ZTool_Scan.h"
-#endif
+#include "ZTool_Scan.h"
 
-#ifndef Z_ZTOOL_ROTATE_H
-#  include "ZTool_Rotate.h"
-#endif
+#include "ZTool_Rotate.h"
 
-#ifndef Z_ZTOOL_ORESCAN_H
-#  include "ZTool_OreScan.h"
-#endif
+#include "ZTool_OreScan.h"
 
-#ifndef Z_ZTOOL_WIRELESSLINKER_H
-#  include "ZTool_Linker.h"
-#endif
+#include "ZTool_Linker.h"
 
-#ifndef Z_ZLOADINGSCREEN_H
-#  include "ZLoadingScreen.h"
-#endif
+#include "ZLoadingScreen.h"
 
-#ifndef Z_ZGAMEWINDOW_ZPROGROBOT_REMOTE_H
-#  include "ZGameWindow_ZProgRobot_Remote.h"
-#endif
+#include "ZGameWindow_ZProgRobot_Remote.h"
 
-#ifndef Z_ZGAMEWINDOW_RESUMEREQUEST_LITTLE_H
-#  include "ZGameWindow_ResumeRequest_Little.h"
-#endif
+#include "ZGameWindow_ResumeRequest_Little.h"
 
 
 bool ZGame::Init_UserDataStorage(ZLog * InitLog)
@@ -575,15 +551,17 @@ bool ZGame::Init_Glew(ZLog * InitLog)
 
   SDL_GL_CreateContext(this->screen);
   
-  GLenum err;
+  // GLenum err;
 
   InitLog->Log(1, ZLog::INFO, "Starting : Glew");
   if (!Initialized_GraphicMode)    {ZString Err = "Can't init Glew : GraphicMode init not completed"; InitLog->Log(3, ZLog::FAIL, Err); return(false);}
-  if ((err = glewContextInit()) != GLEW_OK)
-  {
-    printf("Can't init Glew : %s\n", glewGetErrorString(err));
-    return(false);
-  }
+  // if ((err = glewContextInit()) != GLEW_OK)
+  // {
+  //   printf("Can't init Glew : %s\n", glewGetErrorString(err));
+  //   return(false);
+  // }
+  // TODO: Fix dirty hack
+
 
   InitLog->Log(0, ZLog::INFO, "Ended Ok : Glew");
   Initialized_Glew = true;

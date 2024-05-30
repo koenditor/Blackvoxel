@@ -23,28 +23,15 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZTILESETS_H
-#define Z_ZTILESETS_H
+#pragma once
 
-//#ifndef Z_ZTILESETS_H
-//#  include "ZTileSets.h"
-//#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZObject.h"
 
-#ifndef Z_ZOBJECT_H
-#  include "z/ZObject.h"
-#endif
+#include "z/ZObject_Array.h"
 
-#ifndef Z_ZOBJECT_ARRAY_H
-#  include "z/ZObject_Array.h"
-#endif
-
-#ifndef Z_ZTEXTUREMANAGER_H
-#  include "ZTextureManager.h"
-#endif
+#include "ZTextureManager.h"
 
 class ZTileSet;
 
@@ -131,7 +118,3 @@ class ZTileSet : public ZObject
     void  GetFontRenderSize(ZTileStyle const * TileStyle , char const * TextToRender, ZVector2f * OutSize);
     ULong GetTilePixel(UByte TileNum, ULong x, ULong y);
 };
-
-
-
-#endif /* Z_ZTILESETS_H */

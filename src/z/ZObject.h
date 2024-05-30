@@ -18,16 +18,9 @@
 */
 
 
-#ifndef Z_ZOBJECT_H
-#define Z_ZOBJECT_H
+#pragma once
 
-//#ifndef Z_ZOBJECT_H
-//#  include "ZObject.h"
-//#endif
-
-#ifndef Z_STYPES_H
-#  include "ZTypes.h"
-#endif
+#include "ZTypes.h"
 
 #define Z_OBJECT_OFFSETUNIT 2
 
@@ -37,5 +30,3 @@ class ZObject
     virtual ZObject * GetCopy() {return(0);}
     virtual ~ZObject() {};
 };
-
-#endif

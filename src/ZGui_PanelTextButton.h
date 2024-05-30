@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGUI_PANELTEXTBUTTON_H
-#define Z_ZGUI_PANELTEXTBUTTON_H
+#pragma once 
 
-//#ifndef Z_ZGUI_PANELTEXTBUTTON_H
-//#  include "ZGui_PanelTextButton.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
-
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
+#include "ZGui_FontFrame.h"
 
 class ZPanelTextButton : public ZFrame
 {
@@ -86,5 +77,3 @@ class ZPanelTextButton : public ZFrame
 
 
 };
-
-#endif /* Z_ZGUI_PANELTEXTBUTTON_H */

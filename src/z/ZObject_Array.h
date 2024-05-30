@@ -39,24 +39,18 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef Z_ZOBJECT_ARRAY_H
-#define Z_ZOBJECT_ARRAY_H
+#pragma once 
 
-//#ifndef Z_ZOBJECT_ARRAY_H
-//#  include "ZObject_Array.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
 
-#ifndef Z_ZOBJECT_H
-#  include "ZObject.h"
-#endif
 
-#ifndef Z_ZGENERAL_OBJECT_H
-#  include "ZGeneralObject.h"
-#endif
+
+
+#include "ZTypes.h"
+
+#include "ZObject.h"
+
+#include "ZGeneralObject.h"
 
 #define ZOA_INITIALSIZE 80
 
@@ -104,5 +98,3 @@ class ZObjectArray : public ZGeneralObject
       } while (NotYetSorted);
     }
 };
-
-#endif

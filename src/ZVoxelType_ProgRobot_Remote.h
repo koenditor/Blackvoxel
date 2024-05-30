@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_PROGROBOT_REMOTE_H
-#define Z_ZVOXELTYPE_PROGROBOT_REMOTE_H
+#pragma once
 
-// #ifndef Z_ZVOXELTYPE_PROGROBOT_REMOTE_H
-// #  include "ZVoxelType_ProgRobot_Web.h"
-// #endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 
 class ZVoxelType_ProgRobot_Remote : public ZVoxelType
@@ -68,6 +61,3 @@ class ZVoxelType_ProgRobot_Remote : public ZVoxelType
     virtual void  ActiveProcess( ZActiveVoxelInterface * AvData);
 
 };
-
-
-#endif /* Z_ZVOXELTYPE_PROGROBOT_REMOTE_H */

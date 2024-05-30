@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZTOOL_SCAN_H
-#define Z_ZTOOL_SCAN_H
+#pragma once 
 
-//#ifndef Z_ZTOOL_SCAN_H
-//#  include "ZTool_Scan.h"
-//#endif
 
-#ifndef Z_ZTOOLS_H
-#  include "ZTools.h"
-#endif
+
+
+
+
+#include "ZTools.h"
 
 class ZTool_Scan : public ZTool
 {
@@ -43,7 +41,3 @@ class ZTool_Scan : public ZTool
     virtual void End_Tool();
     virtual void Display();
 };
-
-
-
-#endif /* Z_ZTOOL_SCAN_H */

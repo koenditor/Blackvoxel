@@ -23,32 +23,18 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSOUND_H
-#define Z_ZSOUND_H
+#pragma once 
 
-// #ifndef Z_ZSOUND_H
-// #  include "ZSound.h"
-// #endif
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "z/ZString.h"
 
-#ifndef Z_ZSTREAMS_FILE_H
-#  include "z/ZStream_File.h"
-#endif
+#include "z/ZStream_File.h"
 
-#ifndef _SDL_audio_h
-#  include <SDL2/SDL_audio.h>
-#endif
+#include <SDL2/SDL_audio.h>
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "ACompileSettings.h"
 
 #define ZSOUND_MAX_SOUNDFILES 512
 
@@ -369,5 +355,3 @@ class ZSound
     }
 
 };
-
-#endif /* ZSOUND_H_ */

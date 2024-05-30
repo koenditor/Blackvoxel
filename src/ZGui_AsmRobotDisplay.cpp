@@ -26,9 +26,7 @@
 
 #include "ZGui_AsmRobotDisplay.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
 
 void ZAsmRobotDisplay::SetSize(float Width, float Height)

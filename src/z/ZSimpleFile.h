@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_SIMPLEFILE_H
-#define Z_SIMPLEFILE_H
+#pragma once 
 
-// #ifndef Z_SIMPLEFILE_H
-// #include "ZSimpleFile.h"
-// #endif
 
-#ifndef Z_ZMEMPOOL_H
-#  include "ZMemPool.h"
-#endif
+
+
+
+
+#include "ZMemPool.h"
 
 class ZSimpleFile
 {
@@ -111,8 +109,3 @@ class ZSimpleFile
       return(Count);
     }
 };
-
-
-
-
-#endif /* Z_SIMPLEFILE_H */

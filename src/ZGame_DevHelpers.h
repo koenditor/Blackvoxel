@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAME_DEVHELPERS_H
-#define Z_ZGAME_DEVHELPERS_H
+#pragma once 
 
-//#ifndef Z_ZGAME_DEVHELPERS_H
-//#  include "ZGame_DevHelpers.h"
-//#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
-
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "z/ZString.h"
 
 
 class ZGame_DevHelpers
@@ -49,5 +40,3 @@ class ZGame_DevHelpers
     static bool OutputHelpers(ZString & HelperDirectory);
 
 };
-
-#endif /* Z_ZGAME_DEVHELPERS_H */

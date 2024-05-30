@@ -24,12 +24,7 @@
  */
 
 
-#ifndef Z_ZSEPARATORSETS_H
-#define Z_ZSEPARATORSETS_H
-
-//#ifndef Z_ZSEPARATORSETS_H
-//#  include "ZSeparatorSets.h"
-//#endif
+#pragma once
 
 // ***********************************************************************
 // *                           Separator Set                             *
@@ -48,36 +43,191 @@ class ZSeparatorSet
 
     // Initialisation d'un ensemble.
 
-    inline void            Include     (char Separator);
-    inline void            Exclude     (char Separator);
-    inline ZSeparatorSet & operator+=  (char Separator);
-    inline ZSeparatorSet & operator-=  (char Separator);
-    inline void            IncludeRange(char Start,char End);
-    inline void            ExcludeRange(char Start,char End);
-    inline void            ClearAll    ();
-    inline void            SetAll      ();
+    void            Include     (char Separator);
+    void            Exclude     (char Separator);
+    ZSeparatorSet & operator+=  (char Separator);
+    ZSeparatorSet & operator-=  (char Separator);
+    void            IncludeRange(char Start,char End);
+    void            ExcludeRange(char Start,char End);
+    void            ClearAll    ();
+    void            SetAll      ();
 
     // Operations entre ensembles.
 
-    inline ZSeparatorSet & operator= (ZSeparatorSet &Set);
-    inline ZSeparatorSet & operator+=(ZSeparatorSet &Set);
-    inline ZSeparatorSet & operator-=(ZSeparatorSet &Set);
-    inline ZSeparatorSet   operator+ (ZSeparatorSet &Set);
-    inline ZSeparatorSet   operator- (ZSeparatorSet &Set);
-    inline ZSeparatorSet   operator+ (char Separator);
-    inline ZSeparatorSet   operator- (char Separator);
-    inline ZSeparatorSet   operator& (ZSeparatorSet &Set);
-    inline ZSeparatorSet   operator! ();
-    inline ZSeparatorSet   operator~ ();
+    ZSeparatorSet & operator= (ZSeparatorSet &Set);
+    ZSeparatorSet & operator+=(ZSeparatorSet &Set);
+    ZSeparatorSet & operator-=(ZSeparatorSet &Set);
+    ZSeparatorSet   operator+ (ZSeparatorSet &Set);
+    ZSeparatorSet   operator- (ZSeparatorSet &Set);
+    ZSeparatorSet   operator+ (char Separator);
+    ZSeparatorSet   operator- (char Separator);
+    ZSeparatorSet   operator& (ZSeparatorSet &Set);
+    ZSeparatorSet   operator! ();
+    ZSeparatorSet   operator~ ();
 
     // Tests d'appartenance d'un caractere a l'ensemble.
 
-    inline Bool IsIncluded   (char Char);
-    inline Bool IsNotIncluded(char Char);
-    inline Bool operator==   (char Char);
-    inline Bool operator!=   (char Char);
+    Bool IsIncluded   (char Char);
+    Bool IsNotIncluded(char Char);
+    Bool operator==   (char Char);
+    Bool operator!=   (char Char);
 };
 
-#include "ZSeparatorSets_InLines.h"
+inline ZSeparatorSet::ZSeparatorSet()
+{
+  ULong i;
+  for(i=0;i<256;i++) Array[i]=0;
+}
 
-#endif
+inline ZSeparatorSet::ZSeparatorSet(ZSeparatorSet &Set)
+{
+  ULong i;
+  for(i=0;i<256;i++) Array[i] = Set.Array[i];
+}
+
+inline void ZSeparatorSet::Include(char Separator)
+{
+  Array[(UByte)Separator]=-1;
+}
+
+inline void ZSeparatorSet::Exclude(char Separator)
+{
+  Array[(UByte)Separator]=0;
+}
+
+inline void ZSeparatorSet::IncludeRange(char Start,char End) 
+{
+  ULong i;
+  if ((UByte)Start <= (UByte)End)
+  {
+    for(i=(ULong)Start;i<=(ULong)End;i++) Array[i]=-1;
+  }
+}
+
+inline void ZSeparatorSet::ExcludeRange(char Start,char End) 
+{
+  ULong i;
+  if ((UByte)Start<= (UByte)End)
+  {
+    for(i=(ULong)Start;i<=(ULong)End;i++) Array[i]=0;
+  }
+}
+
+inline ZSeparatorSet &  ZSeparatorSet::operator=(ZSeparatorSet &Set)
+{
+  ULong i;
+  for(i=0;i<256;i++) Array[i] = Set.Array[i];
+  return(*this);
+}
+
+inline ZSeparatorSet  ZSeparatorSet::operator+(ZSeparatorSet &Set)
+{
+  ULong i;
+  ZSeparatorSet NewSet;
+  for(i=0;i<256;i++) NewSet.Array[i] = Array[i]|Set.Array[i];
+  return(NewSet);
+}
+
+inline ZSeparatorSet ZSeparatorSet::operator-(ZSeparatorSet &Set)
+{
+  UShort i;
+  ZSeparatorSet NewSet;
+  for(i=0;i<256;i++) NewSet.Array[i] = Array[i]&(~Set.Array[i]);
+  return(NewSet);
+}
+
+inline ZSeparatorSet ZSeparatorSet::operator+(char Separator)
+{
+  ZSeparatorSet NewSet(*this);
+  NewSet.Array[(UByte)Separator] = -1;
+  return(NewSet);
+}
+
+inline ZSeparatorSet ZSeparatorSet::operator-(char Separator)
+{
+  ZSeparatorSet NewSet(*this);
+  NewSet.Array[(UByte)Separator] = 0;
+  return(NewSet);
+}
+
+inline ZSeparatorSet ZSeparatorSet::operator&(ZSeparatorSet &Set)
+{
+  UShort i;
+  ZSeparatorSet NewSet;
+  for(i=0;i<256;i++) NewSet.Array[i] = Array[i] & Set.Array[i];
+  return(NewSet);
+}
+
+inline ZSeparatorSet ZSeparatorSet::operator!()
+{
+  UShort i;
+  ZSeparatorSet NewSet;
+  for(i=0;i<256;i++) NewSet.Array[i] = ~Array[i];
+  return(NewSet);
+}
+
+inline ZSeparatorSet ZSeparatorSet::operator~()
+{
+  UShort i;
+  ZSeparatorSet NewSet;
+  for(i=0;i<256;i++) NewSet.Array[i] = ~Array[i];
+  return(NewSet);
+}
+
+inline ZSeparatorSet & ZSeparatorSet::operator+=(char Separator)
+{
+  Array[(UByte)Separator] = -1;
+  return(*this);
+}
+
+inline ZSeparatorSet & ZSeparatorSet::operator-=(char Separator)
+{
+  Array[(UByte)Separator] = 0;
+  return(*this);
+}
+
+inline ZSeparatorSet & ZSeparatorSet::operator+=(ZSeparatorSet &Set)
+{
+  UShort i;
+  for(i=0;i<256;i++) Array[i] |= Set.Array[i];
+  return(*this);
+}
+
+inline ZSeparatorSet &  ZSeparatorSet::operator-=(ZSeparatorSet &Set)
+{
+  UShort i;
+  for(i=0;i<256;i++) Array[i] = Array[i] &(~Set.Array[i]);
+  return(*this);
+}
+
+inline Bool ZSeparatorSet::IsIncluded   (char Char)
+{
+  return( Array[(UByte)Char] );
+}
+
+inline Bool ZSeparatorSet::IsNotIncluded(char Char)
+{
+  return (!Array[(UByte)Char]);
+}
+
+inline Bool ZSeparatorSet::operator==   (char Char)
+{
+  return( Array[(UByte)Char] );
+}
+
+inline Bool ZSeparatorSet::operator!=   (char Char) 
+{
+  return(!Array[(UByte)Char] );
+}
+
+inline void ZSeparatorSet::ClearAll()
+{
+  UShort i;
+  for(i=0;i<256;i++) Array[i] = 0;
+}
+
+inline void ZSeparatorSet::SetAll()
+{
+  UShort i;
+  for(i=0;i<256;i++) Array[i] = -1;
+}

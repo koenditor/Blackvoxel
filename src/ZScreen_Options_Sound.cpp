@@ -31,7 +31,9 @@
  */
 
 #include "ZScreen_Options_Sound.h"
-#include <GL/glew.h>
+
+#include "GL/gl.h"
+
 
 ULong ZScreen_Options_Sound::ProcessScreen(ZGame * GameEnv)
 {

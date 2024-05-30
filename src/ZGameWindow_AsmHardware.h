@@ -23,48 +23,25 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAMEWINDOW_ASMHARDWARE_H
-#define Z_ZGAMEWINDOW_ASMHARDWARE_H
+#pragma once 
 
-// #ifndef Z_ZGAMEWINDOW_ASMHARDWARE_H
-// #  include "ZGameWindow_AsmHardware.h"
-// #endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui_Disassembler.h"
 
-#ifndef Z_ZGUI_DISASSEMBLER_H
-#  include "ZGui_Disassembler.h"
-#endif
+#include "ZGui_CPU_Registers.h"
 
-#ifndef Z_ZGUI_CPU_REGISTERS_H
-#  include "ZGui_CPU_Registers.h"
-#endif
-
-#ifndef Z_ZGUI_ASMROBOTDISPLAY_H
 #include "ZGui_AsmRobotDisplay.h"
-#endif
 
-#ifndef Z_ZGUI_PANELTEXTBUTTON_H
-#  include "ZGui_PanelTextButton.h"
-#endif
+#include "ZGui_PanelTextButton.h"
 
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
+#include "ZGui_FontFrame.h"
 
-#ifndef Z_ZGUI_TILEFRAME_H
-#  include "ZGui_TileFrame.h"
-#endif
+#include "ZGui_TileFrame.h"
 
-#ifndef Z_ZGUI_PROGRESSBAR_H
-#  include "ZGui_ProgressBar.h"
-#endif
+#include "ZGui_ProgressBar.h"
 
-#ifndef Z_ZVOXELEXTENSION_PROGROBOT_ASM_H
-#  include "ZVoxelExtension_ProgRobot_Asm.h"
-#endif
+#include "ZVoxelExtension_ProgRobot_Asm.h"
 
 class ZGame;
 
@@ -120,8 +97,3 @@ class ZGameWindow_AsmHardware : public ZFrame
 
 
 };
-
-
-
-
-#endif /* Z_ZGAMEWINDOW_ASMHARDWARE_H */

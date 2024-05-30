@@ -23,48 +23,21 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGUI_H
-#define Z_ZGUI_H
+#pragma once 
 
-//#ifndef Z_ZGUI_H
-//#  include "ZGui.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZObject.h"
 
-#ifndef Z_ZOBJECT_H
-#  include "z/ZObject.h"
-#endif
+#include "z/ZObject_Lists.h"
 
-#ifndef Z_ZOBJECT_LISTS_H
-#  include "z/ZObject_Lists.h"
-#endif
+#include "ZTextureManager.h"
 
-#ifndef Z_ZTEXTUREMANAGER_H
-#  include "ZTextureManager.h"
-#endif
+#include "ZEventManager.h"
 
-#ifndef Z_EVENTDISPATCH_H
-#  include "ZEventManager.h"
-#endif
-
-/*
-struct Frame_Dimensions
-{
-  float Position_x, Position_y, Position_z;
-  float Width, Height, Depth;
-};
-*/
-
-#ifndef _STDIO_H
-#  include <stdio.h>
-#endif
+#include <stdio.h>
 
 #include "SDL2/SDL_keycode.h"
 
@@ -336,6 +309,3 @@ class ZGraphicUserManager : public ZEventConsumer
     virtual Bool MouseButtonRelease(UShort nButton, Short Absolute_x, Short Absolute_y);
 
 };
-
-
-#endif

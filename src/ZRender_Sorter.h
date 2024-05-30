@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZRENDER_SORTER_H
-#define Z_ZRENDER_SORTER_H
+#pragma once 
 
-//#ifndef Z_ZRENDER_SORTER_H
-//#  include "ZRender_Sorter.h"
-//#endif
-
-#ifndef Z_ZVOXELSECTOR_H
-#  include "ZVoxelSector.h"
-#endif
+#include "ZVoxelSector.h"
 
 class ZRender_Sorter
 {
@@ -166,9 +159,3 @@ class ZRender_Sorter
 
 
 };
-
-
-
-
-
-#endif /* Z_ZRENDER_SORTER_H */

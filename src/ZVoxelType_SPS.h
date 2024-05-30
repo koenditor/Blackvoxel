@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_SPS_H
-#define Z_ZVOXELTYPE_SPS_H
+#pragma once 
 
-//#ifndef Z_ZVOXELTYPE_SPS_H
+
+
 //  #include "ZVoxelType_SPS.h"
-//#endif
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+
+#include "ZVoxelType.h"
 
 class ZVoxelType_SPS : public ZVoxelType
 {
@@ -46,5 +44,3 @@ class ZVoxelType_SPS : public ZVoxelType
     virtual void Power_End();
     virtual void Power_DoWork();
 };
-
-#endif /* Z_ZVOXELTYPE_SPS_H */

@@ -23,24 +23,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSCREEN_MAIN_H
-#define Z_ZSCREEN_MAIN_H
+#pragma once 
 
-//#ifndef Z_ZSCREEN_MAIN_H
-//#  include "ZScreen_Main.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui_FontFrame.h"
 
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
-
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
 class ZScreen_Main : public ZScreen
 {
@@ -49,8 +38,3 @@ class ZScreen_Main : public ZScreen
 
     virtual ULong ProcessScreen(ZGame * GameEnv);
 };
-
-
-
-
-#endif /* Z_ZSCREEN_MAIN_H */

@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSIMPLEHASH_H
-#define Z_ZSIMPLEHASH_H
+#pragma once 
 
-//#ifndef Z_ZSIMPLEHASH_H
-//#  include "ZSimpleHash.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+
+
+
+
+#include "ZTypes.h"
 
 template <typename Type>
 class ZSimpleHash
@@ -170,7 +168,3 @@ class ZSimpleHash
    }
 
 };
-
-
-
-#endif /* Z_ZSIMPLEHASH_H */

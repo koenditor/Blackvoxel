@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGUI_PROGRESSBAR_H
-#define Z_ZGUI_PROGRESSBAR_H
+#pragma once 
 
-// #ifndef Z_ZGUI_PROGRESSBAR_H
-// #  include "ZGui_ProgressBar.h"
-// #endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
-
-#ifndef Z_ZTILESETS_H
-#  include "ZTileSets.h"
-#endif
+#include "ZTileSets.h"
 
 class ZFrame_ProgressBar : public ZFrame
 {
@@ -56,7 +47,3 @@ class ZFrame_ProgressBar : public ZFrame
     virtual void Render(Frame_Dimensions * ParentPosition);
 
 };
-
-
-
-#endif /* Z_ZGUI_PROGRESSBAR_H */

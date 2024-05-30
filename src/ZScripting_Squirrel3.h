@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSCRIPTING_SQUIRREL3_H
-#define Z_ZSCRIPTING_SQUIRREL3_H
+#pragma once 
 
-//#ifndef Z_ZSCRIPTING_SQUIRREL3_H
-//#  include "ZScripting_Squirrel3.h"
-//#endif
+#include "ZScripting.h"
 
-#ifndef Z_ZSCRIPTING_H
-#  include "ZScripting.h"
-#endif
-
-#ifndef Z_ZSTRING_H
-#  include "ZString.h"
-#endif
+#include "z/ZString.h"
 
 class ZGame;
 class ZVoxelExtension_Programmable;
@@ -69,7 +60,3 @@ class ZScripting_Squirrel3
     virtual bool IsRunningProgram();
 
 };
-
-
-
-#endif /* Z_ZSCRIPTING_SQUIRREL3_H */

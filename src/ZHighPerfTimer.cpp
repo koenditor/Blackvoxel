@@ -26,9 +26,7 @@
 #include "ZHighPerfTimer.h"
 #include <sys/time.h>
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "ACompileSettings.h"
 
 
 #if COMPILEOPTION_WINXPTIMECOMPUTING==1

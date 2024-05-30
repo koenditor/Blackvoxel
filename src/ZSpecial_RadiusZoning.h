@@ -23,28 +23,16 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSPECIAL_RADIUSZONING_H
-#define Z_ZSPECIAL_RADIUSZONING_H
+#pragma once 
 
-//#ifndef Z_ZSPECIAL_RADIUSZONING_H
-//#  include "ZSpecial_RadiusZoning.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZOBJECT_H
-#  include "z/ZObject.h"
-#endif
+#include "z/ZObject.h"
 
-#ifndef _MATH_H
-#  include <math.h>
-#endif
+#include <math.h>
 
-#ifndef _STDIO_H
-#  include <stdio.h>
-#endif
+#include <stdio.h>
 
 class ZRadius_Zoning : public ZObject
 {
@@ -182,7 +170,3 @@ class ZRadius_Zoning : public ZObject
         }
     }
 };
-
-
-
-#endif

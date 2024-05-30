@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_CARH0_H
-#define Z_ZVOXELTYPE_CARH_H
+#pragma once
 
-//#ifndef Z_ZVOXELTYPE_CARH_H
-//#  include "ZVoxelType_CarH.h"
-//#endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_CarH : public ZVoxelType
 {
@@ -56,7 +49,3 @@ class ZVoxelType_CarH : public ZVoxelType
 
     virtual ULong  Interface_PushBlock_Push( ZVoxelLocation * DestLocation, UShort VoxelType, ULong Count );
 };
-
-
-
-#endif /* Z_ZVOXELTYPE_CARH0_H */

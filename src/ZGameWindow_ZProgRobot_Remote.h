@@ -23,40 +23,21 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAMEWINDOW_ZPROGROBOT_REMOTE_H
-#define Z_ZGAMEWINDOW_ZPROGROBOT_REMOTE_H
+#pragma once 
 
-//#ifndef Z_ZGAMEWINDOW_ZPROGROBOT_REMOTE_H
-//#  include "ZGameWindow_ZProgRobot_Remote.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui_InventoryBox.h"
 
-#ifndef Z_ZGUI_INVENTORYBOX_H
-#  include "ZGui_InventoryBox.h"
-#endif
+#include "ZGui_FontFrame.h"
 
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
+#include "ZGui_NumericChoiceBox.h"
 
-#ifndef ZGUI_ZNUMERICCHOICEBOX_H
-#  include "ZGui_NumericChoiceBox.h"
-#endif
+#include "ZGui_PanelTextButton.h"
 
-#ifndef Z_ZGUI_PANELTEXTBUTTON_H
-#  include "ZGui_PanelTextButton.h"
-#endif
+#include "ZVoxelTypeManager.h"
 
-#ifndef Z_ZVOXELTYPEMANAGER_H
-#  include "ZVoxelTypeManager.h"
-#endif
-
-#ifndef Z_ZVOXELEXTENSION_PROGROBOT_REMOTE_H
-#  include "ZVoxelExtension_ProgRobot_Remote.h"
-#endif
+#include "ZVoxelExtension_ProgRobot_Remote.h"
 
 class ZGame;
 
@@ -151,7 +132,3 @@ class ZGameWindow_ProgRobot_Remote : public ZFrame
     void DisplayProgramName();
 
 };
-
-
-
-#endif /* Z_ZGAMEWINDOW_ZPROGROBOT_REMOTE_H */

@@ -23,52 +23,28 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELPROCESSOR_H
-#define Z_ZVOXELPROCESSOR_H
+#pragma once 
 
-//#ifndef Z_ZVOXELPROCESSOR_H
-//#  include "ZVoxelProcessor.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZOBJECT_H
-#  include "z/ZObject.h"
-#endif
+#include "z/ZObject.h"
 
-#ifndef Z_ZWORLD_H
-#  include "ZWorld.h"
-#endif
+#include "ZWorld.h"
 
-#ifndef Z_ZACTORPHYSICS_H
-#  include "ZActorPhysics.h"
-#endif
+#include "ZActorPhysics.h"
 
-#ifndef _SDL_thread_h
-#  include "SDL2/SDL_thread.h"
-#endif
+#include "SDL2/SDL_thread.h"
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "ACompileSettings.h"
 
-#ifndef Z_ZVOXELREACTOR_H
-#  include "ZVoxelReactor.h"
-#endif
+#include "ZVoxelReactor.h"
 
-#ifndef Z_ZHIGHPERFTIMER_H
-#  include "ZHighPerfTimer.h"
-#endif
+#include "ZHighPerfTimer.h"
 
-#ifndef Z_ZEGMYSCATTER_H
-#  include "ZEgmyScatter.h"
-#endif
+#include "ZEgmyScatter.h"
 
-#ifndef Z_ZREMOTEROBOTMANAGER_H
-#  include "ZRemoteRobotManager.h"
-#endif
+#include "ZRemoteRobotManager.h"
 
 class ZGame;
 
@@ -124,6 +100,3 @@ class ZVoxelProcessor : public ZObject
     void SetPlayerPosition(double x,double y, double z);
 
 };
-
-
-#endif /* ZVOXELPROCESSOR_H_ */

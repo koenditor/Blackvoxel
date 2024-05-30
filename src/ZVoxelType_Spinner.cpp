@@ -23,9 +23,7 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_SPINNER_H
-#  include "ZVoxelType_Spinner.h"
-#endif
+#include "ZVoxelType_Spinner.h"
 
 #include "ZGame.h"
 

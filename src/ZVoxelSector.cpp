@@ -33,21 +33,13 @@
 #include <math.h>
 #include <string.h>
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
+#include "ZVoxelExtension.h"
 
-#ifndef Z_ZMEMPOOL_H
-#  include "z/ZMemPool.h"
-#endif
+#include "z/ZMemPool.h"
 
-#ifndef Z_ZFASTRANDOM_H
-#  include "z/ZFastRandom.h"
-#endif
+#include "z/ZFastRandom.h"
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "ACompileSettings.h"
 
 
 ULong  ZVoxelSector::SectorsInMemory = 0;

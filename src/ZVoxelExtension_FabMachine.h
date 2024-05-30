@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_VOXELEXTENSION_FABMACHINE_H
-#define Z_VOXELEXTENSION_FABMACHINE_H
+#pragma once 
 
-//#ifndef Z_VOXELEXTENSION_FABMACHINE_H
-//#  include "ZVoxelExtension_FabMachine.h"
-//#endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
+
+
+
+
+#include "ZVoxelExtension.h"
 
 class ZVoxelExtension_FabMachine : public ZVoxelExtension
 {
@@ -147,6 +145,3 @@ class ZVoxelExtension_FabMachine : public ZVoxelExtension
 
 
 };
-
-
-#endif /* Z_VOXELEXTENSION_FABMACHINE_H */

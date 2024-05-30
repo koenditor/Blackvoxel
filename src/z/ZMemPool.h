@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZMEMPOOL_H
-#define Z_ZMEMPOOL_H
+#pragma once 
 
-// #ifndef Z_ZMEMPOOL_H
-// #  include "ZMemPool.h"
-// #endif
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+
+
+
+
+#include "ZTypes.h"
 
 #define Z_ZBASICMEMORYPOOL_SIZE 256
 #define Z_ZBASICMEMORYPOOL_MINMEMSIZE 64
@@ -167,7 +165,3 @@ class ZMonoSizeMemoryPool : public ZMemoryPool
       FreeCount ++;
     }
 };
-
-
-
-#endif /* ZMEMPOOL_H_ */

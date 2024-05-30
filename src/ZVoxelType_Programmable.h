@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_PROGRAMMABLE_H
-#define Z_ZVOXELTYPE_PROGRAMMABLE_H
+#pragma once
 
-//#ifndef Z_ZVOXELTYPE_PROGRAMMABLE_H
-//#  include "ZVoxelType_Programmable.h"
-//#endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_Programmable : public ZVoxelType
 {
@@ -62,6 +55,3 @@ class ZVoxelType_Programmable : public ZVoxelType
     virtual ULong  Interface_PushBlock_PullTest( ZVoxelLocation * DestLocation,  UShort * VoxelType, ULong Count );
 
 };
-
-
-#endif /* Z_ZVOXELTYPE_PROGRAMMABLE_H */

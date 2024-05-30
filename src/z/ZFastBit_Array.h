@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZFASTBIT_ARRAY_H
-#define Z_ZFASTBIT_ARRAY_H
+#pragma once 
 
-//#ifndef Z_ZFASTBIT_ARRAY_H
-//#  include "ZFastBit_Array.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+
+
+
+
+#include "ZTypes.h"
 
 class ZStream_SpecialRamStream;
 class ZFastBit_Array
@@ -154,6 +152,3 @@ class ZFastBit_Array_64k
 
 
 };
-
-
-#endif /* Z_ZFASTBIT_ARRAY_H */

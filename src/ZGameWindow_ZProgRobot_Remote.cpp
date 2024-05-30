@@ -23,17 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAMEWINDOW_ZPROGROBOT_REMOTE_H
-#  include "ZGameWindow_ZProgRobot_Remote.h"
-#endif
+#include "ZGameWindow_ZProgRobot_Remote.h"
 
-#ifndef Z_ZOS_SPECIFIC_VIEWDOC_H
-#  include "ZOs_Specific_ViewDoc.h"
-#endif
+#include "ZOs_Specific_ViewDoc.h"
 
-#ifndef Z_ZOS_SPECIFIC_EDITCODE_H
-#  include "ZOs_Specific_EditCode.h"
-#endif
+#include "ZOs_Specific_EditCode.h"
 
 #include "ZGame.h"
 #include "ZActorPhysics.h"

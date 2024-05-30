@@ -23,17 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_INDICATORLIGHT_H
-#  include "ZVoxelType_IndicatorLight.h"
-#endif
+#include "ZVoxelType_IndicatorLight.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
-#ifndef Z_ZWORLD_H
-#  include "ZWorld.h"
-#endif
+#include "ZWorld.h"
 
 
 bool ZVoxelType_IndicatorLight::Interface_GetInfo(ZVoxelLocation * VLoc, ULong InfoNum, ZVar * Out)

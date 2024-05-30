@@ -26,9 +26,7 @@
 #include "ZVoxelProcessor.h"
 #include "SDL2/SDL.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
 
 ULong debug_DeleteRequests = 0;

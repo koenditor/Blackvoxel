@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZCHARFILTER_H
-#define Z_ZCHARFILTER_H
+#pragma once
 
-// #ifndef Z_ZCHARFILTER_H
-// #  include "ZCharFilter.h"
-// #endif
-
-#ifndef Z_STYPES_H
-#  include "ZTypes.h"
-#endif
+#include "ZTypes.h"
 
 // ***********************************************************************
 // *                        Caracter Conversion Filter                   *
@@ -61,6 +54,3 @@ class ZCharFilter
       return(Array[(UByte)Car]);
     }
 };
-
-
-#endif

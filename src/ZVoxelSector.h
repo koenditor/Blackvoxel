@@ -23,28 +23,15 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELSECTOR_H
-#define Z_ZVOXELSECTOR_H
+#pragma once
 
-// #ifndef Z_ZVOXELSECTOR_H
-// #  include "ZVoxelSector.h"
-// #endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZString.h"
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "z/ZObject.h"
 
-#ifndef Z_ZOBJECT_H
-#  include "z/ZObject.h"
-#endif
-
-#ifndef Z_ZSECTOR_MODIFTRACKER_H
-#  include "ZSector_ModifTracker.h"
-#endif
+#include "ZSector_ModifTracker.h"
 
 
 
@@ -351,7 +338,3 @@ public:
     void DebugOut( const char * FileName );
     void DebugOutFCInfo( const char * FileName );
 };
-
-
-
-#endif

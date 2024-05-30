@@ -23,15 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSCREEN_UNSUPPORTEDGAMEMODE_H
-#  include "ZScreen_UnsupportedGameMode.h"
-#endif
+#include "ZScreen_UnsupportedGameMode.h"
 
-#include <GL/glew.h>
+#include "GL/gl.h"
 
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
+#include "ZGui_FontFrame.h"
 
 ULong ZScreen_UnsupportedGameMode::ProcessScreen(ZGame * GameEnv)
 {

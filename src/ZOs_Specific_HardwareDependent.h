@@ -5,16 +5,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZHARDWAREDEPENDENT_H
-#define Z_ZHARDWAREDEPENDENT_H
+#pragma once 
 
-//#ifndef Z_ZHARDWAREDEPENDENT_H
-//#  include "ZOs_Specific_HardwareDependent.h"
-//#endif
-
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZTypes.h"
 
 class ZHardwareInfo
 {
@@ -38,9 +31,3 @@ class ZHardwareInfo
     void DetectHardware();
 
 };
-
-
-
-
-
-#endif /* Z_ZHARDWAREDEPENDENT_H */

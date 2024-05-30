@@ -23,9 +23,7 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAMEWINDOW_SCAN_H
-#  include "ZGameWindow_Scan.h"
-#endif
+#include "ZGameWindow_Scan.h"
 
 #include "ZGame.h"
 

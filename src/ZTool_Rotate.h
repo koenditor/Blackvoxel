@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZTOOL_ROTATE_H
-#define Z_ZTOOL_ROTATE_H
+#pragma once 
 
-//#ifndef Z_ZTOOL_ROTATE_H
-//#  include "ZTool_Rotate.h"
-//#endif
 
-#ifndef Z_ZTOOLS_H
-#  include "ZTools.h"
-#endif
+
+
+
+
+#include "ZTools.h"
 
 class ZTool_Rotate : public ZTool
 {
@@ -43,6 +41,3 @@ class ZTool_Rotate : public ZTool
     virtual void End_Tool();
     virtual void Display();
 };
-
-
-#endif /* Z_ZTOOL_ROTATE_H */

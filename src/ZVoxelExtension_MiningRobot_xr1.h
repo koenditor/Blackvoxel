@@ -23,24 +23,18 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELEXTENSION_MININGROBOT_XR1_H
-#define Z_ZVOXELEXTENSION_MININGROBOT_XR1_H
+#pragma once 
 
-//#ifndef Z_ZVOXELEXTENSION_MININGROBOT_XR1_H
-//#  include "ZVoxelExtension_MiningRobot_xr1.h"
-//#endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
 
-#ifndef Z_ZVOXELEXTENSION_STORAGE_H
-#  include "ZVoxelExtension_Storage.h"
-#endif
 
-#ifndef Z_ZWORLD_H
-#  include "ZWorld.h"
-#endif
+
+
+#include "ZVoxelExtension.h"
+
+#include "ZVoxelExtension_Storage.h"
+
+#include "ZWorld.h"
 
 class ZVoxelExtension_MiningRobot_xr1 : public ZVoxelExtension
 {
@@ -182,6 +176,3 @@ class ZVoxelExtension_MiningRobot_xr1 : public ZVoxelExtension
   void Robot_Move( ZVector3L * Pos, ZGame * GameEnv );
 
 };
-
-
-#endif /* Z_ZVOXELEXTENSION_MININGROBOT_XR1_H */

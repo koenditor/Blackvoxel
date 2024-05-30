@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZCIRCUIT_H
-#define Z_ZCIRCUIT_H
+#pragma once
 
-//#ifndef Z_ZCIRCUIT_H
-//#  include "ZChip.h"
-//#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
-
-#ifndef Z_ZVMACHINE_H
-#  include "ZVMachine.h"
-#endif
+#include "ZVMachine.h"
 
 class ZChip
 {
@@ -54,7 +45,3 @@ class ZChip
     virtual bool Load(ZStream_SpecialRamStream * Stream) {return(false);};
     virtual ~ZChip() {}
 };
-
-
-
-#endif /* Z_ZCIRCUIT_H */

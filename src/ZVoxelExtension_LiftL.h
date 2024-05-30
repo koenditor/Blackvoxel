@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELEXTENSION_LIFTL_H
-#define Z_ZVOXELEXTENSION_LIFTL_H
+#pragma once 
 
-//#ifndef Z_ZVOXELEXTENSION_LIFTL_H
-//#  include "ZVoxelExtension_LiftL.h"
-//#endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
+
+
+
+
+#include "ZVoxelExtension.h"
 
 class ZVoxelExtension_LiftL : public ZVoxelExtension
 {
@@ -59,7 +57,3 @@ class ZVoxelExtension_LiftL : public ZVoxelExtension
   virtual ULong StoreBlocks(UShort VoxelType, ULong VoxelQuantity);
 
 };
-
-
-
-#endif /* Z_ZVOXELEXTENSION_LIFTL_H */

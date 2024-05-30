@@ -16,12 +16,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef Z_ZSECTORRINGLIST_H
-#define Z_ZSECTORRINGLIST_H
+#pragma once 
 
-//#ifndef Z_ZSECTORRINGLIST_H
-//#  include "ZSectorRingList.h"
-//#endif
+
+
+
+
 
 
 class ZSectorRingList : public ZObject
@@ -99,6 +99,3 @@ class ZSectorRingList : public ZObject
       ULong debug_GetEnd()   {return( End); }
       ULong debug_GetnEntries() {return(nEntries);}
   };
-
-
-#endif

@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSPINLOCK_H
-#define Z_ZSPINLOCK_H
+#pragma once 
 
-//#ifndef Z_ZSPINLOCK_H
-//#  include "SpinLock.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+
+
+
+
+#include "ZTypes.h"
 
 class ZSpinLock
 {
@@ -74,8 +72,3 @@ class ZSpinLock
   }
 
 };
-
-
-
-
-#endif /* Z_ZSPINLOCK_H */

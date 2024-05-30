@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZOS_SPECIFIC_VIEWDOC_H
-#define Z_ZOS_SPECIFIC_VIEWDOC_H
+#pragma once 
 
-//#ifndef Z_ZOS_SPECIFIC_VIEWDOC_H
-//#  include "ZOs_Specific_ViewDoc.h"
-//#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
-
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "ACompileSettings.h"
 
 class ZViewDoc
 {
@@ -47,5 +38,3 @@ class ZViewDoc
   static bool OpenURL(char * URL);
 
 };
-
-#endif /* Z_ZOS_SPECIFIC_VIEWDOC_H */

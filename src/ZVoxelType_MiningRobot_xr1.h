@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_MININGROBOT_XR1_H
-#define Z_ZVOXELTYPE_MININGROBOT_XR1_H
+#pragma once
 
-//#ifndef Z_ZVOXELTYPE_MININGROBOT_XR1_H
-//#  include "ZVoxelType_MiningRobot_xr1.h"
-//#endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_MiningRobot_xr1 : public ZVoxelType
 {
@@ -57,5 +50,3 @@ class ZVoxelType_MiningRobot_xr1 : public ZVoxelType
     virtual ULong  Interface_PushBlock_PullTest( ZVoxelLocation * DestLocation,  UShort * VoxelType, ULong Count );
 
 };
-
-#endif /* Z_ZVOXELTYPE_MININGROBOT_XR1_H */

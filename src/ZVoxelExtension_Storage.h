@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELEXTENSION_STORAGE_H
-#define Z_ZVOXELEXTENSION_STORAGE_H
+#pragma once 
 
-//#ifndef Z_ZVOXELEXTENSION_STORAGE_H
-//#  include "ZVoxelExtension_Storage.h"
-//#endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
+
+
+
+
+#include "ZVoxelExtension.h"
 
 class ZVoxelExtension_Storage : public ZVoxelExtension
 {
@@ -186,6 +184,3 @@ class ZVoxelExtension_Storage : public ZVoxelExtension
 
 
 };
-
-
-#endif /* Z_ZVOXELEXTENSION_STORAGE_H */

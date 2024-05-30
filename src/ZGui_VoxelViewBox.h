@@ -23,28 +23,15 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGUI_VOXELVIEW_H
-#define Z_ZGUI_VOXELVIEW_H
+#pragma once 
 
-//#ifndef Z_ZGUI_VOXELVIEW_H
-//#  include "ZGui_VoxelViewBox.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZVoxelType.h"
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelTypeManager.h"
 
-#ifndef Z_ZVOXELTYPEMANAGER_H
-#  include "ZVoxelTypeManager.h"
-#endif
-
-#ifndef Z_ZTILESETS_H
-#  include "ZTileSets.h"
-#endif
+#include "ZTileSets.h"
 
 class ZVoxelViewBox : public ZFrame
 {
@@ -74,6 +61,3 @@ class ZVoxelViewBox : public ZFrame
 
 
 };
-
-
-#endif /* Z_ZGUI_VOXELVIEW_H */

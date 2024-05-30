@@ -17,12 +17,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef Z_BMP_LOADER_H
-#define Z_BMP_LOADER_H
+#pragma once 
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+
+#include "z/ZTypes.h"
 
 
 class ZBitmapImage_0
@@ -44,5 +42,3 @@ class ZBitmapImage_0
     void FlipY();
     bool LoadBMP( const char * FileName );
 };
-
-#endif

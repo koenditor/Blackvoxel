@@ -23,28 +23,15 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSETTINGS_HARDWARE_H
-#define Z_ZSETTINGS_HARDWARE_H
+#pragma once
 
-//#ifndef Z_ZSETTINGS_HARDWARE_H
-//#  include "ZSettings_Hardware.h"
-//#endif
+#include "ACompileSettings.h"
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZString.h"
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
-
-#ifndef Z_ZHARDWAREDEPENDENT_H
-#  include "ZOs_Specific_HardwareDependent.h"
-#endif
+#include "ZOs_Specific_HardwareDependent.h"
 
 #include "SDL2/SDL_scancode.h"
 
@@ -113,5 +100,3 @@ class ZSettings_Hardware
     void AdjustForRealHardware(ZHardwareInfo * HardwareInfo);
 
 };
-
-#endif /* Z_ZSETTINGS_HARDWARE_H */

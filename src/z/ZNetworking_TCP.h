@@ -23,12 +23,12 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZNETWORKING_TCP_H
-#define Z_ZNETWORKING_TCP_H
+#pragma once 
 
-//#ifndef Z_ZNETWORKING_TCP_H
-//#  include "ZNetworking_TCP.h"
-//#endif
+
+
+
+
 
 #include <sys/types.h>
 
@@ -38,9 +38,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-#ifndef Z_ZSTRING_H
-#  include "ZString.h"
-#endif
+#include "ZString.h"
 
 struct sockaddr_in;
 
@@ -98,7 +96,3 @@ class ZTCPNet_Socket
     static void Test();
 
 };
-
-
-
-#endif /* Z_ZNETWORKING_TCP_H */

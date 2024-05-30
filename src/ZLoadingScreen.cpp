@@ -23,22 +23,20 @@
  *      Author: laurent
  */
 
-#include <GL/glew.h>
+
 #include "SDL2/SDL.h"
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "ACompileSettings.h"
 
-#ifndef Z_BITMAP_IMAGE_H
-#  include "z/ZBitmapImage.h"
-#endif
+#include "z/ZBitmapImage.h"
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "z/ZString.h"
 
 #include "ZLoadingScreen.h"
+
+#include "GL/gl.h"
+
+#include "GL/glu.h"
 
 // Display a loading screen.
 //

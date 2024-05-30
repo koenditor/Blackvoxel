@@ -23,20 +23,16 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZTOOL_CONSTRUCTOR_H
-#define Z_ZTOOL_CONSTRUCTOR_H
+#pragma once 
 
-//#ifndef Z_ZTOOL_CONSTRUCTOR_H
-//#  include "ZTool_Constructor.h"
-//#endif
 
-#ifndef Z_ZTOOLS_H
-#  include "ZTools.h"
-#endif
 
-#ifndef Z_ZDESTRUCTIONPROGRESS_H
-#  include "ZDestructionProgress.h"
-#endif
+
+
+
+#include "ZTools.h"
+
+#include "ZDestructionProgress.h"
 
 #include "SDL2/SDL_stdinc.h"
 
@@ -143,5 +139,3 @@ class ZTool_Constructor_P5 : public ZTool_Constructor
       ToolCompatibleTypes[5] = true;
     }
 };
-#endif /* Z_ZTOOL_CONSTRUCTOR_H */
-

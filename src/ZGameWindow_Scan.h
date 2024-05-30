@@ -23,28 +23,15 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAMEWINDOW_SCAN_H
-#define Z_ZGAMEWINDOW_SCAN_H
+#pragma once 
 
-//#ifndef Z_ZGAMEWINDOW_SCAN_H
-//#  include "ZGameWindow_Scan.h"
-//#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZString.h"
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
-
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
+#include "ZGui_FontFrame.h"
 
 class ZGame;
 
@@ -87,7 +74,3 @@ class ZGameWindow_Scan
   bool Is_Shown() {return(Flag_Shown);}
 
 };
-
-
-
-#endif /* Z_ZGAMEWINDOW_SCAN_H */

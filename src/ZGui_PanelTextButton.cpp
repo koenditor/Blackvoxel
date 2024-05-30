@@ -24,7 +24,8 @@
  */
 
 #include "ZGui_PanelTextButton.h"
-#include <GL/glew.h>
+#include "GL/gl.h"
+
 
 void ZPanelTextButton::Render(Frame_Dimensions * ParentPosition)
 {

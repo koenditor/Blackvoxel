@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_STORAGE_H
-#define Z_ZVOXELTYPE_STORAGE_H
+#pragma once
 
-//#ifndef Z_ZVOXELTYPE_STORAGE_H
-//#  include "ZVoxelType_Storage.h"
-//#endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_Storage : public ZVoxelType
 {
@@ -63,6 +56,3 @@ class ZVoxelType_Storage : public ZVoxelType
 
 
 };
-
-
-#endif /* Z_ZVOXELTYPE_STORAGE_H */

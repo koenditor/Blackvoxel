@@ -24,10 +24,11 @@
  */
 
 #include "ZGui.h"
-#include <GL/glew.h>
+
 #include <math.h>
 #include <stdio.h>
 #include "SDL2/SDL.h"
+#include "GL/gl.h"
 
 ZGraphicUserManager::ZGraphicUserManager()
 {

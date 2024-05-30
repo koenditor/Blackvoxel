@@ -26,9 +26,7 @@
 #include "ZGame.h"
 #include "ZVoxelType_LiftL.h"
 
-#ifndef Z_ZVOXELEXTENSION_LIFTL_H
-#  include "ZVoxelExtension_LiftL.h"
-#endif
+#include "ZVoxelExtension_LiftL.h"
 
 
 ZVoxelExtension * ZVoxelType_LiftL::CreateVoxelExtension(bool IsLoadingPhase)

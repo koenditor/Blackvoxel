@@ -16,9 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef Z_ZVOXELTYPE_YELLOWGAS_H
-#  include "ZVoxelType_YellowGas.h"
-#endif
+#include "ZVoxelType_YellowGas.h"
 
 ZVoxelExtension * ZVoxelType_YellowGas::CreateVoxelExtension(bool IsLoadingPhase)
 {

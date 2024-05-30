@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZTYPE_ZVECTOR3D_H
-#define Z_ZTYPE_ZVECTOR3D_H
+#pragma once 
 
-// #ifndef Z_ZTYPE_ZVECTOR3D_H
-// #  include "ZType_ZVector3d.h"
-// #endif
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+
+
+
+
+#include "ZTypes.h"
 
 class ZPolar3d;
 
@@ -389,6 +387,3 @@ class ZVector3d
   }
 
 };
-
-
-#endif /* Z_ZTYPE_ZVECTOR3D_H */

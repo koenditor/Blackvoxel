@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_SEQUENCER_H
-#define Z_ZVOXELTYPE_SEQUENCER_H
+#pragma once
 
-// #ifndef Z_ZVOXELTYPE_SEQUENCER_H
-// #  include "ZVoxelType_Sequencer.h"
-// #endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_Sequencer : public ZVoxelType
 {
@@ -61,6 +54,3 @@ class ZVoxelType_Sequencer : public ZVoxelType
 
 
 };
-
-
-#endif /* Z_ZVOXELTYPE_SEQUENCER_H */

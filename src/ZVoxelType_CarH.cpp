@@ -26,9 +26,7 @@
 #include "ZGame.h"
 #include "ZVoxelType_CarH.h"
 
-#ifndef Z_ZVOXELEXTENSION_CARH0_H
-#  include "ZVoxelExtension_CarH.h"
-#endif
+#include "ZVoxelExtension_CarH.h"
 
 
 ZVoxelExtension * ZVoxelType_CarH::CreateVoxelExtension(bool IsLoadingPhase)

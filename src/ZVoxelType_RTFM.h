@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_RTFM_H
-#define Z_ZVOXELTYPE_RTFM_H
+#pragma once
 
-// #ifndef Z_ZVOXELTYPE_RTFM_H
-// #  include "ZVoxelType_RTFM.h"
-// #endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_RTFM : public ZVoxelType
 {
@@ -47,7 +40,3 @@ class ZVoxelType_RTFM : public ZVoxelType
     virtual void Event_Is_Selected(ZVoxelLocation * Loc, ZVector3L * Coords);
     virtual void Event_End_Selected(ZVoxelLocation * Loc, ZVector3L * Coords);
 };
-
-
-
-#endif /* Z_ZVOXELTYPE_RTFM_H */

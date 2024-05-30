@@ -23,20 +23,16 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_LIGHTTRANSMITTER_H
-#define Z_ZVOXELTYPE_LIGHTTRANSMITTER_H
+#pragma once 
 
-//#ifndef Z_ZVOXELTYPE_LIGHTTRANSMITTER_H
-//#  include "ZVoxelType_LightTransmitter.h"
-//#endif
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
 
-#ifndef Z_ZGENERICTABLE_H
-#  include "z/ZGenericTable.h"
-#endif
+
+
+
+#include "ZVoxelType.h"
+
+#include "z/ZGenericTable.h"
 
 class ZVoxelType_LightTransmitter : public ZVoxelType
 {
@@ -69,5 +65,3 @@ class ZVoxelType_LightTransmitter : public ZVoxelType
     virtual ULong  Interface_PushBlock_PushTest( ZVoxelLocation * DestLocation, UShort VoxelType, ULong Count );
 
 };
-
-#endif /* ZVOXELTYPE_LIGHTTRANSMITTER_H_ */

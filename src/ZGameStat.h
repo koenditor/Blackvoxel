@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAMESTAT_H
-#define Z_ZGAMESTAT_H
+#pragma once 
 
-// #ifndef Z_ZGAMESTAT_H
-// #  include "ZGameStat.h"
-// #endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
-
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "ACompileSettings.h"
 
 class ZGame;
 
@@ -103,5 +94,3 @@ class ZGameStat
     bool SaveLogToFile(char * FileSpec);
 
 };
-
-#endif /* Z_ZGAMESTAT_H */

@@ -23,8 +23,7 @@
  *      Author: laurent
  */
 
-#ifndef ZEJECTEDCODE_H_
-#define ZEJECTEDCODE_H_
+#pragma once
 
 #include "SDL2/SDL_Keyboard.h"
 
@@ -400,5 +399,3 @@ void KeyHandler (ZGame & GameEnv)
 
       }
 */
-
-#endif /* ZEJECTEDCODE_H_ */

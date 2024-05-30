@@ -26,9 +26,7 @@
 #include "ZGameStat.h"
 #include <stdio.h>
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "z/ZString.h"
 
 void ZGameStat::DoLogRecord()
 {

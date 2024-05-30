@@ -23,44 +23,28 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZWORLDGENESIS_H
-#define Z_ZWORLDGENESIS_H
+#pragma once 
 
-//#ifndef Z_ZWORLDGENESIS_H
-//#  include "ZWorldGenesis.h"
-//#endif
 
-#ifndef Z_ZFASTRANDOM_H
-#  include "z/ZFastRandom.h"
-#endif
 
-#ifndef Z_ZVOXELSECTOR_H
-#  include "ZVoxelSector.h"
-#endif
 
-#ifndef Z_ZVOXELGFX_TREE_H
-#  include "ZVoxelGfx_Tree.h"
-#endif
 
-#ifndef Z_BITMAP_IMAGE_H
-#  include "z/ZBitmapImage.h"
-#endif
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "z/ZFastRandom.h"
 
-#ifndef Z_ZSECTORLOADER_H
-#  include "ZSectorLoader.h"
-#endif
+#include "ZVoxelSector.h"
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "ZVoxelGfx_Tree.h"
 
-#ifndef Z_ZGENERICCANVA2_H
-#  include "z/ZGenericCanva_2.h"
-#endif
+#include "z/ZBitmapImage.h"
+
+#include "ACompileSettings.h"
+
+#include "ZSectorLoader.h"
+
+#include "z/ZString.h"
+
+#include "z/ZGenericCanva_2.h"
 
 #define Z_GENESISMAP_SIZE 128
 
@@ -399,5 +383,3 @@ class ZWorldGenesis
 
     void SetWorldType(UShort WorldType) {this->WorldType = WorldType;}
   };
-
-#endif /* Z_ZWORLDGENESIS_H */

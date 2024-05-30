@@ -16,16 +16,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef Z_ZCAMERA_H
-#define Z_ZCAMERA_H
 
-//#ifndef Z_ZCAMERA_H
-//#  include "ZCamera.h"
-//#endif
+#pragma once
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZTypes.h"
 
 class ZCamera
 {
@@ -39,5 +33,3 @@ class ZCamera
       float  Red,Green,Blue,Opacity;
     } ColoredVision;
 };
-
-#endif

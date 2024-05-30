@@ -23,28 +23,15 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAMEWINDOW_VOXELTYPEBAR_H
-#define Z_ZGAMEWINDOW_VOXELTYPEBAR_H
+#pragma once 
 
-//#ifndef Z_ZGAMEWINDOW_VOXELTYPEBAR_H
-//#  include "ZGameWindow_VoxelTypeBar.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui_InventoryBox.h"
 
-#ifndef Z_ZGUI_INVENTORYBOX_H
-#  include "ZGui_InventoryBox.h"
-#endif
+#include "ZGui_FontFrame.h"
 
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
-
-#ifndef Z_ZVOXELTYPEMANAGER_H
-#  include "ZVoxelTypeManager.h"
-#endif
+#include "ZVoxelTypeManager.h"
 
 class ZGame;
 
@@ -83,5 +70,3 @@ class ZGameWindow_VoxelTypeBar
   bool Is_Shown() {return(Flag_Shown);}
 
 };
-
-#endif /* Z_ZGAMEWINDOW_VOXELTYPEBAR_H */

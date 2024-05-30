@@ -23,26 +23,15 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_EXAMPLE_H
-#define Z_ZVOXELTYPE_EXAMPLE_H
+#pragma once
 
-//#ifndef Z_ZVOXELTYPE_EXAMPLE_H
-//#  include "ZVoxelType_Example.h"
-//#endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 // Include your voxel extension class for storage if you have any.
 
-#ifndef Z_ZVOXELEXTENSION_EXAMPLE_H
-#  include "ZVoxelExtension_Example.h"
-#endif
+#include "ZVoxelExtension_Example.h"
 
-#ifndef Z_ZACTIVEVOXELINTERFACE_H
-#  include "ZActiveVoxelInterface.h"
-#endif
+#include "ZActiveVoxelInterface.h"
 
 class ZVoxelType_Example : public ZVoxelType
 {
@@ -116,5 +105,3 @@ class ZVoxelType_Example : public ZVoxelType
     //virtual ULong  Interface_PushBlock_PullTest( VoxelLocation * DestLocation,  UShort * VoxelType, ULong Count );
 
 };
-
-#endif /* Z_ZVOXELTYPE_EXAMPLE_H */

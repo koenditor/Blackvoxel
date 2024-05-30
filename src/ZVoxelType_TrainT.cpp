@@ -26,9 +26,7 @@
 #include "ZGame.h"
 #include "ZVoxelType_TrainT.h"
 
-#ifndef Z_ZVOXELEXTENSION_TRAIT_H
-#  include "ZVoxelExtension_TrainT.h"
-#endif
+#include "ZVoxelExtension_TrainT.h"
 
 
 ZVoxelExtension * ZVoxelType_TrainT::CreateVoxelExtension(bool IsLoadingPhase)

@@ -23,12 +23,7 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZLOADINGSCREEN_H
-#define Z_ZLOADINGSCREEN_H
-
-//#ifndef Z_ZLOADINGSCREEN_H
-//#  include "ZLoadingScreen.h"
-//#endif
+#pragma once 
 
 class ZLoadingScreen
 {
@@ -36,7 +31,3 @@ class ZLoadingScreen
     static void Display(int Width, int Height, SDL_Window *window);
 
 };
-
-
-
-#endif /* Z_ZLOADINGSCREEN_H */

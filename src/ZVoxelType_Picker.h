@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_VOXELTYPE_PICKER_H
-#define Z_VOXELTYPE_PICKER_H
+#pragma once
 
-//#ifndef Z_VOXELTYPE_PICKER_H
-//#  include "ZVoxelType_Picker.h"
-//#endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_Picker : public ZVoxelType
 {
@@ -51,6 +44,3 @@ class ZVoxelType_Picker : public ZVoxelType
     // The user click the activation button(Middle) on the voxel to activate special functions.
     // virtual void  UserAction_Activate(ZMemSize VoxelInfo, Long x, Long y, Long z);
 };
-
-
-#endif /* Z_VOXELTYPE_PICKER_H */

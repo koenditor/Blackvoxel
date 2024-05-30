@@ -23,12 +23,12 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZNUMBERFORMAT_H
-#define Z_ZNUMBERFORMAT_H
+#pragma once 
 
-//#ifndef Z_ZNUMBERFORMAT_H
-//#  include "ZNumberFormat.h"
-//#endif
+
+
+
+
 
 class ZNumberFormat
 {
@@ -48,7 +48,3 @@ class ZNumberFormat
       MaxDecimals = (UShort)-1;
     }
 };
-
-
-
-#endif /* Z_ZNUMBERFORMAT_H */

@@ -1,0 +1,29 @@
+src/z/ZSeparatorSets.cpp: In member function 'ZSeparatorSet ZSeparatorSet::operator+(ZSeparatorSet&)':
+src/z/ZSeparatorSets.cpp:81:1: error: 'inline' specifier invalid for variable 'NewSet' declared at block scope
+   81 | inline   ZSeparatorSet NewSet;
+      | ^~~~~~
+src/z/ZSeparatorSets.cpp: In member function 'ZSeparatorSet ZSeparatorSet::operator-(ZSeparatorSet&)':
+src/z/ZSeparatorSets.cpp:89:1: error: 'inline' specifier invalid for variable 'NewSet' declared at block scope
+   89 | inline   ZSeparatorSet NewSet;
+      | ^~~~~~
+src/z/ZSeparatorSets.cpp: In member function 'ZSeparatorSet ZSeparatorSet::operator+(char)':
+src/z/ZSeparatorSets.cpp:96:1: error: 'inline' specifier invalid for variable 'NewSet' declared at block scope
+   96 | inline   ZSeparatorSet NewSet(*this);
+      | ^~~~~~
+src/z/ZSeparatorSets.cpp: In member function 'ZSeparatorSet ZSeparatorSet::operator-(char)':
+src/z/ZSeparatorSets.cpp:103:1: error: 'inline' specifier invalid for variable 'NewSet' declared at block scope
+  103 | inline   ZSeparatorSet NewSet(*this);
+      | ^~~~~~
+src/z/ZSeparatorSets.cpp: In member function 'ZSeparatorSet ZSeparatorSet::operator&(ZSeparatorSet&)':
+src/z/ZSeparatorSets.cpp:111:1: error: 'inline' specifier invalid for variable 'NewSet' declared at block scope
+  111 | inline   ZSeparatorSet NewSet;
+      | ^~~~~~
+src/z/ZSeparatorSets.cpp: In member function 'ZSeparatorSet ZSeparatorSet::operator!()':
+src/z/ZSeparatorSets.cpp:119:1: error: 'inline' specifier invalid for variable 'NewSet' declared at block scope
+  119 | inline   ZSeparatorSet NewSet;
+      | ^~~~~~
+src/z/ZSeparatorSets.cpp: In member function 'ZSeparatorSet ZSeparatorSet::operator~()':
+src/z/ZSeparatorSets.cpp:127:1: error: 'inline' specifier invalid for variable 'NewSet' declared at block scope
+  127 | inline   ZSeparatorSet NewSet;
+      | ^~~~~~
+make: *** [Makefile:202: obj/z/ZSeparatorSets.o] Error 1

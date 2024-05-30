@@ -16,68 +16,40 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef Z_ZVOXELREACTOR_H
-#define Z_ZVOXELREACTOR_H
+#pragma once 
 
-//#ifndef Z_ZVOXELREACTOR_H
-//#  include "ZVoxelReactor.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
 
-#ifndef Z_ZVOXELSECTOR_H
-#  include "ZVoxelSector.h"
-#endif
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
 
-#ifndef Z_ZWORLD_H
-#  include "ZWorld.h"
-#endif
 
-#ifndef Z_ZVOXELTYPEMANAGER_H
-#  include "ZVoxelTypeManager.h"
-#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZFASTBIT_ARRAY_H
-#  include "z/ZFastBit_Array.h"
-#endif
+#include "ZVoxelSector.h"
 
-#ifndef Z_ZFASTRANDOM_H
-#  include "z/ZFastRandom.h"
-#endif
+#include "ZVoxelType.h"
 
-#ifndef Z_ZVOXELREACTION_H
-#  include "ZVoxelReaction.h"
-#endif
+#include "ZWorld.h"
 
-#ifndef Z_VOXELEXTENSION_FABMACHINE_H
-#  include "ZVoxelExtension_FabMachine.h"
-#endif
+#include "ZVoxelTypeManager.h"
 
-#ifndef Z_ZVOXELEXTENSION_FABMACHINE2_H
-#  include "ZVoxelExtension_FabMachine2.h"
-#endif
+#include "z/ZFastBit_Array.h"
 
-#ifndef Z_ZFABMACHINEINFOS_H
-#  include "ZFabMachineInfos.h"
-#endif
+#include "z/ZFastRandom.h"
 
-#ifndef Z_ZVOXELEXTENSION_PROGRAMMABLE_H
-#  include "ZVoxelExtension_Programmable.h"
-#endif
+#include "ZVoxelReaction.h"
 
-#ifndef Z_ZEGMYTARGETMANAGER_H
-#  include "ZEgmyTargetManager.h"
-#endif
+#include "ZVoxelExtension_FabMachine.h"
 
-#ifndef Z_ZINCLUSIONPROBABILIZER_H
-#  include "ZInclusionProbabilizer.h"
-#endif
+#include "ZVoxelExtension_FabMachine2.h"
+
+#include "ZFabMachineInfos.h"
+
+#include "ZVoxelExtension_Programmable.h"
+
+#include "ZEgmyTargetManager.h"
+
+#include "ZInclusionProbabilizer.h"
 
 
 class ZGame;
@@ -160,6 +132,3 @@ class ZVoxelReactor
 
 
 };
-
-
-#endif /* Z_ZVOXELREACTOR_H */

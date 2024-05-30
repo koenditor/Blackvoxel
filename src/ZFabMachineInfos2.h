@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZFABMACHINEINFOS2_H
-#define Z_ZFABMACHINEINFOS2_H
+#pragma once 
 
-//#ifndef Z_ZFABMACHINEINFOS2_H
-//#  include "ZFabMachineInfos2.h"
-//#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
-
-#ifndef Z_ZFASTBIT_ARRAY_H
-#  include "z/ZFastBit_Array.h"
-#endif
+#include "z/ZFastBit_Array.h"
 
 #define ZFABINFO2_MAXFABRESULT 16
 #define ZFABINFO2_MAXFABMATERIALS 32
@@ -260,7 +251,3 @@ class ZFabInfos2
 
 
 };
-
-
-
-#endif /* Z_ZFABMACHINEINFOS2_H */

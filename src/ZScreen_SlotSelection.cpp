@@ -24,15 +24,13 @@
  */
 
 #include "ZScreen_SlotSelection.h"
-#include <GL/glew.h>
 
-#ifndef Z_ZSTREAMS_FILE_H
-#  include "z/ZStream_File.h"
-#endif
 
-#ifndef Z_ZOS_SPECIFIC_VIEWDOC_H
-#  include "ZOs_Specific_ViewDoc.h"
-#endif
+#include "z/ZStream_File.h"
+
+#include "ZOs_Specific_ViewDoc.h"
+
+#include "GL/gl.h"
 
 ULong ZScreen_SlotSelection::ProcessScreen(ZGame * GameEnv)
 {

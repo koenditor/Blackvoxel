@@ -17,20 +17,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef Z_BITMAP_IMAGE_H
-#define Z_BITMAP_IMAGE_H
+#pragma once 
 
-// #ifndef Z_BITMAP_IMAGE_H
-// #  include "ZBitmapImage.h"
-// #endif
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
 
-#ifndef Z_ZGENERAL_OBJECT_H
-#  include "ZGeneralObject.h"
-#endif
+
+
+
+#include "ZTypes.h"
+
+#include "ZGeneralObject.h"
 
 #include <stdio.h>
 
@@ -161,5 +157,3 @@ class ZBitmapImage : public ZGeneralObject
     bool LoadBMP( const char * FileName );
     bool SaveBMP( const char * FileName );
 };
-
-#endif

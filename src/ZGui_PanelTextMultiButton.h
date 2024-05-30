@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGUI_PANELTEXTMULTIBUTTON_H
-#define Z_ZGUI_PANELTEXTMULTIBUTTON_H
+#pragma once 
 
-//#ifndef Z_ZGUI_PANELTEXTMULTIBUTTON_H
-//#  include "ZGui_PanelTextMultiButton.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
-
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
+#include "ZGui_FontFrame.h"
 
 class ZPanelTextMultiButton : public ZFrame
 {
@@ -103,7 +94,3 @@ class ZPanelTextMultiButton : public ZFrame
   Bool MouseButtonClick  (UShort nButton, Short Absolute_x, Short Absolute_y);
 
 };
-
-
-
-#endif /* SRC_ZGUI_PANELTEXTMULTIBUTTON_H_ */

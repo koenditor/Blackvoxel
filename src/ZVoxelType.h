@@ -23,28 +23,15 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_H
-#define Z_ZVOXELTYPE_H
+#pragma once
 
-// #ifndef Z_ZVOXELTYPE_H
-// #  include "ZVoxelType.h"
-// #endif
+#include "z/ZBitmapImage.h"
 
-#ifndef Z_BITMAP_IMAGE_H
-#  include "z/ZBitmapImage.h"
-#endif
+#include "z/ZString.h"
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "ZVoxelExtension.h"
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
-
-#ifndef Z_VAR_H
-#  include "z/ZVar.h"
-#endif
+#include "z/ZVar.h"
 
 
 #define ZVOXEL_DRAWINFO_VOID 0
@@ -211,6 +198,3 @@ class ZVoxelType
     virtual void Event_End_Selected(ZVoxelLocation * Loc, ZVector3L * Coords)   {}
 
 };
-
-
-#endif

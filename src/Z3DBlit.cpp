@@ -23,7 +23,5 @@
  *      Author: laurent
  */
 
-#ifndef Z_Z3DBLIT_H
-#  include "Z3DBlit.h"
-#endif
+#include "Z3DBlit.h"
 

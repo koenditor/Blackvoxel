@@ -23,9 +23,7 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZINCLUSIONPROBABILIZER_H
-#  include "ZInclusionProbabilizer.h"
-#endif
+#include "ZInclusionProbabilizer.h"
 
 
 

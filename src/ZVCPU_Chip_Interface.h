@@ -5,20 +5,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVCPU_CHIP_INTERFACE_H
-#define Z_ZVCPU_CHIP_INTERFACE_H
+#pragma once 
 
-//#ifndef Z_ZVCPU_CHIP_INTERFACE_H
-//#  include "ZVCPU_Chip_Interface.h"
-//#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
-
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "z/ZString.h"
 
 class ZStream_SpecialRamStream;
 
@@ -49,5 +40,3 @@ class ZVCPU_Chip_Interface
     virtual bool Load(ZStream_SpecialRamStream * Stream)=0;
 
 };
-
-#endif /* Z_ZVCPU_CHIP_INTERFACE_H */

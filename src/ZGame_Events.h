@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAME_EVENTS_H
-#define Z_ZGAME_EVENTS_H
+#pragma once 
 
-// #ifndef Z_ZGAME_EVENTS_H
-// #  include "ZGame_Events.h"
-// #endif
-
-#ifndef Z_EVENTDISPATCH_H
-#  include "ZEventManager.h"
-#endif
+#include "ZEventManager.h"
 
 #include "SDL2/SDL_keyboard.h"
 
@@ -98,7 +91,3 @@ class ZGame_Events : public ZEventConsumer
      }
 
 };
-
-
-
-#endif /* Z_ZGAME_EVENTS_H */

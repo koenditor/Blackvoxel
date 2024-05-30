@@ -23,20 +23,16 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZWORLDCONVERT_H
-#define Z_ZWORLDCONVERT_H
+#pragma once 
 
-//#ifndef Z_ZWORLDCONVERT_H
-//#  include "ZWorldConvert.h"
-//#endif
 
-#ifndef Z_ZVOXELSECTOR_H
-#  include "ZVoxelSector.h"
-#endif
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+
+
+
+#include "ZVoxelSector.h"
+
+#include "z/ZTypes.h"
 
 class ZWorldConverter
 {
@@ -73,5 +69,3 @@ class ZWorldConverter
 
 
 };
-
-#endif /* Z_ZWORLDCONVERT_H */

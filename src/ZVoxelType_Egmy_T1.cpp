@@ -23,17 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_EGMY_T1_H
-#  include "ZVoxelType_Egmy_T1.h"
-#endif
+#include "ZVoxelType_Egmy_T1.h"
 
-#ifndef Z_ZVOXELEXTENSION_SEQUENCER_H
-#  include "ZVoxelExtension_Egmy_T1.h"
-#endif
+#include "ZVoxelExtension_Egmy_T1.h"
 
-#ifndef Z_ZVOXELSECTOR_H
-#  include "ZVoxelSector.h"
-#endif
+#include "ZVoxelSector.h"
 
 
 ZVoxelExtension * ZVoxelType_Egmy_T1::CreateVoxelExtension(bool IsLoadingPhase)

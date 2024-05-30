@@ -23,14 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZPLAYER_H
-#define Z_ZPLAYER_H
+#pragma once 
 
-
-
-#ifndef Z_ZGENERAL_OBJECT_H
-#  include "ZGeneralObject.h"
-#endif
+#include "ZGeneralObject.h"
 
 class ZPlayer : public ZGeneralObject
 {
@@ -42,8 +37,3 @@ class ZPlayer : public ZGeneralObject
 
 
 };
-
-
-
-
-#endif /* ZPLAYER_H_ */

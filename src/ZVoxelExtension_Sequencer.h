@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_VOXELEXTENSION_SEQUENCER_H
-#define Z_VOXELEXTENSION_SEQUENCER_H
+#pragma once 
 
-//#ifndef Z_VOXELEXTENSION_SEQUENCER_H
-//#  include "ZVoxelExtension_Sequencer.h"
-//#endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
+
+
+
+
+#include "ZVoxelExtension.h"
 
 class ZVoxelExtension_Sequencer : public ZVoxelExtension
 {
@@ -192,6 +190,3 @@ class ZVoxelExtension_Sequencer : public ZVoxelExtension
   }
 
 };
-
-
-#endif /* ZVOXELEXTENSION_SEQUENCER_H_ */

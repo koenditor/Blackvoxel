@@ -23,24 +23,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_EVENTDISPATCH_H
-#define Z_EVENTDISPATCH_H
+#pragma once 
 
-// #ifndef Z_EVENTDISPATCH_H
-// #  include "ZEventManager.h"
-// #endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZObject.h"
 
-#ifndef Z_ZOBJECT_H
-#  include "z/ZObject.h"
-#endif
-
-#ifndef Z_ZOBJECT_LISTS_H
-#  include "z/ZObject_Lists.h"
-#endif
+#include "z/ZObject_Lists.h"
 
 #include "SDL2/SDL_keycode.h"
 
@@ -127,5 +116,3 @@ class ZEventManager
     void ManualCall_MouseButtonClick(UShort ButtonCode);
     void ManualCall_MouseButtonRelease(UShort ButtonCode);
 };
-
-#endif

@@ -26,13 +26,9 @@
 #include "ZVoxelType_ProgRobot_Asm.h"
 #include "ZGame.h"
 
-#ifndef Z_ZVOXELEXTENSION_PROGROBOT_ASM_H
-#  include "ZVoxelExtension_ProgRobot_Asm.h"
-#endif
+#include "ZVoxelExtension_ProgRobot_Asm.h"
 
-#ifndef Z_ZACTIVEVOXELINTERFACE_H
-#  include "ZActiveVoxelInterface.h"
-#endif
+#include "ZActiveVoxelInterface.h"
 
 
 ZVoxelExtension * ZVoxelType_ProgRobot_Asm::CreateVoxelExtension(bool IsLoadingPhase)

@@ -26,21 +26,13 @@
 #include "ZGame.h"
 #include "ZVoxelType_ProgRobot_Remote.h"
 
-#ifndef Z_ZVOXELEXTENSION_PROGROBOT_REMOTE_H
-#  include "ZVoxelExtension_ProgRobot_Remote.h"
-#endif
+#include "ZVoxelExtension_ProgRobot_Remote.h"
 
-#ifndef Z_ZACTIVEVOXELINTERFACE_H
-#  include "ZActiveVoxelInterface.h"
-#endif
+#include "ZActiveVoxelInterface.h"
 
-#ifndef Z_ZSIMPLEREQUESTPARSER_H
-#  include "z/ZSimpleRequestParser.h"
-#endif
+#include "z/ZSimpleRequestParser.h"
 
-#ifndef Z_ZGAMEWINDOW_ZPROGROBOT_REMOTE_H
-#  include "ZGameWindow_ZProgRobot_Remote.h"
-#endif
+#include "ZGameWindow_ZProgRobot_Remote.h"
 
 
 ZVoxelExtension * ZVoxelType_ProgRobot_Remote::CreateVoxelExtension(bool IsLoadingPhase)

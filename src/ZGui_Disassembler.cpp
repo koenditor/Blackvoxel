@@ -25,9 +25,7 @@
 
 #include "ZGui_Disassembler.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
 void ZDisassemblerFrame::SetSize(float Width, float Height)
 {

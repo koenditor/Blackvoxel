@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_VOXELTYPE_BLASTFURNACE_H
-#define Z_VOXELTYPE_BLASTFURNACE_H
+#pragma once
 
-//#ifndef Z_VOXELTYPE_BLASTFURNACE_H
-//#  include "ZVoxelType_BlastFurnace.h"
-//#endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_BlastFurnace : public ZVoxelType
 {
@@ -53,6 +46,3 @@ class ZVoxelType_BlastFurnace : public ZVoxelType
     virtual void  GetScanInformations(ZVoxelCoords * VoxelCoords, UShort VoxelType, ZMemSize VoxelInfo, ZString & Infos) {}
 
 };
-
-
-#endif /* Z_VOXELTYPE_BLASTFURNACE_H */

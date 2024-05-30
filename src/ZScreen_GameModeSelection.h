@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSCREEN_GAMEMODESELECTION_H
-#define Z_ZSCREEN_GAMEMODESELECTION_H
+#pragma once 
 
-//#ifndef Z_ZSCREEN_GAMEMODESELECTION_H
-//#  include "ZScreen_GameModeSelection.h"
-//#endif
-
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui.h"
 
 class ZScreen_ModeSelection : public ZScreen
 {
@@ -42,5 +35,3 @@ class ZScreen_ModeSelection : public ZScreen
     ULong ChoosedGameMode;
     virtual ULong ProcessScreen(ZGame * GameEnv);
 };
-
-#endif /* Z_ZSCREEN_GAMEMODESELECTION_H */

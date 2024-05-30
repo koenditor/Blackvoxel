@@ -23,24 +23,18 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSCREEN_UNSUPPORTEDGAMEMODE_H
-#define Z_ZSCREEN_UNSUPPORTEDGAMEMODE_H
+#pragma once 
 
-//#ifndef Z_ZSCREEN_UNSUPPORTEDGAMEMODE_H
-//#  include "ZScreen_UnsupportedGameMode.h"
-//#endif
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
 
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+
+
+#include "ZGui.h"
+
+#include "ZGui_FontFrame.h"
+
+#include "ZGame.h"
 
 class ZScreen_UnsupportedGameMode : public ZScreen
 {
@@ -48,7 +42,3 @@ class ZScreen_UnsupportedGameMode : public ZScreen
     ZScreen_UnsupportedGameMode() { }
     virtual ULong ProcessScreen(ZGame * GameEnv);
 };
-
-
-
-#endif /* Z_ZSCREEN_UNSUPPORTEDGAMEMODE_H */

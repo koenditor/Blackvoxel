@@ -23,174 +23,87 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAME_H
-#define Z_ZGAME_H
+#pragma once
 
-//#ifndef Z_ZGAME_H
-//#  include "ZGame.h"
-//#endif
+#include "ACompileSettings.h"
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "SDL2/SDL.h"
 
-#ifndef _SDL_H
-#  include "SDL2/SDL.h"
-#endif
+#include "ZVoxelType.h"
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZTextureManager.h"
 
+#include "ZGui.h"
 
-#ifndef Z_ZTEXTUREMANAGER_H
-#  include "ZTextureManager.h"
-#endif
+#include "ZTileSets.h"
 
+#include "ZSettings_Hardware.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZEventManager.h"
 
-#ifndef Z_ZTILESETS_H
-#  include "ZTileSets.h"
-#endif
+#include "ZGame_Events.h"
 
-#ifndef Z_ZSETTINGS_HARDWARE_H
-#  include "ZSettings_Hardware.h"
-#endif
+#include "ZSound.h"
 
-#ifndef Z_EVENTDISPATCH_H
-#  include "ZEventManager.h"
-#endif
+#include "ZWorld.h"
 
-#ifndef Z_ZGAME_EVENTS_H
-#  include "ZGame_Events.h"
-#endif
+#include "ZActor_Player.h"
 
-#ifndef Z_ZSOUND_H
-#  include "ZSound.h"
-#endif
+#include "ZSectorStreamLoader.h"
 
-#ifndef Z_ZWORLD_H
-#  include "ZWorld.h"
-#endif
+#include "ZVoxelProcessor.h"
 
-#ifndef Z_ZACTOR_PLAYER_H
-#  include "ZActor_Player.h"
-#endif
+#include "ZGameWindow_Inventory.h"
 
-#ifndef Z_ZSECTORSTREAMLOADER_H
-#  include "ZSectorStreamLoader.h"
-#endif
+#include "ZGameWindow_VoxelTypeBar.h"
 
-#ifndef Z_ZVOXELPROCESSOR_H
-#  include "ZVoxelProcessor.h"
-#endif
+#include "ZGameWindow_Storage.h"
 
-#ifndef Z_ZGAME_GUI_H
-#  include "ZGameWindow_Inventory.h"
-#endif
+#include "ZGameWindow_Programmable.h"
 
-#ifndef Z_ZGAMEWINDOW_VOXELTYPEBAR_H
-#  include "ZGameWindow_VoxelTypeBar.h"
-#endif
+#include "ZGameWindow_UserTextureTransformer.h"
 
-#ifndef Z_ZGAMEWINDOW_STORAGE_H
-#  include "ZGameWindow_Storage.h"
-#endif
+#include "ZGameWindow_ProgressBar.h"
 
-#ifndef Z_ZGAMEWINDOW_PROGRAMMABLE_H
-#  include "ZGameWindow_Programmable.h"
-#endif
+#include "ZGameWindow_AsmDebug.h"
 
-#ifndef Z_ZGAMEWINDOW_USERTEXTURETRANSFORMER_H
-#  include "ZGameWindow_UserTextureTransformer.h"
-#endif
+#include "ZGameWindow_AsmHardware.h"
 
-#ifndef Z_ZGAMEWINDOW_PROGRESSBAR_H
-#  include "ZGameWindow_ProgressBar.h"
-#endif
-
-#ifndef Z_ZGAMEWINDOW_ASMDEBUG_H
-#  include "ZGameWindow_AsmDebug.h"
-#endif
-
-#ifndef Z_ZGAMEWINDOW_ASMHARDWARE_H
-#  include "ZGameWindow_AsmHardware.h"
-#endif
-
-#ifndef Z_ZGAMEWINDOW_ASMEXTENDEDREGISTERS_H
 #include "ZGameWindow_AsmExtendedRegisters.h"
-#endif
 
-#ifndef ZGAMEWINDOW_COMPILATION_RESULT_H
-#  include "ZGameWindow_Compilation_Result.h"
-#endif
+#include "ZGameWindow_Compilation_Result.h"
 
-#ifndef Z_ZGAMEWINDOW_RESUMEREQUEST_H
-#  include "ZGameWindow_ResumeRequest.h"
-#endif
+#include "ZGameWindow_ResumeRequest.h"
 
-#ifndef Z_ZGAMEWINDOW_ADVERTISING_H
-#  include "ZGameWindow_Advertising.h"
-#endif
+#include "ZGameWindow_Advertising.h"
 
-#ifndef Z_GAMEWINDOW_DISPLAYINFOS_H
-#  include "ZGameWindow_DisplayInfos.h"
-#endif
+#include "ZGameWindow_DisplayInfos.h"
 
-#ifndef Z_GAMEWINDOW_SEQUENCER_H
-#  include "ZGameWindow_Sequencer.h"
-#endif
+#include "ZGameWindow_Sequencer.h"
 
-#ifndef Z_ZGAMEWINDOW_ZPROGROBOT_ASM_H
-#  include "ZGameWindow_ZProgRobot_Asm.h"
-#endif
+#include "ZGameWindow_ZProgRobot_Asm.h"
 
-#ifndef Z_ZGAMEWINDOW_SPS_H
-#  include "ZGameWindow_SPS.h"
-#endif
+#include "ZGameWindow_SPS.h"
 
-#ifndef Z_ZGAMEWINDOW_SCAN_H
-#  include "ZGameWindow_Scan.h"
-#endif
+#include "ZGameWindow_Scan.h"
 
-#ifndef Z_ZGAMEWINDOW_RTFM_H
-#  include "ZGameWindow_RTFM.h"
-#endif
+#include "ZGameWindow_RTFM.h"
 
-#ifndef Z_ZGAMESTAT_H
-#  include "ZGameStat.h"
-#endif
+#include "ZGameStat.h"
 
-#ifndef Z_WORLDINFO_H
-#  include "ZWorldInfo.h"
-#endif
+#include "ZWorldInfo.h"
 
-#ifndef Z_ZFASTRANDOM_H
-#  include "ZFastRandom.h"
-#endif
+#include "z/ZFastRandom.h"
 
-#ifndef Z_ZPOINTLIST_H
-#  include "ZPointList.h"
-#endif
+#include "ZPointList.h"
 
-#ifndef Z_ZLOG_H
-#  include "ZLog.h"
-#endif
+#include "ZLog.h"
 
-#ifndef Z_ZGAMEEVENTSEQUENCER_H
-#  include "ZGameEventSequencer.h"
-#endif
+#include "ZGameEventSequencer.h"
 
-#ifndef Z_ZHARDWAREDEPENDENT_H
-#  include "ZOs_Specific_HardwareDependent.h"
-#endif
+#include "ZOs_Specific_HardwareDependent.h"
 
-#ifndef Z_ZGAMEINFO_H
-#  include "ZGameInfo.h"
-#endif
+#include "ZGameInfo.h"
 
 
 class ZRender_Basic;
@@ -637,5 +550,3 @@ class ZGame
   void InitGameSession(); // Init ZGame data that must be reset beween games.
 
 };
-
-#endif /* Z_ZGAME_H */

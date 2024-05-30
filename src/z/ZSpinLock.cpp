@@ -27,15 +27,15 @@
 #include "ZSpinLock.h"
 
 #ifdef ZENV_OS_LINUX
-#  include <sched.h>
+#include <sched.h>
 #endif
 
 #ifdef ZENV_OS_WINDOWS
-#  include "Windows.h"
+#include "Windows.h"
 #endif
 
 #ifdef ZENV_OS_OSX
-#  include <sched.h>
+#include <sched.h>
 #endif
 
 void ZSpinLock::GoSleep()

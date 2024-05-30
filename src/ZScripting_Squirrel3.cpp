@@ -23,33 +23,19 @@
  *      Author: laurent
  */
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "ACompileSettings.h"
 
-#ifndef Z_ZSCRIPTING_SQUIRREL3_H
-#  include "ZScripting_Squirrel3.h"
-#endif
+#include "ZScripting_Squirrel3.h"
 
-#ifndef Z_ZVOXELEXTENSION_PROGRAMMABLE_H
-#  include "ZVoxelExtension_Programmable.h"
-#endif
+#include "ZVoxelExtension_Programmable.h"
 
-#ifndef Z_ZHIGHPERFTIMER_H
-#  include "ZHighPerfTimer.h"
-#endif
+#include "ZHighPerfTimer.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
-#ifndef Z_ZTEXTUREMANAGER_H
-#  include "ZTextureManager.h"
-#endif
+#include "ZTextureManager.h"
 
-#ifndef Z_ZGENERICCANVA2_H
-#  include "ZGenericCanva_2.h"
-#endif
+#include "z/ZGenericCanva_2.h"
 
 #include <stdarg.h>
 #include <stdio.h>

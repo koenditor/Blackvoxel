@@ -25,17 +25,11 @@
 
 #include <stdio.h>
 
-#ifndef Z_ZLOG_H
-#  include "ZLog.h"
-#endif
+#include "ZLog.h"
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "ACompileSettings.h"
 
-#ifndef Z_ZSTREAMS_FILE_H
-#  include "z/ZStream_File.h"
-#endif
+#include "z/ZStream_File.h"
 
 void ZLog::Log(ULong MessageID, TInfoType InfoType, const char * String)
 {

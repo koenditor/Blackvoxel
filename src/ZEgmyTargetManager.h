@@ -23,18 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZEGMYTARGETMANAGER_H
-#define Z_ZEGMYTARGETMANAGER_H
+#pragma once 
 
-//#ifndef Z_ZEGMYTARGETMANAGER_H
-//#  include "ZEgmyTargetManager.h"
-//#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
-
-# define ZEGMYMANAGER_LISTCOUNT 1024
+#define ZEGMYMANAGER_LISTCOUNT 1024
 
 
 class ZEgmyTargetManager
@@ -122,6 +115,3 @@ class ZEgmyTargetManager
 
 
 };
-
-
-#endif /* Z_ZEGMYTARGETMANAGER_H */

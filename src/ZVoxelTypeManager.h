@@ -23,36 +23,19 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPEMANAGER_H
-#define Z_ZVOXELTYPEMANAGER_H
+#pragma once 
 
-//#ifndef Z_ZVOXELTYPEMANAGER_H
-//#  include "ZVoxelTypeManager.h"
-//#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZObject.h"
 
-#ifndef Z_ZOBJECT_H
-#  include "z/ZObject.h"
-#endif
+#include "ZVoxelType.h"
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "z/ZFastBit_Array.h"
 
-#ifndef Z_ZFASTBIT_ARRAY_H
-#  include "z/ZFastBit_Array.h"
-#endif
+#include "ZFabMachineInfos.h"
 
-#ifndef Z_ZFABMACHINEINFOS_H
-#  include "ZFabMachineInfos.h"
-#endif
-
-#ifndef Z_ZFABMACHINEINFOS2_H
-#  include "ZFabMachineInfos2.h"
-#endif
+#include "ZFabMachineInfos2.h"
 
 
 
@@ -103,7 +86,3 @@ class ZVoxelTypeManager : public ZObject
     void FindFabConflicts_V2();
 
 };
-
-
-
-#endif /* Z_ZVOXELTYPEMANAGER_H */

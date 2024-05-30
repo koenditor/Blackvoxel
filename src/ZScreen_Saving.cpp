@@ -24,7 +24,9 @@
  */
 
 #include "ZScreen_Saving.h"
-#include <GL/glew.h>
+
+#include "GL/gl.h"
+
 
 ULong ZScreen_Saving::ProcessScreen(ZGame * GameEnv)
 {

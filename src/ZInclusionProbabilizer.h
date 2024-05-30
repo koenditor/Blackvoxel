@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZINCLUSIONPROBABILIZER_H
-#define Z_ZINCLUSIONPROBABILIZER_H
+#pragma once 
 
-//#ifndef Z_ZINCLUSIONPROBABILIZER_H
-//#  include "ZInclusionProbabilizer.h"
-//#endif
-
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZTypes.h"
 
 
 class ZInclusionProbabilizer
@@ -131,7 +124,3 @@ class ZInclusionProbabilizer
 
     void PrintInfos() {}
 };
-
-
-
-#endif /* Z_ZINCLUSIONPROBABILIZER_H */

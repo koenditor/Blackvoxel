@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_VOXELEXTENSION_PLANEZ1_H
-#define Z_VOXELEXTENSION_PLANEZ1_H
+#pragma once 
 
-// #ifndef Z_VOXELEXTENSION_PLANEZ1_H
-// #  include "ZVoxelExtension_PlaneZ1.h"
-// #endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
+
+
+
+
+#include "ZVoxelExtension.h"
 
 class ZVoxelExtension_PlaneZ1 : public ZVoxelExtension
 {
@@ -143,6 +141,3 @@ class ZVoxelExtension_PlaneZ1 : public ZVoxelExtension
     return(false);
   }
 };
-
-
-#endif /* ZVOXELEXTENSION_PLANEZ1_H_ */

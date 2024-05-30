@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZLINEARINTERPOLATOR_H
-#define Z_ZLINEARINTERPOLATOR_H
+#pragma once 
 
-// #ifndef Z_ZLINEARINTERPOLATOR_H
-// #  include "ZLinearInterpolator.h"
-// #endif
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+
+
+
+
+#include "ZTypes.h"
 
 class ZLinearInterpolator
 {
@@ -84,6 +82,3 @@ class ZLinearInterpolator
 
 
 };
-
-
-#endif /* Z_ZLINEARINTERPOLATOR_H */

@@ -23,24 +23,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGUI_ASMROBOTDISPLAY_H
-#define Z_ZGUI_ASMROBOTDISPLAY_H
+#pragma once 
 
-//#ifndef Z_ZGUI_ASMROBOTDISPLAY_H
-//#include "ZGui_AsmRobotDisplay.h"
-//#endif
+#include "z/ZString.h"
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
-
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
+#include "ZGui_FontFrame.h"
 
 #define ZASMROBOTDISPLAY_MAXLINECOUNT 30
 
@@ -77,6 +66,3 @@ class ZAsmRobotDisplay : public ZFrame
     virtual void Render(Frame_Dimensions * ParentPosition);
 
 };
-
-
-#endif /* Z_ZGUI_ASMROBOTDISPLAY_H */

@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZLOG_H
-#define Z_ZLOG_H
+#pragma once 
 
-//#ifndef Z_ZLOG_H
-//#  include "ZLog.h"
-//#endif
+#include "z/ZStreams.h"
 
-#ifndef Z_STREAMS_H
-#  include "z/ZStreams.h"
-#endif
-
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "z/ZString.h"
 
 class ZLog
 {
@@ -74,6 +65,3 @@ class ZLog
       }
     }
 };
-
-
-#endif /* Z_LOG_H */

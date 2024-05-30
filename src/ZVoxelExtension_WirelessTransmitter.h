@@ -23,24 +23,18 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELEXTENSION_WIRELESSTRANSMITTER_H
-#define Z_ZVOXELEXTENSION_WIRELESSTRANSMITTER_H
+#pragma once 
 
-//#ifndef Z_ZVOXELEXTENSION_WIRELESSTRANSMITTER_H
-//#  include "ZVoxelExtension_WirelessTransmitter.h"
-//#endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
 
-#ifndef Z_ZGENERICTABLE_H
-#  include "z/ZGenericTable.h"
-#endif
 
-#ifndef Z_ZSPINLOCK_H
-#  include "z/ZSpinLock.h"
-#endif
+
+
+#include "ZVoxelExtension.h"
+
+#include "z/ZGenericTable.h"
+
+#include "z/ZSpinLock.h"
 
 class ZVoxelExtension_WirelessTransmitter : public ZVoxelExtension
 {
@@ -242,7 +236,3 @@ class ZVoxelExtension_WirelessTransmitter : public ZVoxelExtension
   }
 
 };
-
-
-
-#endif /* Z_ZVOXELEXTENSION_WIRELESSTRANSMITTER_H */

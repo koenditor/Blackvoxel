@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZTYPE_ZVECTOR3D_CROSSFUNC_H
-#define Z_ZTYPE_ZVECTOR3D_CROSSFUNC_H
+#pragma once 
 
-//#ifndef Z_ZTYPE_ZVECTOR3D_CROSSFUNC_H
-//#  include "ZTYpe_ZVector3d_CrossFunc.h"
-//#endif
-
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+#include "ZTypes.h"
 
 inline ZVector3d::ZVector3d( const ZPolar3d & Polar)
 {
@@ -154,5 +147,3 @@ inline ZVector3d & ZVector3d::operator = (const ZPolar3d & Polar)
 */
   return(*this);
 }
-
-#endif /* Z_ZTYPE_ZVECTOR3D_CROSSFUNC_H */

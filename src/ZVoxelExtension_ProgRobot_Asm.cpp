@@ -23,13 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
-#ifndef Z_ZVOXELEXTENSION_PROGROBOT_ASM_H
-#  include "ZVoxelExtension_ProgRobot_Asm.h"
-#endif
+#include "ZVoxelExtension_ProgRobot_Asm.h"
 
 extern ZGame * Ge;
 

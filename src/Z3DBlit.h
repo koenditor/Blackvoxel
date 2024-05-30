@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_Z3DBLIT_H
-#define Z_Z3DBLIT_H
+#pragma once
 
-//#ifndef Z_Z3DBLIT_H
-//#  include "Z3DBlit.h"
-//#endif
+#include "ACompileSettings.h"
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
-
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZTypes.h"
 
 // UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE
 // UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE
@@ -117,7 +108,3 @@ class Z3DBlitter
 
 
 };
-
-
-
-#endif /* Z_Z3DBLIT_H */

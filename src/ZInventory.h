@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZINVENTORY_H
-#define Z_ZINVENTORY_H
+#pragma once 
 
-//#ifndef Z_ZINVENTORY_H
-//#  include "ZInventory.h"
-//#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
-
-#ifndef Z_ZSTREAM_SPECIALRAMSTREAM_H
-#  include "z/ZStream_SpecialRamStream.h"
-#endif
+#include "z/ZStream_SpecialRamStream.h"
 
 class ZVoxelTypeManager;
 
@@ -123,6 +114,3 @@ class ZInventory
 
 
 };
-
-
-#endif /* Z_ZINVENTORY_H */

@@ -23,16 +23,10 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAMEINFO_H
-#define Z_ZGAMEINFO_H
+#pragma once 
 
-//#ifndef Z_ZGAMEINFO_H
-//#  include "ZGameInfo.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZTypes.h"
 
 class ZString;
 
@@ -52,7 +46,3 @@ class ZGameInfo
   static bool  GetWorldCustomDescription(ULong UniverseNum, ZString &OutDescription);
 
 };
-
-
-
-#endif /* Z_ZGAMEINFO_H */

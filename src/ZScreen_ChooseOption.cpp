@@ -25,7 +25,7 @@
 
 #include "ZScreen_ChooseOption.h"
 
-#include <GL/glew.h>
+#include "GL/gl.h"
 
 ULong ZScreen_ChooseOption::ProcessScreen(ZGame * GameEnv)
 {

@@ -23,13 +23,7 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZFABMACHINEINFOS_H
-#define Z_ZFABMACHINEINFOS_H
-
-//#ifndef Z_ZFABMACHINEINFOS_H
-//#  include "ZFabMachineInfos.h"
-//#endif
-
+#pragma once 
 
 class ZFabInfos
 {
@@ -195,7 +189,3 @@ class ZFabInfos
     }
 
 };
-
-
-
-#endif /* Z_ZFABMACHINEINFOS_H */

@@ -23,9 +23,7 @@
  *      Author: laurent
  */
 
-#ifndef Z_VOXELEXTENSION_SEQUENCER_H
-#  include "ZVoxelExtension_Sequencer.h"
-#endif
+#include "ZVoxelExtension_Sequencer.h"
 
 
 

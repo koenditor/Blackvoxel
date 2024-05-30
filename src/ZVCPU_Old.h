@@ -23,21 +23,19 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVCPU_H
-#define Z_ZVCPU_H
+#pragma once 
 
-//#ifndef Z_ZVCPU_H
-//#  include "ZVCPU.h"
-//#endif
+
+
+
+
 
 #include <stdio.h>
 
 
 #define Z_ZVCPU_EXPERIMENTAL_ASMCODE 0
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+#include "ZTypes.h"
 
 /*
 unsigned char optable[]=
@@ -1720,6 +1718,3 @@ class BlackCPU
     }
   }
 };
-
-
-#endif

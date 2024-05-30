@@ -23,20 +23,16 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSIMPLEREQUESTPARSER_H
-#define Z_ZSIMPLEREQUESTPARSER_H
+#pragma once 
 
-//#ifndef Z_ZSIMPLEREQUESTPARSER_H
-//#  include "ZSimpleRequestParser.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
 
-#ifndef Z_ZSTRING_H
-#  include "ZString.h"
-#endif
+
+
+
+#include "ZTypes.h"
+
+#include "ZString.h"
 
 class ZSimpleRequestParser
 {
@@ -52,7 +48,3 @@ class ZSimpleRequestParser
     ZString Arg_Name[16];
     ZString Arg_Value[16];
 };
-
-
-
-#endif /* Z_ZSIMPLEREQUESTPARSER_H */

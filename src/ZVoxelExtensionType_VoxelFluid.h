@@ -23,12 +23,12 @@
  *      Author: laurent
  */
 
-#ifndef Z_VOXELEXTENSIONTYPE_VOXELFLUID_H
-#define Z_VOXELEXTENSIONTYPE_VOXELFLUID_H
+#pragma once 
 
-//#ifndef Z_VOXELEXTENSIONTYPE_VOXELFLUID_H
-//#  include "ZVoxelExtensionType_VoxelFluid.h"
-//#endif
+
+
+
+
 
 struct ZVoxelExtensionType_VoxelFluid
 {
@@ -36,5 +36,3 @@ struct ZVoxelExtensionType_VoxelFluid
   bool Marked:1;
   bool Cycle:1;
 };
-
-#endif /* Z_VOXELEXTENSIONTYPE_VOXELFLUID_H */

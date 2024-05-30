@@ -23,28 +23,15 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAMEWINDOW_ADVERTISING_H
-#define Z_ZGAMEWINDOW_ADVERTISING_H
+#pragma once
 
-//#ifndef Z_ZGAMEWINDOW_ADVERTISING_H
-//#  include "ZGameWindow_Advertising"
-//#endif
+#include "z/ZString.h"
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "z/ZSimpleFile.h"
 
-#ifndef Z_SIMPLEFILE_H
-  #include "z/ZSimpleFile.h"
-#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
-
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
+#include "ZGui_FontFrame.h"
 
 class ZGame;
 
@@ -122,7 +109,3 @@ class ZGameWindow_Advertising
   bool Is_Shown() {return(Flag_Shown);}
 
 };
-
-
-
-#endif /* Z_ZGAMEWINDOW_ADVERTISING_H */
