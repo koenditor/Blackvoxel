@@ -5,17 +5,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZHARDWAREDEPENDENT_H
-#  include "ZOs_Specific_HardwareDependent.h"
-#endif
+#include "ZOs_Specific_HardwareDependent.h"
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "z/ZString.h"
 
-#ifndef Z_ZSTREAMS_FILE_H
-#  include "z/ZStream_File.h"
-#endif
+#include "z/ZStream_File.h"
 
 char const * ZHardwareInfo::String_Profile[] =
 {

@@ -405,15 +405,15 @@ void ZActor::DoPhysic(UELong FrameTime)
   P[14] = Location + ZVector3d(+75.0,+500.0,-75.0);
   P[15] = Location + ZVector3d(-75.0,+500.0,-75.0);
 
-  P[16] = Location + ZVector3d(-70.0,-5.0,-70.0); // # Detection points behind the player
-  P[17] = Location + ZVector3d(+70.0,-5.0,-70.0); // # Used for Anti-Fall.
-  P[18] = Location + ZVector3d(+70.0,-5.0,+70.0); // #
-  P[19] = Location + ZVector3d(-70.0,-5.0,+70.0); // #
+  P[16] = Location + ZVector3d(-70.0,-5.0,-70.0); 
+  P[17] = Location + ZVector3d(+70.0,-5.0,-70.0); 
+  P[18] = Location + ZVector3d(+70.0,-5.0,+70.0); 
+  P[19] = Location + ZVector3d(-70.0,-5.0,+70.0); 
 
-  P[20] = Location + ZVector3d(0,-5,0);  // # Detection point are only for voxel
-  P[21] = Location + ZVector3d(0,0,0);   // #
-  P[22] = Location + ZVector3d(0,128,0); // #
-  P[23] = Location + ZVector3d(0,384,0); // #
+  P[20] = Location + ZVector3d(0,-5,0);  
+  P[21] = Location + ZVector3d(0,0,0);   
+  P[22] = Location + ZVector3d(0,128,0); 
+  P[23] = Location + ZVector3d(0,384,0); 
 
   // Get the Voxel Informations
 

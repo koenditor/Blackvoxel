@@ -23,24 +23,18 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELEXTENSION_PROGROBOT_REMOTE_H
-#define Z_ZVOXELEXTENSION_PROGROBOT_REMOTE_H
+#pragma once 
 
-//#ifndef Z_ZVOXELEXTENSION_PROGROBOT_REMOTE_H
-//#  include "ZVoxelExtension_ProgRobot_Remote.h"
-//#endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
 
-#ifndef Z_ZVMACHINE_T1_H
-#  include "ZVMachine_T1.h"
-#endif
 
-#ifndef Z_MACROASSEMBLER_H
-#  include "ZMacroAssembler.h"
-#endif
+
+
+#include "ZVoxelExtension.h"
+
+#include "ZVMachine_T1.h"
+
+#include "ZMacroAssembler.h"
 
 class ZActiveVoxelInterface;
 
@@ -169,6 +163,3 @@ class ZVoxelExtension_ProgRobot_Remote : public ZVoxelExtension
 
 
 };
-
-
-#endif /* Z_ZVOXELEXTENSION_PROGROBOT_REMOTE_H */

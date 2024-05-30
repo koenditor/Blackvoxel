@@ -23,13 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZTOOL_LINKER_H
-#  include "ZTool_Linker.h"
-#endif
+#include "ZTool_Linker.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
 ZToolsPointer ZTool_Linker::Pointer;
 

@@ -23,9 +23,7 @@
  *      Author: laurent
  */
 
-#ifndef Z_VOXELTYPE_PICKER_H
-#  include "ZVoxelType_Mover.h"
-#endif
+#include "ZVoxelType_Mover.h"
 
 
 ZVoxelExtension * ZVoxelType_Mover::CreateVoxelExtension(bool IsLoadingPhase)

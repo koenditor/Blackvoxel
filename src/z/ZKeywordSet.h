@@ -23,24 +23,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZKEYWORDSET_H
-#define Z_ZKEYWORDSET_H
+#pragma once
 
-//#ifndef Z_ZKEYWORDSET_H
-//#  include "ZKeywordSet.h"
-//#endif
+#include "ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+#include "ZString.h"
 
-#ifndef Z_ZSTRING_H
-#  include "ZString.h"
-#endif
-
-#ifndef Z_ZCHARFILTER_H
-#  include "ZCharFilter.h"
-#endif
+#include "ZCharFilter.h"
 
 // ***********************************************************************
 // *                             KeyWord Set                             *
@@ -90,6 +79,3 @@ class ZFastKeyWordSet : public ZKeyWordSet
     void DestroyKey(KeyEntry * Key);
     void DestroyKeyTable();
 };
-
-
-#endif

@@ -23,40 +23,21 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSCREEN_CHOOSEOPTION_H
-#define Z_ZSCREEN_CHOOSEOPTION_H
+#pragma once 
 
-//#ifndef Z_ZSCREEN_CHOOSEOPTION_H
-//#  include "ZScreen_ChooseOption.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui_FontFrame.h"
 
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
+#include "ZGui_TileFrame.h"
 
-#ifndef Z_ZGUI_TILEFRAME_H
-#  include "ZGui_TileFrame.h"
-#endif
+#include "ZGui_CyclingChoiceBox.h"
 
-#ifndef Z_ZGUI_CYCLINGCHOICEBOX_H
-#  include "ZGui_CyclingChoiceBox.h"
-#endif
+#include "ZGui_NumericChoiceBox.h"
 
-#ifndef ZGUI_ZNUMERICCHOICEBOX_H
-#  include "ZGui_NumericChoiceBox.h"
-#endif
+#include "ZGui_CheckBox.h"
 
-#ifndef Z_ZGUI_CHECKBOX_H
-#  include "ZGui_CheckBox.h"
-#endif
-
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
 class ZScreen_ChooseOption : public ZScreen
 {
@@ -65,5 +46,3 @@ class ZScreen_ChooseOption : public ZScreen
     enum {CHOICE_QUIT, CHOICE_DISPLAY, CHOICE_SOUND, CHOICE_MOUSE, CHOICE_KEYMAP};
     virtual ULong ProcessScreen(ZGame * GameEnv);
 };
-
-#endif /* Z_ZSCREEN_CHOOSEOPTION_H */

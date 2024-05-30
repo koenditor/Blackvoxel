@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZDESTRUCTIONPROGRESS_H
-#define Z_ZDESTRUCTIONPROGRESS_H
+#pragma once
 
-//#ifndef Z_ZDESTRUCTIONPROGRESS_H
-//#  include "ZDestructionProgress.h"
-//#endif
-
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZTypes.h"
 
 class ZGame;
 
@@ -57,7 +50,3 @@ class ZDestructionProgress
     ZVoxelCoords & GetMinedVoxel() {return(MinedVoxel);}
     bool Is_InProgress() {return(MiningInProgress);}
 };
-
-
-
-#endif /* Z_ZDESTRUCTIONPROGRESS_H */

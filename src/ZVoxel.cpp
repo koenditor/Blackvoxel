@@ -24,17 +24,11 @@
  */
 
 
-#ifndef Z_ZVOXEL_H
-#  include "ZVoxel.h"
-#endif
+#include "ZVoxel.h"
 
-#ifndef Z_ZVOXELTYPEMANAGER_H
-#  include "ZVoxelTypeManager.h"
-#endif
+#include "ZVoxelTypeManager.h"
 
-#ifndef Z_ZSTREAM_SPECIALRAMSTREAM_H
-#  include "z/ZStream_SpecialRamStream.h"
-#endif
+#include "z/ZStream_SpecialRamStream.h"
 
 
 ZVoxelTypeManager * ZVoxel::VoxelTypeManager=0;

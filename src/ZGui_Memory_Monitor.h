@@ -23,24 +23,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGUI_MEMORY_MONITOR_H
-#define Z_ZGUI_MEMORY_MONITOR_H
+#pragma once 
 
-//#ifndef Z_ZGUI_MEMORY_MONITOR_H
-//#  include "ZGui_Memory_Monitor.h"
-//#endif
+#include "ZGui_Scrolling_Digit.h"
 
-#ifndef Z_ZGUI_SCROLLING_DIGIT_H
-#  include "ZGui_Scrolling_Digit.h"
-#endif
+#include "ZGui_PanelTextMultiButton.h"
 
-#ifndef Z_ZGUI_PANELTEXTMULTIBUTTON_H
-#  include "ZGui_PanelTextMultiButton.h"
-#endif
-
-#ifndef Z_ZCHARFILTER_H
-#  include "z/ZCharFilter.h"
-#endif
+#include "z/ZCharFilter.h"
 
 #define ZFRAME_MEMORYMONITOR_DISPLAYLINES 18
 
@@ -100,6 +89,3 @@ class ZFrame_MemoryMonitor : public ZFrame
     virtual void Render(Frame_Dimensions * ParentPosition);
 
 };
-
-
-#endif /* Z_ZGUI_MEMORY_MONITOR_H */

@@ -27,9 +27,7 @@
 #include "ZActorPhysics.h"
 #include "ZGame.h"
 
-#ifndef Z_ZSOUND_H
-#  include "ZSound.h"
-#endif
+#include "ZSound.h"
 
 
 bool ZTool_Constructor::Tool_MouseButtonClick(ULong Button)

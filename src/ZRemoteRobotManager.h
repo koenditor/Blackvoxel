@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZREMOTEROBOTMANAGER_H
-#define Z_ZREMOTEROBOTMANAGER_H
+#pragma once 
 
-//#ifndef Z_ZREMOTEROBOTMANAGER_H
-//#  include "ZRemoteRobotManager.h"
-//#endif
+#include "z/ZObject_Lists.h"
 
-#ifndef Z_ZOBJECT_LISTS_H
-#  include "z/ZObject_Lists.h"
-#endif
-
-#ifndef Z_ZNETWORKING_TCP_H
-#  include "z/ZNetworking_TCP.h"
-#endif
+#include "z/ZNetworking_TCP.h"
 
 class ZTCPNet_Socket;
 class ZSimpleRequestParser;
@@ -78,7 +69,3 @@ class ZRemoteRobotManager
     bool Answer_OneParameter(ZSimpleRequestParser & Parser, ZRemoteRobotManager::Request * Req, ZString & Parameter);
 
 };
-
-
-
-#endif /* Z_ZREMOTEROBOTMANAGER_H */

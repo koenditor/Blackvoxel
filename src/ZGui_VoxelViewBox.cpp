@@ -24,9 +24,11 @@
  */
 
 #include "ZGui_VoxelViewBox.h"
-#include <GL/glew.h>
+
 #include "SDL2/SDL.h"
 #include "ZGui_InventoryBox.h"
+
+#include "GL/gl.h"
 
 void ZVoxelViewBox::Render(Frame_Dimensions * ParentPosition)
 {

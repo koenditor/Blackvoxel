@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_CONCRETE_H
-#define Z_ZVOXELTYPE_CONCRETE_H
+#pragma once
 
-//#ifndef Z_ZVOXELTYPE_CONCRETE_H
-//#  include "ZVoxelType_Concrete.h"
-//#endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_Concrete : public ZVoxelType
 {
@@ -50,6 +43,3 @@ class ZVoxelType_Concrete : public ZVoxelType
     virtual void  GetBlockInformations(ZVoxelLocation * DestLocation, ZString & Infos);
 
 };
-
-
-#endif /* Z_ZVOXELTYPE_CONCRETE_H */

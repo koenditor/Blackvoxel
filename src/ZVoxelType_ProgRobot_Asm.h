@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_PROGROBOT_ASM_H
-#define Z_ZVOXELTYPE_PROGROBOT_ASM_H
+#pragma once
 
-//#ifndef Z_ZVOXELTYPE_PROGROBOT_ASM_H
-//#  include "ZVoxelType_ProgRobot_Asm.h"
-//#endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_ProgRobot_Asm : public ZVoxelType
 {
@@ -64,7 +57,3 @@ class ZVoxelType_ProgRobot_Asm : public ZVoxelType
     virtual void  ActiveProcess( ZActiveVoxelInterface * AvData);
 
 };
-
-
-
-#endif /* Z_ZVOXELTYPE_PROGROBOT_ASM_H */

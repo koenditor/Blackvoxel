@@ -23,69 +23,36 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSECTORSTREAMLOADER_H
-#define Z_ZSECTORSTREAMLOADER_H
+#pragma once 
 
-//#ifndef Z_ZSECTORSTREAMLOADER_H
-//#  include "ZSectorStreamLoader.h"
-//#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZObject.h"
 
-#ifndef Z_ZOBJECT_H
-#  include "z/ZObject.h"
-#endif
+#include "z/ZObject_Lists.h"
 
-#ifndef Z_ZOBJECT_LISTS_H
-#  include "z/ZObject_Lists.h"
-#endif
+#include "z/ZMemPool.h"
 
-#ifndef Z_ZMEMPOOL_H
-#  include "ZMemPool.h"
-#endif
+#include "ZVoxelSector.h"
 
-#ifndef Z_ZVOXELSECTOR_H
-#  include "ZVoxelSector.h"
-#endif
+#include "ZSectorLoader.h"
 
-#ifndef Z_ZSECTORLOADER_H
-#  include "ZSectorLoader.h"
-#endif
+#include "ZVoxelType.h"
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
-
-#ifndef Z_ZVOXELTYPEMANAGER_H
-#  include "ZVoxelTypeManager.h"
-#endif
+#include "ZVoxelTypeManager.h"
 
 
-#ifndef Z_ZSECTORRINGLIST_H
-#  include "ZSectorRingList.h"
-#endif
+#include "ZSectorRingList.h"
 
-#ifndef Z_ZSECTORREQUESTRINGLIST_H
-#  include "ZSectorRequestRingList.h"
-#endif
+#include "ZSectorRequestRingList.h"
 
-#ifndef Z_ZSECTORTAGHASH_H
-#  include "ZSectorTagHash.h"
-#endif
+#include "ZSectorTagHash.h"
 
-#ifndef _SDL_thread_h
-#  include "SDL2/SDL_thread.h"
-#endif
+#include "SDL2/SDL_thread.h"
 
-#ifndef Z_ZWORLDGENESIS_H
-#  include "ZWorldGenesis.h"
-#endif
+#include "ZWorldGenesis.h"
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "ACompileSettings.h"
 
 
 
@@ -150,5 +117,3 @@ class ZFileSectorLoader : public ZSectorLoader
     static int thread_func(void * Data);
 
 };
-
-#endif /* ZSECTORSTREAMLOADER_H_ */

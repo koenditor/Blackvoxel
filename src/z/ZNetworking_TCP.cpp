@@ -23,9 +23,7 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZNETWORKING_TCP_H
-#  include "ZNetworking_TCP.h"
-#endif
+#include "ZNetworking_TCP.h"
 
 #ifdef ZENV_OS_WINDOWS
   #include <windows.h>

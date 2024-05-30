@@ -23,41 +23,21 @@
  *      Author: laurent
  */
 
-#ifndef Z_GAMEWINDOW_SEQUENCER_H
-#define Z_GAMEWINDOW_SEQUENCER_H
+#pragma once 
 
+#include "ZGui.h"
 
-//#ifndef Z_GAMEWINDOW_SEQUENCER_H
-//#  include "ZGameWindow_Sequencer.h"
-//#endif
+#include "ZGui_InventoryBox.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui_VoxelQuantityBox.h"
 
-#ifndef Z_ZGUI_INVENTORYBOX_H
-#  include "ZGui_InventoryBox.h"
-#endif
+#include "ZGui_FontFrame.h"
 
-#ifndef Z_ZGUI_VOXELQUANTITYBOX_H
-#  include "ZGui_VoxelQuantityBox.h"
-#endif
+#include "ZGui_NumericChoiceBox.h"
 
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
+#include "ZVoxelTypeManager.h"
 
-#ifndef ZGUI_ZNUMERICCHOICEBOX_H
-#  include "ZGui_NumericChoiceBox.h"
-#endif
-
-#ifndef Z_ZVOXELTYPEMANAGER_H
-#  include "ZVoxelTypeManager.h"
-#endif
-
-#ifndef Z_ZVOXELEXTENSION_SEQUENCER_H
-#  include "ZVoxelExtension_Sequencer.h"
-#endif
+#include "ZVoxelExtension_Sequencer.h"
 
 class ZGame;
 
@@ -132,6 +112,3 @@ class ZGameWindow_Sequencer : public ZFrame
   virtual Bool MouseButtonClick  (UShort nButton, Short Absolute_x, Short Absolute_y);
 
 };
-
-
-#endif /* Z_ZGAMEWINDOW_SEQUENCER_H */

@@ -25,21 +25,13 @@
 
 #include "ZVoxelType_FabMachine.h"
 
-#ifndef Z_VOXELEXTENSION_MOTHERMACHINE_H
-#  include "ZVoxelExtension_FabMachine.h"
-#endif
+#include "ZVoxelExtension_FabMachine.h"
 
-#ifndef Z_ZVOXELSECTOR_H
-#  include "ZVoxelSector.h"
-#endif
+#include "ZVoxelSector.h"
 
-#ifndef Z_ZVOXELTYPEMANAGER_H
-#  include "ZVoxelTypeManager.h"
-#endif
+#include "ZVoxelTypeManager.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
 ZVoxelExtension * ZVoxelType_FabMachine::CreateVoxelExtension(bool IsLoadingPhase)
 {

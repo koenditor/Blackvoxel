@@ -23,13 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_VOXELTYPE_BLASTFURNACE_H
-#  include "ZVoxelType_BlastFurnace.h"
-#endif
+#include "ZVoxelType_BlastFurnace.h"
 
-#ifndef Z_ZVOXELEXTENSION_BLASTFURNACE_H
-#  include "ZVoxelExtension_BlastFurnace.h"
-#endif
+#include "ZVoxelExtension_BlastFurnace.h"
 
 
 ZVoxelExtension * ZVoxelType_BlastFurnace::CreateVoxelExtension(bool IsLoadingPhase)

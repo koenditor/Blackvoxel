@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZWORLD_STAT_H
-#define Z_ZWORLD_STAT_H
+#pragma once 
 
-//#ifndef Z_ZWORLD_STAT_H
-//#  include "ZWorld_Stat.h"
-//#endif
 
-#ifndef Z_ZWORLD_H
-#  include "ZWorld.h"
-#endif
+
+
+
+
+#include "ZWorld.h"
 
 class ZWorld_Stat
 {
@@ -51,9 +49,3 @@ class ZWorld_Stat
 
 
 };
-
-
-
-
-
-#endif /* Z_ZWORLD_STAT_H */

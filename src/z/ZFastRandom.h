@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZFASTRANDOM_H
-#define Z_ZFASTRANDOM_H
+#pragma once 
 
-// #ifndef Z_ZFASTRANDOM_H
-// #  include "ZFastRandom.h"
-// #endif
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+
+
+
+
+#include "ZTypes.h"
 
 class ZRandom_LFSR
 {
@@ -185,6 +183,3 @@ class ZLightSpeedRandom
       Position = Seed;
     }
 };
-
-
-#endif /* Z_ZFASTRANDOM_H */

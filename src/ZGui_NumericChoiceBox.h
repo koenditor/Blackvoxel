@@ -23,28 +23,15 @@
  *      Author: laurent
  */
 
-#ifndef ZGUI_ZNUMERICCHOICEBOX_H
-#define ZGUI_ZNUMERICCHOICEBOX_H
+#pragma once 
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "z/ZString.h"
 
-//#ifndef ZGUI_ZNUMERICCHOICEBOX_H
-//#  include "ZGui_NumericChoiceBox.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui_FontFrame.h"
 
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
-
-#ifndef Z_ZGUI_TILEFRAME_H
-#  include "ZGui_TileFrame.h"
-#endif
+#include "ZGui_TileFrame.h"
 
 class ZFrame_NumericChoiceBox : public ZFrame
 {
@@ -96,8 +83,3 @@ class ZFrame_NumericChoiceBox : public ZFrame
     virtual void AddedToFrameCallback(ZFrame * Frame);
 
 };
-
-
-
-
-#endif /* ZGUI_ZNUMERICCHOICEBOX_H */

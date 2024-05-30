@@ -25,9 +25,7 @@
 
 #include "ZVoxelType_SPS.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
 void ZVoxelType_SPS::Power_Start() {GameEnv->GameWindow_SPS->Show();}
 void ZVoxelType_SPS::Power_End()   {GameEnv->GameWindow_SPS->Hide();}

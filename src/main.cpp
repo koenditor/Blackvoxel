@@ -16,153 +16,81 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-    #include <stdio.h>
-    #include <stdlib.h>
-    #include <time.h>
-    #include "z/ZTypes.h"
-#ifdef ZENV_OS_OSX
-#  include <OpenGL/gl.h>
-#else
-#  include <GL/glew.h>
-// #  include <GL/gl.h>
-//#  include <GL/glext.h>
-// #  include <GL/glut.h>
-#endif
-    #include "SDL2/SDL.h"
-    #include "bmploader.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include "z/ZTypes.h"
+#include "GL/gl.h"
 
-    #include "math.h"
+#include "SDL2/SDL.h"
+#include "bmploader.h"
 
-    #include "ZCamera.h"
-    #include "ZWorld.h"
+#include "math.h"
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZCamera.h"
+#include "ZWorld.h"
 
-    #include "ZRender_Basic.h"
-    #include "ZActorPhysics.h"
-    #include "ZActor_Player.h"
+#include "ZVoxelType.h"
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "ZRender_Basic.h"
+#include "ZActorPhysics.h"
+#include "ZActor_Player.h"
 
-#ifndef Z_ZSOUND_H
-#  include "ZSound.h"
-#endif
+#include "z/ZString.h"
 
-#ifndef Z_ZSECTORSTREAMLOADER_H
-#  include "ZSectorStreamLoader.h"
-#endif
+#include "ZSound.h"
 
-#ifndef Z_ZVOXELPROCESSOR_H
-#  include "ZVoxelProcessor.h"
-#endif
+#include "ZSectorStreamLoader.h"
 
-#ifndef Z_ZTEXTUREMANAGER_H
-#  include "ZTextureManager.h"
-#endif
+#include "ZVoxelProcessor.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZTextureManager.h"
 
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
+#include "ZGui.h"
 
-#ifndef Z_ZTILESETS_H
-#  include "ZTileSets.h"
-#endif
+#include "ZGui_FontFrame.h"
 
-#ifndef Z_EVENTDISPATCH_H
-#  include "ZEventManager.h"
-#endif
+#include "ZTileSets.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZEventManager.h"
 
-#ifndef Z_ZSCREEN_MAIN_H
-#  include "ZScreen_Main.h"
-#endif
+#include "ZGame.h"
 
-#ifndef Z_ZSCREEN_SLOTSELECTION_H
-#  include "ZScreen_SlotSelection.h"
-#endif
+#include "ZScreen_Main.h"
 
-#ifndef Z_ZSCREEN_LOADING_H
-#  include "ZScreen_Loading.h"
-#endif
+#include "ZScreen_SlotSelection.h"
 
-#ifndef Z_ZSCREEN_SAVING_H
-#  include "ZScreen_Saving.h"
-#endif
+#include "ZScreen_Loading.h"
 
-#ifndef Z_ZSCREEN_OPTIONS_H
-#  include "ZScreen_Options_Display.h"
-#endif
+#include "ZScreen_Saving.h"
 
-#ifndef Z_ZSCREEN_CHOOSEOPTION_H
-#  include "ZScreen_ChooseOption.h"
-#endif
+#include "ZScreen_Options_Display.h"
 
-#ifndef Z_ZSCREEN_OPTIONS_SOUND_H
-#  include "ZScreen_Options_Sound.h"
-#endif
+#include "ZScreen_ChooseOption.h"
 
-#ifndef Z_ZSCREEN_OPTIONS_MOUSE_H
-#  include "ZScreen_Options_Gameplay.h"
-#endif
+#include "ZScreen_Options_Sound.h"
 
-#ifndef Z_ZSCREEN_OPTIONS_KEYMAP_H
-#  include "ZScreen_Options_Keymap.h"
-#endif
+#include "ZScreen_Options_Gameplay.h"
 
-#ifndef Z_ZSCREEN_GAMEMODESELECTION_H
-#  include "ZScreen_GameModeSelection.h"
-#endif
+#include "ZScreen_Options_Keymap.h"
 
-#ifndef Z_ZSCREEN_UNSUPPORTEDGAMEMODE_H
-#  include "ZScreen_UnsupportedGameMode.h"
-#endif
+#include "ZScreen_GameModeSelection.h"
 
-#ifndef Z_ZSCREEN_MESSAGE_H
-#  include "ZScreen_Message.h"
-#endif
+#include "ZScreen_UnsupportedGameMode.h"
 
-#ifndef Z_ZWORLDCONVERT_H
-#  include "ZWorldConvert.h"
-#endif
+#include "ZScreen_Message.h"
 
-#ifndef Z_ZHIGHPERFTIMER_H
-#  include "ZHighPerfTimer.h"
-#endif
+#include "ZWorldConvert.h"
 
-#ifndef Z_ZFASTRANDOM_H
-#  include "z/ZFastRandom.h"
-#endif
+#include "ZHighPerfTimer.h"
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "z/ZFastRandom.h"
 
-#ifndef Z_ZRANDOM_MAKEGOODNUMBERS_H
-#  include "ZRandom_MakeGoodNumbers.h"
-#endif
+#include "ACompileSettings.h"
 
-#ifndef Z_ZGENERICCANVA_H
-#  include "z/ZGenericCanva_2.h"
-#endif
+#include "ZRandom_MakeGoodNumbers.h"
 
-#ifndef Z_ZOS_SPECIFIC_VARIOUS_H
-#  include "ZOs_Specific_Various.h"
-#endif
-
-#ifndef Z_ZTEST_PARTS_H
-#  include "Z0Test_Parts.h"
-#endif
+#include "z/ZGenericCanva_2.h"
 
 
 ZGame * Ge;

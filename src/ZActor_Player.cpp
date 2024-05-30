@@ -26,17 +26,11 @@
 #include "ZActor_Player.h"
 #include "ZGame.h"
 
-#ifndef Z_ZDIRS_H
-#  include "ZDirs.h"
-#endif
+#include "ZDirs.h"
 
-#ifndef Z_ZSTREAM_SPECIALRAMSTREAM_H
-#  include "z/ZStream_SpecialRamStream.h"
-#endif
+#include "z/ZStream_SpecialRamStream.h"
 
-#ifndef Z_ZSTREAMS_FILE_H
-#  include "z/ZStream_File.h"
-#endif
+#include "z/ZStream_File.h"
 
 
 ZActor_Player::ZActor_Player()
@@ -1300,12 +1294,12 @@ void ZActor_Player::DoPhysic_Car(double CycleTime)
     RedoDetect = false;
     // Define detection points
 
-    P[0] = Location + ZVector3d(0,0,0);   // #
-    P[1] = Location + ZVector3d(-128,128,-128);   // #
-    P[2] = Location + ZVector3d(128,128,-128);   // #
-    P[3] = Location + ZVector3d(128,128,128);   // #
-    P[4] = Location + ZVector3d(-128,128,128);   // #
-    P[SENSOR_CUBECENTER] = Location + ZVector3d(0,128,0);   // #
+    P[0] = Location + ZVector3d(0,0,0);   
+    P[1] = Location + ZVector3d(-128,128,-128);   
+    P[2] = Location + ZVector3d(128,128,-128);   
+    P[3] = Location + ZVector3d(128,128,128);   
+    P[4] = Location + ZVector3d(-128,128,128);   
+    P[SENSOR_CUBECENTER] = Location + ZVector3d(0,128,0);   
     P[SENSOR_CUBEUNDER] = Location + ZVector3d(0,-128,0);
 
     // Fetch Voxels for detection points
@@ -1567,8 +1561,8 @@ void ZActor_Player::DoPhysic_Plane(double CycleTime)
 
   // Define Detection points
 
-  P[0] = Location + ZVector3d(0,0,0);   // #
-  P[1] = Location + ZVector3d(0,128,0);   // #
+  P[0] = Location + ZVector3d(0,0,0);   
+  P[1] = Location + ZVector3d(0,128,0);   
   P[2] = Location + ZVector3d(0,-128,0);
 
   // Get the Voxel Informations
@@ -1906,7 +1900,7 @@ void ZActor_Player::DoPhysic_Plane_Old(double CycleTime)
 
   // Define Detection points
 
-  P[0] = Location + ZVector3d(0,0,0);   // #
+  P[0] = Location + ZVector3d(0,0,0);   
 
   // Get the Voxel Informations
 
@@ -2171,15 +2165,15 @@ void ZActor_Player::DoPhysic_GroundPlayer(double CycleTime)
   P[14] = Location + ZVector3d(+75.0,+475.0,-75.0);
   P[15] = Location + ZVector3d(-75.0,+475.0,-75.0);
 
-  P[16] = Location + ZVector3d(-70.0,-5.0,-70.0); // # Detection points behind the player
-  P[17] = Location + ZVector3d(+70.0,-5.0,-70.0); // # Used for Anti-Fall.
-  P[18] = Location + ZVector3d(+70.0,-5.0,+70.0); // #
-  P[19] = Location + ZVector3d(-70.0,-5.0,+70.0); // #
+  P[16] = Location + ZVector3d(-70.0,-5.0,-70.0); 
+  P[17] = Location + ZVector3d(+70.0,-5.0,-70.0); 
+  P[18] = Location + ZVector3d(+70.0,-5.0,+70.0); 
+  P[19] = Location + ZVector3d(-70.0,-5.0,+70.0); 
 
-  P[20] = Location + ZVector3d(0,-5,0);  // # Detection point are only for voxel
-  P[21] = Location + ZVector3d(0,0,0);   // #
-  P[22] = Location + ZVector3d(0,128,0); // #
-  P[23] = Location + ZVector3d(0,384,0); // #
+  P[20] = Location + ZVector3d(0,-5,0);  
+  P[21] = Location + ZVector3d(0,0,0);   
+  P[22] = Location + ZVector3d(0,128,0); 
+  P[23] = Location + ZVector3d(0,384,0); 
 
   // Get the Voxel Informations
 
@@ -2586,15 +2580,15 @@ void ZActor_Player::DoPhysic_SupermanPlayer(double CycleTime)
   P[14] = Location + ZVector3d(+75.0,+500.0,-75.0);
   P[15] = Location + ZVector3d(-75.0,+500.0,-75.0);
 
-  P[16] = Location + ZVector3d(-70.0,-5.0,-70.0); // # Detection points behind the player
-  P[17] = Location + ZVector3d(+70.0,-5.0,-70.0); // # Used for Anti-Fall.
-  P[18] = Location + ZVector3d(+70.0,-5.0,+70.0); // #
-  P[19] = Location + ZVector3d(-70.0,-5.0,+70.0); // #
+  P[16] = Location + ZVector3d(-70.0,-5.0,-70.0); 
+  P[17] = Location + ZVector3d(+70.0,-5.0,-70.0); 
+  P[18] = Location + ZVector3d(+70.0,-5.0,+70.0); 
+  P[19] = Location + ZVector3d(-70.0,-5.0,+70.0); 
 
-  P[20] = Location + ZVector3d(0,-5,0);  // # Detection point are only for voxel
-  P[21] = Location + ZVector3d(0,0,0);   // #
-  P[22] = Location + ZVector3d(0,128,0); // #
-  P[23] = Location + ZVector3d(0,384,0); // #
+  P[20] = Location + ZVector3d(0,-5,0);  
+  P[21] = Location + ZVector3d(0,0,0);   
+  P[22] = Location + ZVector3d(0,128,0); 
+  P[23] = Location + ZVector3d(0,384,0); 
 
   // Get the Voxel Informations
 

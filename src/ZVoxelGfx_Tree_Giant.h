@@ -23,24 +23,16 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELGFX_TREE_GIANT_H
-#define Z_ZVOXELGFX_TREE_GIANT_H
+#pragma once 
 
-#ifndef Z_ZVOXELGFX_TREE_GIANT_H
-#  include "ZVoxelGfx_Tree_Giant.h"
-#endif
 
-#ifndef Z_ZVOXELSECTOR_H
-#  include "ZVoxelSector.h"
-#endif
+#include "ZVoxelGfx_Tree_Giant.h"
 
-#ifndef Z_ZFASTRANDOM_H
-#  include "z/ZFastRandom.h"
-#endif
+#include "ZVoxelSector.h"
 
-#ifndef Z_ZLINEARINTERPOLATOR_H
-#  include "z/ZLinearInterpolator.h"
-#endif
+#include "z/ZFastRandom.h"
+
+#include "z/ZLinearInterpolator.h"
 
 
 class ZVoxelGfx_Tree_Giant
@@ -75,9 +67,3 @@ public:
        void DrawTree(ZVoxelSector * Sector, ZVector3d * BasePosition);
 
     };
-
-
-
-
-
-#endif /* Z_ZVOXELGFX_TREE_GIANT_H */

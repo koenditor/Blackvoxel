@@ -23,20 +23,16 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELSPRITE_H
-#define Z_ZVOXELSPRITE_H
+#pragma once 
 
-//#ifndef Z_ZVOXELSPRITE_H
-//#  include "ZVoxelSprite.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
 
-#ifndef Z_ZWORLD_H
-#  include "ZWorld.h"
-#endif
+
+
+
+#include "z/ZTypes.h"
+
+#include "ZWorld.h"
 
 
 class ZVoxelSector;
@@ -147,6 +143,3 @@ class ZVoxelSprite
 
 
 };
-
-
-#endif /* Z_ZVOXELSPRITE_H */

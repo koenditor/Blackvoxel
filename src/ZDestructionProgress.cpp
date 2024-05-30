@@ -23,13 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZDESTRUCTIONPROGRESS_H
-#  include "ZDestructionProgress.h"
-#endif
+#include "ZDestructionProgress.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
 #include<stdio.h>
 

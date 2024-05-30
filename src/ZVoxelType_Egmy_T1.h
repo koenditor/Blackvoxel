@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_EGMY_T1_H
-#define Z_ZVOXELTYPE_EGMY_T1_H
+#pragma once
 
-//#ifndef Z_ZVOXELTYPE_EGMY_T1_H
-//#  include "ZVoxelType_Egmy_T1.h"
-//#endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_Egmy_T1 : public ZVoxelType
 {
@@ -53,6 +46,3 @@ class ZVoxelType_Egmy_T1 : public ZVoxelType
     virtual ZVoxelExtension * CreateVoxelExtension(bool IsLoadingPhase = true);
     virtual void  GetBlockInformations(ZVoxelLocation * DestLocation, ZString & Infos);
 };
-
-
-#endif /* Z_ZVOXELTYPE_EGMY_T1_H */

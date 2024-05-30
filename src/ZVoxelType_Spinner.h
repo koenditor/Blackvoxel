@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_SPINNER_H
-#define Z_ZVOXELTYPE_SPINNER_H
+#pragma once
 
-//#ifndef Z_ZVOXELTYPE_SPINNER_H
-//#  include "ZVoxelType_Spinner.h"
-//#endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_Spinner : public ZVoxelType
 {
@@ -50,7 +43,3 @@ class ZVoxelType_Spinner : public ZVoxelType
     virtual void  UserAction_Activate(ZMemSize VoxelInfo, Long x, Long y, Long z);
 
 };
-
-
-
-#endif /* Z_ZVOXELTYPE_SPINNER_H */

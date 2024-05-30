@@ -16,16 +16,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef Z_ZVOXELREACTION_H
-#define Z_ZVOXELREACTION_H
+#pragma once 
 
-//#ifndef Z_ZVOXELREACTION_H
-//#  include "ZVoxelReaction.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+
+
+
+
+#include "z/ZTypes.h"
 
 
 
@@ -72,5 +70,3 @@ class ZVoxelReaction
     }
 
 };
-
-#endif /* ZVOXELREACTION_H_ */

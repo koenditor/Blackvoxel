@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_FABMACHINE2_H
-#define Z_ZVOXELTYPE_FABMACHINE2_H
+#pragma once
 
-//#ifndef Z_ZVOXELTYPE_FABMACHINE2_H
-//#  include "ZVoxelType_FabMachine2.h"
-//#endif
+#include "ZVoxelType.h"
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
-
-#ifndef Z_ZFASTBIT_ARRAY_H
-#  include "z/ZFastBit_Array.h"
-#endif
+#include "z/ZFastBit_Array.h"
 
 class ZVoxelType_FabMachine2 : public ZVoxelType
 {
@@ -59,8 +50,3 @@ class ZVoxelType_FabMachine2 : public ZVoxelType
     virtual void  GetBlockInformations(ZVoxelLocation * DestLocation, ZString & Infos);
     virtual void  GetScanInformations(ZVoxelCoords * VoxelCoords, UShort VoxelType, ZMemSize VoxelInfo, ZString & Infos);
 };
-
-
-
-
-#endif /* Z_ZVOXELTYPE_FABMACHINE2_H */

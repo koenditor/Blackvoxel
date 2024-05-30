@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGENERICTABLE_H
-#define Z_ZGENERICTABLE_H
+#pragma once 
 
-//#ifndef Z_ZGENERICTABLE_H
-//#  include "ZGenericTable.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+
+
+
+
+#include "ZTypes.h"
 
 
 template <typename Type, ZMemSize TableLen>
@@ -118,8 +116,3 @@ class ZGenericTable
     }
 
 };
-
-
-
-
-#endif /* Z_ZGENERICTABLE_H */

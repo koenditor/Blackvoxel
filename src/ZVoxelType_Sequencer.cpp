@@ -26,9 +26,7 @@
 #include "ZVoxelType_Sequencer.h"
 #include "ZGame.h"
 
-#ifndef Z_ZVOXELEXTENSION_SEQUENCER_H
-#  include "ZVoxelExtension_Sequencer.h"
-#endif
+#include "ZVoxelExtension_Sequencer.h"
 
 
 ZVoxelExtension * ZVoxelType_Sequencer::CreateVoxelExtension(bool IsLoadingPhase)

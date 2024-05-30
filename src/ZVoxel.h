@@ -23,20 +23,16 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXEL_H
-#define Z_ZVOXEL_H
+#pragma once 
 
-// #ifndef Z_ZVOXEL_H
-// #  include "ZVoxel.h"
-// #endif
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
+
+
+
+#include "z/ZTypes.h"
+
+#include "ZVoxelExtension.h"
 
 class ZVoxelTypeManager;
 class ZStream_SpecialRamStream;
@@ -68,7 +64,3 @@ struct ZVoxel
 
   ~ZVoxel();
 };
-
-
-
-#endif /* Z_ZVOXEL_H */

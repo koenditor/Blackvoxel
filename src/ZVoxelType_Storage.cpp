@@ -26,9 +26,7 @@
 #include "ZVoxelType_Storage.h"
 #include "ZGame.h"
 
-#ifndef Z_ZVOXELEXTENSION_STORAGE_H
-#  include "ZVoxelExtension_Storage.h"
-#endif
+#include "ZVoxelExtension_Storage.h"
 
 
 ZVoxelExtension * ZVoxelType_Storage::CreateVoxelExtension(bool IsLoadingPhase)

@@ -23,17 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
-#ifndef Z_ZVOXELEXTENSION_PROGRAMMABLE_H
-#  include "ZVoxelExtension_Programmable.h"
-#endif
+#include "ZVoxelExtension_Programmable.h"
 
-#ifndef Z_ZGENERICCANVA2_H
-#  include "ZGenericCanva_2.h"
-#endif
+#include "z/ZGenericCanva_2.h"
 
 extern ZGame * Ge;
 

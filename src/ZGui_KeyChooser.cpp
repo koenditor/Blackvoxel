@@ -25,7 +25,7 @@
 
 #include "ZGui_KeyChooser.h"
 #include "SDL2/SDL.h"
-#include <GL/glew.h>
+
 
 
 Bool ZFrame_KeyChooser::KeyDown( SDL_Scancode KeySym )

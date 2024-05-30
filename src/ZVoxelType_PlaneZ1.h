@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_PLANEZ1_H
-#define Z_ZVOXELTYPE_PLANEZ1_H
+#pragma once
 
-//#ifndef Z_ZVOXELTYPE_PLANEZ1_H
-//#  include "ZVoxelType_PlaneZ1.h"
-//#endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_PlaneZ1 : public ZVoxelType
 {
@@ -56,5 +49,3 @@ class ZVoxelType_PlaneZ1 : public ZVoxelType
 
     virtual ULong  Interface_PushBlock_Push( ZVoxelLocation * DestLocation, UShort VoxelType, ULong Count );
 };
-
-#endif /* Z_ZVOXELTYPE_PLANEZ1_H */

@@ -25,9 +25,7 @@
 
 #include "ZGui_Memory_Monitor.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
 void ZFrame_MemoryMonitor::GetEffectiveHeight(float & Height)
 {

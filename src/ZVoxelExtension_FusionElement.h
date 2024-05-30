@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELEXTENSION_FUSIONELEMENT_H
-#define Z_ZVOXELEXTENSION_FUSIONELEMENT_H
+#pragma once 
 
-//#ifndef Z_ZVOXELEXTENSION_FUSIONELEMENT_H
-//#  include "ZVoxelExtension_FusionElement.h"
-//#endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
+
+
+
+
+#include "ZVoxelExtension.h"
 
 class ZVoxelExtension_FusionElement : public ZVoxelExtension
 {
@@ -254,7 +252,3 @@ class ZVoxelExtension_FusionElement : public ZVoxelExtension
     return(ResultMaterial);
   }
 };
-
-
-
-#endif /* Z_ZVOXELEXTENSION_FUSIONELEMENT_H */

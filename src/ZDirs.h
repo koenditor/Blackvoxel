@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZDIRS_H
-#define Z_ZDIRS_H
+#pragma once 
 
-//#ifndef Z_ZDIRS_H
-//#  include "ZDirs.h"
-//#endif
-
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZTypes.h"
 
 class ZDirs
 {
@@ -43,5 +36,3 @@ class ZDirs
     static ZPolar3d  Dir_Vector[6];
 
 };
-
-#endif /* Z_ZDIRS_H */

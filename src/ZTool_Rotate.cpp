@@ -23,17 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZTOOL_ROTATE_H
-#  include "ZTool_Rotate.h"
-#endif
+#include "ZTool_Rotate.h"
 
-#ifndef Z_ZACTORPHYSICS_H
-#  include "ZActorPhysics.h"
-#endif
+#include "ZActorPhysics.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
 bool ZTool_Rotate::Tool_MouseButtonClick(ULong Button)
 {

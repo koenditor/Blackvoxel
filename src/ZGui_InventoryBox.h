@@ -23,28 +23,17 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGUI_INVENTORYBOX_H
-#define Z_ZGUI_INVENTORYBOX_H
+#pragma once 
 
-#ifndef Z_ZGUI_INVENTORYBOX_H
-#  include "ZGui_InventoryBox.h"
-#endif
+#include "ZGui_InventoryBox.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui.h"
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
-#ifndef Z_ZVOXELTYPEMANAGER_H
-#  include "ZVoxelTypeManager.h"
-#endif
+#include "ZVoxelTypeManager.h"
 
-#ifndef Z_ZTILESETS_H
-#  include "ZTileSets.h"
-#endif
+#include "ZTileSets.h"
 
 class ZInventoryBox : public ZFrame
 {
@@ -93,6 +82,3 @@ class ZInventoryBox : public ZFrame
 
 
 };
-
-
-#endif /* Z_ZGUI_INVENTORYBOX_H */

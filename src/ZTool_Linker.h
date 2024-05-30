@@ -23,20 +23,16 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZTOOL_LINKER_H
-#define Z_ZTOOL_LINKER_H
+#pragma once 
 
-//#ifndef Z_ZTOOL_LINKER_H
-//#  include "ZTool_Linker.h"
-//#endif
 
-#ifndef Z_ZTOOLS_H
-#  include "ZTools.h"
-#endif
 
-#ifndef Z_ZTOOLSPOINTER_H
-#  include "ZToolsPointer.h"
-#endif
+
+
+
+#include "ZTools.h"
+
+#include "ZToolsPointer.h"
 
 
 class ZTool_Linker : public ZTool
@@ -59,7 +55,3 @@ class ZTool_Linker : public ZTool
 
 
 };
-
-
-
-#endif /* Z_ZTOOL_LINKER_H */

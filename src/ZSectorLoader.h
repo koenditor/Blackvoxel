@@ -23,12 +23,12 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSECTORLOADER_H
-#define Z_ZSECTORLOADER_H
+#pragma once 
 
-// #ifndef Z_ZSECTORLOADER_H
-// #  include "ZSectorLoader.h"
-// #endif
+
+
+
+
 
 class ZSectorLoader
 {
@@ -46,5 +46,3 @@ class ZSectorLoader
     virtual void SetWorldType(UShort WorldType) = 0;
 
 };
-
-#endif

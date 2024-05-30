@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_TRAINT_H
-#define Z_ZVOXELTYPE_TRAINT_H
+#pragma once
 
-//#ifndef Z_ZVOXELTYPE_TRAINT_H
-//#  include "ZVoxelType_TrainT.h"
-//#endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_TrainT : public ZVoxelType
 {
@@ -58,8 +51,3 @@ class ZVoxelType_TrainT : public ZVoxelType
 
     virtual ULong  Interface_PushBlock_Push( ZVoxelLocation * DestLocation, UShort VoxelType, ULong Count );
 };
-
-
-
-#endif /* Z_ZVOXELTYPE_TRAINT_H */
-

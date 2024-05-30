@@ -24,17 +24,11 @@
  */
 
 
-#ifndef Z_ZTOOL_SCAN_H
-#  include "ZTool_OreScan.h"
-#endif
+#include "ZTool_OreScan.h"
 
-#ifndef Z_ZACTORPHYSICS_H
-#  include "ZActorPhysics.h"
-#endif
+#include "ZActorPhysics.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
 
 void ZTool_OreScan::MakeScan(ZVector3L * ScanPoint, ZVector3L * ScanDimensions, ZString * Result)

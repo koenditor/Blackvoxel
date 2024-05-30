@@ -23,17 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZTOOL_SCAN_H
-#  include "ZTool_Scan.h"
-#endif
+#include "ZTool_Scan.h"
 
-#ifndef Z_ZACTORPHYSICS_H
-#  include "ZActor_Player.h"
-#endif
+#include "ZActor_Player.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
 
 bool ZTool_Scan::Tool_MouseButtonClick(ULong Button)

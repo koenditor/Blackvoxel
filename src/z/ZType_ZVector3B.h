@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_TYPE_ZVECTOR3B_H
-#define Z_TYPE_ZVECTOR3B_H
+#pragma once 
 
-//#ifndef Z_TYPE_ZVECTOR3B_H
-//#  include "ZType_ZVector3B.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+
+
+
+
+#include "ZTypes.h"
 
 struct ZVector3B_Init
 {
@@ -201,6 +199,3 @@ class ZVector3B
   }
 
 };
-
-
-#endif /* Z_TYPE_ZVECTOR3B_H */

@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZMEMPOOL_OPTIMIZED_H
-#define Z_ZMEMPOOL_OPTIMIZED_H
+#pragma once 
 
-//#ifndef Z_ZMEMPOOL_OPTIMIZED_H
-//#include "ZMemPool_Optimized.h"
-//#endif
 
-#ifndef Z_ZMEMPOOL_H
-#  include "ZMemPool.h"
-#endif
+
+
+
+
+#include "ZMemPool.h"
 
 #define Z_ZMEMPOOL_OPTIMISED_POOLSIZE 64
 #define Z_ZMEMPOOL_OPTIMISED_MINSIZE  128
@@ -90,6 +88,3 @@ class ZMemPool_Optimized : public ZMemoryPool
       return( &MainPool);
     }
 };
-
-
-#endif /* Z_ZMEMPOOL_OPTIMIZED_H */

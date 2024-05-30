@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_INDICATORLIGHT_H
-#define Z_ZVOXELTYPE_INDICATORLIGHT_H
+#pragma once 
 
-//#ifndef Z_ZVOXELTYPE_INDICATORLIGHT_H
-//#  include "ZVoxelType_IndicatorLight.h"
-//#endif
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+
+
+
+
+#include "ZVoxelType.h"
 
 class ZVoxelType_IndicatorLight : public ZVoxelType
 {
@@ -48,5 +46,3 @@ class ZVoxelType_IndicatorLight : public ZVoxelType
     virtual bool  Interface_SetInfo(ZVoxelLocation * VLoc, ULong InfoNum, ZVar * In);
 
 };
-
-#endif /* Z_ZVOXELTYPE_INDICATORLIGHT_H */

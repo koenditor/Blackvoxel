@@ -26,21 +26,13 @@
 
 #include "ZVoxelType_WirelessReceiver.h"
 
-#ifndef Z_ZVOXELEXTENSION_WIRELESSTRANSMITTER_H
-#  include "ZVoxelExtension_WirelessTransmitter.h"
-#endif
+#include "ZVoxelExtension_WirelessTransmitter.h"
 
-#ifndef Z_ZVOXELSECTOR_H
-#  include "ZVoxelSector.h"
-#endif
+#include "ZVoxelSector.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
-#ifndef Z_ZTOOLSPOINTER_H
-#  include "ZToolsPointer.h"
-#endif
+#include "ZToolsPointer.h"
 
 
 

@@ -23,24 +23,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZACTIVEVOXELINTERFACE_H
-#define Z_ZACTIVEVOXELINTERFACE_H
+#pragma once
 
-//#ifndef Z_ZACTIVEVOXELINTERFACE_H
-//#  include "ZActiveVoxelInterface.h"
-//#endif
+#include "ZWorld.h"
 
-#ifndef Z_ZWORLD_H
-#  include "ZWorld.h"
-#endif
+#include "ZVoxelTypeManager.h"
 
-#ifndef Z_ZVOXELTYPEMANAGER_H
-#  include "ZVoxelTypeManager.h"
-#endif
-
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
 
 class ZActiveVoxelInterface
@@ -307,5 +296,3 @@ inline bool ZActiveVoxelInterface::PullFromNeighborVoxel_Do(ULong PositionCode, 
 
   return(true);
 }
-
-#endif /* Z_ZACTIVEVOXELINTERFACE_H */

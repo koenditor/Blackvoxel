@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZTOOLSPOINTER_H
-#define Z_ZTOOLSPOINTER_H
+#pragma once 
 
-//#ifndef Z_ZTOOLSPOINTER_H
-//#  include "ZToolsPointer.h"
-//#endif
-
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+#include "z/ZTypes.h"
 
 class ZToolsPointer
 {
@@ -46,7 +39,3 @@ class ZToolsPointer
       EndLocation = 0;
     }
 };
-
-
-
-#endif /* Z_ZTOOLSPOINTER_H */

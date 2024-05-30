@@ -27,25 +27,15 @@
 #include <stdio.h>
 #include "z/ZString.h"
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "ACompileSettings.h"
 
-#ifndef Z_ZSTREAMS_FILE_H
-#  include "z/ZStream_File.h"
-#endif
+#include "z/ZStream_File.h"
 
-#ifndef Z_ZFABMACHINEINFOS_H
-#  include "ZFabMachineInfos.h"
-#endif
+#include "ZFabMachineInfos.h"
 
-#ifndef Z_ZTOOLSPOINTER_H
-#  include "ZToolsPointer.h"
-#endif
+#include "ZToolsPointer.h"
 
-#ifndef Z_ZFABMACHINEINFOS2_H
-#  include "ZFabMachineInfos2.h"
-#endif
+#include "ZFabMachineInfos2.h"
 
 
 

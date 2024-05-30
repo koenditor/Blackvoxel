@@ -26,17 +26,11 @@
 #include "ZSettings_Hardware.h"
 #include <stdio.h>
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "ACompileSettings.h"
 
-#ifndef Z_ZSTREAMS_FILE_H
-#  include "z/ZStream_File.h"
-#endif
+#include "z/ZStream_File.h"
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "ACompileSettings.h"
 
 ZSettings_Hardware::ZSettings_Hardware()
 {

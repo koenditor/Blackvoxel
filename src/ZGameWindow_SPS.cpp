@@ -23,9 +23,7 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAMEWINDOW_SPS_H
-#  include "ZGameWindow_SPS.h"
-#endif
+#include "ZGameWindow_SPS.h"
 
 #include "ZGame.h"
 

@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_VOID_H
-#define Z_ZVOXELTYPE_VOID_H
+#pragma once
 
-//#ifndef Z_ZVOXELTYPE_VOID_H
-//#  include "ZVoxelType_Void.h"
-//#endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_Void : public ZVoxelType
 {
@@ -73,6 +66,3 @@ class ZVoxelType_Void : public ZVoxelType
 
 
 };
-
-
-#endif /* Z_ZVOXELTYPE_VOID_H */

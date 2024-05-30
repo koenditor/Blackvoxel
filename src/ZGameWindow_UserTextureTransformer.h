@@ -23,44 +23,23 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAMEWINDOW_USERTEXTURETRANSFORMER_H
-#define Z_ZGAMEWINDOW_USERTEXTURETRANSFORMER_H
+#pragma once 
 
-//#ifndef Z_ZGAMEWINDOW_USERTEXTURETRANSFORMER_H
-//#  include "ZGameWindow_UserTextureTransformer.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui_InventoryBox.h"
 
-#ifndef Z_ZGUI_INVENTORYBOX_H
-#  include "ZGui_InventoryBox.h"
-#endif
+#include "ZGui_VoxelViewBox.h"
 
-#ifndef Z_ZGUI_VOXELVIEW_H
-#  include "ZGui_VoxelViewBox.h"
-#endif
+#include "ZGui_FontFrame.h"
 
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
+#include "ZGui_PanelTextButton.h"
 
-#ifndef Z_ZGUI_PANELTEXTBUTTON_H
-#  include "ZGui_PanelTextButton.h"
-#endif
+#include "ZGui_TileFrame.h"
 
-#ifndef Z_ZGUI_TILEFRAME_H
-#  include "ZGui_TileFrame.h"
-#endif
+#include "ZVoxelTypeManager.h"
 
-#ifndef Z_ZVOXELTYPEMANAGER_H
-#  include "ZVoxelTypeManager.h"
-#endif
-
-#ifndef Z_ZVOXELEXTENSION_USERTEXTURETRANSFORMER_H
-#  include "ZVoxelExtension_UserTextureTransformer.h"
-#endif
+#include "ZVoxelExtension_UserTextureTransformer.h"
 
 
 
@@ -138,7 +117,3 @@ class ZGameWindow_UserTextureTransformer : public ZFrame
 
 
 };
-
-
-
-#endif /* Z_ZGAMEWINDOW_USERTEXTURETRANSFORMER_H */

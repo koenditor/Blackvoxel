@@ -23,24 +23,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZTYPE_ZVECTOR3L_CROSSFUNC_H
-#define Z_ZTYPE_ZVECTOR3L_CROSSFUNC_H
+#pragma once 
 
-//#ifndef Z_ZTYPE_ZVECTOR3L_CROSSFUNC_H
-//#  include "ZType_ZVector3L_CrossFunc.h"
-//#endif
+#include "ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+#include "ZType_ZVector3L.h"
 
-#ifndef Z_TYPE_ZVECTOR3L_H
-#  include "ZType_ZVector3L.h"
-#endif
-
-#ifndef Z_ZTYPE_ZVECTOR3D_H
-#  include "ZType_ZVector3d.h"
-#endif
+#include "ZType_ZVector3d.h"
 
 inline ZVector3L & ZVector3L::operator = (const ZVector3d & Vec3d)
 {
@@ -112,6 +101,3 @@ inline ZVector3L & ZVector3L::operator -= (const ZVector3B & Vec3B)
 
   return(*this);
 }
-
-
-#endif /* Z_ZTYPE_ZVECTOR3L_CROSSFUNC_H */

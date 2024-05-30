@@ -28,39 +28,23 @@
 #include "ZGame.h"
 #include "ZActorPhysics.h"
 #include "ZSettings_Hardware.h"
-#include <GL/glew.h>
 
-#ifndef Z_ZVOXELGFX_TREE_H
-#  include "ZVoxelGfx_Tree.h"
-#endif
 
-#ifndef Z_ZRENDER_BASIC_H
-#  include "ZRender_Basic.h"
-#endif
+#include "ZVoxelGfx_Tree.h"
 
-#ifndef Z_ZWORLD_STAT_H
-#  include "ZWorld_Stat.h"
-#endif
+#include "ZRender_Basic.h"
 
-#ifndef Z_VOXELEXTENSIONTYPE_VOXELFLUID_H
-#  include "ZVoxelExtensionType_VoxelFluid.h"
-#endif
+#include "ZWorld_Stat.h"
 
-#ifndef Z_ZOS_SPECIFIC_VIEWDOC_H
-#  include "ZOs_Specific_ViewDoc.h"
-#endif
+#include "ZVoxelExtensionType_VoxelFluid.h"
 
-#ifndef Z_ZGAMEWINDOW_RESUMEREQUEST_LITTLE_H
-#  include "ZGameWindow_ResumeRequest_Little.h"
-#endif
+#include "ZOs_Specific_ViewDoc.h"
 
-#ifndef Z_ZGAMEWINDOW_ZPROGROBOT_REMOTE_H
-#  include "ZGameWindow_ZProgRobot_Remote.h"
-#endif
+#include "ZGameWindow_ResumeRequest_Little.h"
 
-#ifndef Z_ZVOXELSPRITE_H
-#  include "ZVoxelSprite.h"
-#endif
+#include "ZGameWindow_ZProgRobot_Remote.h"
+
+#include "ZVoxelSprite.h"
 
 Bool ZGame_Events::KeyDown( SDL_Scancode KeySym )
 {

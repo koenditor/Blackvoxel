@@ -16,37 +16,23 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef Z_ZRENDER_BASIC_H
-#define Z_ZRENDER_BASIC_H
 
-//#ifndef Z_ZRENDER_BASIC_H
-//#  include "ZRender_Basic.h"
-//#endif
+#pragma once
 
-#ifndef Z_ZWORLD_H
-#  include "ZWorld.h"
-#endif
+#include "ZWorld.h"
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
-#ifndef Z_ZTEXTUREMANAGER_H
-#  include "ZTextureManager.h"
-#endif
+#include "ZTextureManager.h"
 
-#ifndef Z_ZSECTORSPHERE_H
 #include "ZSectorSphere.h"
-#endif
 
-#ifndef Z_ZRENDER_SORTER_H
-#  include "ZRender_Sorter.h"
-#endif
+#include "ZRender_Sorter.h"
+
+#include "GL/gl.h"
 
 
 extern GLuint TextureName[1024];
-
-
 
 class ZRender_basic_displaydata : public ZObject
 {
@@ -239,6 +225,3 @@ class ZRender_Basic
     void ComputeAndSetAspectRatio(double VerticalFOV, double PixelAspectRatio, ZVector2L & ViewportResolution);
 
 };
-
-
-#endif

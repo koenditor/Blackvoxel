@@ -23,20 +23,16 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSECTORSPHERE_H
-#define Z_ZSECTORSPHERE_H
+#pragma once 
 
-// #ifndef Z_ZSECTORSPHERE_H
-// #include "ZSectorSphere.h"
-// #endif
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
 
-#ifndef Z_ZVOXELSECTOR_H
-#  include "ZVoxelSector.h"
-#endif
+
+
+
+#include "z/ZTypes.h"
+
+#include "ZVoxelSector.h"
 
 class ZSectorSphere
 {
@@ -66,7 +62,3 @@ class ZSectorSphere
     void debugout(char * FileSpec);
 
 };
-
-
-
-#endif /* Z_ZSECTORSPHERE_H */

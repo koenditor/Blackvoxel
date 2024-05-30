@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVMACHINE_H
-#define Z_ZVMACHINE_H
+#pragma once 
 
-// #ifndef Z_ZVMACHINE_H
-// #  include "ZVMachine.h"
-// #endif
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+
+
+
+
+#include "z/ZTypes.h"
 
 class ZGame;
 class ZString;
@@ -79,5 +77,3 @@ class ZVMachine
     virtual bool Load(ZStream_SpecialRamStream * Stream)=0;
 
 };
-
-#endif /* Z_ZVMACHINE_H */

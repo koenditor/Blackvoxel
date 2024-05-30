@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZOS_SPECIFIC_VARIOUS_H
-#define Z_ZOS_SPECIFIC_VARIOUS_H
+#pragma once 
 
-//#ifndef Z_ZOS_SPECIFIC_VARIOUS_H
-//#  include "ZOs_Specific_Various.h"
-//#endif
+#include "ACompileSettings.h"
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
-
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZTypes.h"
 
 
 // Windows Operating system
@@ -46,5 +37,3 @@
   void Windows_DisplayConsole();
 
 #endif
-
-#endif /* Z_ZOS_SPECIFIC_VARIOUS_H */

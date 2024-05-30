@@ -23,24 +23,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGUI_CYCLINGCHOICEBOX_H
-#define Z_ZGUI_CYCLINGCHOICEBOX_H
+#pragma once 
 
-//#ifndef Z_ZGUI_CYCLINGCHOICEBOX_H
-//#  include "ZGui_CyclingChoiceBox.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui_FontFrame.h"
 
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
-
-#ifndef Z_ZGUI_TILEFRAME_H
-#  include "ZGui_TileFrame.h"
-#endif
+#include "ZGui_TileFrame.h"
 
 class ZFrame_CyclingChoiceBox : public ZFrame
 {
@@ -85,6 +74,3 @@ class ZFrame_CyclingChoiceBox : public ZFrame
     virtual void AddedToFrameCallback(ZFrame * Frame);
 
 };
-
-
-#endif /* Z_ZGUI_CYCLINGCHOICEBOX_H */

@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZTOOLS_H
-#define Z_ZTOOLS_H
+#pragma once 
 
-//#ifndef Z_ZTOOLS_H
-//#  include "ZTools.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+
+
+
+
+#include "z/ZTypes.h"
 
 #include "SDL2/SDL_stdinc.h"
 
@@ -99,6 +97,3 @@ class ZToolManager
     void ProcessAndDisplay();
 
 };
-
-
-#endif /* Z_ZTOOL_H */

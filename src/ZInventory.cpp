@@ -26,9 +26,7 @@
 #include "ZInventory.h"
 #include <stdio.h>
 
-#ifndef Z_ZVOXELTYPEMANAGER_H
-#  include "ZVoxelTypeManager.h"
-#endif
+#include "ZVoxelTypeManager.h"
 
 
 ZInventory::ZInventory()

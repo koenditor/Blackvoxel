@@ -23,12 +23,12 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSECTORREQUESTRINGLIST_H
-#define Z_ZSECTORREQUESTRINGLIST_H
+#pragma once 
 
-//#ifndef Z_ZSECTORREQUESTRINGLIST_H
-//#  include "ZSectorRequestRingList.h"
-//#endif
+
+
+
+
 
 struct ZSectorRequest { Long x, y, z; };
 
@@ -79,6 +79,3 @@ class ZSectorRequestRingList
 
     bool IsDataReady() { return(Start!=End); }
 };
-
-
-#endif

@@ -23,21 +23,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAME_DEVHELPERS_H
-#  include "ZGame_DevHelpers.h"
-#endif
+#include "ZGame_DevHelpers.h"
 
-#ifndef Z_ZVCPU_H
-#  include "ZVCPU.h"
-#endif
+#include "ZVCPU.h"
 
-#ifndef Z_ZWORLDGENESIS_H
-#  include "ZWorldGenesis.h"
-#endif
+#include "ZWorldGenesis.h"
 
-#ifndef Z_BITMAP_IMAGE_H
-#  include "z/ZBitmapImage.h"
-#endif
+#include "z/ZBitmapImage.h"
 
 bool ZGame_DevHelpers::OutputZoneImage(ZString & HelperDirectory)
 {

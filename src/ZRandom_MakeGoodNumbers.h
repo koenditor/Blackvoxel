@@ -23,24 +23,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZRANDOM_MAKEGOODNUMBERS_H
-#define Z_ZRANDOM_MAKEGOODNUMBERS_H
+#pragma once 
 
-//#ifndef Z_ZRANDOM_MAKEGOODNUMBERS_H
-//#  include "ZRandom_MakeGoodNumbers.h"
-//#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+#include "z/ZString.h"
 
-#ifndef Z_ZSTRING_H
-#  include "ZString.h"
-#endif
-
-#ifndef Z_ZSTREAMS_FILE_H
-#  include "z/ZStream_File.h"
-#endif
+#include "z/ZStream_File.h"
 
 class ZRandom_MakeGoodNumbers
 {
@@ -90,8 +79,3 @@ class ZRandom_MakeGoodNumbers
 
 
 };
-
-
-
-
-#endif /* Z_ZRANDOM_MAKEGOODNUMBERS_H */

@@ -25,9 +25,7 @@
 
 #include "ZOs_Specific_ViewDoc.h"
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "z/ZString.h"
 
 
 #ifdef ZENV_OS_LINUX

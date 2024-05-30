@@ -24,7 +24,9 @@
  */
 
 #include "ZScreen_Main.h"
-#include <GL/glew.h>
+
+#include "GL/gl.h"
+
 
 ULong ZScreen_Main::ProcessScreen(ZGame * GameEnv)
 {

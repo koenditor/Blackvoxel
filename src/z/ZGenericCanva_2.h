@@ -24,24 +24,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGENERICCANVA2_H
-#define Z_ZGENERICCANVA2_H
+#pragma once
 
-//#ifndef Z_ZGENERICCANVA2_H
-//#  include "ZGenericCanva_2.h"
-//#endif
+#include "ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+#include "ZBitmapImage.h"
 
-#ifndef Z_BITMAP_IMAGE_H
-#  include "ZBitmapImage.h"
-#endif
-
-#ifndef Z_ZSTRING_H
-#  include "ZString.h"
-#endif
+#include "ZString.h"
 
 template <typename Type>
 class ZGenericCanva
@@ -519,7 +508,3 @@ class ZGenericCanva
     }
 
 };
-
-
-
-#endif /* Z_ZGENERICCANVA_H */

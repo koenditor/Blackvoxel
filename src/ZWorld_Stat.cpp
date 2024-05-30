@@ -25,9 +25,7 @@
 
 #include <string.h>
 
-#ifndef Z_ZWORLD_STAT_H
-#  include "ZWorld_Stat.h"
-#endif
+#include "ZWorld_Stat.h"
 
 
 void ZWorld_Stat::Get_Stat_DistanceToMineForVoxelType(UShort VoxelType)

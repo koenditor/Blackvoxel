@@ -26,13 +26,9 @@
 #include "ZFastRandom.h"
 #include <stdio.h>
 
-#ifndef A_COMPILESETTINGS_H
-#  include "../ACompileSettings.h"
-#endif
+#include "../ACompileSettings.h"
 
-#ifndef Z_ZSTRING_H
-#  include "ZString.h"
-#endif
+#include "ZString.h"
 
 ULong * ZLightSpeedRandom::Pool = 0;
 ULong ZLightSpeedRandom::PoolLen = 0;

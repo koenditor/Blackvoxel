@@ -23,20 +23,16 @@
  *      Author: laurent
  */
 
-#ifndef Z_VAR_H
-#define Z_VAR_H
+#pragma once 
 
-//#ifndef Z_VAR_H
-//#  include "ZVar.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
 
-#ifndef Z_ZSTRING_H
-#  include "ZString.h"
-#endif
+
+
+
+#include "ZTypes.h"
+
+#include "ZString.h"
 
 class ZVar
 {
@@ -73,6 +69,3 @@ class ZVar
     inline void Set_CString(char * String)      { VarType = TYPE_CSTRING; this->Scalar.CString = String; }
 
 };
-
-
-#endif /* Z_VAR_H */

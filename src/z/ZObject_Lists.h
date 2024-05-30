@@ -23,24 +23,18 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZOBJECT_LISTS_H
-#define Z_ZOBJECT_LISTS_H
+#pragma once 
 
-//#ifndef Z_ZOBJECT_LISTS_H
-//#  include "ZObject_Lists.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
 
-#ifndef Z_ZOBJECT_H
-#  include "ZObject.h"
-#endif
 
-#ifndef Z_ZMEMPOOL_H
-#  include "ZMemPool.h"
-#endif
+
+
+#include "ZTypes.h"
+
+#include "ZObject.h"
+
+#include "ZMemPool.h"
 
 
 class ZListItem
@@ -193,6 +187,3 @@ class ZList
 
     void Dump();
 };
-
-
-#endif

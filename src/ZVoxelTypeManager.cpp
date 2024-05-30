@@ -27,129 +27,67 @@
 #include <stdio.h>
 
 
-#ifndef Z_ZVOXELTYPE_STORAGE_H
-#  include "ZVoxelType_Storage.h"
-#endif
+#include "ZVoxelType_Storage.h"
 
-#ifndef Z_ZVOXELTYPE_USERTEXTURETRANSFORMER_H
-#  include "ZVoxelType_UserTextureTransformer.h"
-#endif
+#include "ZVoxelType_UserTextureTransformer.h"
 
-#ifndef Z_ZVOXELTYPE_PLANEZ1_H
-#  include "ZVoxelType_PlaneZ1.h"
-#endif
+#include "ZVoxelType_PlaneZ1.h"
 
-#ifndef Z_ZVOXELTYPE_YELLOWGAS_H
-#  include "ZVoxelType_YellowGas.h"
-#endif
+#include "ZVoxelType_YellowGas.h"
 
-#ifndef Z_ZVOXELTYPE_LIGHTTRANSMITTER_H
-#  include "ZVoxelType_LightTransmitter.h"
-#endif
+#include "ZVoxelType_LightTransmitter.h"
 
-#ifndef Z_VOXELTYPE_FABMACHINE_H
-#  include "ZVoxelType_FabMachine.h"
-#endif
+#include "ZVoxelType_FabMachine.h"
 
-#ifndef Z_ZVOXELTYPE_FABMACHINE2_H
-#  include "ZVoxelType_FabMachine2.h"
-#endif
+#include "ZVoxelType_FabMachine2.h"
 
-#ifndef Z_ZVOXELTYPE_PROGRAMMABLE_H
-#  include "ZVoxelType_Programmable.h"
-#endif
+#include "ZVoxelType_Programmable.h"
 
-#ifndef Z_ZVOXELTYPE_PROGROBOT_ASM_H
-#  include "ZVoxelType_ProgRobot_Asm.h"
-#endif
+#include "ZVoxelType_ProgRobot_Asm.h"
 
-#ifndef Z_ZVOXELTYPE_FUSIONELEMENT_H
-#  include "ZVoxelType_FusionElement.h"
-#endif
+#include "ZVoxelType_FusionElement.h"
 
-#ifndef Z_VOXELTYPE_BLASTFURNACE_H
-#  include "ZVoxelType_BlastFurnace.h"
-#endif
+#include "ZVoxelType_BlastFurnace.h"
 
-#ifndef Z_ZVOXELTYPE_MININGROBOT_XR1_H
-#  include "ZVoxelType_MiningRobot_xr1.h"
-#endif
+#include "ZVoxelType_MiningRobot_xr1.h"
 
-#ifndef Z_ZVOXELTYPE_SEQUENCER_H
-#  include "ZVoxelType_Sequencer.h"
-#endif
+#include "ZVoxelType_Sequencer.h"
 
-#ifndef Z_VOXELTYPE_PICKER_H
-#  include "ZVoxelType_Picker.h"
-#endif
+#include "ZVoxelType_Picker.h"
 
-#ifndef Z_VOXELTYPE_MOVER_H
-#  include "ZVoxelType_Mover.h"
-#endif
+#include "ZVoxelType_Mover.h"
 
-#ifndef Z_ZVOXELTYPE_EGMY_T1_H
-#  include "ZVoxelType_Egmy_T1.h"
-#endif
+#include "ZVoxelType_Egmy_T1.h"
 
-#ifndef Z_ZVOXELTYPE_SIMPLEBUTTON_H
-#  include "ZVoxelType_SimpleButton.h"
-#endif
+#include "ZVoxelType_SimpleButton.h"
 
-#ifndef Z_ZVOXELTYPE_INDICATORLIGHT_H
-#  include "ZVoxelType_IndicatorLight.h"
-#endif
+#include "ZVoxelType_IndicatorLight.h"
 
-#ifndef Z_ZVOXELTYPE_RTFM_H
-#  include "ZVoxelType_RTFM.h"
-#endif
+#include "ZVoxelType_RTFM.h"
 
-#ifndef Z_ZVOXELTYPE_CONCRETE_H
-#  include "ZVoxelType_Concrete.h"
-#endif
+#include "ZVoxelType_Concrete.h"
 
-#ifndef Z_ZVOXELTYPE_EXAMPLE_H
-#  include "ZVoxelType_Example.h"
-#endif
+#include "ZVoxelType_Example.h"
 
-#ifndef Z_ZVOXELTYPE_VOID_H
-#  include "ZVoxelType_Void.h"
-#endif
+#include "ZVoxelType_Void.h"
 
-#ifndef Z_ZVOXELTYPE_SPS_H
 #include "ZVoxelType_SPS.h"
-#endif
 
-#ifndef Z_ZVOXELTYPE_UNIVERSEBORDER_H
-#  include "ZVoxelType_UniverseBorder.h"
-#endif
+#include "ZVoxelType_UniverseBorder.h"
 
-#ifndef Z_ZVOXELTYPE_WIRELESSTRANSMITTER_H
-#  include "ZVoxelType_WirelessTransmitter.h"
-#endif
+#include "ZVoxelType_WirelessTransmitter.h"
 
-#ifndef Z_ZVOXELTYPE_WIRELESSRECEIVER_H
-#  include "ZVoxelType_WirelessReceiver.h"
-#endif
+#include "ZVoxelType_WirelessReceiver.h"
 
-#ifndef Z_ZVOXELTYPE_PROGROBOT_REMOTE_H
-#  include "ZVoxelType_ProgRobot_Remote.h"
-#endif
+#include "ZVoxelType_ProgRobot_Remote.h"
 
-#ifndef Z_ZVOXELTYPE_CARH0_H
-#  include "ZVoxelType_CarH.h"
-#endif
+#include "ZVoxelType_CarH.h"
 
-#ifndef Z_ZVOXELTYPE_TRAINT_H
-#  include "ZVoxelType_TrainT.h"
-#endif
+#include "ZVoxelType_TrainT.h"
 
-#ifndef Z_ZVOXELTYPE_LIFTL_H
-#  include "ZVoxelType_LiftL.h"
-#endif
+#include "ZVoxelType_LiftL.h"
 
-#ifndef Z_ZVOXELTYPE_SPINNER_H
-#  include "ZVoxelType_Spinner.h"
-#endif
+#include "ZVoxelType_Spinner.h"
 
 
 ZVoxelTypeManager::ZVoxelTypeManager()

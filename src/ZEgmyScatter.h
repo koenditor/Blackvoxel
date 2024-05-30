@@ -23,24 +23,15 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZEGMYSCATTER_H
-#define Z_ZEGMYSCATTER_H
+#pragma once 
 
-#ifndef Z_ZEGMYSCATTER_H
-#  include "ZEgmyScatter.h"
-#endif
+#include "ZEgmyScatter.h"
 
-#ifndef Z_ZWORLD_H
-#  include "ZWorld.h"
-#endif
+#include "ZWorld.h"
 
-#ifndef Z_ZFASTRANDOM_H
-#  include "ZFastRandom.h"
-#endif
+#include "z/ZFastRandom.h"
 
-#ifndef Z_ZVOXELEXTENSION_EGMY_T1_H
-#  include "ZVoxelExtension_Egmy_T1.h"
-#endif
+#include "ZVoxelExtension_Egmy_T1.h"
 
 class ZEgmyScatter
 {
@@ -86,7 +77,3 @@ class ZEgmyScatter
 
 
 };
-
-
-
-#endif /* Z_ZEGMYSCATTER_H */

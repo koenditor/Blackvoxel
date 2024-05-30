@@ -23,20 +23,16 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_WIRELESSRECEIVER_H
-#define Z_ZVOXELTYPE_WIRELESSRECEIVER_H
+#pragma once 
 
-//#ifndef Z_ZVOXELTYPE_WIRELESSRECEIVER_H
-//#  include "ZVoxelType_WirelessReceiver.h"
-//#endif
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
 
-#ifndef Z_ZGENERICTABLE_H
-#  include "z/ZGenericTable.h"
-#endif
+
+
+
+#include "ZVoxelType.h"
+
+#include "z/ZGenericTable.h"
 
 class ZVoxelType_WirelessReceiver : public ZVoxelType
 {
@@ -53,9 +49,3 @@ class ZVoxelType_WirelessReceiver : public ZVoxelType
     virtual ULong  Interface_PushBlock_PushTest( ZVoxelLocation * DestLocation, UShort VoxelType, ULong Count );
 
 };
-
-
-
-
-
-#endif /* Z_ZVOXELTYPE_WIRELESSRECEIVER_H */

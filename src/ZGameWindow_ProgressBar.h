@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAMEWINDOW_PROGRESSBAR_H
-#define Z_ZGAMEWINDOW_PROGRESSBAR_H
+#pragma once 
 
-//#ifndef Z_ZGAMEWINDOW_PROGRESSBAR_H
-//#  include "ZGameWindow_ProgressBar.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
-
-#ifndef Z_ZGUI_PROGRESSBAR_H
-#  include "ZGui_ProgressBar.h"
-#endif
+#include "ZGui_ProgressBar.h"
 
 
 class ZGame;
@@ -76,7 +67,3 @@ class ZGameWindow_ProgressBar
   bool Is_Shown() {return(Flag_Shown);}
 
 };
-
-
-
-#endif /* Z_ZGAMEWINDOW_PROGRESSBAR_H */

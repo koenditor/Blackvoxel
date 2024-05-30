@@ -25,9 +25,7 @@
 
 
 
-#ifndef Z_VOXELEXTENSION_FABMACHINE2_H
-#  include "ZVoxelExtension_FabMachine2.h"
-#endif
+#include "ZVoxelExtension_FabMachine2.h"
 
 bool ZVoxelExtension_FabMachine2::Load(ZStream_SpecialRamStream * Stream)
 {

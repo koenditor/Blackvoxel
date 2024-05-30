@@ -39,24 +39,20 @@
 *                                                                              *
 *******************************************************************************/
 
-#ifndef Z_ZGENERAL_OBJECT_H
-#define Z_ZGENERAL_OBJECT_H
+#pragma once 
 
-//#ifndef Z_ZGENERAL_OBJECT_H
-//#  include "ZGeneralObject.h"
-//#endif
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
 
-#ifndef Z_ZOBJECT_H
-#  include "ZObject.h"
-#endif
 
-//#ifndef Z_ZSTREAMS_H
-//#  include "ZStreams.h"
-//#endif
+
+
+#include "ZTypes.h"
+
+#include "ZObject.h"
+
+
+
+
 
 enum { ZSAVEFORMAT_BINARY=0, ZSAVEFORMAT_XML=1 };
 
@@ -68,5 +64,3 @@ class ZGeneralObject : public ZObject
   //virtual ZSize GetSavedLen(int SaveFormat)             {}
 
 };
-
-#endif

@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_FUSIONELEMENT_H
-#define Z_ZVOXELTYPE_FUSIONELEMENT_H
+#pragma once
 
-// #ifndef Z_ZVOXELTYPE_FUSIONELEMENT_H
-// #  include "ZVoxelType_FusionElement.h"
-// #endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_FusionElement : public ZVoxelType
 {
@@ -53,5 +46,3 @@ class ZVoxelType_FusionElement : public ZVoxelType
     virtual void  GetScanInformations(ZVoxelCoords * VoxelCoords, UShort VoxelType, ZMemSize VoxelInfo, ZString & Infos);
 
 };
-
-#endif /* Z_ZVOXELTYPE_FUSIONELEMENT_H */

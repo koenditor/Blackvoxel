@@ -23,20 +23,16 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELEXTENSION_PROGRAMMABLE_H
-#define Z_ZVOXELEXTENSION_PROGRAMMABLE_H
+#pragma once 
 
-//#ifndef Z_ZVOXELEXTENSION_PROGRAMMABLE_H
-//#  include "ZVoxelExtension_Programmable.h"
-//#endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
 
-#ifndef Z_ZSCRIPTING_SQUIRREL3_H
-#  include "ZScripting_Squirrel3.h"
-#endif
+
+
+
+#include "ZVoxelExtension.h"
+
+#include "ZScripting_Squirrel3.h"
 
 class ZGame;
 template <typename Type> class ZGenericCanva;
@@ -183,7 +179,3 @@ class ZVoxelExtension_Programmable : public ZVoxelExtension
     virtual void StopProgram();
     virtual bool IsRunningProgram();
 };
-
-
-
-#endif /* Z_ZVOXELEXTENSION_PROGRAMMABLE_H */

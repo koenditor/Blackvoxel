@@ -25,13 +25,9 @@
 
 #include "ZChip_Display_Controller.h"
 
-#ifndef Z_ZVMACHINE_T1_H
-#  include "ZVMachine_T1.h"
-#endif
+#include "ZVMachine_T1.h"
 
-#ifndef Z_ZACTIVEVOXELINTERFACE_H
-#  include "ZActiveVoxelInterface.h"
-#endif
+#include "ZActiveVoxelInterface.h"
 
 
 void ZChip_Display_Controller::Reset()

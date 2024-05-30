@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELEXTENSION_EGMY_T1_H
-#define Z_ZVOXELEXTENSION_EGMY_T1_H
+#pragma once 
 
-//#ifndef Z_ZVOXELEXTENSION_EGMY_T1_H
-//#  include "ZVoxelExtension_Egmy_T1.h"
-//#endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
+
+
+
+
+#include "ZVoxelExtension.h"
 
 class ZVoxelExtension_Egmy_T1 : public ZVoxelExtension
 {
@@ -108,6 +106,3 @@ class ZVoxelExtension_Egmy_T1 : public ZVoxelExtension
   }
 
 };
-
-
-#endif /* Z_ZVOXELEXTENSION_EGMY_T1_H */

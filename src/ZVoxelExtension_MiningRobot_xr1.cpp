@@ -25,13 +25,9 @@
 
 #include <stdio.h>
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
-#ifndef Z_ZVOXELEXTENSION_MININGROBOT_XR1_H
-#  include "ZVoxelExtension_MiningRobot_xr1.h"
-#endif
+#include "ZVoxelExtension_MiningRobot_xr1.h"
 
 void ZVoxelExtension_MiningRobot_xr1::DebugOut()
 {

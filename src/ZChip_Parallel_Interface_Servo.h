@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZCHIP_PARALLEL_INTERFACE_SERVO_H
-#define Z_ZCHIP_PARALLEL_INTERFACE_SERVO_H
+#pragma once
 
-//#ifndef Z_ZCHIP_PARALLEL_INTERFACE_SERVO_H
-//#  include "ZChip_Parallel_Interface_Servo.h"
-//#endif
-
-#ifndef Z_ZCHIP_PARALLEL_INTERFACE_H
-#  include "ZChip_Parallel_Interface.h"
-#endif
+#include "ZChip_Parallel_Interface.h"
 
 
 
@@ -47,6 +40,3 @@ class ZChip_Parallel_Interface_Servo : public ZChip_Parallel_Interface
     void  DoChipManagement();
     void  Reset();
 };
-
-
-#endif /* Z_ZCHIP_PARALLEL_INTERFACE_SERVO_H */

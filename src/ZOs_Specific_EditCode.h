@@ -23,24 +23,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZOS_SPECIFIC_EDITCODE_H
-#define Z_ZOS_SPECIFIC_EDITCODE_H
+#pragma once 
 
-//#ifndef Z_ZOS_SPECIFIC_EDITCODE_H
-//#  include "ZOs_Specific_EditCode.h"
-//#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZString.h"
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
-
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "ACompileSettings.h"
 
 class ZEditCode
 {
@@ -50,7 +39,3 @@ class ZEditCode
     static bool EditCode(ZString * Tool, ZString * File);
 
 };
-
-
-
-#endif /* Z_ZOS_SPECIFIC_EDITCODE_H */

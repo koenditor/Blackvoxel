@@ -29,37 +29,21 @@
 #include "math.h"
 #include "stdlib.h"
 
-#ifndef Z_ZGENERICCANVA_H
-#  include "z/ZGenericCanva_2.h"
-#endif
+#include "z/ZGenericCanva_2.h"
 
-#ifndef Z_ZVOXELGFX_TREE_STRAIGHT_H
-#  include "ZVoxelGfx_Tree_Straight.h"
-#endif
+#include "ZVoxelGfx_Tree_Straight.h"
 
-#ifndef Z_ZVOXELGFX_TREE_GIANT_H
-#  include "ZVoxelGfx_Tree_Giant.h"
-#endif
+#include "ZVoxelGfx_Tree_Giant.h"
 
-#ifndef Z_ZVOXELEXTENSION_STORAGE_H
-#  include "ZVoxelExtension_Storage.h"
-#endif
+#include "ZVoxelExtension_Storage.h"
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
+#include "ACompileSettings.h"
 
-#ifndef Z_ZINCLUSIONPROBABILIZER_H
-#  include "ZInclusionProbabilizer.h"
-#endif
+#include "ZInclusionProbabilizer.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
-#ifndef Z_ZSTREAMS_FILE_H
-#  include "z/ZStream_File.h"
-#endif
+#include "z/ZStream_File.h"
 
 
 extern ZGame * Ge;

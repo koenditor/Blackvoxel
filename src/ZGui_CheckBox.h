@@ -23,24 +23,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGUI_CHECKBOX_H
-#define Z_ZGUI_CHECKBOX_H
+#pragma once 
 
-//#ifndef Z_ZGUI_CHECKBOX_H
-//#  include "ZGui_CheckBox.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui_FontFrame.h"
 
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
-
-#ifndef Z_ZGUI_TILEFRAME_H
-#  include "ZGui_TileFrame.h"
-#endif
+#include "ZGui_TileFrame.h"
 
 class ZFrame_CheckBox : public ZFrame
 {
@@ -124,6 +113,3 @@ class ZFrame_CheckBox : public ZFrame
     }
 
 };
-
-
-#endif /* Z_ZGUI_CHECKBOX_H */

@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_WIRELESSTRANSMITTER_H
-#define Z_ZVOXELTYPE_WIRELESSTRANSMITTER_H
+#pragma once
 
-//#ifndef Z_ZVOXELTYPE_WIRELESSTRANSMITTER_H
-//#  include "ZVoxelType_WirelessTransmitter.h"
-//#endif
+#include "ZVoxelType.h"
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
-
-#ifndef Z_ZGENERICTABLE_H
-#  include "z/ZGenericTable.h"
-#endif
+#include "z/ZGenericTable.h"
 
 class ZVoxelType_WirelessTransmitter : public ZVoxelType
 {
@@ -73,7 +64,3 @@ class ZVoxelType_WirelessTransmitter : public ZVoxelType
     virtual void   GetScanInformations(ZVoxelCoords * VoxelCoords, UShort VoxelType, ZMemSize VoxelInfo, ZString & Infos);
 
 };
-
-
-
-#endif /* Z_ZVOXELTYPE_WIRELESSTRANSMITTER_H */

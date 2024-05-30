@@ -23,13 +23,7 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZTYPE_ZPOLAR3D_CROSSFUNC_H
-#define Z_ZTYPE_ZPOLAR3D_CROSSFUNC_H
-
-//#ifndef Z_ZTYPE_ZPOLAR3D_CROSSFUNC_H
-//#  include "ZType_ZPolar3d_CrossFunc.h"
-//#endif
-
+#pragma once 
 
 inline ZPolar3d & ZPolar3d::operator = (const ZVector3d & Vec3d)
 {
@@ -85,5 +79,3 @@ inline ZPolar3d & ZPolar3d::operator = (const ZVector3d & Vec3d)
   roll = 0;
   return(*this);
 }
-
-#endif /* Z_ZTYPE_ZPOLAR3D_CROSSFUNC_H */

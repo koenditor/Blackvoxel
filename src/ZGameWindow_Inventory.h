@@ -23,28 +23,15 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAMEWINDOW_INVENTORY_H
-#define Z_ZGAMEWINDOW_INVENTORY_H
+#pragma once 
 
-//#ifndef Z_ZGAMEWINDOW_INVENTORY_H
-//#  include "ZGameWindow_Inventory.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui_InventoryBox.h"
 
-#ifndef Z_ZGUI_INVENTORYBOX_H
-#  include "ZGui_InventoryBox.h"
-#endif
+#include "ZGui_FontFrame.h"
 
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
-
-#ifndef Z_ZGUI_TILEFRAME_H
-#  include "ZGui_TileFrame.h"
-#endif
+#include "ZGui_TileFrame.h"
 
 class ZGame;
 
@@ -105,6 +92,3 @@ class ZGameWindow_Inventory : public ZFrame
   Bool MouseButtonClick(UShort nButton, Short Absolute_x, Short Absolute_y);
 
 };
-
-
-#endif /* Z_ZGAMEWINDOW_INVENTORY_H */

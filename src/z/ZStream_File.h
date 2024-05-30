@@ -23,24 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSTREAMS_FILE_H
-#define Z_ZSTREAMS_FILE_H
+#pragma once 
 
-// #ifndef Z_ZSTREAMS_FILE_H
-// #  include "ZStream_File.h"
-// #endif
-
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
-
-#ifndef Z_STREAMS_H
-#  include "ZStreams.h"
-#endif
-
-#ifndef Z_ZSTRING_H
-#  include "ZString.h"
-#endif
+#include "ZTypes.h"
+#include "ZStreams.h"
+#include "ZString.h"
 
 class ZStream_File : public ZStream
 {
@@ -131,7 +118,3 @@ class ZStream_File : public ZStream
     void AddToSavedLen(ULong &Len, ZString * String);
     void AddToSavedLen(ULong &Len, ZString & String);
 };
-
-
-
-#endif /* Z_ZSTREAMS_FILE_H */

@@ -23,17 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAMEWINDOW_PROGRAMMABLE_H
-#  include "ZGameWindow_Programmable.h"
-#endif
+#include "ZGameWindow_Programmable.h"
 
-#ifndef Z_ZOS_SPECIFIC_EDITCODE_H
-#  include "ZOs_Specific_EditCode.h"
-#endif
+#include "ZOs_Specific_EditCode.h"
 
-#ifndef Z_ZSTREAMS_FILE_H
-#  include "z/ZStream_File.h"
-#endif
+#include "z/ZStream_File.h"
 
 #include "ZGame.h"
 #include "ZActorPhysics.h"

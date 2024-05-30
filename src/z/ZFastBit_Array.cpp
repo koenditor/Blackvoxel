@@ -25,9 +25,7 @@
 
 #include "ZFastBit_Array.h"
 
-#ifndef Z_ZSTREAM_SPECIALRAMSTREAM_H
-#  include "ZStream_SpecialRamStream.h"
-#endif
+#include "ZStream_SpecialRamStream.h"
 
 bool ZFastBit_Array::Save (ZStream_SpecialRamStream * Stream)
 {

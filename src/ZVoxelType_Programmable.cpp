@@ -26,9 +26,7 @@
 #include "ZVoxelType_Programmable.h"
 #include "ZGame.h"
 
-#ifndef Z_ZVOXELEXTENSION_PROGRAMMABLE_H
-#  include "ZVoxelExtension_Programmable.h"
-#endif
+#include "ZVoxelExtension_Programmable.h"
 
 
 ZVoxelExtension * ZVoxelType_Programmable::CreateVoxelExtension(bool IsLoadingPhase)

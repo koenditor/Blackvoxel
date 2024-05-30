@@ -23,12 +23,7 @@
  *      Author: laurent
  */
 
-#ifndef A_COMPILESETTINGS_H
-#define A_COMPILESETTINGS_H
-
-//#ifndef A_COMPILESETTINGS_H
-//#  include "ACompileSettings.h"
-//#endif
+#pragma once
 
 // Options à inclure : -mfpmath=sse -msse2
 
@@ -199,5 +194,3 @@
 #endif
 
 // End Raspberry pi
-
-#endif /* A_COMPILESETTINGS_H */

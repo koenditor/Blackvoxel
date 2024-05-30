@@ -23,7 +23,7 @@
  *      Author: laurent
  */
 
-#  include "ZGui_CyclingChoiceBox.h"
+#include "ZGui_CyclingChoiceBox.h"
 
 
 ZFrame_CyclingChoiceBox::ZFrame_CyclingChoiceBox()

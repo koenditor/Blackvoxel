@@ -28,9 +28,7 @@
 #include "ZVoxelType_LightTransmitter.h"
 #include "ZGame.h"
 
-#ifndef Z_ZFASTRANDOM_H
-#  include "ZFastRandom.h"
-#endif
+#include "z/ZFastRandom.h"
 
 
 ZVoxelType_LightTransmitter::ZBlocPosN ZVoxelType_LightTransmitter::nbp6[6] =

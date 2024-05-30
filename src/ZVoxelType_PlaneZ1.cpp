@@ -27,9 +27,7 @@
 #include "ZVoxelType_PlaneZ1.h"
 #include "ZGame.h"
 
-#ifndef Z_VOXELEXTENSION_PLANEZ1_H
-#  include "ZVoxelExtension_PlaneZ1.h"
-#endif
+#include "ZVoxelExtension_PlaneZ1.h"
 
 
 

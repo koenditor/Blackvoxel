@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_GUI_FONTFRAME_H
-#define Z_GUI_FONTFRAME_H
+#pragma once 
 
-//#ifndef Z_GUI_FONTFRAME_H
-//#  include "ZGui_FontFrame.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
-
-#ifndef Z_ZTILESETS_H
-#  include "ZTileSets.h"
-#endif
+#include "ZTileSets.h"
 
 class ZFrame_FontFrame : public ZFrame
 {
@@ -54,6 +45,3 @@ class ZFrame_FontFrame : public ZFrame
     virtual void Render2(Frame_Dimensions * ParentPosition);
     virtual void Render(Frame_Dimensions * ParentPosition);
 };
-
-
-#endif /* Z_GUI_FONTFRAME_H */

@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZHIGHPERFTIMER_H
-#define Z_ZHIGHPERFTIMER_H
+#pragma once 
 
-//#ifndef Z_ZHIGHPERFTIMER_H
-//#  include "ZHighPerfTimer.h"
-//#endif
-
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZTypes.h"
 
 class ZHighPerfTimer
 {
@@ -84,5 +77,3 @@ class ZHighPerfTimer
     }
 
 };
-
-#endif

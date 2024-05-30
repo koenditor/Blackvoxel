@@ -23,24 +23,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZACTOR_PLAYER_H
-#define Z_ZACTOR_PLAYER_H
+#pragma once
 
-// #ifndef Z_ZACTOR_PLAYER_H
-// #  include "ZActor_Player.h"
-// #endif
+#include "ZActorPhysics.h"
 
-#ifndef Z_ZACTORPHYSICS_H
-#  include "ZActorPhysics.h"
-#endif
+#include "ZCamera.h"
 
-#ifndef Z_ZCAMERA_H
-#  include "ZCamera.h"
-#endif
-
-#ifndef Z_ZVOXEL_H
-#  include "ZVoxel.h"
-#endif
+#include "ZVoxel.h"
 
 #include "SDL2/SDL_stdinc.h"
 
@@ -235,5 +224,3 @@ class ZActor_Player : public ZActor
     bool LiftFollowGuide(ZVector3d & ActualLocation, double LinearAdvance, Long &Direction, ZVector3d & NewLocation);
     bool LiftFindRailDirection(ZVector3d & ActualLocation, Long & ViewDirectionOut);
 };
-
-#endif /* ZACTOR_PLAYER_H_ */

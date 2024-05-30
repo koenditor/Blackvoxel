@@ -23,20 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGUI_TILEFRAME_H
-#define Z_ZGUI_TILEFRAME_H
+#pragma once 
 
-//#ifndef Z_ZGUI_TILEFRAME_H
-//#  include "ZGui_TileFrame.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
-
-#ifndef Z_ZTILESETS_H
-#  include "ZTileSets.h"
-#endif
+#include "ZTileSets.h"
 
 class ZTileFrame : public ZFrame
 {
@@ -51,5 +42,3 @@ class ZTileFrame : public ZFrame
 
     virtual void Render(Frame_Dimensions * ParentPosition);
 };
-
-#endif /* Z_ZGUI_TILEFRAME_H */

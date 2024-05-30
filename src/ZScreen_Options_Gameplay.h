@@ -23,40 +23,21 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSCREEN_OPTIONS_GAMEPLAY_H
-#define Z_ZSCREEN_OPTIONS_GAMEPLAY_H
+#pragma once 
 
-//#ifndef Z_ZSCREEN_OPTIONS_GAMEPLAY_H
-//#  include "ZScreen_Options_Gameplay.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui_FontFrame.h"
 
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
+#include "ZGui_TileFrame.h"
 
-#ifndef Z_ZGUI_TILEFRAME_H
-#  include "ZGui_TileFrame.h"
-#endif
+#include "ZGui_CyclingChoiceBox.h"
 
-#ifndef Z_ZGUI_CYCLINGCHOICEBOX_H
-#  include "ZGui_CyclingChoiceBox.h"
-#endif
+#include "ZGui_NumericChoiceBox.h"
 
-#ifndef ZGUI_ZNUMERICCHOICEBOX_H
-#  include "ZGui_NumericChoiceBox.h"
-#endif
+#include "ZGui_CheckBox.h"
 
-#ifndef Z_ZGUI_CHECKBOX_H
-#  include "ZGui_CheckBox.h"
-#endif
-
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
 class ZScreen_Options_Game : public ZScreen
 {
@@ -67,9 +48,3 @@ class ZScreen_Options_Game : public ZScreen
 
     virtual ULong ProcessScreen(ZGame * GameEnv);
 };
-
-
-
-
-
-#endif /* Z_ZSCREEN_OPTIONS_MOUSE_H */

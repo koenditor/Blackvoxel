@@ -23,12 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_POLYSPACE_H
-#define Z_POLYSPACE_H
+#pragma once
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+#include "ZTypes.h"
 
 #include "stdio.h"
 
@@ -223,7 +220,3 @@ class ZPolySpace2
 
 
 };
-
-
-
-#endif

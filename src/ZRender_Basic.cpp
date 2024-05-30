@@ -16,24 +16,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include <GL/glew.h>
+
 #include <math.h>
 #include <stdio.h>
 #include "SDL2/SDL.h"
 
-#  include "ZRender_Basic.h"
+#include "ZRender_Basic.h"
 
-#ifndef Z_ZHIGHPERFTIMER_H
-#  include "ZHighPerfTimer.h"
-#endif
+#include "ZHighPerfTimer.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
-#ifndef Z_ZGAMESTAT_H
-#  include "ZGameStat.h"
-#endif
+#include "ZGameStat.h"
+
+#include "GL/glu.h"
 
 
 void ZRender_Basic::SetWorld( ZVoxelWorld * World )

@@ -23,28 +23,15 @@
  *      Author: laurent
  */
 
-#ifndef ZGAMEWINDOW_COMPILATION_RESULT_H
-#define ZGAMEWINDOW_COMPILATION_RESULT_H
+#pragma once 
 
-//#ifndef ZGAMEWINDOW_COMPILATION_RESULT_H
-//#  include "ZGameWindow_Compilation_Result.h"
-//#endif
+#include "z/ZString.h"
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui_TileFrame.h"
 
-#ifndef Z_ZGUI_TILEFRAME_H
-#  include "ZGui_TileFrame.h"
-#endif
-
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
+#include "ZGui_FontFrame.h"
 
 class ZGame;
 
@@ -98,5 +85,3 @@ class ZGameWindow_Compilation_Result : public ZFrame
 
 
 };
-
-#endif /* ZGAMEWINDOW_COMPILATION_RESULT_H */

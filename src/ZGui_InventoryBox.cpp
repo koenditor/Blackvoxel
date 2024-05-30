@@ -24,8 +24,10 @@
  */
 
 #include "ZGui_InventoryBox.h"
-#include <GL/glew.h>
+
 #include "SDL2/SDL.h"
+
+#include "GL/gl.h"
 
 void ZInventoryBox::Render(Frame_Dimensions * ParentPosition)
 {

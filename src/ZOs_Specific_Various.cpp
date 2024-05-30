@@ -24,9 +24,7 @@
  */
 
 
-#ifndef Z_ZOS_SPECIFIC_VARIOUS_H
-#  include "ZOs_Specific_Various.h"
-#endif
+#include "ZOs_Specific_Various.h"
 
 #ifdef ZENV_OS_WINDOWS
 

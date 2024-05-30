@@ -16,9 +16,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef Z_BMP_LOADER_H
-#  include "bmploader.h"
-#endif
+#include "bmploader.h"
 
 #include "stdio.h"
 

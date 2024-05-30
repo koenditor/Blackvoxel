@@ -24,9 +24,10 @@
  */
 
 #include "ZScreen_Options_Display.h"
-#include <GL/glew.h>
+
 #include "z/ZObject_Array.h"
 
+#include "GL/gl.h"
 
 
 int ZScreen_Options_Display::ResolutionCompare(ZObject * Object_1, ZObject * Object_2)

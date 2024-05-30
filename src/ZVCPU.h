@@ -23,24 +23,15 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVCPU_H
-#define Z_ZVCPU_H
-
-//#ifndef Z_ZVCPU_H
-//#  include "ZVCPU.h"
-//#endif
+#pragma once 
 
 #include <stdio.h>
 
 #define Z_ZVCPU_EXPERIMENTAL_ASMCODE 0
 
-#ifndef Z_ZVCPU_CHIP_INTERFACE_H
-#  include "ZVCPU_Chip_Interface.h"
-#endif
+#include "ZVCPU_Chip_Interface.h"
 
-#ifndef Z_ZSTREAM_SPECIALRAMSTREAM_H
-#  include "z/ZStream_SpecialRamStream.h"
-#endif
+#include "z/ZStream_SpecialRamStream.h"
 
 /*
 unsigned char optable[]=
@@ -2950,6 +2941,3 @@ class BlackCPU : public ZVCPU_Chip_Interface
     }
 
 };
-
-
-#endif

@@ -23,9 +23,7 @@
  *      Author: laurent
  */
 
-#ifndef Z_VOXELEXTENSION_FABMACHINE_H
-#  include "ZVoxelExtension_FabMachine.h"
-#endif
+#include "ZVoxelExtension_FabMachine.h"
 
 bool ZVoxelExtension_FabMachine::Load(ZStream_SpecialRamStream * Stream)
 {

@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELEXTENSION_USERTEXTURETRANSFORMER_H
-#define Z_ZVOXELEXTENSION_USERTEXTURETRANSFORMER_H
+#pragma once 
 
-//#ifndef Z_ZVOXELEXTENSION_USERTEXTURETRANSFORMER_H
-//#  include "ZVoxelExtension_UserTextureTransformer.h"
-//#endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
+
+
+
+
+#include "ZVoxelExtension.h"
 
 class ZVoxelExtension_UserTextureTransformer : public ZVoxelExtension
 {
@@ -105,5 +103,3 @@ class ZVoxelExtension_UserTextureTransformer : public ZVoxelExtension
     return(Ok);
   }
 };
-
-#endif /* Z_ZVOXELEXTENSION_USERTEXTURETRANSFORMER_H */

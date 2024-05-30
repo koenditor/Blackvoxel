@@ -18,16 +18,10 @@
 */
 
 
-#ifndef Z_ZTYPES_H
-#define Z_ZTYPES_H
+#pragma once 
 
-//#ifndef Z_ZTYPES_H
-//#  include "ZTypes.h"
-//#endif
 
-#ifndef _MATH_H
-#  include <math.h>
-#endif
+#include <math.h>
 
 // OS CONFIGURATION
 
@@ -43,6 +37,8 @@
 
 // Fix register keyword deprecated
 
+
+// TODO: remove ugly hack
 #if __cplusplus > 199711L
 #define register
 #endif
@@ -93,36 +89,22 @@
 
   // User defined complex class types.
 
-#ifndef Z_ZTYPE_ZVECTOR3D_H
-#  include "ZType_ZVector3d.h"
-#endif
+#include "ZType_ZVector3d.h"
 
-#ifndef Z_ZTYPE_ZPOLAR3D_H
-#  include "ZType_ZPolar3d.h"
-#endif
+#include "ZType_ZPolar3d.h"
 
-#ifndef Z_TYPE_ZVECTOR3L_H
-#  include "ZType_ZVector3L.h"
-#endif
+#include "ZType_ZVector3L.h"
 
-#ifndef Z_TYPE_ZVECTOR3B_H
-#  include "ZType_ZVector3B.h"
-#endif
+#include "ZType_ZVector3B.h"
 
 
   // User defined class cross functions and aftermath code needed to be declared after main classes.
 
-#ifndef Z_ZTYPE_ZVECTOR3D_CROSSFUNC_H
-#  include "ZType_ZVector3d_CrossFunc.h"
-#endif
+#include "ZType_ZVector3d_CrossFunc.h"
 
-#ifndef Z_ZTYPE_ZPOLAR3D_CROSSFUNC_H
-#  include "ZType_ZPolar3d_CrossFunc.h"
-#endif
+#include "ZType_ZPolar3d_CrossFunc.h"
 
-#ifndef Z_ZTYPE_ZVECTOR3L_CROSSFUNC_H
-#  include "ZType_ZVector3L_CrossFunc.h"
-#endif
+#include "ZType_ZVector3L_CrossFunc.h"
 
 typedef struct { ZVector3L Start, End; } ZRect3L;
 
@@ -160,17 +142,3 @@ class ZVoxelCoords
 
       inline void GetCo(ZVector3L * Coords) {Coords->x = x; Coords->y = y; Coords->z = z; }
 };
-
-
-
-
-
-
-#define ZNULL 0;
-
-
-
-
-
-
-#endif

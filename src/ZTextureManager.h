@@ -17,28 +17,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef Z_ZTEXTUREMANAGER_H
-#  define Z_ZTEXTUREMANAGER_H
+#pragma once
 
-// #ifndef Z_ZTEXTUREMANAGER_H
-// #  include "ZTextureManager.h"
-// #endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZObject.h"
 
-#ifndef Z_ZOBJECT_H
-#  include "z/ZObject.h"
-#endif
+#include "z/ZObject_Array.h"
 
-#ifndef Z_ZOBJECT_ARRAY_H
-#  include "z/ZObject_Array.h"
-#endif
-
-#ifndef Z_BITMAP_IMAGE_H
-#  include "z/ZBitmapImage.h"
-#endif
+#include "z/ZBitmapImage.h"
 
 
 #include <stdio.h>
@@ -116,5 +103,3 @@ class ZTextureManager : public ZObject
     }
 
 };
-
-#endif

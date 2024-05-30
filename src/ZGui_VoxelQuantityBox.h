@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGUI_VOXELQUANTITYBOX_H
-#define Z_ZGUI_VOXELQUANTITYBOX_H
+#pragma once 
 
-//#ifndef Z_ZGUI_VOXELQUANTITYBOX_H
-//#  include "ZGui_VoxelQuantityBox.h"
-//#endif
-
-#ifndef Z_ZGUI_INVENTORYBOX_H
-#  include "ZGui_InventoryBox.h"
-#endif
+#include "ZGui_InventoryBox.h"
 
 class ZVoxelQuantityBox : public ZInventoryBox
 {
@@ -47,6 +40,3 @@ class ZVoxelQuantityBox : public ZInventoryBox
     virtual void DropItem(ZFrame * Item, UShort nButton);
 
 };
-
-
-#endif /* SRC_ZGUI_VOXELQUANTITYBOX_H_ */

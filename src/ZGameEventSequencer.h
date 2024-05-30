@@ -23,24 +23,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAMEEVENTSEQUENCER_H
-#define Z_ZGAMEEVENTSEQUENCER_H
+#pragma once 
 
-//#ifndef Z_ZGAMEEVENTSEQUENCER_H
-//#  include "ZGameEventSequencer.h"
-//#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+#include "z/ZObject.h"
 
-#ifndef Z_ZOBJECT_H
-#  include "ZObject.h"
-#endif
-
-#ifndef Z_ZOBJECT_LISTS_H
-#  include "ZObject_Lists.h"
-#endif
+#include "z/ZObject_Lists.h"
 
 #define ZGAMEEVENTSEQUENCER_SLOTCOUNT 128
 
@@ -143,6 +132,3 @@ class ZGameEventSequencer
     bool SlotIsEventAttached(ULong SlotNum) { return( SlotTable[SlotNum].EventOn ); }
 
 };
-
-
-#endif /* Z_ZGAMEEVENTSEQUENCER_H */

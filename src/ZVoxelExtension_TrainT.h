@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELEXTENSION_TRAINT_H
-#define Z_ZVOXELEXTENSION_TRAINT_H
+#pragma once 
 
-//#ifndef Z_ZVOXELEXTENSION_TRAINT_H
-//#  include "ZVoxelExtension_TrainT.h"
-//#endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
+
+
+
+
+#include "ZVoxelExtension.h"
 
 class ZVoxelExtension_TrainT : public ZVoxelExtension
 {
@@ -143,7 +141,3 @@ class ZVoxelExtension_TrainT : public ZVoxelExtension
     return(false);
   }
 };
-
-
-
-#endif /* Z_ZVOXELEXTENSION_TRAINT_H */

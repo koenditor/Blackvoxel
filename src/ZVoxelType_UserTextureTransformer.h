@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_USERTEXTURETRANSFORMER_H
-#define Z_ZVOXELTYPE_USERTEXTURETRANSFORMER_H
+#pragma once
 
-// #ifndef Z_ZVOXELTYPE_USERTEXTURETRANSFORMER_H
-// #  include "ZVoxelType_UserTextureTransformer.h"
-// #endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_UserTextureTransformer : public ZVoxelType
 {
@@ -53,5 +46,3 @@ class ZVoxelType_UserTextureTransformer : public ZVoxelType
     virtual void  UserAction_Activate(ZMemSize VoxelInfo, Long x, Long y, Long z);
 
 };
-
-#endif /* Z_ZVOXELTYPE_USERTEXTURETRANSFORMER_H */

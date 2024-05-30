@@ -25,9 +25,7 @@
 
 #include "ZVoxelType_RTFM.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
 void ZVoxelType_RTFM::Event_Start_Selected(ZVoxelLocation * Loc, ZVector3L * Coords)
 {

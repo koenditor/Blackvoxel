@@ -23,24 +23,18 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELEXTENSION_PROGROBOT_ASM_H
-#define Z_ZVOXELEXTENSION_PROGROBOT_ASM_H
+#pragma once 
 
-//#ifndef Z_ZVOXELEXTENSION_PROGROBOT_ASM_H
-//#  include "ZVoxelExtension_ProgRobot_Asm.h"
-//#endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
 
-#ifndef Z_ZVMACHINE_T1_H
-#  include "ZVMachine_T1.h"
-#endif
 
-#ifndef Z_MACROASSEMBLER_H
-#  include "ZMacroAssembler.h"
-#endif
+
+
+#include "ZVoxelExtension.h"
+
+#include "ZVMachine_T1.h"
+
+#include "ZMacroAssembler.h"
 
 class ZActiveVoxelInterface;
 
@@ -180,5 +174,3 @@ class ZVoxelExtension_ProgRobot_Asm : public ZVoxelExtension
     virtual void StopProgram();
     virtual bool IsRunningProgram();
 };
-
-#endif /* Z_ZVOXELEXTENSION_PROGROBOT_ASM_H */

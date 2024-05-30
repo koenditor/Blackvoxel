@@ -23,12 +23,12 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZSECTORTAGHASH_H
-#define Z_ZSECTORTAGHASH_H
+#pragma once 
 
-//#ifndef Z_ZSECTORTAGHASH_H
-//#  include "ZSectorTagHash.h"
-//#endif
+
+
+
+
 
 class ZSectorTagHash
 {
@@ -164,6 +164,3 @@ class ZSectorTagHash
       }
     }
 };
-
-
-#endif /* ZSECTORTAGHASH_H_ */

@@ -26,9 +26,7 @@
 #include "ZVoxelType_UserTextureTransformer.h"
 #include "ZGame.h"
 
-#ifndef Z_ZVOXELEXTENSION_USERTEXTURETRANSFORMER_H
-#  include "ZVoxelExtension_UserTextureTransformer.h"
-#endif
+#include "ZVoxelExtension_UserTextureTransformer.h"
 
 
 ZVoxelExtension * ZVoxelType_UserTextureTransformer::CreateVoxelExtension(bool IsLoadingPhase)

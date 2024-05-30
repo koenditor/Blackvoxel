@@ -23,17 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_CONCRETE_H
-#  include "ZVoxelType_Concrete.h"
-#endif
+#include "ZVoxelType_Concrete.h"
 
-#ifndef Z_ZVOXELSECTOR_H
-#  include "ZVoxelSector.h"
-#endif
+#include "ZVoxelSector.h"
 
-#ifndef Z_VOXELEXTENSIONTYPE_VOXELFLUID_H
-#  include "ZVoxelExtensionType_VoxelFluid.h"
-#endif
+#include "ZVoxelExtensionType_VoxelFluid.h"
 
 ZVoxelExtension * ZVoxelType_Concrete::CreateVoxelExtension(bool IsLoadingPhase)
 {

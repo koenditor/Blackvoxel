@@ -23,56 +23,29 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZWORLD_H
-#define Z_ZWORLD_H
+#pragma once
 
-// #ifndef Z_ZWORLD_H
-// #  include "ZWorld.h"
-// #endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZGeneralObject.h"
 
-#ifndef Z_ZGENERAL_OBJECT_H
-#  include "z/ZGeneralObject.h"
-#endif
+#include "ZCamera.h"
 
-#ifndef Z_ZCAMERA_H
-#  include "ZCamera.h"
-#endif
+#include "ZVoxelType.h"
 
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelTypeManager.h"
 
-#ifndef Z_ZVOXELTYPEMANAGER_H
-#  include "ZVoxelTypeManager.h"
-#endif
+#include "ZVoxelSector.h"
 
-#ifndef Z_ZVOXELSECTOR_H
-#  include "ZVoxelSector.h"
-#endif
+#include "ZSectorLoader.h"
 
-#ifndef Z_ZSECTORLOADER_H
-#  include "ZSectorLoader.h"
-#endif
+#include "ZSpecial_RadiusZoning.h"
 
-#ifndef Z_ZSPECIAL_RADIUSZONING_H
-#  include "ZSpecial_RadiusZoning.h"
-#endif
+#include "ZSectorRingList.h"
 
-#ifndef Z_ZSECTORRINGLIST_H
-#  include "ZSectorRingList.h"
-#endif
+#include "ACompileSettings.h"
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
-
-#ifndef Z_ZVOXEL_H
-#  include "ZVoxel.h"
-#endif
+#include "ZVoxel.h"
 
 
 
@@ -191,7 +164,7 @@ class ZVoxelWorld : public ZObject
     bool RayCast_Vector(const ZVector3d & Pos, const ZVector3d & Vector, const ZRayCast_in * In, ZRayCast_out * Out, bool InvertCollision = false );
     bool RayCast_Vector_special(const ZVector3d & Pos, const ZVector3d & Vector, const ZRayCast_in * In, ZRayCast_out * Out, bool InvertCollision = false );
 
-    //bool RayCast2(double x, double y, double z, double yaw, double pitch, double roll, ZVoxelCoords & PointedCube, ZVoxelCoords CubeBeforePointed  );
+    bool RayCast2(double x, double y, double z, double yaw, double pitch, double roll, ZVoxelCoords & PointedCube, ZVoxelCoords CubeBeforePointed  );
 
     void SectorUpdateFaceCulling(Long x, Long y, Long z, bool Isolated = false);
     void SectorUpdateFaceCulling2(Long x, Long y, Long z, bool Isolated = false); // Old
@@ -915,6 +888,3 @@ bool ZVoxelWorld::MoveVoxel_Sm( ZVector3L * SCoords, ZVector3L * DCoords, UShort
   if (!SetVoxel_WithCullingUpdate(SCoords->x,SCoords->y,SCoords->z, ReplacementVoxel, ImportanceFactor, true, 0 )) return(false);
   return(true);
 }
-
-
-#endif /* ZWORLD_H_ */

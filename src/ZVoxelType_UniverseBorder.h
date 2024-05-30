@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_UNIVERSEBORDER_H
-#define Z_ZVOXELTYPE_UNIVERSEBORDER_H
+#pragma once
 
-//#ifndef Z_ZVOXELTYPE_UNIVERSEBORDER_H
-//#  include "ZVoxelType_UniverseBorder.h"
-//#endif
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_UniverseBorder : public ZVoxelType
 {
@@ -140,7 +133,3 @@ class ZVoxelType_UniverseBorder : public ZVoxelType
 
 
 };
-
-
-
-#endif /* Z_ZVOXELTYPE_UNIVERSEBORDER_H */

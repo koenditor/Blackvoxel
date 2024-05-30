@@ -26,9 +26,7 @@
 
 #include "ZChip_Parallel_Interface.h"
 
-#ifndef Z_ZSTREAM_SPECIALRAMSTREAM_H
-#  include "z/ZStream_SpecialRamStream.h"
-#endif
+#include "z/ZStream_SpecialRamStream.h"
 
 bool ZChip_Parallel_Interface::Save(ZStream_SpecialRamStream * Stream)
 {

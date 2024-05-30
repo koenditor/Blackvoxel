@@ -23,9 +23,7 @@
  *      Author: laurent
  */
 
-#ifndef Z_GAMEWINDOW_DISPLAYINFOS_H
-#  include "ZGameWindow_DisplayInfos.h"
-#endif
+#include "ZGameWindow_DisplayInfos.h"
 
 #include "ZGame.h"
 

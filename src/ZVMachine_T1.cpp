@@ -7,9 +7,7 @@
 
 #include "ZVMachine_T1.h"
 
-#ifndef Z_ZSTREAM_SPECIALRAMSTREAM_H
-#  include "z/ZStream_SpecialRamStream.h"
-#endif
+#include "z/ZStream_SpecialRamStream.h"
 
 #include <stdio.h>
 

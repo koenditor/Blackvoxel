@@ -23,17 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZPOINTLIST_H
-#define Z_ZPOINTLIST_H
+#pragma once 
 
-//#ifndef Z_ZPOINTLIST_H
-//#  include "ZPointList.h"
-//#endif
-
-
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "z/ZTypes.h"
 
 class ZPointList
 {
@@ -91,7 +83,3 @@ class ZPointList
     }
 
 };
-
-
-
-#endif /* Z_ZPOINTLIST_H */

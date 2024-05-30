@@ -24,26 +24,15 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZCHIP_PARALLEL_INTERFACE_H
-#define Z_ZCHIP_PARALLEL_INTERFACE_H
+#pragma once
 
-//#ifndef Z_ZCHIP_PARALLEL_INTERFACE_H
-//#  include "ZChip_Parallel_Interface.h"
-//#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "z/ZTypes.h"
-#endif
+#include "ZChip.h"
 
-#ifndef Z_ZCIRCUIT_H
-#  include "ZChip.h"
-#endif
+#include "ZVCPU_Chip_Interface.h"
 
-#ifndef Z_ZVCPU_CHIP_INTERFACE_H
-#  include "ZVCPU_Chip_Interface.h"
-#endif
-
-#include <stdio.h>
+#include <cstdio>
 
 #define ZCHIP_PI_CR_INTERRUPT_ENABLE 1
 #define ZCHIP_PI_CR_INTERRUPT_TRIGGERED 2
@@ -196,6 +185,3 @@ class ZChip_Parallel_Interface : public ZChip
 
     ~ZChip_Parallel_Interface(){}
 };
-
-
-#endif /* Z_ZCIRCUIT_PARALLEL_INTERFACE_H */

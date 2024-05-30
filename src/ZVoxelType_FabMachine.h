@@ -23,17 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_VOXELTYPE_FABMACHINE_H
-#define Z_VOXELTYPE_FABMACHINE_H
+#pragma once
 
-//#ifndef Z_VOXELTYPE_FABMACHINE_H
-//#  include "ZVoxelType_FabMachine.h"
-//#endif
-
-
-#ifndef Z_ZVOXELTYPE_H
-#  include "ZVoxelType.h"
-#endif
+#include "ZVoxelType.h"
 
 class ZVoxelType_FabMachine : public ZVoxelType
 {
@@ -59,6 +51,3 @@ class ZVoxelType_FabMachine : public ZVoxelType
 
 
 };
-
-
-#endif /* Z_VOXELTYPE_FABMACHINE_H */

@@ -16,25 +16,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#ifndef Z_ZSTRING_H
-#define Z_ZSTRING_H
 
-//#ifndef Z_ZSTRING_H
-//#  include "ZString.h"
-//#endif
+#pragma once
 
+#include "ZMemPool.h"
 
-#ifndef Z_ZMEMPOOL_H
-#  include "ZMemPool.h"
-#endif
-
-#ifndef Z_ZMEMPOOL_OPTIMIZED_H
 #include "ZMemPool_Optimized.h"
-#endif
 
-#ifndef Z_ZNUMBERFORMAT_H
-#  include "ZNumberFormat.h"
-#endif
+#include "ZNumberFormat.h"
 
 #define ZSTRING_CONVERSIONSIZE 128
 #define ZSTRING_MINIMUMSTRINGSIZE 256
@@ -289,9 +278,3 @@ static inline char * GetPathSeparator()
     virtual ~ZString();
 
 };
-
-
-
-
-
-#endif

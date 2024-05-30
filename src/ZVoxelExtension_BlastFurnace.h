@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELEXTENSION_BLASTFURNACE_H
-#define Z_ZVOXELEXTENSION_BLASTFURNACE_H
+#pragma once 
 
-//#ifndef Z_ZVOXELEXTENSION_BLASTFURNACE_H
-//#  include "ZVoxelExtension_BlastFurnace.h"
-//#endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
+
+
+
+
+#include "ZVoxelExtension.h"
 
 class ZVoxelExtension_BlastFurnace : public ZVoxelExtension
 {
@@ -98,5 +96,3 @@ class ZVoxelExtension_BlastFurnace : public ZVoxelExtension
   }
 
 };
-
-#endif /* ZVOXELEXTENSION_BLASTFURNACE_H_ */

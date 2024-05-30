@@ -23,32 +23,17 @@
  *      Author: laurent
  */
 
-#ifndef Z_MACROASSEMBLER_H
-#define Z_MACROASSEMBLER_H
+#pragma once 
 
-//#ifndef Z_MACROASSEMBLER_H
-//#  include "ZMacroAssembler.h"
-//#endif
+#include "z/ZParser.h"
 
-#ifndef Z_ZParser_H
-#  include "z/ZParser.h"
-#endif
+#include "ZVCPU.h"
 
-#ifndef Z_ZVCPU_H
-#  include "ZVCPU.h"
-#endif
+#include "z/ZSimpleHash.h"
 
-#ifndef Z_ZSIMPLEHASH_H
-#  include "z/ZSimpleHash.h"
-#endif
+#include "z/ZGenericTable.h"
 
-#ifndef Z_ZGENERICTABLE_H
-#  include "z/ZGenericTable.h"
-#endif
-
-#ifndef Z_ZSTREAM_SPECIALRAMSTREAM_H
-#  include "z/ZStream_SpecialRamStream.h"
-#endif
+#include "z/ZStream_SpecialRamStream.h"
 
 #include <string.h>
 
@@ -1164,7 +1149,7 @@ class ZMacroAssembler
 
     if (!AssembleSection_OperandSize(Asd,Token_Size)) return(false);
 
-    // # sharp sign.
+    
 
     if (!ExpectToken(Asd, KW_PNK_SHARP, ERROR_EXPECTEDSHARP)) return(false);
 
@@ -1213,7 +1198,7 @@ class ZMacroAssembler
 
     if (!AssembleSection_OperandSize(Asd,Token_Size)) return(false);
 
-    // # sharp sign.
+    
 
     if (!ExpectToken(Asd, KW_PNK_SHARP, ERROR_EXPECTEDSHARP)) return(false);
 
@@ -1927,6 +1912,3 @@ class ZMacroAssembler
 
 
 };
-
-
-#endif /* Z_MACROASSEMBLER_H */

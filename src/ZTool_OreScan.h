@@ -23,20 +23,16 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZTOOL_ORESCAN_H
-#define Z_ZTOOL_ORESCAN_H
+#pragma once 
 
-//#ifndef Z_ZTOOL_ORESCAN_H
-//#  include "ZTool_OreScan.h"
-//#endif
 
-#ifndef Z_ZTOOLS_H
-#  include "ZTools.h"
-#endif
 
-#ifndef Z_ZSTRING_H
-#  include "z/ZString.h"
-#endif
+
+
+
+#include "ZTools.h"
+
+#include "z/ZString.h"
 
 class ZTool_OreScan : public ZTool
 {
@@ -57,7 +53,3 @@ class ZTool_OreScan : public ZTool
     virtual void End_Tool();
     virtual void Display();
 };
-
-
-
-#endif /* Z_ZTOOL_ORESCAN_H */

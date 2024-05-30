@@ -23,16 +23,14 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELEXTENSION_CARH_H
-#define Z_ZVOXELEXTENSION_CARH_H
+#pragma once 
 
-//#ifndef Z_ZVOXELEXTENSION_CARH_H
-//#  include "ZVoxelExtension_CarH.h"
-//#endif
 
-#ifndef Z_ZVOXELEXTENSION_H
-#  include "ZVoxelExtension.h"
-#endif
+
+
+
+
+#include "ZVoxelExtension.h"
 
 class ZVoxelExtension_CarH : public ZVoxelExtension
 {
@@ -143,7 +141,3 @@ class ZVoxelExtension_CarH : public ZVoxelExtension
     return(false);
   }
 };
-
-
-
-#endif /* Z_ZVOXELEXTENSION_CARH_H */

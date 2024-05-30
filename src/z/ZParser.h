@@ -23,24 +23,13 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZParser_H
-#define Z_ZParser_H
+#pragma once
 
-//#ifndef Z_ZParser_H
-//#  include "ZParser.h"
-//#endif
+#include "ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+#include "ZKeywordSet.h"
 
-#ifndef L_LKEYWORDSET_H
-#  include "ZKeywordSet.h"
-#endif
-
-#ifndef Z_ZSEPARATORSETS_H
-#  include "ZSeparatorSets.h"
-#endif
+#include "ZSeparatorSets.h"
 
 
 // ***********************************************************************
@@ -329,5 +318,3 @@ class ZParser
     bool NoErrorOnEof;
 
 };
-
-#endif

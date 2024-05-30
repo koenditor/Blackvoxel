@@ -25,13 +25,9 @@
 
 #include "ZGame.h"
 
-#ifndef Z_ZVOXELTYPE_MININGROBOT_XR1_H
-#  include "ZVoxelType_MiningRobot_xr1.h"
-#endif
+#include "ZVoxelType_MiningRobot_xr1.h"
 
-#ifndef Z_ZVOXELEXTENSION_MININGROBOT_XR1_H
-#  include "ZVoxelExtension_MiningRobot_xr1.h"
-#endif
+#include "ZVoxelExtension_MiningRobot_xr1.h"
 
 
 ZVoxelExtension * ZVoxelType_MiningRobot_xr1::CreateVoxelExtension(bool IsLoadingPhase)

@@ -23,28 +23,15 @@
  *      Author: laurent
  */
 
-#ifndef Z_WORLDINFO_H
-#define Z_WORLDINFO_H
+#pragma once 
 
-//#ifndef Z_WORLDINFO_H
-//#  include "ZWorldInfo.h"
-//#endif
+#include "z/ZTypes.h"
 
-#ifndef Z_ZTYPES_H
-#  include "ZTypes.h"
-#endif
+#include "z/ZStreams.h"
 
-#ifndef Z_STREAMS_H
-#  include "z/ZStreams.h"
-#endif
+#include "ACompileSettings.h"
 
-#ifndef A_COMPILESETTINGS_H
-#  include "ACompileSettings.h"
-#endif
-
-#ifndef Z_ZSTREAMS_FILE_H
-#  include "z/ZStream_File.h"
-#endif
+#include "z/ZStream_File.h"
 
 class ZWorldInfo
 {
@@ -96,5 +83,3 @@ class ZWorldInfo
   }
 
 };
-
-#endif /* ZWORLDINFO_H_ */

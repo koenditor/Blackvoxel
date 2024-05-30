@@ -23,8 +23,8 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGENERICLIST_H
-#define Z_ZGENERICLIST_H
+#pragma once 
+
 
 class ZGenericList_Entry
 {
@@ -41,8 +41,3 @@ class ZGenericList
 
 
 };
-
-
-
-
-#endif /* Z_ZGENERICLIST_H */

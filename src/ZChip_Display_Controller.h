@@ -23,16 +23,9 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZCHIP_DISPLAY_CONTROLLER_H
-#define Z_ZCHIP_DISPLAY_CONTROLLER_H
+#pragma once
 
-//#ifndef Z_ZCHIP_DISPLAY_CONTROLLER_H
-//#  include "ZChip_Display_Controller.h"
-//#endif
-
-#ifndef Z_ZCIRCUIT_H
-#  include "ZChip.h"
-#endif
+#include "ZChip.h"
 
 #define Z_ZCHIP_DISPLAY_CONTROLLER_INTERRUPT_ENABLE 1
 #define Z_ZCHIP_DISPLAY_CONTROLLER_INTERRUPT_TRIGGERED 2
@@ -67,7 +60,3 @@ class ZChip_Display_Controller : public ZChip
 
 
 };
-
-
-
-#endif /* Z_ZCHIP_DISPLAY_CONTROLLER_H */

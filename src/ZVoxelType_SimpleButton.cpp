@@ -23,17 +23,11 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZVOXELTYPE_SIMPLEBUTTON_H
-#  include "ZVoxelType_SimpleButton.h"
-#endif
+#include "ZVoxelType_SimpleButton.h"
 
-#ifndef Z_ZGAME_H
-#  include "ZGame.h"
-#endif
+#include "ZGame.h"
 
-#ifndef Z_ZWORLD_H
-#  include "ZWorld.h"
-#endif
+#include "ZWorld.h"
 
 void  ZVoxelType_SimpleButton::UserAction_Activate(ZMemSize VoxelInfo, Long x, Long y, Long z)
 {

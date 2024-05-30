@@ -23,40 +23,21 @@
  *      Author: laurent
  */
 
-#ifndef Z_ZGAMEWINDOW_ASMDEBUG_H
-#define Z_ZGAMEWINDOW_ASMDEBUG_H
+#pragma once
 
-//#ifndef Z_ZGAMEWINDOW_ASMDEBUG_H
-//#  include "ZGameWindow_AsmDebug.h"
-//#endif
+#include "ZGui.h"
 
-#ifndef Z_ZGUI_H
-#  include "ZGui.h"
-#endif
+#include "ZGui_Disassembler.h"
 
-#ifndef Z_ZGUI_DISASSEMBLER_H
-#  include "ZGui_Disassembler.h"
-#endif
+#include "ZGui_CPU_Registers.h"
 
-#ifndef Z_ZGUI_CPU_REGISTERS_H
-#  include "ZGui_CPU_Registers.h"
-#endif
+#include "ZGui_PanelTextButton.h"
 
-#ifndef Z_ZGUI_PANELTEXTBUTTON_H
-#  include "ZGui_PanelTextButton.h"
-#endif
+#include "ZGui_FontFrame.h"
 
-#ifndef Z_GUI_FONTFRAME_H
-#  include "ZGui_FontFrame.h"
-#endif
+#include "ZGui_TileFrame.h"
 
-#ifndef Z_ZGUI_TILEFRAME_H
-#  include "ZGui_TileFrame.h"
-#endif
-
-#ifndef Z_ZVOXELEXTENSION_PROGROBOT_ASM_H
-#  include "ZVoxelExtension_ProgRobot_Asm.h"
-#endif
+#include "ZVoxelExtension_ProgRobot_Asm.h"
 
 class ZGame;
 
@@ -137,6 +118,3 @@ class ZGameWindow_AsmDebug : public ZFrame
 
 
 };
-
-
-#endif /* Z_ZGAMEWINDOW_ASMDEBUG_H */
