@@ -24,14 +24,17 @@
  */
 
 #include "ZVoxelType_UserTextureTransformer.h"
-#include "ZGame.h"
 
+#include "ZGame.h"
 #include "ZVoxelExtension_UserTextureTransformer.h"
+#include "ZGameWindow_UserTextureTransformer.h"
+
+class ZVoxelExtension;
 
 
 ZVoxelExtension * ZVoxelType_UserTextureTransformer::CreateVoxelExtension(bool IsLoadingPhase)
 {
-  ZVoxelExtension * NewVoxelExtension = 0;
+  ZVoxelExtension * NewVoxelExtension = nullptr;
 
   NewVoxelExtension = new ZVoxelExtension_UserTextureTransformer;
 

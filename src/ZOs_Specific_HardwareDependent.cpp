@@ -8,8 +8,8 @@
 #include "ZOs_Specific_HardwareDependent.h"
 
 #include "z/ZString.h"
-
 #include "z/ZStream_File.h"
+#include "z/ZTypes.h"
 
 char const * ZHardwareInfo::String_Profile[] =
 {

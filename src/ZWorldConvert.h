@@ -30,9 +30,9 @@
 
 
 
-#include "ZVoxelSector.h"
-
 #include "z/ZTypes.h"
+
+class ZVoxelSector;
 
 class ZWorldConverter
 {

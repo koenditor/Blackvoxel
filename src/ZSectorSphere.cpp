@@ -24,8 +24,10 @@
  */
 
 #include "ZSectorSphere.h"
+
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 
 void ZSectorSphere::PartSort(ULong Start, ULong ItemCount, ZSphereEntry * SortBuffer)
@@ -82,7 +84,7 @@ void ZSectorSphere::Sort()
 
 ZSectorSphere::ZSectorSphere()
 {
-  SectorList = 0;
+  SectorList = nullptr;
   nSlots = 0;
 }
 

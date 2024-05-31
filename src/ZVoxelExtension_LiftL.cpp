@@ -25,6 +25,8 @@
 
 #include "ZVoxelExtension_LiftL.h"
 
+#include "z/ZStream_SpecialRamStream.h"
+
 ZVoxelExtension_LiftL::ZVoxelExtension_LiftL()
 {
   ULong i;
@@ -70,7 +72,7 @@ bool ZVoxelExtension_LiftL::Load(ZStream_SpecialRamStream * Stream)
 
   // Check for supported extension version. If unsupported new version, throw content and continue with a blank extension.
 
-  if (ExtensionVersion!=1) { ExtensionSize-=2; for(ZMemSize i;i<ExtensionSize;i++) Ok = Stream->Get(Temp_Byte); if (Ok) return(true); else return(false);}
+  if (ExtensionVersion!=1) { ExtensionSize-=2; for(ZMemSize i=0;i<ExtensionSize;i++) Ok = Stream->Get(Temp_Byte); if (Ok) return(true); else return(false);}
 
   Stream->GetZone(&VoxelType, sizeof(VoxelType));
   Stream->GetZone(&VoxelQuantity, sizeof(VoxelQuantity));

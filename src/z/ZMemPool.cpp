@@ -29,7 +29,7 @@ ZBasicMemoryPool::ZBasicMemoryPool()
 {
   ULong i;
 
-  for(i=0;i<Z_ZBASICMEMORYPOOL_SIZE;i++) MemTable[i]=0;
+  for(i=0;i<Z_ZBASICMEMORYPOOL_SIZE;i++) MemTable[i]=nullptr;
 }
 
 ZBasicMemoryPool::~ZBasicMemoryPool()
@@ -46,7 +46,7 @@ ZBasicMemoryPool::~ZBasicMemoryPool()
       Block = Block->Next;
       delete [] OldBlock;
     }
-    MemTable[i]=0;
+    MemTable[i]=nullptr;
   }
 }
 

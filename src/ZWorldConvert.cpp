@@ -25,8 +25,10 @@
 
 #include <dirent.h>
 #include <stdio.h>
+
 #include "ZWorldConvert.h"
 #include "z/ZString.h"
+#include "ZVoxelSector.h"
 
 void ZWorldConverter::SectorConvert(ZVoxelSector * Sector)
 {

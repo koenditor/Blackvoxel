@@ -25,15 +25,11 @@
 
 #pragma once
 
-#include "ACompileSettings.h"
-
 #include "z/ZTypes.h"
-
 #include "z/ZString.h"
-
-#include "ZOs_Specific_HardwareDependent.h"
-
 #include "SDL2/SDL_scancode.h"
+
+class ZHardwareInfo;
 
 class ZSettings_Hardware
 {

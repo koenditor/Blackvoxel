@@ -25,10 +25,17 @@
 
 #include "ZGameWindow_AsmDebug.h"
 
+#include <SDL2/SDL_mouse.h>
+#include <SDL2/SDL_stdinc.h>
 
 #include "ZGame.h"
 #include "ZActorPhysics.h"
-#include "SDL2/SDL.h"
+#include "ZGameWindow_AsmExtendedRegisters.h"
+#include "ZGameWindow_AsmHardware.h"
+#include "ZGame_Events.h"
+#include "ZTileSets.h"
+#include "ZVMachine_T1.h"
+#include "ZVoxelExtension_Programmable.h"
 
 void ZGameWindow_AsmDebug::Show()
 {

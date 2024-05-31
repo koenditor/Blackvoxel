@@ -31,10 +31,11 @@
 
 
 #include "ZVoxelExtension.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZTypes.h"
 
-#include "ZVoxelExtension_Storage.h"
-
-#include "ZWorld.h"
+class ZGame;
+class ZStream_SpecialRamStream;
 
 class ZVoxelExtension_MiningRobot_xr1 : public ZVoxelExtension
 {

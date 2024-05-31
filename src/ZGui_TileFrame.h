@@ -26,15 +26,16 @@
 #pragma once 
 
 #include "ZGui.h"
+#include "z/ZTypes.h"
 
-#include "ZTileSets.h"
+class ZTileSet;
 
 class ZTileFrame : public ZFrame
 {
     ZTileSet * TileSet;
     UByte    Tile;
   public:
-    ZTileFrame () {FrameType = MulticharConst('T','I','L','E'); TileSet = 0; Tile=0;}
+    ZTileFrame () {FrameType = MulticharConst('T','I','L','E'); TileSet = nullptr; Tile=0;}
 
 
     virtual void SetTileSet( ZTileSet * TileSet ) { this->TileSet = TileSet; }

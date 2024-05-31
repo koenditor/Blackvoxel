@@ -25,27 +25,25 @@
 
 #pragma once
 
+#include <stdio.h>
+
 #include "z/ZTypes.h"
-
-#include "z/ZGeneralObject.h"
-
-#include "ZCamera.h"
-
 #include "ZVoxelType.h"
-
 #include "ZVoxelTypeManager.h"
-
 #include "ZVoxelSector.h"
-
-#include "ZSectorLoader.h"
-
-#include "ZSpecial_RadiusZoning.h"
-
 #include "ZSectorRingList.h"
-
 #include "ACompileSettings.h"
-
 #include "ZVoxel.h"
+#include "ZSector_ModifTracker.h"
+#include "ZVoxelExtension.h"
+#include "z/ZObject.h"
+#include "z/ZType_ZVector3B.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZType_ZVector3L_CrossFunc.h"
+#include "z/ZType_ZVector3d.h"
+
+class ZCamera;
+class ZSectorLoader;
 
 
 
@@ -126,7 +124,7 @@ class ZVoxelWorld : public ZObject
 
 
     void SetVoxel(Long x, Long y, Long z, UShort VoxelValue);
-    bool SetVoxel_WithCullingUpdate(Long x, Long y, Long z, UShort VoxelValue, UByte ImportanceFactor, bool CreateExtension = true, ZVoxelLocation * Location = 0);
+    bool SetVoxel_WithCullingUpdate(Long x, Long y, Long z, UShort VoxelValue, UByte ImportanceFactor, bool CreateExtension = true, ZVoxelLocation * Location = nullptr);
 
     //bool SetVoxel_WithCullingUpdate(Long x, Long y, Long z, UShort VoxelValue, bool ImportanceFactor, bool CreateExtension = true, VoxelLocation * Location = 0);
     inline bool MoveVoxel(Long Sx, Long Sy, Long Sz, Long Ex, Long Ey, Long Ez, UShort ReplacementVoxel, UByte ImportanceFactor);
@@ -244,7 +242,7 @@ class ZVoxelWorld : public ZObject
         {
           for ( ys = Start->y, yd = 0 ; ys <= End->y ; ys++, yd++  )
           {
-            if (!GetVoxelLocation(&Loc, xs, ys, zs)) { delete NewSector; return(0); }
+            if (!GetVoxelLocation(&Loc, xs, ys, zs)) { delete NewSector; return nullptr; }
 
             Offset = (yd % NewSector->Size_y) + ( (xd % NewSector->Size_x ) * NewSector->Size_y )+ (( zd % NewSector->Size_z ) * ( NewSector->Size_y * NewSector->Size_x ));
 
@@ -326,7 +324,7 @@ class ZVoxelWorld : public ZObject
             Loc.Sector->OtherInfos[Loc.Offset] = 0;
             Loc.Sector->Flag_Render_Dirty = true;
 
-            this->SetVoxel_WithCullingUpdate(ComputedLocation.x, ComputedLocation.y, ComputedLocation.z, 0, ZVoxelSector::CHANGE_IMPORTANT,1,0 );
+            this->SetVoxel_WithCullingUpdate(ComputedLocation.x, ComputedLocation.y, ComputedLocation.z, 0, ZVoxelSector::CHANGE_IMPORTANT,1,nullptr );
 
           }
 
@@ -439,7 +437,7 @@ class ZVoxelWorld : public ZObject
       ULong          TableOffset;
 
       TableOffset = 0;
-      SectorTable[0] = 0;
+      SectorTable[0] = nullptr;
 
       for ( zs = 0,zd = Position->z - SourceSector->Handle_z ; zs < SourceSector->Size_z ; zs++, zd++ )
       {
@@ -552,7 +550,7 @@ inline bool ZVoxelWorld::GetVoxelLocation(ZVoxelLocation * OutLocation, Long x, 
 {
   OutLocation->Sector = FindSector( x>>ZVOXELBLOCSHIFT_X , y>>ZVOXELBLOCSHIFT_Y , z>>ZVOXELBLOCSHIFT_Z );
 
-  if (!OutLocation->Sector) {OutLocation->Sector = 0; OutLocation->Offset = 0; return(false); }
+  if (!OutLocation->Sector) {OutLocation->Sector = nullptr; OutLocation->Offset = 0; return(false); }
 
   OutLocation->Offset =   (y & ZVOXELBLOCMASK_Y)
                        + ((x & ZVOXELBLOCMASK_X) <<  ZVOXELBLOCSHIFT_Y )
@@ -564,7 +562,7 @@ inline bool ZVoxelWorld::GetVoxelLocation(ZVoxelLocation * OutLocation, const ZV
 {
   OutLocation->Sector = FindSector( Coords->x>>ZVOXELBLOCSHIFT_X , Coords->y>>ZVOXELBLOCSHIFT_Y , Coords->z>>ZVOXELBLOCSHIFT_Z );
 
-  if (!OutLocation->Sector) {OutLocation->Sector = 0; OutLocation->Offset = 0; return(false); }
+  if (!OutLocation->Sector) {OutLocation->Sector = nullptr; OutLocation->Offset = 0; return(false); }
 
   OutLocation->Offset =   (Coords->y & ZVOXELBLOCMASK_Y)
                        + ((Coords->x & ZVOXELBLOCMASK_X) <<  ZVOXELBLOCSHIFT_Y )
@@ -636,7 +634,7 @@ inline bool ZVoxelWorld::ExtractToVoxel(ZVector3L * Coords, ZVoxel * OutVoxel, U
   Sector->OtherInfos[Offset] = 0;
   Sector->TempInfos[Offset]  = 0;
 
-  return(SetVoxel_WithCullingUpdate(Coords->x, Coords->y, Coords->z, 0, ImportanceFactor, false, 0));
+  return(SetVoxel_WithCullingUpdate(Coords->x, Coords->y, Coords->z, 0, ImportanceFactor, false, nullptr));
 
 }
 
@@ -665,7 +663,7 @@ inline bool ZVoxelWorld::PlaceFromVoxel(ZVector3L * Coords, ZVoxel * VoxelToPlac
 
   Sector->OtherInfos[Offset] = VoxelToPlace->OtherInfos;
   Sector->TempInfos[Offset]  = VoxelToPlace->Temperature;
-  if (!SetVoxel_WithCullingUpdate(Coords->x, Coords->y, Coords->z, VoxelToPlace->VoxelType, ImportanceFactor, false, 0)) return(false);
+  if (!SetVoxel_WithCullingUpdate(Coords->x, Coords->y, Coords->z, VoxelToPlace->VoxelType, ImportanceFactor, false, nullptr)) return(false);
 
   VoxelToPlace->VoxelType = 0;
   VoxelToPlace->OtherInfos = 0;
@@ -732,7 +730,7 @@ bool ZVoxelWorld::MoveVoxel(Long Sx, Long Sy, Long Sz, Long Ex, Long Ey, Long Ez
   Location2.Sector->TempInfos[Location2.Offset] = Location1.Sector->TempInfos[Location1.Offset];
 
   Location1.Sector->Data[Location1.Offset] = 0;
-  if (!SetVoxel_WithCullingUpdate(Sx,Sy,Sz, ReplacementVoxel, ImportanceFactor, true, 0 )) return(false);
+  if (!SetVoxel_WithCullingUpdate(Sx,Sy,Sz, ReplacementVoxel, ImportanceFactor, true, nullptr )) return(false);
   return(true);
 }
 
@@ -749,7 +747,7 @@ bool ZVoxelWorld::MoveVoxel( ZVector3L * SCoords, ZVector3L * DCoords, UShort Re
   Location2.Sector->TempInfos[Location2.Offset] = Location1.Sector->TempInfos[Location1.Offset];
 
   Location1.Sector->Data[Location1.Offset] = 0;
-  if (!SetVoxel_WithCullingUpdate(SCoords->x,SCoords->y,SCoords->z, ReplacementVoxel, ImportanceFactor, true, 0 )) return(false);
+  if (!SetVoxel_WithCullingUpdate(SCoords->x,SCoords->y,SCoords->z, ReplacementVoxel, ImportanceFactor, true, nullptr )) return(false);
   return(true);
 }
 
@@ -781,8 +779,8 @@ bool ZVoxelWorld::ExchangeVoxels(Long Sx, Long Sy, Long Sz, Long Dx, Long Dy, Lo
 
   // Set the voxels
 
-  if (!SetVoxel_WithCullingUpdate(Dx, Dy, Dz, VoxelType1, ImportanceFactor, false, 0 )) return(false);
-  if (!SetVoxel_WithCullingUpdate(Sx, Sy, Sz, VoxelType2, ImportanceFactor, false, 0 )) return(false);
+  if (!SetVoxel_WithCullingUpdate(Dx, Dy, Dz, VoxelType1, ImportanceFactor, false, nullptr )) return(false);
+  if (!SetVoxel_WithCullingUpdate(Sx, Sy, Sz, VoxelType2, ImportanceFactor, false, nullptr )) return(false);
 
   // Set Extensions a and temperature informations.
 
@@ -830,8 +828,8 @@ bool ZVoxelWorld::ExchangeVoxels( ZVector3L * V1, ZVector3L * V2, UByte Importan
 
   // Set the voxels
 
-  if (!SetVoxel_WithCullingUpdate(V2->x, V2->y, V2->z, VoxelType1, ImportanceFactor, false, 0 )) return(false);
-  if (!SetVoxel_WithCullingUpdate(V1->x, V1->y, V1->z, VoxelType2, ImportanceFactor, false, 0 )) return(false);
+  if (!SetVoxel_WithCullingUpdate(V2->x, V2->y, V2->z, VoxelType1, ImportanceFactor, false, nullptr )) return(false);
+  if (!SetVoxel_WithCullingUpdate(V1->x, V1->y, V1->z, VoxelType2, ImportanceFactor, false, nullptr )) return(false);
 
   // Set Extensions a and temperature informations.
 
@@ -867,7 +865,7 @@ bool ZVoxelWorld::MoveVoxel_Sm(Long Sx, Long Sy, Long Sz, Long Ex, Long Ey, Long
   Location2.Sector->ModifTracker.Set(Location2.Offset);
 
   Location1.Sector->Data[Location1.Offset] = 0;
-  if (!SetVoxel_WithCullingUpdate(Sx,Sy,Sz, ReplacementVoxel, ImportanceFactor, true, 0 )) return(false);
+  if (!SetVoxel_WithCullingUpdate(Sx,Sy,Sz, ReplacementVoxel, ImportanceFactor, true, nullptr )) return(false);
   return(true);
 }
 
@@ -885,6 +883,6 @@ bool ZVoxelWorld::MoveVoxel_Sm( ZVector3L * SCoords, ZVector3L * DCoords, UShort
   Location2.Sector->ModifTracker.Set(Location2.Offset);
 
   Location1.Sector->Data[Location1.Offset] = 0;
-  if (!SetVoxel_WithCullingUpdate(SCoords->x,SCoords->y,SCoords->z, ReplacementVoxel, ImportanceFactor, true, 0 )) return(false);
+  if (!SetVoxel_WithCullingUpdate(SCoords->x,SCoords->y,SCoords->z, ReplacementVoxel, ImportanceFactor, true, nullptr )) return(false);
   return(true);
 }

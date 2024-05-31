@@ -26,18 +26,15 @@
 #pragma once 
 
 #include "ZGui.h"
-
 #include "ZGui_InventoryBox.h"
-
 #include "ZGui_FontFrame.h"
-
 #include "ZGui_TileFrame.h"
-
-#include "ZVoxelTypeManager.h"
-
 #include "ZVoxelExtension_Storage.h"
+#include "z/ZString.h"
+#include "z/ZTypes.h"
 
 class ZGame;
+class ZVoxelExtension;
 
 class ZGameWindow_Storage : public ZFrame
 {
@@ -75,10 +72,10 @@ class ZGameWindow_Storage : public ZFrame
     Text_MainTitle = "STORAGE";
     Text_StorageTitle = "STORAGE";
     Text_InventoryTitle = "INVENTORY";
-    VoxelExtension_Storage = 0;
+    VoxelExtension_Storage = nullptr;
     i1 = i2 = i3 = 0;
     Q1 = Q2 = Q3 = 0;
-    GameEnv = 0;
+    GameEnv = nullptr;
   }
 
   ~ZGameWindow_Storage()

@@ -25,9 +25,13 @@
 
 #pragma once 
 
-#include "ZEventManager.h"
+#include <SDL2/SDL_scancode.h>
+#include <SDL2/SDL_stdinc.h>
+#include <stddef.h>
 
+#include "ZEventManager.h"
 #include "SDL2/SDL_keyboard.h"
+#include "z/ZTypes.h"
 
 class ZGame;
 
@@ -49,8 +53,8 @@ class ZGame_Events : public ZEventConsumer
       Mouse_Matrix    = new bool[128];
       for (i=0;i<128;i++)  Mouse_Matrix[i] = false;
       EnableMouseEvents = true;
-      EventManager = 0;
-      GameEnv = 0;
+      EventManager = nullptr;
+      GameEnv = nullptr;
       LastFrameTime = 16.0;
     }
 

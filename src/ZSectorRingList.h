@@ -18,11 +18,8 @@
 */
 #pragma once 
 
-
-
-
-
-
+#include "z/ZObject.h"
+#include "ZVoxelSector.h"
 
 class ZSectorRingList : public ZObject
 {
@@ -74,9 +71,9 @@ class ZSectorRingList : public ZObject
       {
         ZVoxelSector * Sector;
 
-        if (Start == End) return(0);
+        if (Start == End) return nullptr;
 
-        Sector = SectorList[Start];SectorList[Start]=0;
+        Sector = SectorList[Start];SectorList[Start]=nullptr;
 
         Start = (Start + 1) & WrapMask;
         if (nEntries) nEntries --;

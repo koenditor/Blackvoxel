@@ -46,7 +46,7 @@ class ZGameWindow_ProgressBar
   ZGameWindow_ProgressBar()
   {
     Flag_Shown = false;
-    GameEnv = 0;
+    GameEnv = nullptr;
   }
 
   ~ZGameWindow_ProgressBar()

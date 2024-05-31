@@ -25,12 +25,21 @@
 
 #include "ZScreen_SlotSelection.h"
 
+#include <SDL2/SDL_scancode.h>
+#include <SDL2/SDL_timer.h>
+#include <SDL2/SDL_video.h>
+#include <cmath>
 
 #include "z/ZStream_File.h"
-
-#include "ZOs_Specific_ViewDoc.h"
-
 #include "GL/gl.h"
+#include "ACompileSettings.h"
+#include "ZEventManager.h"
+#include "ZGame.h"
+#include "ZGameInfo.h"
+#include "ZGui_FontFrame.h"
+#include "ZSettings_Hardware.h"
+#include "ZTileSets.h"
+#include "z/ZString.h"
 
 ULong ZScreen_SlotSelection::ProcessScreen(ZGame * GameEnv)
 {

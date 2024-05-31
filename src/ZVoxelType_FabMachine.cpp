@@ -26,16 +26,16 @@
 #include "ZVoxelType_FabMachine.h"
 
 #include "ZVoxelExtension_FabMachine.h"
-
 #include "ZVoxelSector.h"
-
 #include "ZVoxelTypeManager.h"
-
 #include "ZGame.h"
+#include "z/ZString.h"
+
+class ZVoxelExtension;
 
 ZVoxelExtension * ZVoxelType_FabMachine::CreateVoxelExtension(bool IsLoadingPhase)
 {
-  ZVoxelExtension * NewVoxelExtension = 0;
+  ZVoxelExtension * NewVoxelExtension = nullptr;
 
   NewVoxelExtension = new ZVoxelExtension_FabMachine;
 

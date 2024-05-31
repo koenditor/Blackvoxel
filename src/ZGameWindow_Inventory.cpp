@@ -24,9 +24,15 @@
  */
 
 #include "ZGameWindow_Inventory.h"
+
+#include <SDL2/SDL_mouse.h>
+#include <SDL2/SDL_stdinc.h>
+
 #include "ZGame.h"
 #include "ZActorPhysics.h"
-#include "SDL2/SDL.h"
+#include "ZGame_Events.h"
+#include "ZInventory.h"
+#include "ZTileSets.h"
 
 void ZGameWindow_Inventory::Show()
 {

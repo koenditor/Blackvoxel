@@ -135,11 +135,11 @@ void ZSound::mixaudio(void *unused, Uint8 *stream, int len)
 
     if (OldSound->DeletePending)
     {
-      if (OldSound->PrevSound == 0) PlayingSoundList = OldSound->NextSound;
+      if (OldSound->PrevSound == nullptr) PlayingSoundList = OldSound->NextSound;
       else                          OldSound->PrevSound->NextSound = OldSound->NextSound;
-      if (OldSound->NextSound != 0) OldSound->NextSound->PrevSound = OldSound->PrevSound;
-      OldSound->NextSound = 0;
-      OldSound->PrevSound = 0;
+      if (OldSound->NextSound != nullptr) OldSound->NextSound->PrevSound = OldSound->PrevSound;
+      OldSound->NextSound = nullptr;
+      OldSound->PrevSound = nullptr;
       delete OldSound;
     }
 

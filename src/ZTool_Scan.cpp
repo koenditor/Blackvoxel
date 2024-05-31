@@ -26,8 +26,14 @@
 #include "ZTool_Scan.h"
 
 #include "ZActor_Player.h"
-
 #include "ZGame.h"
+#include "ZActorPhysics.h"
+#include "ZGameWindow_Scan.h"
+#include "ZVoxelSector.h"
+#include "ZVoxelType.h"
+#include "ZVoxelTypeManager.h"
+#include "ZWorld.h"
+#include "z/ZString.h"
 
 
 bool ZTool_Scan::Tool_MouseButtonClick(ULong Button)

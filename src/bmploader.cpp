@@ -18,6 +18,8 @@
 */
 #include "bmploader.h"
 
+#include <stdio.h>
+
 #include "stdio.h"
 
     ZBitmapImage_0::ZBitmapImage_0()
@@ -26,7 +28,7 @@
       Height = 0;
       BitsPerPixel = 0;
       BytesPerPixel = 0;
-      BitmapMemory = 0;
+      BitmapMemory = nullptr;
       BitmapMemorySize = 0;
     }
 
@@ -37,7 +39,7 @@
       Height = 0;
       BitsPerPixel = 0;
       BytesPerPixel = 0;
-      BitmapMemory = 0;
+      BitmapMemory = nullptr;
       BitmapMemorySize = 0;
     }
 

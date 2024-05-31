@@ -26,12 +26,11 @@
 #pragma once 
 
 #include "ZGui.h"
-
 #include "ZGui_InventoryBox.h"
-
 #include "ZGui_FontFrame.h"
-
 #include "ZGui_TileFrame.h"
+#include "z/ZString.h"
+#include "z/ZTypes.h"
 
 class ZGame;
 
@@ -64,7 +63,7 @@ class ZGameWindow_Inventory : public ZFrame
 
   ZGameWindow_Inventory()
   {
-    GameEnv = 0;
+    GameEnv = nullptr;
     MainWindow = this;
     MainInventory = new ZInventoryBox[128];
     Flag_Shown = false;

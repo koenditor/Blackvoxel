@@ -25,10 +25,7 @@
 
 #pragma once 
 
-
-
-
-
+#include "z/ZMemPool.h"
 
 class ZSectorTagHash
 {
@@ -67,7 +64,7 @@ class ZSectorTagHash
 
       TagHashSize = Tag_Size_x * Tag_Size_y * Tag_Size_z;
       TagHash = new TagEntry * [TagHashSize];
-      for (i=0;i<TagHashSize;i++) TagHash[i] = 0;
+      for (i=0;i<TagHashSize;i++) TagHash[i] = nullptr;
     }
 
     ~ZSectorTagHash()
@@ -86,7 +83,7 @@ class ZSectorTagHash
         }
       }
       delete [] TagHash;
-      TagHash = 0;
+      TagHash = nullptr;
     }
 
     bool inline find (Long x, Long y, Long z)
@@ -131,7 +128,7 @@ class ZSectorTagHash
 
       Entry->x = x; Entry->y = y; Entry->z = z;
 
-      Entry->Prev = 0;
+      Entry->Prev = nullptr;
       Entry->Next = TagHash[Offset];
       if (TagHash[Offset]) Entry->Next->Prev = Entry;
       TagHash[Offset] = Entry;
@@ -152,9 +149,9 @@ class ZSectorTagHash
       {
         if ( (Entry->x == x) && (Entry->y == y) && (Entry->z == z) )
         {
-          if (Entry->Prev == 0) TagHash[Offset] = Entry->Next;
+          if (Entry->Prev == nullptr) TagHash[Offset] = Entry->Next;
           else                  Entry->Prev->Next = Entry->Next;
-          if (Entry->Next != 0) Entry->Next->Prev = Entry->Prev;
+          if (Entry->Next != nullptr) Entry->Next->Prev = Entry->Prev;
 
           MemPool->FreeMem(Entry);
 

@@ -24,22 +24,24 @@
  */
 
 #include "ZVoxelSector.h"
+
+#include <stdio.h>
+#include <sys/stat.h>
+#include <string.h>
+#include <cmath>
+
 #include "ZVoxelType.h"
 #include "ZVoxelTypeManager.h"
 #include "z/ZStream_SpecialRamStream.h"
 #include "z/ZStream_File.h"
-#include <stdio.h>
-#include <sys/stat.h>
-#include <math.h>
-#include <string.h>
-
 #include "ZVoxelExtension.h"
-
 #include "z/ZMemPool.h"
-
 #include "z/ZFastRandom.h"
-
 #include "ACompileSettings.h"
+#include "z/ZString.h"
+#include "z/ZType_ZPolar3d.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZType_ZVector3d.h"
 
 
 ULong  ZVoxelSector::SectorsInMemory = 0;
@@ -49,23 +51,23 @@ ULong  ZVoxelSector::SectorsInMemory = 0;
 
 ZVoxelSector::ZVoxelSector() : ModifTracker(ZVOXELBLOCSIZE_X * ZVOXELBLOCSIZE_Y * ZVOXELBLOCSIZE_Z)
 {
-  VoxelTypeManager = 0;
+  VoxelTypeManager = nullptr;
   Size_x = 16;
   Size_y = 64;
   Size_z = 16;
   Handle_x = Handle_y = Handle_z = 0;
 
   DataSize = Size_x * Size_y * Size_z;
-  DisplayData = 0;
+  DisplayData = nullptr;
   Data        = new UShort[DataSize];
   FaceCulling = new UByte [DataSize];
   OtherInfos  = new ZMemSize[DataSize];
   TempInfos   = new UShort[DataSize];
 
-  Next = 0;
-  Pred = 0;
-  GlobalList_Next = 0;
-  GlobalList_Pred = 0;
+  Next = nullptr;
+  Pred = nullptr;
+  GlobalList_Next = nullptr;
+  GlobalList_Pred = nullptr;
 
   InitSector();
 
@@ -89,8 +91,8 @@ ZVoxelSector::ZVoxelSector( const ZVoxelSector &Sector)
   memcpy(OtherInfos, Sector.OtherInfos, DataSize * sizeof(ZMemSize));
   memcpy(TempInfos, Sector.TempInfos, DataSize << 2);
 
-  VoxelTypeManager = 0;
-  Next = Pred = GlobalList_Next = GlobalList_Pred = 0;
+  VoxelTypeManager = nullptr;
+  Next = Pred = GlobalList_Next = GlobalList_Pred = nullptr;
   Handle_x = Sector.Handle_x;
   Handle_y = Sector.Handle_y;
   Handle_z = Sector.Handle_z;
@@ -105,7 +107,7 @@ ZVoxelSector::ZVoxelSector( const ZVoxelSector &Sector)
   ZoneType    = Sector.ZoneType;
   GeneratorVersion = Sector.GeneratorVersion;
   RingNum = Sector.RingNum;
-  DisplayData = 0;
+  DisplayData = nullptr;
 
   Flag_Void_Regular             = Sector.Flag_Void_Regular;
   Flag_Void_Transparent         = Sector.Flag_Void_Transparent;
@@ -132,14 +134,14 @@ ZVoxelSector::ZVoxelSector( const ZVoxelSector &Sector)
 
 ZVoxelSector::ZVoxelSector(Long Size_x, Long Size_y, Long Size_z)
 {
-  VoxelTypeManager = 0;
+  VoxelTypeManager = nullptr;
   this->Size_x = Size_x;
   this->Size_y = Size_y;
   this->Size_z = Size_z;
   Handle_x = Handle_y = Handle_z = 0;
 
   DataSize = Size_x * Size_y * Size_z;
-  DisplayData = 0;
+  DisplayData = nullptr;
 
   ModifTracker.Init(DataSize);
 
@@ -152,17 +154,17 @@ ZVoxelSector::ZVoxelSector(Long Size_x, Long Size_y, Long Size_z)
   }
   else
   {
-    Data        = 0;
-    FaceCulling = 0;
-    OtherInfos  = 0;
-    TempInfos   = 0;
+    Data        = nullptr;
+    FaceCulling = nullptr;
+    OtherInfos  = nullptr;
+    TempInfos   = nullptr;
   }
 
 
-  Next = 0;
-  Pred = 0;
-  GlobalList_Next = 0;
-  GlobalList_Pred = 0;
+  Next = nullptr;
+  Pred = nullptr;
+  GlobalList_Next = nullptr;
+  GlobalList_Pred = nullptr;
 
   InitSector();
 
@@ -173,11 +175,11 @@ void ZVoxelSector::ChangeSize(Long Size_x, Long Size_y, Long Size_z)
 {
   ULong i;
 
-  if (Data)        {delete [] Data;        Data = 0;        }
-  if (FaceCulling) {delete [] FaceCulling; FaceCulling = 0; }
-  if (DisplayData) {delete DisplayData; DisplayData = 0;    }
-  if (OtherInfos)  {delete [] OtherInfos;  OtherInfos  = 0; }
-  if (TempInfos)   {delete [] TempInfos;   TempInfos   = 0; }
+  if (Data)        {delete [] Data;        Data = nullptr;        }
+  if (FaceCulling) {delete [] FaceCulling; FaceCulling = nullptr; }
+  if (DisplayData) {delete DisplayData; DisplayData = nullptr;    }
+  if (OtherInfos)  {delete [] OtherInfos;  OtherInfos  = nullptr; }
+  if (TempInfos)   {delete [] TempInfos;   TempInfos   = nullptr; }
 
   this->Size_x = Size_x;
   this->Size_y = Size_y;
@@ -185,7 +187,7 @@ void ZVoxelSector::ChangeSize(Long Size_x, Long Size_y, Long Size_z)
   Handle_x = Handle_y = Handle_z = 0;
 
   DataSize = Size_x * Size_y * Size_z;
-  DisplayData = 0;
+  DisplayData = nullptr;
 
   ModifTracker.Init(DataSize);
 
@@ -273,11 +275,11 @@ ZVoxelSector::~ZVoxelSector()
 
   // Delete memory zones
 
-  if (Data)        {delete [] Data;        Data = 0;        }
-  if (FaceCulling) {delete [] FaceCulling; FaceCulling = 0; }
-  if (DisplayData) {delete DisplayData; DisplayData = 0;    }
-  if (OtherInfos)  {delete [] OtherInfos;  OtherInfos  = 0; }
-  if (TempInfos)   {delete [] TempInfos;   TempInfos   = 0; }
+  if (Data)        {delete [] Data;        Data = nullptr;        }
+  if (FaceCulling) {delete [] FaceCulling; FaceCulling = nullptr; }
+  if (DisplayData) {delete DisplayData; DisplayData = nullptr;    }
+  if (OtherInfos)  {delete [] OtherInfos;  OtherInfos  = nullptr; }
+  if (TempInfos)   {delete [] TempInfos;   TempInfos   = nullptr; }
 
   SectorsInMemory--;
 }
@@ -1383,7 +1385,7 @@ void ZVoxelSector::Draw_safe_VoxelLine_TickCtl( ZRect3L * LineCoords, double * T
 
   double x,y,z, ThickIndex, Thick, Thick1, Thick2, Stepx,Stepy,Stepz, StepThick, Temp, Modulator;
 
-  if (nThickIndices < 2 || (ThicknessTable == 0)) return;
+  if (nThickIndices < 2 || (ThicknessTable == nullptr)) return;
 
   Dx = LineCoords->End.x - LineCoords->Start.x;
   Dy = LineCoords->End.y - LineCoords->Start.y;

@@ -31,6 +31,9 @@
 
 
 #include "ZVoxelExtension.h"
+#include "z/ZTypes.h"
+
+class ZStream_SpecialRamStream;
 
 class ZVoxelExtension_LiftL : public ZVoxelExtension
 {

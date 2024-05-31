@@ -24,15 +24,18 @@
  */
 
 #include "ZGame.h"
-
 #include "ZVoxelType_MiningRobot_xr1.h"
-
 #include "ZVoxelExtension_MiningRobot_xr1.h"
+#include "ZVoxelSector.h"
+#include "ZVoxelTypeManager.h"
+#include "z/ZType_ZVector3L.h"
+
+class ZVoxelExtension;
 
 
 ZVoxelExtension * ZVoxelType_MiningRobot_xr1::CreateVoxelExtension(bool IsLoadingPhase)
 {
-  ZVoxelExtension * NewVoxelExtension = 0;
+  ZVoxelExtension * NewVoxelExtension = nullptr;
 
   NewVoxelExtension = new ZVoxelExtension_MiningRobot_xr1;
   // printf("Create Mining Robot Extension : %lx\n", NewVoxelExtension);

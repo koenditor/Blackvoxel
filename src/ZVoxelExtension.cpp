@@ -25,6 +25,8 @@
 
 #include "ZVoxelExtension.h"
 
+#include "z/ZStream_SpecialRamStream.h"
+
 
 bool ZVoxelExtension::_ThrowExtension(ZStream_SpecialRamStream * Stream, ZMemSize ExtensionSize)
 {

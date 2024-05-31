@@ -26,6 +26,8 @@
 
 #include "ZKeywordSet.h"
 
+#include "ZString.h"
+
 
 bool ZFastKeyWordSet::Init()
 {
@@ -41,7 +43,7 @@ ZFastKeyWordSet::KeyEntry * ZFastKeyWordSet::NewKeyTable()
   {
     for(i=0;i<256;i++)
     {
-      KeyTable[i].NextKey=0;
+      KeyTable[i].NextKey=nullptr;
       KeyTable[i].KeyInfo=0;
     }
   }
@@ -96,8 +98,8 @@ ULong ZFastKeyWordSet::SearchKey(char ** File)
   char * Fp = *File;
   UByte c;
   KeyEntry * Key;
-  KeyEntry * LastFound = 0;
-  char * LastFoundFp =0;
+  KeyEntry * LastFound = nullptr;
+  char * LastFoundFp =nullptr;
 
   while(true)
   {

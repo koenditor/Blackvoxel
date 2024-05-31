@@ -26,12 +26,16 @@
 #pragma once
 
 #include "ZVoxelType.h"
+#include "z/ZString.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZTypes.h"
 
 // Include your voxel extension class for storage if you have any.
 
 #include "ZVoxelExtension_Example.h"
-
 #include "ZActiveVoxelInterface.h"
+
+class ZVoxelExtension;
 
 class ZVoxelType_Example : public ZVoxelType
 {
@@ -72,7 +76,7 @@ class ZVoxelType_Example : public ZVoxelType
       // case (1) dont do anything
       // case (2) put your initialisation value here.
 
-      return(0);
+      return nullptr;
     }
 
 

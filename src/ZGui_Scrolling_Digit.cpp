@@ -24,7 +24,10 @@
  */
 
 #include "ZGui_Scrolling_Digit.h"
+
 #include "ZGame.h"
+#include "ZTileSets.h"
+#include "z/ZType_ZVector3d.h"
 
 void ZFrame_ScrollingDigit::GetEffectiveSize(ZVector2f * OutSize)
 {

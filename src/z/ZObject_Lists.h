@@ -61,8 +61,8 @@ class ZList
     {
       MemPool = &ZListBasicMemPool;
       Head.Next = &Tail;
-      Head.Prev = 0;
-      Tail.Next = 0;
+      Head.Prev = nullptr;
+      Tail.Next = nullptr;
       Tail.Prev = &Head;
       Flag_FreeObjectsAtEnd = false;
     }
@@ -80,25 +80,25 @@ class ZList
 
     inline ZListItem * GetFirst()
     {
-      if (Head.Next == &Tail) return(0);
+      if (Head.Next == &Tail) return nullptr;
       return(Head.Next);
     }
 
     inline ZListItem * GetLast()
     {
-      if (Tail.Prev == &Head) return(0);
+      if (Tail.Prev == &Head) return nullptr;
       return(Tail.Prev);
     }
 
     inline ZListItem * GetNext(ZListItem * ListItem)
     {
-      if (ListItem->Next == &Tail) return(0);
+      if (ListItem->Next == &Tail) return nullptr;
       return(ListItem->Next);
     }
 
     inline ZListItem * GetPrev(ZListItem * ListItem)
     {
-      if (ListItem->Prev == &Head) return(0);
+      if (ListItem->Prev == &Head) return nullptr;
       return(ListItem->Prev);
     }
 
@@ -106,8 +106,8 @@ class ZList
     {
       ListItem->Next->Prev = ListItem->Prev;
       ListItem->Prev->Next = ListItem->Next;
-      ListItem->Next = 0;
-      ListItem->Prev = 0;
+      ListItem->Next = nullptr;
+      ListItem->Prev = nullptr;
       MemPool->FreeMem(ListItem);
     }
 
@@ -117,14 +117,14 @@ class ZList
       ZObject * Object;
 
       ListItem = Tail.Prev;
-      if (ListItem == &Head) return(0);
+      if (ListItem == &Head) return nullptr;
 
       Object = ListItem->GetObject();
 
       ListItem->Next->Prev = ListItem->Prev;
       ListItem->Prev->Next = ListItem->Next;
-      ListItem->Next = 0;
-      ListItem->Prev = 0;
+      ListItem->Next = nullptr;
+      ListItem->Prev = nullptr;
       MemPool->FreeMem(ListItem);
 
       return(Object);
@@ -136,14 +136,14 @@ class ZList
       ZObject * Object;
 
       ListItem = Head.Next;
-      if (ListItem == &Tail) return(0);
+      if (ListItem == &Tail) return nullptr;
 
       Object = ListItem->GetObject();
 
       ListItem->Next->Prev = ListItem->Prev;
       ListItem->Prev->Next = ListItem->Next;
-      ListItem->Next = 0;
-      ListItem->Prev = 0;
+      ListItem->Next = nullptr;
+      ListItem->Prev = nullptr;
       MemPool->FreeMem(ListItem);
 
       return(Object);
@@ -153,8 +153,8 @@ class ZList
     {
       ListItem->Next->Prev = ListItem->Prev;
       ListItem->Prev->Next = ListItem->Next;
-      ListItem->Next = 0;
-      ListItem->Prev = 0;
+      ListItem->Next = nullptr;
+      ListItem->Prev = nullptr;
       delete(ListItem->Object);
       MemPool->FreeMem(ListItem);
     }

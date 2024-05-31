@@ -26,6 +26,7 @@
 #include "ZVoxelType_Spinner.h"
 
 #include "ZGame.h"
+#include "ZActorPhysics.h"
 
 void  ZVoxelType_Spinner::UserAction_Activate(ZMemSize VoxelInfo, Long x, Long y, Long z)
 {

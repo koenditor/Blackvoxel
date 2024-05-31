@@ -24,13 +24,29 @@
  */
 
 #include "ZActor_Player.h"
+
+#include <SDL2/SDL_scancode.h>
+#include <SDL2/SDL_stdinc.h>
+#include <math.h>
+#include <stdio.h>
+
 #include "ZGame.h"
-
 #include "ZDirs.h"
-
 #include "z/ZStream_SpecialRamStream.h"
-
 #include "z/ZStream_File.h"
+#include "ACompileSettings.h"
+#include "ZCamera.h"
+#include "ZGameWindow_Advertising.h"
+#include "ZInventory.h"
+#include "ZSettings_Hardware.h"
+#include "ZSound.h"
+#include "ZTools.h"
+#include "ZVoxelExtension.h"
+#include "ZVoxelSector.h"
+#include "ZVoxelType.h"
+#include "ZVoxelTypeManager.h"
+#include "z/ZType_ZPolar3d.h"
+#include "z/ZType_ZVector3d_CrossFunc.h"
 
 
 ZActor_Player::ZActor_Player()
@@ -66,8 +82,8 @@ ZActor_Player::ZActor_Player()
   PlaneToohighAlt = false;
   PlaneFreeFallCounter = 0.0;
   PlaneWaitForRectorStartSound = false;
-  PlaneReactorSoundHandle = 0;
-  WalkSoundHandle = 0;
+  PlaneReactorSoundHandle = nullptr;
+  WalkSoundHandle = nullptr;
   Test_T1 = 0;
   Riding_Voxel = 0;
   Vehicle_Subtype = 0;
@@ -83,7 +99,7 @@ ZActor_Player::ZActor_Player()
 
   SteerAngle = 0.0;
   CarThrust = 0.0;
-  CarEngineSoundHandle = 0;
+  CarEngineSoundHandle = nullptr;
 
 
   Train_StoredVoxelCount = 0;
@@ -91,11 +107,11 @@ ZActor_Player::ZActor_Player()
   TrainSpeed = 0.0;
   Train_DirPrefGoRight = false;
   Train_Elements_Engines = 0;
-  TrainEngineSoundHandle = 0;
+  TrainEngineSoundHandle = nullptr;
 
   Lift_Thrust = 0.0;
   Lift_Direction = 4;
-  LiftSoundHandle = 0;
+  LiftSoundHandle = nullptr;
 
   Spinner_Origin = 0.0;
   Spinner_Angle  = 0.0;
@@ -109,8 +125,8 @@ ZActor_Player::ZActor_Player()
 
 ZActor_Player::~ZActor_Player()
 {
-  if (Inventory) {delete Inventory; Inventory = 0;}
-  if (PreviousVoxelTypes) {delete [] PreviousVoxelTypes; PreviousVoxelTypes = 0;}
+  if (Inventory) {delete Inventory; Inventory = nullptr;}
+  if (PreviousVoxelTypes) {delete [] PreviousVoxelTypes; PreviousVoxelTypes = nullptr;}
 }
 
 void ZActor_Player::Init(bool Death)
@@ -1112,7 +1128,7 @@ void ZActor_Player::DoPhysic_Lift(double CycleTime)
 
   if (ComputedLiftThrust <10.0 )
   {
-    if ((LiftSoundHandle))        { GameEnv->Sound->Stop_PlaySound(LiftSoundHandle); LiftSoundHandle = 0; }
+    if ((LiftSoundHandle))        { GameEnv->Sound->Stop_PlaySound(LiftSoundHandle); LiftSoundHandle = nullptr; }
   }
   else
   {
@@ -1124,7 +1140,7 @@ void ZActor_Player::DoPhysic_Lift(double CycleTime)
       default:  SoundFactor = 1.0; break;
     }
 
-    if (LiftSoundHandle==0) {LiftSoundHandle = GameEnv->Sound->Start_PlaySound(10,true, false, 1.00,0); }
+    if (LiftSoundHandle==nullptr) {LiftSoundHandle = GameEnv->Sound->Start_PlaySound(10,true, false, 1.00,nullptr); }
     else                     GameEnv->Sound->ModifyFrequency(LiftSoundHandle, (ComputedLiftThrust*SoundFactor) / 60.0 + 1.0);
   }
 }
@@ -1174,7 +1190,7 @@ void ZActor_Player::DoPhysic_Train(double CycleTime)
     default:  SoundFactor = 1.0; break;
   }
 
-  if (TrainEngineSoundHandle==0) {TrainEngineSoundHandle = GameEnv->Sound->Start_PlaySound(9,true, false, 1.00,0); }
+  if (TrainEngineSoundHandle==nullptr) {TrainEngineSoundHandle = GameEnv->Sound->Start_PlaySound(9,true, false, 1.00,nullptr); }
   else                          GameEnv->Sound->ModifyFrequency(TrainEngineSoundHandle, (TrainThrust*SoundFactor) / 60.0 + 1.0);
 
 
@@ -1224,13 +1240,13 @@ void ZActor_Player::DoPhysic_Car(double CycleTime)
     }
 
 
-     if (CarEngineSoundHandle==0) {CarEngineSoundHandle = GameEnv->Sound->Start_PlaySound(8,true, false, 1.00,0); }
+     if (CarEngineSoundHandle==nullptr) {CarEngineSoundHandle = GameEnv->Sound->Start_PlaySound(8,true, false, 1.00,nullptr); }
      else                          GameEnv->Sound->ModifyFrequency(CarEngineSoundHandle, (CarThrust*FreqCoef) / 60.0 + 1.0);
 
   }
   else
   {
-    if (CarEngineSoundHandle) {GameEnv->Sound->Stop_PlaySound(CarEngineSoundHandle); CarEngineSoundHandle = 0; }
+    if (CarEngineSoundHandle) {GameEnv->Sound->Stop_PlaySound(CarEngineSoundHandle); CarEngineSoundHandle = nullptr; }
   }
 
   // Death
@@ -1438,7 +1454,7 @@ void ZActor_Player::DoPhysic_Car(double CycleTime)
   Bool PEnable[32];
 
 
-  In.Camera = 0;
+  In.Camera = nullptr;
   In.MaxCubeIterations = ceil(DepLen / 256)+5; // 6;
   In.PlaneCubeDiff = In.MaxCubeIterations - 3;
   In.MaxDetectionDistance = 3000000.0;
@@ -1544,7 +1560,7 @@ void ZActor_Player::DoPhysic_Plane(double CycleTime)
   if (PlaneEngineOn && (!IsDead))
   {
 
-     if (PlaneReactorSoundHandle==0 || PlaneWaitForRectorStartSound) {PlaneReactorSoundHandle = GameEnv->Sound->Start_PlaySound(3,true, false, 1.00,0); PlaneWaitForRectorStartSound = false; }
+     if (PlaneReactorSoundHandle==nullptr || PlaneWaitForRectorStartSound) {PlaneReactorSoundHandle = GameEnv->Sound->Start_PlaySound(3,true, false, 1.00,nullptr); PlaneWaitForRectorStartSound = false; }
      else                             GameEnv->Sound->ModifyFrequency(PlaneReactorSoundHandle, (PlaneEngineThrust) / 60000.0 + 1.0);
 
   }
@@ -1732,7 +1748,7 @@ void ZActor_Player::DoPhysic_Plane(double CycleTime)
     PlaneToohighAlt = true;
     PlaneEngineThrust = 0.0;
     PlaneEngineOn = false;
-    if ((PlaneReactorSoundHandle)) { GameEnv->Sound->Stop_PlaySound(PlaneReactorSoundHandle); PlaneReactorSoundHandle = 0; }
+    if ((PlaneReactorSoundHandle)) { GameEnv->Sound->Stop_PlaySound(PlaneReactorSoundHandle); PlaneReactorSoundHandle = nullptr; }
     GameEnv->GameWindow_Advertising->Advertise("ENGINE STALLED",ZGameWindow_Advertising::VISIBILITY_MEDIUM,0,3000.0, 3000.0 );
     GameEnv->GameWindow_Advertising->Advertise("PLANE IS FREE FALLING",ZGameWindow_Advertising::VISIBILITY_MEDLOW,0,3000.0, 3000.0 );
 
@@ -1776,7 +1792,7 @@ void ZActor_Player::DoPhysic_Plane(double CycleTime)
   Bool PEnable[32];
 
 
-  In.Camera = 0;
+  In.Camera = nullptr;
   In.MaxCubeIterations = ceil(DepLen / 256)+5; // 6;
   In.PlaneCubeDiff = In.MaxCubeIterations - 3;
   In.MaxDetectionDistance = 3000000.0;
@@ -1965,7 +1981,7 @@ void ZActor_Player::DoPhysic_Plane_Old(double CycleTime)
   Bool PEnable[32];
 
 
-  In.Camera = 0;
+  In.Camera = nullptr;
   In.MaxCubeIterations = ceil(DepLen / 256)+5; // 6;
   In.PlaneCubeDiff = In.MaxCubeIterations - 3;
   In.MaxDetectionDistance = 3000000.0;
@@ -2389,7 +2405,7 @@ void ZActor_Player::DoPhysic_GroundPlayer(double CycleTime)
   ZRayCast_out Out[32];
 
 
-  In.Camera = 0;
+  In.Camera = nullptr;
   In.MaxCubeIterations = ceil(DepLen / 256)+5; // 6;
   In.PlaneCubeDiff = In.MaxCubeIterations - 3;
   In.MaxDetectionDistance = 3000000.0;
@@ -2506,8 +2522,8 @@ void ZActor_Player::DoPhysic_GroundPlayer(double CycleTime)
   bool WalkSoundOn;
 
   WalkSoundOn = IsWalking && !IsInLiquid && IsOnGround && !IsCollided_h && !Flag_ActivateAntiFall;
-  if ( WalkSoundOn ) {if (WalkSoundHandle == 0) WalkSoundHandle = GameEnv->Sound->Start_PlaySound(4, true, true, 1.0, 0 ); }
-  else               {if (WalkSoundHandle != 0) { GameEnv->Sound->Stop_PlaySound(WalkSoundHandle); WalkSoundHandle = 0; }}
+  if ( WalkSoundOn ) {if (WalkSoundHandle == nullptr) WalkSoundHandle = GameEnv->Sound->Start_PlaySound(4, true, true, 1.0, nullptr ); }
+  else               {if (WalkSoundHandle != nullptr) { GameEnv->Sound->Stop_PlaySound(WalkSoundHandle); WalkSoundHandle = nullptr; }}
 
   #endif
 }
@@ -2787,7 +2803,7 @@ void ZActor_Player::DoPhysic_SupermanPlayer(double CycleTime)
   ZRayCast_out Out[32];
 
 
-  In.Camera = 0;
+  In.Camera = nullptr;
   In.MaxCubeIterations = ceil(DepLen / 256)+5; // 6;
   In.PlaneCubeDiff = In.MaxCubeIterations - 3;
   In.MaxDetectionDistance = 3000000.0;
@@ -2940,7 +2956,7 @@ void ZActor_Player::Action_GoLeftStraff()
             {
               PlaneEngineOn = false;
               PlaneEngineThrust = 0.0;
-              if ((PlaneReactorSoundHandle)) { GameEnv->Sound->Stop_PlaySound(PlaneReactorSoundHandle); PlaneReactorSoundHandle = 0; }
+              if ((PlaneReactorSoundHandle)) { GameEnv->Sound->Stop_PlaySound(PlaneReactorSoundHandle); PlaneReactorSoundHandle = nullptr; }
               GameEnv->GameWindow_Advertising->Advertise("ENGINE OFF",ZGameWindow_Advertising::VISIBILITY_MEDLOW,0,1000.0, 500.0 );
             }
             break;
@@ -2974,7 +2990,7 @@ void ZActor_Player::Action_GoRightStraff()
                GameEnv->GameWindow_Advertising->Advertise("ENGINE ON",ZGameWindow_Advertising::VISIBILITY_MEDLOW,0,1000.0, 500.0 );
                PlaneToohighAlt = false;
                PlaneWaitForRectorStartSound = false;
-               if ((PlaneReactorSoundHandle)) {GameEnv->Sound->Stop_PlaySound(PlaneReactorSoundHandle);PlaneReactorSoundHandle = 0;}
+               if ((PlaneReactorSoundHandle)) {GameEnv->Sound->Stop_PlaySound(PlaneReactorSoundHandle);PlaneReactorSoundHandle = nullptr;}
                PlaneReactorSoundHandle = GameEnv->Sound->Start_PlaySound(2,false, false, 1.0,&PlaneWaitForRectorStartSound);
 
              }
@@ -3044,7 +3060,7 @@ void ZActor_Player::Start_Riding(Long x, Long y, Long z)
     {
       Loc.Sector->Data[Loc.Offset] = 0;
       Loc.Sector->OtherInfos[Loc.Offset]=0;
-      GameEnv->World->SetVoxel_WithCullingUpdate(x,y,z,0,ZVoxelSector::CHANGE_CRITICAL,true,0);
+      GameEnv->World->SetVoxel_WithCullingUpdate(x,y,z,0,ZVoxelSector::CHANGE_CRITICAL,true,nullptr);
       Riding_IsRiding = true;
 
       ZVector3d NewPlayerLocation;
@@ -3235,10 +3251,10 @@ void ZActor_Player::Stop_Riding(Bool RegiveVoxel)
   {
 
 
-    if ((LiftSoundHandle))        { GameEnv->Sound->Stop_PlaySound(LiftSoundHandle); LiftSoundHandle = 0; }
-    if ((CarEngineSoundHandle))   { GameEnv->Sound->Stop_PlaySound(CarEngineSoundHandle); CarEngineSoundHandle = 0;    }
-    if ((TrainEngineSoundHandle)) { GameEnv->Sound->Stop_PlaySound(TrainEngineSoundHandle); TrainEngineSoundHandle = 0;  }
-    if ((PlaneReactorSoundHandle)){ GameEnv->Sound->Stop_PlaySound(PlaneReactorSoundHandle); PlaneReactorSoundHandle = 0; }
+    if ((LiftSoundHandle))        { GameEnv->Sound->Stop_PlaySound(LiftSoundHandle); LiftSoundHandle = nullptr; }
+    if ((CarEngineSoundHandle))   { GameEnv->Sound->Stop_PlaySound(CarEngineSoundHandle); CarEngineSoundHandle = nullptr;    }
+    if ((TrainEngineSoundHandle)) { GameEnv->Sound->Stop_PlaySound(TrainEngineSoundHandle); TrainEngineSoundHandle = nullptr;  }
+    if ((PlaneReactorSoundHandle)){ GameEnv->Sound->Stop_PlaySound(PlaneReactorSoundHandle); PlaneReactorSoundHandle = nullptr; }
 
     GameEnv->World->Convert_Coords_PlayerToVoxel(Location.x, Location.y, Location.z, VLoc.x, VLoc.y, VLoc.z);
 
@@ -3290,7 +3306,7 @@ void ZActor_Player::Event_PlaneCrash()
 {
   GameEnv->GameWindow_Advertising->Clear();
   GameEnv->GameWindow_Advertising->Advertise("CRASH", ZGameWindow_Advertising::VISIBILITY_MEDLOW, 0, 1000.0, 0.0);
-  if ((PlaneReactorSoundHandle)) { GameEnv->Sound->Stop_PlaySound(PlaneReactorSoundHandle); PlaneReactorSoundHandle = 0; }
+  if ((PlaneReactorSoundHandle)) { GameEnv->Sound->Stop_PlaySound(PlaneReactorSoundHandle); PlaneReactorSoundHandle = nullptr; }
   GameEnv->Sound->PlaySound(1);
   IsDead = true;
   DeathChronometer = 5000.0;
@@ -3607,10 +3623,10 @@ bool ZActor_Player::TrainFollowTrack(ZVector3d & ActualLocation, double LinearAd
       if(!Clear && false)
       {
         Clear = true;
-        GameEnv->World->SetVoxel_WithCullingUpdate(VoxLoc.x, VoxLoc.y,VoxLoc.z, 272, ZVoxelSector::CHANGE_CRITICAL,false,0);
-        GameEnv->World->SetVoxel_WithCullingUpdate(VoxLoc.x, VoxLoc.y+1,VoxLoc.z, 0, ZVoxelSector::CHANGE_CRITICAL,false,0);
-        GameEnv->World->SetVoxel_WithCullingUpdate(VoxLoc.x, VoxLoc.y+2,VoxLoc.z, 0, ZVoxelSector::CHANGE_CRITICAL,false,0);
-        GameEnv->World->SetVoxel_WithCullingUpdate(VoxLoc.x, VoxLoc.y+3,VoxLoc.z, 0, ZVoxelSector::CHANGE_CRITICAL,false,0);
+        GameEnv->World->SetVoxel_WithCullingUpdate(VoxLoc.x, VoxLoc.y,VoxLoc.z, 272, ZVoxelSector::CHANGE_CRITICAL,false,nullptr);
+        GameEnv->World->SetVoxel_WithCullingUpdate(VoxLoc.x, VoxLoc.y+1,VoxLoc.z, 0, ZVoxelSector::CHANGE_CRITICAL,false,nullptr);
+        GameEnv->World->SetVoxel_WithCullingUpdate(VoxLoc.x, VoxLoc.y+2,VoxLoc.z, 0, ZVoxelSector::CHANGE_CRITICAL,false,nullptr);
+        GameEnv->World->SetVoxel_WithCullingUpdate(VoxLoc.x, VoxLoc.y+3,VoxLoc.z, 0, ZVoxelSector::CHANGE_CRITICAL,false,nullptr);
       }
 
 

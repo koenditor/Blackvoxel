@@ -25,11 +25,6 @@
 
 #pragma once 
 
-#include "ACompileSettings.h"
-
-#include "z/ZTypes.h"
-
-
 // Windows Operating system
 
 #ifdef ZENV_OS_WINDOWS

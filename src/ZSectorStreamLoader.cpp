@@ -24,7 +24,16 @@
  */
 
 #include "ZSectorStreamLoader.h"
-#include "SDL2/SDL.h"
+
+#include <SDL2/SDL_thread.h>
+#include <SDL2/SDL_timer.h>
+#include <stdio.h>
+
+#include "ACompileSettings.h"
+#include "ZVoxelSector.h"
+#include "ZVoxelType.h"
+#include "ZVoxelTypeManager.h"
+#include "z/ZMemPool.h"
 
 ULong debug_deletecount = 0;
 
@@ -82,13 +91,13 @@ ZFileSectorLoader::ZFileSectorLoader()
   ReadySectorList   = new ZSectorRingList(1024*1024);
   EjectedSectorList = new ZSectorRingList(1024*1024);
   SectorRecycling   = new ZSectorRingList(1024*1024);
-  VoxelTypeManager = 0;
+  VoxelTypeManager = nullptr;
   UniverseNum = 1;
   WorkingEmptySector = new ZVoxelSector;
   WorkingEmptySector->Fill(0);
   WorkingFullSector = new ZVoxelSector;
   WorkingFullSector->Fill(1);
-  Thread = 0;
+  Thread = nullptr;
   ThreadContinue = false;
 }
 
@@ -97,12 +106,12 @@ ZFileSectorLoader::~ZFileSectorLoader()
   if (WorkingEmptySector)
   {
     delete WorkingEmptySector;
-    WorkingEmptySector = 0;
+    WorkingEmptySector = nullptr;
   }
   if (WorkingFullSector)
   {
     delete WorkingFullSector;
-    WorkingFullSector = 0;
+    WorkingFullSector = nullptr;
   }
 
   ZVoxelSector * Sector;
@@ -115,13 +124,13 @@ ZFileSectorLoader::~ZFileSectorLoader()
       delete Sector;
     }
     delete ReadySectorList;
-    ReadySectorList = 0;
+    ReadySectorList = nullptr;
   }
   if (EjectedSectorList)
   {
     EjectedSectorList->FreeRemainingContent();
     delete EjectedSectorList;
-    EjectedSectorList = 0;
+    EjectedSectorList = nullptr;
   }
   UniverseNum = 0;
 }

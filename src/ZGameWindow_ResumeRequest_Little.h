@@ -26,14 +26,9 @@
 #pragma once 
 
 #include "z/ZString.h"
-
 #include "ZGui.h"
-
-#include "ZGui_TileFrame.h"
-
 #include "ZGui_FontFrame.h"
-
-#include "ZGui_PanelTextButton.h"
+#include "z/ZTypes.h"
 
 class ZGame;
 
@@ -55,7 +50,7 @@ class ZGameWindow_ResumeRequest_Little : public ZFrame
   ZGameWindow_ResumeRequest_Little()
   {
     MainWindow = this;
-    GameEnv = 0;
+    GameEnv = nullptr;
     Flag_Shown = false;
     Text_Text  = "CLICK TO RESUME GAME";
   }

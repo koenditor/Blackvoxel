@@ -25,7 +25,18 @@
 
 #include "ZScreen_ChooseOption.h"
 
+#include <SDL2/SDL_timer.h>
+#include <SDL2/SDL_video.h>
+#include <stdlib.h>
+
 #include "GL/gl.h"
+#include "ZEventManager.h"
+#include "ZGame.h"
+#include "ZGui_FontFrame.h"
+#include "ZGui_TileFrame.h"
+#include "ZSettings_Hardware.h"
+#include "ZTileSets.h"
+#include "z/ZString.h"
 
 ULong ZScreen_ChooseOption::ProcessScreen(ZGame * GameEnv)
 {

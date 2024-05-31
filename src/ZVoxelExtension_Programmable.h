@@ -31,11 +31,13 @@
 
 
 #include "ZVoxelExtension.h"
-
 #include "ZScripting_Squirrel3.h"
+#include "z/ZString.h"
+#include "z/ZTypes.h"
 
-class ZGame;
 template <typename Type> class ZGenericCanva;
+class ZStream_SpecialRamStream;
+class ZVector3L;
 
 class ZVoxelExtension_Programmable : public ZVoxelExtension
 {
@@ -63,7 +65,7 @@ class ZVoxelExtension_Programmable : public ZVoxelExtension
 
     virtual ZVoxelExtension * GetNewCopy()
     {
-      return(0);
+      return nullptr;
     }
 
     ZVoxelExtension_Programmable()
@@ -77,7 +79,7 @@ class ZVoxelExtension_Programmable : public ZVoxelExtension
       IsAllowedToRun = false;
       ImageInUse = 0;
       Overclock = 0;
-      for (i=0;i<ImageTable_Size;i++) ImageTable[i] = 0;
+      for (i=0;i<ImageTable_Size;i++) ImageTable[i] = nullptr;
     }
 
     virtual ~ZVoxelExtension_Programmable();

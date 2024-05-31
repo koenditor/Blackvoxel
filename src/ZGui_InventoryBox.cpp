@@ -25,9 +25,17 @@
 
 #include "ZGui_InventoryBox.h"
 
-#include "SDL2/SDL.h"
+#include <SDL2/SDL_scancode.h>
 
 #include "GL/gl.h"
+#include "ZEventManager.h"
+#include "ZTileSets.h"
+#include "ZVoxelType.h"
+#include "ZVoxelTypeManager.h"
+#include "z/ZObject_Lists.h"
+#include "z/ZString.h"
+#include "ZGui.h"
+#include "z/ZTypes.h"
 
 void ZInventoryBox::Render(Frame_Dimensions * ParentPosition)
 {

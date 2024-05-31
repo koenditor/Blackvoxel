@@ -26,13 +26,13 @@
 
 #pragma once
 
+#include <cstdio>
+
 #include "z/ZTypes.h"
-
 #include "ZChip.h"
-
 #include "ZVCPU_Chip_Interface.h"
 
-#include <cstdio>
+class ZStream_SpecialRamStream;
 
 #define ZCHIP_PI_CR_INTERRUPT_ENABLE 1
 #define ZCHIP_PI_CR_INTERRUPT_TRIGGERED 2
@@ -59,7 +59,7 @@ class ZChip_Parallel_Interface : public ZChip
   public:
     ZChip_Parallel_Interface()
     {
-      Cpu = 0;
+      Cpu = nullptr;
       Cpu_Interrupt_Line = 1;
       Reset();
     }

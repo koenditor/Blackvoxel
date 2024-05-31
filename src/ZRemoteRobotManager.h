@@ -26,10 +26,10 @@
 #pragma once 
 
 #include "z/ZObject_Lists.h"
-
 #include "z/ZNetworking_TCP.h"
+#include "z/ZObject.h"
+#include "z/ZString.h"
 
-class ZTCPNet_Socket;
 class ZSimpleRequestParser;
 
 class ZRemoteRobotManager

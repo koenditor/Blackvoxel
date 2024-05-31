@@ -26,10 +26,10 @@
 #pragma once 
 
 #include "ZGui.h"
-
-#include "ZGui_FontFrame.h"
-
 #include "ZGui_TileFrame.h"
+#include "z/ZTypes.h"
+
+class ZTileSet;
 
 class ZFrame_CheckBox : public ZFrame
 {
@@ -50,7 +50,7 @@ class ZFrame_CheckBox : public ZFrame
     ZFrame_CheckBox()
     {
       FrameType = MulticharConst('C','H','C','K');
-      GUITileSet = 0;
+      GUITileSet = nullptr;
       Flag_Show_Frame = false;
       Event_CheckBoxChange = false;
       CheckBoxState = false;

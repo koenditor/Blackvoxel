@@ -24,9 +24,10 @@
  */
 
 #include "ZInventory.h"
-#include <stdio.h>
 
 #include "ZVoxelTypeManager.h"
+#include "ZVoxelType.h"
+#include "z/ZStream_SpecialRamStream.h"
 
 
 ZInventory::ZInventory()
@@ -58,7 +59,7 @@ ZInventory::ZInventory(ULong SlotCount)
 ZInventory::~ZInventory()
 {
   if (SlotTable) delete [] SlotTable;
-  SlotTable = 0;
+  SlotTable = nullptr;
   SlotCount = 0;
 }
 

@@ -26,8 +26,8 @@
 #include "ZChip_Display_Controller.h"
 
 #include "ZVMachine_T1.h"
-
-#include "ZActiveVoxelInterface.h"
+#include "ZVCPU.h"
+#include "z/ZStream_SpecialRamStream.h"
 
 
 void ZChip_Display_Controller::Reset()

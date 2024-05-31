@@ -31,8 +31,10 @@
 
 
 #include "ZTools.h"
-
 #include "z/ZString.h"
+#include "z/ZTypes.h"
+
+class ZVector3L;
 
 class ZTool_OreScan : public ZTool
 {

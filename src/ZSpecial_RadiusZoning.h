@@ -49,7 +49,7 @@ class ZRadius_Zoning : public ZObject
 
     ZRadius_Zoning()
     {
-      ZoneData = 0;
+      ZoneData = nullptr;
       ZoneSize = 0;
     }
 

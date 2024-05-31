@@ -26,6 +26,9 @@
 #include "ZGameWindow_Scan.h"
 
 #include "ZGame.h"
+#include "ZActorPhysics.h"
+#include "ZTileSets.h"
+#include "z/ZTypes.h"
 
 void ZGameWindow_Scan::Show()
 {

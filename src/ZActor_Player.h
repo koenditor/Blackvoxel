@@ -26,12 +26,15 @@
 #pragma once
 
 #include "ZActorPhysics.h"
-
-#include "ZCamera.h"
-
 #include "ZVoxel.h"
-
 #include "SDL2/SDL_stdinc.h"
+#include "ZWorld.h"
+#include "z/ZString.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZType_ZVector3d.h"
+#include "z/ZTypes.h"
+
+class ZStream_SpecialRamStream;
 
 #define ZACTORPLAYER_TRAINMAXLEN 34
 
@@ -124,26 +127,26 @@ class ZActor_Player : public ZActor
     ZRayCast_out PointedVoxel;
     ZRayCast_out PointedVoxel_Previous;
 
-    virtual void Init(bool Death=false);
+    virtual void Init(bool Death=false) override;
     virtual void SetInitialInventory(bool Death);
     ZActor_Player();
 
     virtual ~ZActor_Player();
-    virtual void SetPosition( ZVector3d &NewLocation );
+    virtual void SetPosition( ZVector3d &NewLocation ) override;
     virtual void Sync_Camera(double VerticalOffset);
     virtual void SetViewToCubeDirection(Long Direction); // Use Sync_Camera() After.
     virtual void SetViewToCubeDirection_Progressive(Long Direction, double MaxTurn); // Use Sync_Camera() After.
 
-    virtual void Action_MouseMove( Long Delta_x, Long Delta_y);
-    virtual void Action_MouseButtonClick( ULong Button);
-    virtual void Action_MouseButtonRelease( ULong Button);
-    virtual bool Action_StillEvents( bool * MouseMatrix, const Uint8 * KeyboardMatrix);
-    virtual void Action_SetActorMode(ULong ActorMode) {this->ActorMode = ActorMode;}
+    virtual void Action_MouseMove( Long Delta_x, Long Delta_y) override;
+    virtual void Action_MouseButtonClick( ULong Button) override;
+    virtual void Action_MouseButtonRelease( ULong Button) override;
+    virtual bool Action_StillEvents( bool * MouseMatrix, const Uint8 * KeyboardMatrix) override;
+    virtual void Action_SetActorMode(ULong ActorMode) override {this->ActorMode = ActorMode;}
 
 
-    virtual void Event_Collision(double RelativeVelocity );
+    virtual void Event_Collision(double RelativeVelocity ) override;
 
-    virtual void DoPhysic(UELong FrameTime);
+    virtual void DoPhysic(UELong FrameTime) override ;
 
     virtual void DoPhysic_GroundPlayer(double CycleTime);
     virtual void DoPhysic_Plane(double CycleTime);
@@ -154,23 +157,22 @@ class ZActor_Player : public ZActor
     virtual void DoPhysic_Lift(double CycleTime);
     virtual void DoPhysic_Spinner(double CycleTime);
 
-    virtual bool Save( ZStream_SpecialRamStream * OutStream );
-    virtual bool Load( ZStream_SpecialRamStream * InStream  );
+    virtual bool Save( ZStream_SpecialRamStream * OutStream ) override;
+    virtual bool Load( ZStream_SpecialRamStream * InStream  ) override;
 
-    virtual void Action_GoFastForward( double speed);
-    virtual void Action_GoForward();
-    virtual void Action_GoBackward();
-    virtual void Action_GoLeftStraff();
-    virtual void Action_GoRightStraff();
-    virtual void Action_GoUp();
-    virtual void Action_GoDown();
-    virtual void Action_Jump();
+    virtual void Action_GoFastForward( double speed) override;
+    virtual void Action_GoForward() override;
+    virtual void Action_GoBackward() override;
+    virtual void Action_GoLeftStraff() override;
+    virtual void Action_GoRightStraff() override;
+    virtual void Action_GoUp() override;
+    virtual void Action_GoDown() override;
+    virtual void Action_Jump() override;
 
+    virtual void Start_Riding(Long x, Long y, Long z) override;
+    virtual void Stop_Riding(bool RegiveVoxel=true) override;
 
-    virtual void Start_Riding(Long x, Long y, Long z);
-    virtual void Stop_Riding(bool RegiveVoxel=true);
-
-    virtual void Action_GetInOutOfVehicle()
+    virtual void Action_GetInOutOfVehicle() override
     {
       if ( !Riding_IsRiding) return;
 
@@ -204,11 +206,11 @@ class ZActor_Player : public ZActor
       }
     }
 
-    virtual void Event_Death();
+    virtual void Event_Death() override;
     virtual void Event_PlaneCrash();
     virtual void Event_DeadlyFall();
 
-    virtual void Process_Powers();
+    virtual void Process_Powers() override;
 
     // Train specific functions
 

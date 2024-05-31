@@ -25,7 +25,13 @@
 
 #include "ZScreen_Saving.h"
 
+#include <SDL2/SDL_timer.h>
+#include <SDL2/SDL_video.h>
+
 #include "GL/gl.h"
+#include "ZGame.h"
+#include "ZGui_FontFrame.h"
+#include "ZTileSets.h"
 
 
 ULong ZScreen_Saving::ProcessScreen(ZGame * GameEnv)

@@ -24,9 +24,17 @@
  */
 
 #include "ZGameWindow_UserTextureTransformer.h"
+
+#include <SDL2/SDL_mouse.h>
+#include <SDL2/SDL_stdinc.h>
+
 #include "ZGame.h"
 #include "ZActorPhysics.h"
-#include "SDL2/SDL.h"
+#include "ZGame_Events.h"
+#include "ZInventory.h"
+#include "ZTileSets.h"
+#include "ZVoxelType.h"
+#include "ZVoxelTypeManager.h"
 
 void ZGameWindow_UserTextureTransformer::Show()
 {
@@ -249,7 +257,7 @@ Bool ZGameWindow_UserTextureTransformer::MouseButtonClick  (UShort nButton, Shor
     if (VoxelExtension_UserTextureTransformer->ActualVoxel >= 32768)
     {
       ModelVoxelType = GameEnv->VoxelTypeManager.GetVoxelType(VoxelExtension_UserTextureTransformer->ActualVoxel);
-      if (ModelVoxelType != 0)
+      if (ModelVoxelType != nullptr)
         if (!ModelVoxelType->Is_NoType)
           for (i=0;i<10;i++)
           {

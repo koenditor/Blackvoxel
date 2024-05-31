@@ -26,6 +26,11 @@
 #pragma once
 
 #include "ZVoxelType.h"
+#include "z/ZString.h"
+#include "z/ZTypes.h"
+
+class ZActiveVoxelInterface;
+class ZVoxelExtension;
 
 
 class ZVoxelType_ProgRobot_Remote : public ZVoxelType

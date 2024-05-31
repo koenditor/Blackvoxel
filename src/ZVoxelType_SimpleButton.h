@@ -26,6 +26,10 @@
 #pragma once
 
 #include "ZVoxelType.h"
+#include "z/ZString.h"
+#include "z/ZTypes.h"
+
+class ZVar;
 
 class ZVoxelType_SimpleButton : public ZVoxelType
 {

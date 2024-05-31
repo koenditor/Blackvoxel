@@ -26,6 +26,10 @@
 #pragma once
 
 #include "ZVoxelType.h"
+#include "z/ZTypes.h"
+
+class ZString;
+class ZVoxelExtension;
 
 class ZVoxelType_BlastFurnace : public ZVoxelType
 {

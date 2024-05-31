@@ -25,7 +25,17 @@
 
 #include "ZScreen_Options_Keymap.h"
 
+#include <SDL2/SDL_scancode.h>
+#include <SDL2/SDL_timer.h>
+#include <SDL2/SDL_video.h>
+
 #include "GL/gl.h"
+#include "ZEventManager.h"
+#include "ZGame.h"
+#include "ZGui_FontFrame.h"
+#include "ZGui_KeyChooser.h"
+#include "ZSettings_Hardware.h"
+#include "ZTileSets.h"
 
 
 ULong ZScreen_Options_Keymap::ProcessScreen(ZGame * GameEnv)

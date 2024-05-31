@@ -26,20 +26,17 @@
 #pragma once
 
 #include "ZGui.h"
-
 #include "ZGui_Disassembler.h"
-
 #include "ZGui_CPU_Registers.h"
-
 #include "ZGui_PanelTextButton.h"
-
 #include "ZGui_FontFrame.h"
-
 #include "ZGui_TileFrame.h"
-
 #include "ZVoxelExtension_ProgRobot_Asm.h"
+#include "z/ZString.h"
+#include "z/ZTypes.h"
 
 class ZGame;
+class ZVoxelExtension;
 
 class ZGameWindow_AsmDebug : public ZFrame
 {
@@ -80,9 +77,9 @@ class ZGameWindow_AsmDebug : public ZFrame
   ZGameWindow_AsmDebug()
   {
     MainWindow = this;
-    GameEnv = 0;
+    GameEnv = nullptr;
     Flag_Shown = false;
-    VoxelExtension = 0;
+    VoxelExtension = nullptr;
     Text_Title       = "ROBOT MONITOR";
     Text_Button_Step = "STEP";
     Text_Button_Run  = "RUN";

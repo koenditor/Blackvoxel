@@ -26,6 +26,8 @@
 #pragma once
 
 #include "ZVoxelType.h"
+#include "z/ZString.h"
+#include "z/ZTypes.h"
 
 class ZVoxelType_Spinner : public ZVoxelType
 {

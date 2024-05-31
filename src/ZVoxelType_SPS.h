@@ -31,6 +31,7 @@
 
 
 #include "ZVoxelType.h"
+#include "z/ZTypes.h"
 
 class ZVoxelType_SPS : public ZVoxelType
 {

@@ -31,6 +31,8 @@
 
 
 #include "ZVoxelExtension.h"
+#include "z/ZStream_SpecialRamStream.h"
+#include "z/ZTypes.h"
 
 
 class ZVoxelExtension_Example : public ZVoxelExtension

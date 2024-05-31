@@ -25,6 +25,9 @@
 
 #include "ZGui_ProgressBar.h"
 
+#include "ZTileSets.h"
+#include "z/ZObject_Lists.h"
+
 void ZFrame_ProgressBar::Render(Frame_Dimensions * ParentPosition)
 {
 

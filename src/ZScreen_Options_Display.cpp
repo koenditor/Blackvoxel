@@ -25,9 +25,18 @@
 
 #include "ZScreen_Options_Display.h"
 
-#include "z/ZObject_Array.h"
+#include <SDL2/SDL_timer.h>
+#include <SDL2/SDL_video.h>
 
+#include "z/ZObject_Array.h"
 #include "GL/gl.h"
+#include "ZEventManager.h"
+#include "ZGame.h"
+#include "ZGui_CheckBox.h"
+#include "ZGui_CyclingChoiceBox.h"
+#include "ZGui_FontFrame.h"
+#include "ZSettings_Hardware.h"
+#include "ZTileSets.h"
 
 
 int ZScreen_Options_Display::ResolutionCompare(ZObject * Object_1, ZObject * Object_2)

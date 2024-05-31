@@ -48,7 +48,7 @@ class ZRandom_MakeGoodNumbers
 
       ULong Data, OldData, i,j;
 
-      Mem = new ULong[Quantity]; if (Mem ==0) return(false);
+      Mem = new ULong[Quantity]; if (Mem ==nullptr) return(false);
 
       InputFile.SetFileName(Input_FileName.String);
       OutputFile.SetFileName(Output_FileName.String);
@@ -59,7 +59,7 @@ class ZRandom_MakeGoodNumbers
 
       for (i=0; i<Quantity; i++)
       {
-        Data = Mem[i];
+        OldData = Data = Mem[i];
 
         for (j=0;j<64 + (OldData & 15); j++) Data = (Data >> 1) ^ (-(Data & 1ul) & 0xD0000001ul);
 

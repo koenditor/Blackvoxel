@@ -42,7 +42,7 @@ class ZFastBit_Array
     ZFastBit_Array()
     {
       if (sizeof(ULong)!=4) throw; // ULong Needs to be 32 bits
-      Storage = 0;
+      Storage = nullptr;
       StorageSize = 0;
     }
 
@@ -57,13 +57,13 @@ class ZFastBit_Array
 
     ZFastBit_Array(ZMemSize Size)
     {
-      Storage = 0;
+      Storage = nullptr;
       InitSize(Size);
     }
 
     ~ZFastBit_Array()
     {
-      if ((Storage)) { delete [] Storage; Storage = 0; }
+      if ((Storage)) { delete [] Storage; Storage = nullptr; }
     }
 
 
@@ -119,7 +119,7 @@ class ZFastBit_Array_64k
 
     ~ZFastBit_Array_64k()
     {
-      if ((Storage)) { delete [] Storage; Storage = 0; }
+      if ((Storage)) { delete [] Storage; Storage = nullptr; }
     }
 
 

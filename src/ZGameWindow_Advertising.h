@@ -26,12 +26,10 @@
 #pragma once
 
 #include "z/ZString.h"
-
 #include "z/ZSimpleFile.h"
-
 #include "ZGui.h"
-
 #include "ZGui_FontFrame.h"
+#include "z/ZTypes.h"
 
 class ZGame;
 
@@ -66,8 +64,8 @@ class ZGameWindow_Advertising
   ZGameWindow_Advertising()
   {
     Flag_Shown = false;
-    ActualyDisplayedEntry = 0;
-    GameEnv = 0;
+    ActualyDisplayedEntry = nullptr;
+    GameEnv = nullptr;
   }
 
   ~ZGameWindow_Advertising()
@@ -76,7 +74,7 @@ class ZGameWindow_Advertising
 
     while ((Entry = (DisplayEntry *)DisplayFile.PullFromFile()))
     {
-      if (ActualyDisplayedEntry) { delete ActualyDisplayedEntry; ActualyDisplayedEntry = 0; }
+      if (ActualyDisplayedEntry) { delete ActualyDisplayedEntry; ActualyDisplayedEntry = nullptr; }
       delete Entry;
     }
   }

@@ -26,12 +26,12 @@
 #pragma once 
 
 #include "z/ZString.h"
-
 #include "ZGui.h"
-
 #include "ZGui_FontFrame.h"
+#include "z/ZTypes.h"
 
 class ZVMachine;
+class ZGame;
 
 #define ZCPUREGISTERS_MAXLINECOUNT 32
 
@@ -49,10 +49,10 @@ class ZCPURegisters : public ZFrame
     ZCPURegisters ()
     {
       FrameType = MulticharConst('C','R','E','G');
-      VMachine = 0;
+      VMachine = nullptr;
       Margin = 2.0f;
       LineHeight = 12.0;
-      GameEnv = 0;
+      GameEnv = nullptr;
       DisplaySlots = 0;
     }
 

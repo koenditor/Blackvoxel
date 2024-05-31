@@ -26,13 +26,15 @@
 #include "ZVoxelType_Egmy_T1.h"
 
 #include "ZVoxelExtension_Egmy_T1.h"
-
 #include "ZVoxelSector.h"
+#include "z/ZType_ZVector3L.h"
+
+class ZVoxelExtension;
 
 
 ZVoxelExtension * ZVoxelType_Egmy_T1::CreateVoxelExtension(bool IsLoadingPhase)
 {
-  ZVoxelExtension * NewVoxelExtension = 0;
+  ZVoxelExtension * NewVoxelExtension = nullptr;
 
   NewVoxelExtension = new ZVoxelExtension_Egmy_T1;
 

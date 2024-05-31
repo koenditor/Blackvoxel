@@ -18,6 +18,8 @@
 */
 #include "ZVoxelType_YellowGas.h"
 
+class ZVoxelExtension;
+
 ZVoxelExtension * ZVoxelType_YellowGas::CreateVoxelExtension(bool IsLoadingPhase)
 {
   return (ZVoxelExtension *)1000; // Life Cycles for yellow gas. Cycles are in ~1/5 seconds, the cycletime of the MVI engine.

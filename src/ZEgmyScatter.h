@@ -46,7 +46,7 @@ class ZEgmyScatter
 
     ZEgmyScatter()
     {
-      World = 0;
+      World = nullptr;
       Count_T1 = 100;
       ResetWave();
     }

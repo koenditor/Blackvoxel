@@ -25,13 +25,18 @@
 
 #include "ZGameWindow_Programmable.h"
 
+#include <SDL2/SDL_mouse.h>
+#include <SDL2/SDL_stdinc.h>
+#include <math.h>
+
 #include "ZOs_Specific_EditCode.h"
-
 #include "z/ZStream_File.h"
-
 #include "ZGame.h"
 #include "ZActorPhysics.h"
-#include "SDL2/SDL.h"
+#include "ZGame_Events.h"
+#include "ZInventory.h"
+#include "ZSettings_Hardware.h"
+#include "ZTileSets.h"
 
 void ZGameWindow_Programmable::DisplayProgramName()
 {

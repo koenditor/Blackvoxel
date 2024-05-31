@@ -24,8 +24,8 @@
  */
 
 #include "ZGame.h"
-
 #include "ZVoxelExtension_ProgRobot_Asm.h"
+#include "z/ZStream_SpecialRamStream.h"
 
 extern ZGame * Ge;
 

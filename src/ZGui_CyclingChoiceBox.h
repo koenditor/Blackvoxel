@@ -26,10 +26,12 @@
 #pragma once 
 
 #include "ZGui.h"
-
 #include "ZGui_FontFrame.h"
-
 #include "ZGui_TileFrame.h"
+#include "z/ZTypes.h"
+
+class ZTileSet;
+class ZTileStyle;
 
 class ZFrame_CyclingChoiceBox : public ZFrame
 {

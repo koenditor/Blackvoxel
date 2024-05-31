@@ -30,21 +30,12 @@
 
 
 
+#include <math.h>
+
 #include "z/ZFastRandom.h"
-
 #include "ZVoxelSector.h"
-
-#include "ZVoxelGfx_Tree.h"
-
-#include "z/ZBitmapImage.h"
-
-#include "ACompileSettings.h"
-
-#include "ZSectorLoader.h"
-
-#include "z/ZString.h"
-
 #include "z/ZGenericCanva_2.h"
+#include "z/ZTypes.h"
 
 #define Z_GENESISMAP_SIZE 128
 

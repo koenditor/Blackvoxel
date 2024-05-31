@@ -42,7 +42,7 @@ class ZSectorModifTracker
     {
       BitSize = SizeInBits;
       StorageSize_Num_Ulongs = (BitSize + 1) >> 5;
-      if ((Storage)) { delete Storage; Storage = 0; }
+      if ((Storage)) { delete Storage; Storage = nullptr; }
       if (StorageSize_Num_Ulongs>0) Storage = new ULong[StorageSize_Num_Ulongs];
       if (sizeof(ULong)!=4) throw; // ULong Needs to be 32 bits
       ActualCycleNum = (ULong)(-1);
@@ -51,7 +51,7 @@ class ZSectorModifTracker
 
     ZSectorModifTracker()
     {
-      Storage = 0;
+      Storage = nullptr;
       ActualCycleNum = (ULong)(-1);
       LastUpdateCycleNum = 0;
       StorageSize_Num_Ulongs = 0;
@@ -62,13 +62,13 @@ class ZSectorModifTracker
 
     ZSectorModifTracker(ZMemSize SizeInBits)
     {
-      Storage = 0;
+      Storage = nullptr;
       Init(SizeInBits);
     }
 
     ~ZSectorModifTracker()
     {
-      if ((Storage)) { delete Storage; Storage = 0; }
+      if ((Storage)) { delete Storage; Storage = nullptr; }
       ActualCycleNum = (ULong)(-1);
       LastUpdateCycleNum = 0;
     }

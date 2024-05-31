@@ -25,90 +25,56 @@
 
 #pragma once
 
-#include "ACompileSettings.h"
-
-#include "SDL2/SDL.h"
-
-#include "ZVoxelType.h"
-
+#include <SDL2/SDL_video.h>
 #include "ZTextureManager.h"
-
 #include "ZGui.h"
-
-#include "ZTileSets.h"
-
-#include "ZSettings_Hardware.h"
-
 #include "ZEventManager.h"
-
-#include "ZGame_Events.h"
-
 #include "ZSound.h"
-
 #include "ZWorld.h"
-
-#include "ZActor_Player.h"
-
-#include "ZSectorStreamLoader.h"
-
-#include "ZVoxelProcessor.h"
-
-#include "ZGameWindow_Inventory.h"
-
-#include "ZGameWindow_VoxelTypeBar.h"
-
-#include "ZGameWindow_Storage.h"
-
-#include "ZGameWindow_Programmable.h"
-
-#include "ZGameWindow_UserTextureTransformer.h"
-
-#include "ZGameWindow_ProgressBar.h"
-
-#include "ZGameWindow_AsmDebug.h"
-
-#include "ZGameWindow_AsmHardware.h"
-
-#include "ZGameWindow_AsmExtendedRegisters.h"
-
-#include "ZGameWindow_Compilation_Result.h"
-
-#include "ZGameWindow_ResumeRequest.h"
-
-#include "ZGameWindow_Advertising.h"
-
-#include "ZGameWindow_DisplayInfos.h"
-
-#include "ZGameWindow_Sequencer.h"
-
-#include "ZGameWindow_ZProgRobot_Asm.h"
-
-#include "ZGameWindow_SPS.h"
-
-#include "ZGameWindow_Scan.h"
-
-#include "ZGameWindow_RTFM.h"
-
-#include "ZGameStat.h"
-
-#include "ZWorldInfo.h"
-
 #include "z/ZFastRandom.h"
-
 #include "ZPointList.h"
-
 #include "ZLog.h"
-
-#include "ZGameEventSequencer.h"
-
-#include "ZOs_Specific_HardwareDependent.h"
-
 #include "ZGameInfo.h"
-
+#include "ZActorPhysics.h"
+#include "ZVoxelSector.h"
+#include "ZVoxelTypeManager.h"
+#include "z/ZString.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZType_ZVector3d.h"
+#include "z/ZTypes.h"
 
 class ZRender_Basic;
 class ZGameWindow_ProgRobot_Remote;
 class ZGameWindow_ResumeRequest_Little;
+class ZFileSectorLoader;
+class ZGameEventSequencer;
+class ZGameStat;
+class ZGameWindow_Advertising;
+class ZGameWindow_AsmDebug;
+class ZGameWindow_AsmExtendedRegisters;
+class ZGameWindow_AsmHardware;
+class ZGameWindow_Compilation_Result;
+class ZGameWindow_DisplayInfos;
+class ZGameWindow_Inventory;
+class ZGameWindow_ProgRobot_Asm;
+class ZGameWindow_Programmable;
+class ZGameWindow_ProgressBar;
+class ZGameWindow_RTFM;
+class ZGameWindow_ResumeRequest;
+class ZGameWindow_SPS;
+class ZGameWindow_Scan;
+class ZGameWindow_Sequencer;
+class ZGameWindow_Storage;
+class ZGameWindow_UserTextureTransformer;
+class ZGameWindow_VoxelTypeBar;
+class ZGame_Events;
+class ZHardwareInfo;
+class ZSettings_Hardware;
+class ZTileSet;
+class ZTileSetStyles;
+class ZToolManager;
+class ZVoxelProcessor;
+class ZWorldInfo;
 
 class ZGame
 {
@@ -143,51 +109,51 @@ class ZGame
              Initialized_HardwareInfo =
              Initialized_GameStats =
              false;
-             TileSetStyles = 0 ; Font_1 =  0; GuiTileset = 0;
-             Settings_Hardware = 0;
+             TileSetStyles = nullptr ; Font_1 =  nullptr; GuiTileset = nullptr;
+             Settings_Hardware = nullptr;
              UniverseNum = 1;
-             Game_Events = 0;
-             Basic_Renderer = 0;
-             World = 0;
-             PhysicEngine = 0;
-             SectorLoader = 0;
-             VoxelProcessor = 0;
+             Game_Events = nullptr;
+             Basic_Renderer = nullptr;
+             World = nullptr;
+             PhysicEngine = nullptr;
+             SectorLoader = nullptr;
+             VoxelProcessor = nullptr;
              Time_GameLoop = 16.0;
-             VoxelTypeBar = 0;
-             ToolManager = 0;
-             VoxelTypeBar = 0;
-             GameWindow_Storage = 0;
-             GameWindow_Programmable = 0;
-             GameWindow_Inventory = 0;
-             GameWindow_DisplayInfos = 0;
-             GameWindow_ProgRobot_Asm = 0;
-             GameWindow_ProgRobot_Remote = 0;
-             GameWindow_AsmDebug = 0;
-             GameWindow_AsmHardware = 0;
-             GameWindow_AsmExtendedRegisters = 0;
-             GameWindow_Compilation_Result = 0;
-             GameWindow_ResumeRequest = 0;
-             GameWindow_ResumeRequest_Little = 0;
-             GameWindow_SPS = 0;
-             GameWindow_Scan = 0;
-             GameProgressBar = 0;
-             GameWindow_RTFM = 0;
+             VoxelTypeBar = nullptr;
+             ToolManager = nullptr;
+             VoxelTypeBar = nullptr;
+             GameWindow_Storage = nullptr;
+             GameWindow_Programmable = nullptr;
+             GameWindow_Inventory = nullptr;
+             GameWindow_DisplayInfos = nullptr;
+             GameWindow_ProgRobot_Asm = nullptr;
+             GameWindow_ProgRobot_Remote = nullptr;
+             GameWindow_AsmDebug = nullptr;
+             GameWindow_AsmHardware = nullptr;
+             GameWindow_AsmExtendedRegisters = nullptr;
+             GameWindow_Compilation_Result = nullptr;
+             GameWindow_ResumeRequest = nullptr;
+             GameWindow_ResumeRequest_Little = nullptr;
+             GameWindow_SPS = nullptr;
+             GameWindow_Scan = nullptr;
+             GameProgressBar = nullptr;
+             GameWindow_RTFM = nullptr;
              Game_Run = false;
-             screen = 0;
-             GameWindow_Advertising = 0;
-             Sound = 0;
-             GameWindow_UserTextureTransformer = 0;
-             GameWindow_Sequencer = 0;
-             GameStat = 0;
-             WorldInfo = 0;
+             screen = nullptr;
+             GameWindow_Advertising = nullptr;
+             Sound = nullptr;
+             GameWindow_UserTextureTransformer = nullptr;
+             GameWindow_Sequencer = nullptr;
+             GameStat = nullptr;
+             WorldInfo = nullptr;
              ShipCenter = 0;
 
-             GameEventSequencer = 0;
+             GameEventSequencer = nullptr;
              Time_FrameTime = 20;
              Time_GameElapsedTime = 0;
              VFov = 63.597825649;
 
-             HardwareInfo = 0;
+             HardwareInfo = nullptr;
 
 
              // Game Info : Contains all data that must be reset between games.

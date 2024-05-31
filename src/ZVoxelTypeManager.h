@@ -26,20 +26,13 @@
 #pragma once 
 
 #include "z/ZTypes.h"
-
 #include "z/ZObject.h"
-
-#include "ZVoxelType.h"
-
-#include "z/ZFastBit_Array.h"
-
 #include "ZFabMachineInfos.h"
 
-#include "ZFabMachineInfos2.h"
-
-
-
 class ZGame;
+class ZFastBit_Array_64k;
+class ZString;
+class ZVoxelType;
 
 class ZVoxelTypeManager : public ZObject
 {

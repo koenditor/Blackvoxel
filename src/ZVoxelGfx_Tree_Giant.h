@@ -25,14 +25,13 @@
 
 #pragma once 
 
-
-#include "ZVoxelGfx_Tree_Giant.h"
-
-#include "ZVoxelSector.h"
-
+#include "z/ZTypes.h"
+#include "z/ZType_ZPolar3d.h"
+#include "z/ZLinearInterpolator.h"
 #include "z/ZFastRandom.h"
 
-#include "z/ZLinearInterpolator.h"
+class ZVector3d;
+class ZVoxelSector;
 
 
 class ZVoxelGfx_Tree_Giant

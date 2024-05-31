@@ -25,6 +25,9 @@
 
 #include "ZOs_Specific_EditCode.h"
 
+#include "z/ZString.h"
+#include "z/ZTypes.h"
+
 #ifdef ZENV_OS_LINUX
 
 #include <stdlib.h>

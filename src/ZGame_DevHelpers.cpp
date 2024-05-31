@@ -26,10 +26,9 @@
 #include "ZGame_DevHelpers.h"
 
 #include "ZVCPU.h"
-
 #include "ZWorldGenesis.h"
-
 #include "z/ZBitmapImage.h"
+#include "z/ZString.h"
 
 bool ZGame_DevHelpers::OutputZoneImage(ZString & HelperDirectory)
 {

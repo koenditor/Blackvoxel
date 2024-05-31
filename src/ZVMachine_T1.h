@@ -30,21 +30,16 @@
 
 
 
-#include "ACompileSettings.h"
-
 #include "z/ZTypes.h"
-
-#include "z/ZString.h"
-
 #include "z/ZFastBit_Array.h"
-
 #include "ZChip_Parallel_Interface_Servo.h"
-
 #include "ZChip_Display_Controller.h"
-
 #include "ZVCPU.h"
-
 #include "ZVMachine.h"
+#include "z/ZType_ZVector3L.h"
+
+class ZStream_SpecialRamStream;
+class ZString;
 
 
 // 1M Ram.
@@ -80,7 +75,7 @@ class ZVMachine_T1 : public ZVMachine
      PIA_1.SetCPUInterruptLineNumber(3);
      PIA_1.SetCPU(&CPU);
      HasMoved = false;
-     VoxelInterface = 0;
+     VoxelInterface = nullptr;
      DisassemblyTags.InitSize(ZVMACHINE_MEMSIZE);
      DisassemblyTags.Clear();
      Servo_MovePos = 0;

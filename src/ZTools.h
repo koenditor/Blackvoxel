@@ -46,8 +46,8 @@ class ZTool
 
     virtual void SetGameEnv(ZGame * GameEnv) { this->GameEnv = GameEnv; }
 
-    ZTool()                   { GameEnv = 0; }
-    virtual ~ZTool()          { GameEnv = 0; }
+    ZTool()                   { GameEnv = nullptr; }
+    virtual ~ZTool()          { GameEnv = nullptr; }
 
     virtual void Start_Tool() { }
     virtual void End_Tool()   { }
@@ -75,23 +75,23 @@ class ZToolManager
     ZToolManager()
     {
       ULong i;
-      GameEnv = 0;
+      GameEnv = nullptr;
 
       ToolList = new ZTool *[65536];
 
-      for (i=0; i<65536; i++) ToolList[i] = 0;
+      for (i=0; i<65536; i++) ToolList[i] = nullptr;
       ActualTool_VoxelType = (ULong) -1;
     }
 
     ~ZToolManager()
     {
       ULong i;
-      for (i=0;i<65536;i++) if (ToolList[i]) { delete ToolList[i]; ToolList[i] = 0; }
+      for (i=0;i<65536;i++) if (ToolList[i]) { delete ToolList[i]; ToolList[i] = nullptr; }
       if (ToolList) delete [] ToolList;
     }
 
     void AddTool(ULong ToolNum, ZTool * Tool) { ToolList[ToolNum] = Tool; Tool->SetGameEnv(GameEnv); }
-    void RemoveTool(ULong ToolNum)            { ToolList[ToolNum] = 0;    }
+    void RemoveTool(ULong ToolNum)            { ToolList[ToolNum] = nullptr;    }
     ZTool * GetTool(ULong ToolNum)            { return (ToolList[ToolNum]); }
 
     void ProcessAndDisplay();

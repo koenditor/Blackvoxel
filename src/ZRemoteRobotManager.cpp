@@ -25,9 +25,10 @@
 
 #include "ZRemoteRobotManager.h"
 
+#include <stdio.h>
+#include <string.h>
 
 #include "z/ZNetworking_TCP.h"
-
 #include "z/ZSimpleRequestParser.h"
 
 
@@ -37,7 +38,7 @@ ZRemoteRobotManager::ZRemoteRobotManager()
 {
   Socket = new ZTCPNet_Socket();
   IsStarted = false;
-  FreeRequest = 0;
+  FreeRequest = nullptr;
 }
 
 ZRemoteRobotManager::~ZRemoteRobotManager()
@@ -45,12 +46,12 @@ ZRemoteRobotManager::~ZRemoteRobotManager()
   if (Socket)
   {
     delete Socket;
-    Socket = 0;
+    Socket = nullptr;
   }
   if (FreeRequest)
   {
     delete FreeRequest;
-    FreeRequest = 0;
+    FreeRequest = nullptr;
   }
 
   IsStarted = false;
@@ -124,7 +125,7 @@ void ZRemoteRobotManager::Process()
     while( FreeRequest->Connection.ReadChar(c)) FreeRequest->Text.Append_char(c);
     //printf("-*-*-*-*-*-*-*-*-*\n%s\n-*-*-*-*-*-*-*-*-*-\n",FreeRequest->Text.String);
     RequestList.AddToHead(FreeRequest);
-    FreeRequest = 0;
+    FreeRequest = nullptr;
   }
 }
 
@@ -159,7 +160,7 @@ bool ZWebRobotManager::ReplyOK(Request * Request)
 bool ZRemoteRobotManager::Answer_NoParameters(ZSimpleRequestParser & Parser, ZRemoteRobotManager::Request * Req)
 {
   ZString Out, Callback;
-  bool Cb, Result;
+  bool Cb=false, Result;
 
 
   if (Parser.FindEntryText((char *)"callback", Callback)) {Cb = true;}
@@ -202,7 +203,7 @@ bool ZRemoteRobotManager::Answer_NoParameters(ZSimpleRequestParser & Parser, ZRe
 bool ZRemoteRobotManager::Answer_OneParameter(ZSimpleRequestParser & Parser, ZRemoteRobotManager::Request * Req, ZString & Parameter)
 {
   ZString Out, Callback;
-  bool Cb, Result;
+  bool Cb=false, Result;
 
 
   if (Parser.FindEntryText((char *)"callback", Callback)) {Cb = true;}

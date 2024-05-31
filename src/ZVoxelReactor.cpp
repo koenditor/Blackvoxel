@@ -35,23 +35,31 @@
 
 #include "ZVoxelReactor.h"
 
+#include <stdio.h>
+
 #include "ZGame.h"
-
 #include "ZVoxelExtension_BlastFurnace.h"
-
 #include "ZVoxelExtension_FusionElement.h"
-
 #include "ZVoxelExtension_MiningRobot_xr1.h"
-
 #include "ZVoxelExtension_Sequencer.h"
-
 #include "ZVoxelExtension_Egmy_T1.h"
-
 #include "ZVoxelExtensionType_VoxelFluid.h"
-
 #include "z/ZGenericTable.h"
-
 #include "ZActiveVoxelInterface.h"
+#include "ZActorPhysics.h"
+#include "ZFabMachineInfos.h"
+#include "ZFabMachineInfos2.h"
+#include "ZScripting_Squirrel3.h"
+#include "ZSector_ModifTracker.h"
+#include "ZVoxelExtension_FabMachine.h"
+#include "ZVoxelExtension_FabMachine2.h"
+#include "ZVoxelExtension_Programmable.h"
+#include "ZVoxelReaction.h"
+#include "ZVoxelType.h"
+#include "ZVoxelTypeManager.h"
+#include "ZWorld.h"
+#include "z/ZFastBit_Array.h"
+#include "z/ZType_ZVector3L.h"
 
 
 
@@ -161,9 +169,9 @@ ZVoxelReactor::ZVoxelReactor()
   ULong i;
 
   PlayerPosition.x = PlayerPosition.y = PlayerPosition.z = 0.0;
-  GameEnv = 0;
-  World = 0;
-  VoxelTypeManager = 0;
+  GameEnv = nullptr;
+  World = nullptr;
+  VoxelTypeManager = nullptr;
   CycleNum = 0;
 
   // Active Table
@@ -202,7 +210,7 @@ ZVoxelReactor::ZVoxelReactor()
 
   // Reaction table
   ReactionTable = new ZVoxelReaction * [65536];
-  for (i=0;i<65536;i++) ReactionTable[i]=0;
+  for (i=0;i<65536;i++) ReactionTable[i]=nullptr;
 
   // Green acid reaction
   ReactionTable[86] = new ZVoxelReaction(89,0);
@@ -236,7 +244,7 @@ ZVoxelReactor::ZVoxelReactor()
 ZVoxelReactor::~ZVoxelReactor()
 {
   if (ActiveTable) {delete ActiveTable; }
-  if (DummySector) {delete DummySector; DummySector = 0;}
+  if (DummySector) {delete DummySector; DummySector = nullptr;}
 }
 
 void ZVoxelReactor::Init(ZGame * GameEnv)
@@ -1523,7 +1531,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             ZVoxelExtension_FabMachine * Ext;
                             ZFabInfos * Fab;
                             bool VoxelFound, TransformationFound;
-                            ZFabInfos::ZTransformation * Transformation = 0;
+                            ZFabInfos::ZTransformation * Transformation = nullptr;
 
                             // Report this bloc to EgmyManager to be a possible target.
                             ZVector3L Vc;
@@ -2514,8 +2522,8 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
 
                                if ((!VoxelRecord->BvProp_EgmyT1Resistant)) // Random.GetNumber() < (42949672 * 5) &&
                                {
-                                 World->SetVoxel_WithCullingUpdate(VoxelCoords.x, VoxelCoords.y, VoxelCoords.z, 0, ZVoxelSector::CHANGE_UNIMPORTANT, false, 0 );
-                                 World->SetVoxel_WithCullingUpdate(Destination.x, Destination.y, Destination.z, 0, ZVoxelSector::CHANGE_UNIMPORTANT, false, 0 );
+                                 World->SetVoxel_WithCullingUpdate(VoxelCoords.x, VoxelCoords.y, VoxelCoords.z, 0, ZVoxelSector::CHANGE_UNIMPORTANT, false, nullptr );
+                                 World->SetVoxel_WithCullingUpdate(Destination.x, Destination.y, Destination.z, 0, ZVoxelSector::CHANGE_UNIMPORTANT, false, nullptr );
                                  //World->MoveVoxel_Sm( &VoxelCoords, &Destination, 0 , true);
                                }
                              }
@@ -3098,7 +3106,7 @@ void ZVoxelReactor::ProcessSectors( double LastLoopTime )
                             ZVoxelExtension_FabMachine2 * Ext;
                             ZFabInfos2 * Fab;
                             bool TransformationFound;
-                            ZFabInfos2::ZTransformation * Transformation = 0;
+                            ZFabInfos2::ZTransformation * Transformation = nullptr;
                             ZFabInfos2::ZFabEntry       * FabEntry;
                             bool Validated;
 

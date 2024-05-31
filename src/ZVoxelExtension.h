@@ -28,15 +28,12 @@
 #include <stddef.h>
 
 #include "z/ZTypes.h"
-
-#include "z/ZStream_SpecialRamStream.h"
-
 #include "z/ZMemPool_Optimized.h"
-
 #include "ACompileSettings.h"
 
 class ZGame;
-#include <stdio.h>
+class ZStream_SpecialRamStream;
+
 class ZVoxelExtension
 {
   public:
@@ -62,7 +59,7 @@ class ZVoxelExtension
     virtual bool Save(ZStream_SpecialRamStream * Stream)=0;
     virtual bool Load(ZStream_SpecialRamStream * Stream)=0;
     virtual void SetGameEnv(ZGame * GameEnv) { }
-    virtual ZVoxelExtension * GetNewCopy() { return(0); }
+    virtual ZVoxelExtension * GetNewCopy() { return nullptr; }
 
     virtual ~ZVoxelExtension() {}
 

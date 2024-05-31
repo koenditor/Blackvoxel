@@ -25,11 +25,10 @@
 
 #include "ZGui_FontFrame.h"
 
-
-#include <math.h>
-#include <stdio.h>
-#include "SDL2/SDL.h"
 #include "GL/gl.h"
+#include "ZTextureManager.h"
+#include "ZTileSets.h"
+#include "z/ZObject_Lists.h"
 
 
 

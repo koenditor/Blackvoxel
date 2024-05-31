@@ -26,27 +26,17 @@
 #pragma once 
 
 #include "ZGui.h"
-
-#include "ZGui_Disassembler.h"
-
 #include "ZGui_CPU_Registers_Extended.h"
-
-#include "ZGui_AsmRobotDisplay.h"
-
-#include "ZGui_PanelTextButton.h"
-
 #include "ZGui_FontFrame.h"
-
 #include "ZGui_TileFrame.h"
-
 #include "ZGui_ProgressBar.h"
-
 #include "ZVoxelExtension_ProgRobot_Asm.h"
-
 #include "ZGui_Memory_Monitor.h"
-
+#include "z/ZString.h"
+#include "z/ZTypes.h"
 
 class ZGame;
+class ZVoxelExtension;
 
 class ZGameWindow_AsmExtendedRegisters : public ZFrame
 {
@@ -73,9 +63,9 @@ class ZGameWindow_AsmExtendedRegisters : public ZFrame
   ZGameWindow_AsmExtendedRegisters()
   {
     MainWindow = this;
-    GameEnv = 0;
+    GameEnv = nullptr;
     Flag_Shown = false;
-    VoxelExtension = 0;
+    VoxelExtension = nullptr;
     Text_Title       = "REGISTERS";
     Text_Title2      = "MEMORY MONITOR";
     Servo_x_Value_Text = "10000";

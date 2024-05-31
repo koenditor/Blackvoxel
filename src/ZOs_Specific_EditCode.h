@@ -25,11 +25,7 @@
 
 #pragma once 
 
-#include "z/ZTypes.h"
-
-#include "z/ZString.h"
-
-#include "ACompileSettings.h"
+class ZString;
 
 class ZEditCode
 {

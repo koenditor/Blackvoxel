@@ -26,6 +26,9 @@
 #pragma once
 
 #include "ZChip.h"
+#include "z/ZTypes.h"
+
+class ZStream_SpecialRamStream;
 
 #define Z_ZCHIP_DISPLAY_CONTROLLER_INTERRUPT_ENABLE 1
 #define Z_ZCHIP_DISPLAY_CONTROLLER_INTERRUPT_TRIGGERED 2

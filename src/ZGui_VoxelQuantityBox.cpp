@@ -25,7 +25,10 @@
 
 #include "ZGui_VoxelQuantityBox.h"
 
-#include "SDL2/SDL.h"
+#include <SDL2/SDL_scancode.h>
+
+#include "ZEventManager.h"
+#include "ZGui.h"
 
 Bool ZVoxelQuantityBox::MouseButtonClick  (UShort nButton, Short Absolute_x, Short Absolute_y)
 {

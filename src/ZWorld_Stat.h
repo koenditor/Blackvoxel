@@ -30,7 +30,9 @@
 
 
 
-#include "ZWorld.h"
+#include "z/ZTypes.h"
+
+class ZVoxelWorld;
 
 class ZWorld_Stat
 {
@@ -40,7 +42,7 @@ class ZWorld_Stat
   public:
     ZWorld_Stat()
     {
-      World = 0;
+      World = nullptr;
     }
 
     void SetWorld( ZVoxelWorld * World ) { this->World = World; }

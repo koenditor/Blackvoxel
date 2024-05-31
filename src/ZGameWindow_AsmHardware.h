@@ -26,24 +26,16 @@
 #pragma once 
 
 #include "ZGui.h"
-
-#include "ZGui_Disassembler.h"
-
-#include "ZGui_CPU_Registers.h"
-
 #include "ZGui_AsmRobotDisplay.h"
-
-#include "ZGui_PanelTextButton.h"
-
 #include "ZGui_FontFrame.h"
-
 #include "ZGui_TileFrame.h"
-
 #include "ZGui_ProgressBar.h"
-
 #include "ZVoxelExtension_ProgRobot_Asm.h"
+#include "z/ZString.h"
+#include "z/ZTypes.h"
 
 class ZGame;
+class ZVoxelExtension;
 
 class ZGameWindow_AsmHardware : public ZFrame
 {
@@ -66,9 +58,9 @@ class ZGameWindow_AsmHardware : public ZFrame
   ZGameWindow_AsmHardware()
   {
     MainWindow = this;
-    GameEnv = 0;
+    GameEnv = nullptr;
     Flag_Shown = false;
-    VoxelExtension = 0;
+    VoxelExtension = nullptr;
     Text_Title       = "ROBOT HARDWARE";
     Servo_x_Value_Text = "10000";
   }

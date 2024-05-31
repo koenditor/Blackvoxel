@@ -41,9 +41,11 @@
 
 #include "ZObject_Array.h"
 
+#include "ZObject.h"
+
 ZObjectArray::ZObjectArray()
 {
-  ExpandableArray=0;
+  ExpandableArray=nullptr;
   MemSize=0;
   MaxIndex=0;
   NavIndex=0;
@@ -68,15 +70,15 @@ void ZObjectArray::Clear()
   {
     for (i=0;i<MaxIndex;i++) if (ExpandableArray[i]) delete ExpandableArray[i];
     delete ExpandableArray;
-    ExpandableArray = 0;
+    ExpandableArray = nullptr;
   }
   MemSize=0;MaxIndex=0;
 }
 
 ZObject * ZObjectArray::GetEntry(ZSize Index)
 {
-  if (!ExpandableArray) return(0);
-  if (Index>=MaxIndex) return(0);
+  if (!ExpandableArray) return nullptr;
+  if (Index>=MaxIndex) return nullptr;
   return(ExpandableArray[Index]);
 }
 
@@ -91,14 +93,14 @@ Bool ZObjectArray::SetEntry(ZSize Index,ZObject & Data)
     NewSize = (ZOA_INITIALSIZE < (Index)) ? Index + ZOA_INITIALSIZE : ZOA_INITIALSIZE;
     if (!(ExpandableArray = new ZObject *[NewSize])) return(ZFALSE);
     MemSize = NewSize;
-    for (i=0;i<MemSize;i++) ExpandableArray[i]=0;
+    for (i=0;i<MemSize;i++) ExpandableArray[i]=nullptr;
   }
   if (Index >= MemSize)
   {
     NewSize = ((MemSize * 2) <= (Index)) ? Index + ZOA_INITIALSIZE : MemSize * 2; 
     if (!(NewArray = new ZObject *[NewSize])) return(ZFALSE);
     for (i=0;i<MemSize;i++) NewArray[i] = ExpandableArray[i];
-    for (i=MemSize;i<MemSize*2;i++) NewArray[i] = 0;
+    for (i=MemSize;i<MemSize*2;i++) NewArray[i] = nullptr;
     MemSize=NewSize;
     delete ExpandableArray;
     ExpandableArray = NewArray;

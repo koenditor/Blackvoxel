@@ -26,9 +26,6 @@
 #pragma once
 
 #include "ZTypes.h"
-
-#include "ZString.h"
-
 #include "ZCharFilter.h"
 
 // ***********************************************************************
@@ -72,7 +69,7 @@ class ZFastKeyWordSet : public ZKeyWordSet
     bool AddKeyTable(ZKeyWordTable * KeyTable);
     bool AddKeyWord(const char * KeyWord,ULong AssociatedValue);
     ULong SearchKey(char ** File);
-    ZFastKeyWordSet() {KeyTable = 0;if (!(KeyTable = NewKeyTable())) throw;}
+    ZFastKeyWordSet() {KeyTable = nullptr;if (!(KeyTable = NewKeyTable())) throw;}
     ~ZFastKeyWordSet() {DestroyKeyTable();}
   private:
     KeyEntry * NewKeyTable();

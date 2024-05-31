@@ -24,7 +24,6 @@
  */
 
 #include "ZMemPool_Optimized.h"
-#include <stdio.h>
 
 bool ZMemPool_Optimized::Initialized = false;
 char ZMemPool_Optimized::BitPosTable[65536];
@@ -63,7 +62,7 @@ void * ZMemPool_Optimized::AllocMem( const ZMemSize Size, ZMemSize & NewSize)
     }
   }
 
-  return(0);
+  return nullptr;
 };
 
 void * ZMemPool_Optimized::AllocMem( const ZMemSize Size )
@@ -97,7 +96,7 @@ void * ZMemPool_Optimized::AllocMem( const ZMemSize Size )
     }
   }
 
-  return(0);
+  return nullptr;
 };
 
 void ZMemPool_Optimized::FreeMem( void * Block )

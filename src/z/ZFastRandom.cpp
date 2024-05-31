@@ -30,12 +30,12 @@
 
 #include "ZString.h"
 
-ULong * ZLightSpeedRandom::Pool = 0;
+ULong * ZLightSpeedRandom::Pool = nullptr;
 ULong ZLightSpeedRandom::PoolLen = 0;
 
 ZLightSpeedRandom::ZLightSpeedRandom()
 {
-  if (Pool == 0)
+  if (Pool == nullptr)
   {
     FILE * fh;
     ZString FileName;

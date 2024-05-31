@@ -25,9 +25,15 @@
 
 #include "ZGameWindow_AsmExtendedRegisters.h"
 
+#include <SDL2/SDL_mouse.h>
+#include <SDL2/SDL_stdinc.h>
+
 #include "ZGame.h"
 #include "ZActorPhysics.h"
-#include "SDL2/SDL.h"
+#include "ZGame_Events.h"
+#include "ZTileSets.h"
+#include "ZVMachine_T1.h"
+#include "z/ZType_ZVector3L.h"
 
 void ZGameWindow_AsmExtendedRegisters::Show()
 {

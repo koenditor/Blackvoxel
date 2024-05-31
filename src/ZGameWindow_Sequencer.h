@@ -26,20 +26,17 @@
 #pragma once 
 
 #include "ZGui.h"
-
 #include "ZGui_InventoryBox.h"
-
 #include "ZGui_VoxelQuantityBox.h"
-
 #include "ZGui_FontFrame.h"
-
 #include "ZGui_NumericChoiceBox.h"
-
-#include "ZVoxelTypeManager.h"
-
 #include "ZVoxelExtension_Sequencer.h"
+#include "ZGui_TileFrame.h"
+#include "z/ZString.h"
+#include "z/ZTypes.h"
 
 class ZGame;
+class ZVoxelExtension;
 
 class ZGameWindow_Sequencer : public ZFrame
 {
@@ -76,7 +73,7 @@ class ZGameWindow_Sequencer : public ZFrame
 
   ZGameWindow_Sequencer()
   {
-    GameEnv = 0;
+    GameEnv = nullptr;
     MainWindow = this;
     MainStorage = new ZInventoryBox[60];
     SequencerStorage = new ZVoxelQuantityBox[80];
@@ -86,7 +83,7 @@ class ZGameWindow_Sequencer : public ZFrame
     Text_OutputTitle = "OUTPUT SIDE";
     Text_SequenceTitle = "SEQUENCE";
     Text_InventoryTitle = "INVENTORY";
-    VoxelExtension_Sequencer = 0;
+    VoxelExtension_Sequencer = nullptr;
     i1 = i2 = i3 = 0;
     Q1 = Q2 = Q3 = 0;
   }

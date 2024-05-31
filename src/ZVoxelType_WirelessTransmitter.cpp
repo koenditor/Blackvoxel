@@ -26,19 +26,22 @@
 #include "ZVoxelType_WirelessTransmitter.h"
 
 #include "ZVoxelExtension_WirelessTransmitter.h"
-
 #include "ZVoxelSector.h"
-
 #include "ZWorld.h"
-
 #include "ZGame.h"
-
 #include "ZToolsPointer.h"
+#include "ZVoxelTypeManager.h"
+#include "z/ZString.h"
+#include "z/ZType_ZVector3B.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZType_ZVector3L_CrossFunc.h"
+
+class ZVoxelExtension;
 
 
 ZVoxelExtension * ZVoxelType_WirelessTransmitter::CreateVoxelExtension(bool IsLoadingPhase)
 {
-  ZVoxelExtension * NewVoxelExtension = 0;
+  ZVoxelExtension * NewVoxelExtension = nullptr;
 
   NewVoxelExtension = new ZVoxelExtension_WirelessTransmitter;
 

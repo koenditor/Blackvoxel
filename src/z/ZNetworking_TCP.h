@@ -25,23 +25,9 @@
 
 #pragma once 
 
-
-
-
-
-
-#include <sys/types.h>
-
-
-#include <string.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-
-#include "ZString.h"
+#include "ZTypes.h"
 
 struct sockaddr_in;
-
 
 class ZTCPNet_Connection
 {

@@ -26,14 +26,15 @@
 #pragma once 
 
 
-#include "z/ZTypes.h"
-
-#include "z/ZString.h"
-
-#include "z/ZStream_File.h"
-
 #include <SDL2/SDL_audio.h>
+#include <SDL2/SDL_error.h>
+#include <SDL2/SDL_stdinc.h>
+#include <stdio.h>
+#include <string.h>
 
+#include "z/ZTypes.h"
+#include "z/ZString.h"
+#include "z/ZStream_File.h"
 #include "ACompileSettings.h"
 
 #define ZSOUND_MAX_SOUNDFILES 512
@@ -99,7 +100,7 @@ class ZSound
         Snd = Snd->NextSound;
       }
 
-      return(0);
+      return nullptr;
     }
 
   public:
@@ -108,8 +109,8 @@ class ZSound
     {
       ULong i;
       SampleCount = 0;
-      SoundActivated = true; PlayingSoundList =0;
-      for (i=0;i<ZSOUND_MAX_SOUNDFILES;i++) {SoundBank[i].Used = false; SoundBank[i].SoundData = 0; SoundBank[i].SoundLen =0;}
+      SoundActivated = true; PlayingSoundList =nullptr;
+      for (i=0;i<ZSOUND_MAX_SOUNDFILES;i++) {SoundBank[i].Used = false; SoundBank[i].SoundData = nullptr; SoundBank[i].SoundLen =0;}
     }
     ~ZSound()
     {
@@ -121,7 +122,7 @@ class ZSound
         {
           delete [] SoundBank[i].SoundData;
           SoundBank[i].Used = false;
-          SoundBank[i].SoundData = 0;
+          SoundBank[i].SoundData = nullptr;
           SoundBank[i].SoundLen =0;
         }
       }
@@ -243,23 +244,23 @@ class ZSound
         Snd->Calls = 0;
         Snd->Repeat = false;
         Snd->RepeatPos = 0;
-        Snd->FlagOnEnd = 0;
+        Snd->FlagOnEnd = nullptr;
         Snd->UseIntCompute = true;
         Snd->FrequencyVar = 1.0;
         Snd->DPos = 0.0;
         Snd->DRepeatPos = 0.0;
-        if (PlayingSoundList == 0) { Snd->NextSound = 0; Snd->PrevSound = 0; PlayingSoundList = Snd; }
-        else                       { Snd->NextSound = PlayingSoundList; Snd->PrevSound = 0; PlayingSoundList->PrevSound = Snd; PlayingSoundList = Snd; }
+        if (PlayingSoundList == nullptr) { Snd->NextSound = nullptr; Snd->PrevSound = nullptr; PlayingSoundList = Snd; }
+        else                       { Snd->NextSound = PlayingSoundList; Snd->PrevSound = nullptr; PlayingSoundList->PrevSound = Snd; PlayingSoundList = Snd; }
         // printf("Start Sound :%lx\n",(ZMemSize)Snd);
 
       SDL_UnlockAudio();
     }
 
-    void * Start_PlaySound(ULong SoundNum, bool Repeat = false, bool UseIntFastMath = true, double Frequency = 1.0, bool * FlagToSetAtSoundEnd=0)
+    void * Start_PlaySound(ULong SoundNum, bool Repeat = false, bool UseIntFastMath = true, double Frequency = 1.0, bool * FlagToSetAtSoundEnd=nullptr)
     {
       Sound * Snd;
 
-      if (!SoundActivated) return(0);
+      if (!SoundActivated) return nullptr;
       // printf("Sound:%d\n",SoundNum);
 
       SDL_LockAudio();
@@ -278,8 +279,8 @@ class ZSound
         Snd->FrequencyVar = Frequency;
         Snd->DPos = 0.0;
         Snd->DRepeatPos = 0.0;
-        if (PlayingSoundList == 0) { Snd->NextSound = 0; Snd->PrevSound = 0; PlayingSoundList = Snd; }
-        else                       { Snd->NextSound = PlayingSoundList; Snd->PrevSound = 0; PlayingSoundList->PrevSound = Snd; PlayingSoundList = Snd; }
+        if (PlayingSoundList == nullptr) { Snd->NextSound = nullptr; Snd->PrevSound = nullptr; PlayingSoundList = Snd; }
+        else                       { Snd->NextSound = PlayingSoundList; Snd->PrevSound = nullptr; PlayingSoundList->PrevSound = Snd; PlayingSoundList = Snd; }
       SDL_UnlockAudio();
       return(Snd);
     }

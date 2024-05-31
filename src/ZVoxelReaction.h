@@ -66,7 +66,7 @@ class ZVoxelReaction
 
     ~ZVoxelReaction()
     {
-      if (TransformationTable) { delete [] TransformationTable; TransformationTable = 0; }
+      if (TransformationTable) { delete [] TransformationTable; TransformationTable = nullptr; }
     }
 
 };

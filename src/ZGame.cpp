@@ -27,33 +27,55 @@
 
 #include <math.h>
 #include <stdio.h>
+#include <GL/gl.h>
+#include <SDL2/SDL_error.h>
+#include <SDL2/SDL_pixels.h>
+#include <SDL2/SDL_stdinc.h>
+
 #include "SDL2/SDL.h"
-
 #include "ZRender_Basic.h"
-
 #include "ZVoxel.h"
-
 #include "z/ZStream_File.h"
-
 #include "ZGame_DevHelpers.h"
-
 #include "ZTools.h"
-
 #include "ZTool_Constructor.h"
-
 #include "ZTool_Scan.h"
-
 #include "ZTool_Rotate.h"
-
 #include "ZTool_OreScan.h"
-
 #include "ZTool_Linker.h"
-
 #include "ZLoadingScreen.h"
-
 #include "ZGameWindow_ZProgRobot_Remote.h"
-
 #include "ZGameWindow_ResumeRequest_Little.h"
+#include "ACompileSettings.h"
+#include "ZActor_Player.h"
+#include "ZGameEventSequencer.h"
+#include "ZGameStat.h"
+#include "ZGameWindow_Advertising.h"
+#include "ZGameWindow_AsmDebug.h"
+#include "ZGameWindow_AsmExtendedRegisters.h"
+#include "ZGameWindow_AsmHardware.h"
+#include "ZGameWindow_Compilation_Result.h"
+#include "ZGameWindow_DisplayInfos.h"
+#include "ZGameWindow_Inventory.h"
+#include "ZGameWindow_Programmable.h"
+#include "ZGameWindow_ProgressBar.h"
+#include "ZGameWindow_RTFM.h"
+#include "ZGameWindow_ResumeRequest.h"
+#include "ZGameWindow_SPS.h"
+#include "ZGameWindow_Scan.h"
+#include "ZGameWindow_Sequencer.h"
+#include "ZGameWindow_Storage.h"
+#include "ZGameWindow_UserTextureTransformer.h"
+#include "ZGameWindow_VoxelTypeBar.h"
+#include "ZGameWindow_ZProgRobot_Asm.h"
+#include "ZGame_Events.h"
+#include "ZOs_Specific_HardwareDependent.h"
+#include "ZSectorStreamLoader.h"
+#include "ZSettings_Hardware.h"
+#include "ZTileSets.h"
+#include "ZVoxelProcessor.h"
+#include "ZWorldInfo.h"
+#include "z/ZStream_SpecialRamStream.h"
 
 
 bool ZGame::Init_UserDataStorage(ZLog * InitLog)
@@ -147,7 +169,7 @@ bool ZGame::Init_Settings(ZLog * InitLog)
 bool ZGame::Cleanup_Settings(ZLog * InitLog)
 {
   InitLog->Log(0, ZLog::INFO, "Cleanup : Settings");
-  if (Settings_Hardware) { delete Settings_Hardware; Settings_Hardware = 0; }
+  if (Settings_Hardware) { delete Settings_Hardware; Settings_Hardware = nullptr; }
   return(true);
 }
 
@@ -571,7 +593,7 @@ bool ZGame::Init_VoxelTypeManager(ZLog * InitLog)
   if (!VoxelTypeManager.LoadVoxelTypes()) { ZString Err ="Can't init VoxelTypeManager."; InitLog->Log(5, ZLog::FAIL, Err); return(false); }
   Msg.Clear() << "Loaded " << VoxelTypeManager.GetTexturesCount() << " Voxel Textures."; InitLog->Log(6, ZLog::INFO, Msg);
   if (VoxelTypeManager.GetTexturesCount() < 212) { ZString Err; Err << "Missing Texture files (count : " << VoxelTypeManager.GetTexturesCount()<< ")"; InitLog->Log(7, ZLog::FAIL, Err); return(false); }
-  if ( 0 != VoxelTypeManager.GetVoxelType(50) )  VoxelTypeManager.FillZeroSlots(50);
+  if ( nullptr != VoxelTypeManager.GetVoxelType(50) )  VoxelTypeManager.FillZeroSlots(50);
   else                                           return(false);
   Initialized_VoxelTypeManager = true;
 
@@ -599,8 +621,8 @@ bool ZGame::Cleanup_EventManager(ZLog * InitLog)
 bool ZGame::Cleanup_TileSetsAndFonts(ZLog * InitLog)
 {
   InitLog->Log(0, ZLog::INFO, "Cleanup : Tilesets and Fonts Init");
-  if (Font_1) {delete Font_1; Font_1=0;}
-  if (TileSetStyles) {delete TileSetStyles; TileSetStyles = 0;}
+  if (Font_1) {delete Font_1; Font_1=nullptr;}
+  if (TileSetStyles) {delete TileSetStyles; TileSetStyles = nullptr;}
 
   Initialized_TileSetsAndFonts = false;
   return(true);
@@ -626,7 +648,7 @@ bool ZGame::End_Game_Events()
 {
   if (Initialized_Game_Events) EventManager.RemoveConsumer(Game_Events);
   if (Game_Events) delete Game_Events;
-  Game_Events = 0;
+  Game_Events = nullptr;
   Initialized_Game_Events = false;
 
   return(true);
@@ -656,7 +678,7 @@ bool ZGame::Cleanup_Renderer(ZLog * InitLog)
 {
   InitLog->Log(0, ZLog::INFO, "Cleanup : Renderer Init");
   if (Basic_Renderer) delete Basic_Renderer;
-  Basic_Renderer = 0;
+  Basic_Renderer = nullptr;
   Initialized_Renderer = false;
   return(true);
 }
@@ -714,7 +736,7 @@ bool ZGame::Cleanup_Sound(ZLog * InitLog)
   InitLog->Log(0, ZLog::INFO, "Cleanup : Sound Init");
   Sound->EndAudio();
   if (Sound) delete Sound;
-  Sound = 0;
+  Sound = nullptr;
   Initialized_Sound = false;
   return(true);
 }
@@ -750,7 +772,7 @@ bool ZGame::Start_GameEventSequencer()
 
 bool ZGame::End_GameEventSequencer()
 {
-  if ( GameEventSequencer ) { delete GameEventSequencer; GameEventSequencer = 0; }
+  if ( GameEventSequencer ) { delete GameEventSequencer; GameEventSequencer = nullptr; }
   return(true);
 }
 
@@ -783,7 +805,7 @@ bool ZGame::End_WorldInfo()
     Result = WorldInfo->Save(Path_ActualUniverse.Path("WorldInfo.dat").String);
 #endif
     delete WorldInfo;
-    WorldInfo = 0;
+    WorldInfo = nullptr;
     return Result;
   }
   return(false);
@@ -811,7 +833,7 @@ bool ZGame::Start_World()
 bool ZGame::End_World()
 {
   if (World) delete World;
-  World = 0;
+  World = nullptr;
   Initialized_World = false;
   return(true);
 }
@@ -911,7 +933,7 @@ bool ZGame::End_PhysicEngine()
 
 
   if (PhysicEngine) delete PhysicEngine;
-  PhysicEngine = 0;
+  PhysicEngine = nullptr;
   Initialized_PhysicEngine = false;
   return(true);
 }
@@ -936,7 +958,7 @@ bool ZGame::End_SectorLoader()
     SectorLoader->Cleanup();
     delete SectorLoader;
     Initialized_SectorLoader = false;
-    SectorLoader = 0;
+    SectorLoader = nullptr;
   }
   return(true);
 }
@@ -974,7 +996,7 @@ bool ZGame::End_VoxelProcessor()
     VoxelProcessor->End();
     delete VoxelProcessor;
     Initialized_VoxelProcessor = false;
-    VoxelProcessor = 0;
+    VoxelProcessor = nullptr;
   }
   return(true);
 }
@@ -994,9 +1016,9 @@ bool ZGame::Start_RendererSettings()
 
 bool ZGame::End_RendererSettings()
 {
-  Basic_Renderer->SetWorld(0);
-  Basic_Renderer->SetCamera(0);
-  Basic_Renderer->SetPointedVoxel(0);
+  Basic_Renderer->SetWorld(nullptr);
+  Basic_Renderer->SetCamera(nullptr);
+  Basic_Renderer->SetPointedVoxel(nullptr);
   Initialized_RendererSettings = false;
   return(false);
 }
@@ -1033,15 +1055,15 @@ bool ZGame::End_GameWindows()
 {
   GuiManager.RemoveAllFrames();
 
-  if (VoxelTypeBar)       {delete VoxelTypeBar; VoxelTypeBar = 0; }
-  if (GameWindow_Storage) {delete GameWindow_Storage; GameWindow_Storage = 0; }
-  if (GameWindow_UserTextureTransformer) { delete GameWindow_UserTextureTransformer; GameWindow_UserTextureTransformer = 0; }
-  if (GameWindow_Inventory) { delete GameWindow_Inventory; GameWindow_Inventory = 0; }
-  if (GameWindow_ResumeRequest_Little) {delete GameWindow_ResumeRequest_Little; GameWindow_ResumeRequest_Little = 0;}
-  if (GameProgressBar)      {delete GameProgressBar; GameProgressBar=0;}
-  if (GameWindow_SPS)       {delete GameWindow_SPS; GameWindow_SPS = 0;}
-  if (GameWindow_Scan)      {delete GameWindow_Scan; GameWindow_Scan = 0;}
-  if (GameWindow_ProgRobot_Remote) {delete GameWindow_ProgRobot_Remote; GameWindow_ProgRobot_Remote = 0;}
+  if (VoxelTypeBar)       {delete VoxelTypeBar; VoxelTypeBar = nullptr; }
+  if (GameWindow_Storage) {delete GameWindow_Storage; GameWindow_Storage = nullptr; }
+  if (GameWindow_UserTextureTransformer) { delete GameWindow_UserTextureTransformer; GameWindow_UserTextureTransformer = nullptr; }
+  if (GameWindow_Inventory) { delete GameWindow_Inventory; GameWindow_Inventory = nullptr; }
+  if (GameWindow_ResumeRequest_Little) {delete GameWindow_ResumeRequest_Little; GameWindow_ResumeRequest_Little = nullptr;}
+  if (GameProgressBar)      {delete GameProgressBar; GameProgressBar=nullptr;}
+  if (GameWindow_SPS)       {delete GameWindow_SPS; GameWindow_SPS = nullptr;}
+  if (GameWindow_Scan)      {delete GameWindow_Scan; GameWindow_Scan = nullptr;}
+  if (GameWindow_ProgRobot_Remote) {delete GameWindow_ProgRobot_Remote; GameWindow_ProgRobot_Remote = nullptr;}
 
   Initialized_GameWindows = false;
   return(true);

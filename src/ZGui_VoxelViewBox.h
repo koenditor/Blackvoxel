@@ -26,12 +26,9 @@
 #pragma once 
 
 #include "ZGui.h"
+#include "z/ZTypes.h"
 
-#include "ZVoxelType.h"
-
-#include "ZVoxelTypeManager.h"
-
-#include "ZTileSets.h"
+class ZVoxelTypeManager;
 
 class ZVoxelViewBox : public ZFrame
 {
@@ -46,7 +43,7 @@ class ZVoxelViewBox : public ZFrame
     {
       FrameType = MulticharConst('V','O','X','V'); // = VoxelViewBox;
       Flag_Cap_Dragable = false;
-      VoxelType = 0;
+      VoxelType = nullptr;
     }
 
     virtual void SetVoxelType( UShort * VoxelType ) { this->VoxelType = VoxelType; }

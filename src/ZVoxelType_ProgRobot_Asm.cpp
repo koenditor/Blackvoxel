@@ -24,16 +24,21 @@
  */
 
 #include "ZVoxelType_ProgRobot_Asm.h"
+
 #include "ZGame.h"
-
 #include "ZVoxelExtension_ProgRobot_Asm.h"
-
 #include "ZActiveVoxelInterface.h"
+#include "ZGameWindow_AsmDebug.h"
+#include "ZGameWindow_ZProgRobot_Asm.h"
+#include "ZVMachine_T1.h"
+#include "ZVoxelSector.h"
+
+class ZVoxelExtension;
 
 
 ZVoxelExtension * ZVoxelType_ProgRobot_Asm::CreateVoxelExtension(bool IsLoadingPhase)
 {
-  ZVoxelExtension_ProgRobot_Asm * NewVoxelExtension = 0;
+  ZVoxelExtension_ProgRobot_Asm * NewVoxelExtension = nullptr;
 
   NewVoxelExtension = new ZVoxelExtension_ProgRobot_Asm;
 

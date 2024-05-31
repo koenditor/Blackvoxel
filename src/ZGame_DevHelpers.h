@@ -25,10 +25,7 @@
 
 #pragma once 
 
-#include "z/ZTypes.h"
-
-#include "z/ZString.h"
-
+class ZString;
 
 class ZGame_DevHelpers
 {

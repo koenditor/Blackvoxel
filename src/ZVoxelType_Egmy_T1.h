@@ -26,6 +26,10 @@
 #pragma once
 
 #include "ZVoxelType.h"
+#include "z/ZString.h"
+#include "z/ZTypes.h"
+
+class ZVoxelExtension;
 
 class ZVoxelType_Egmy_T1 : public ZVoxelType
 {

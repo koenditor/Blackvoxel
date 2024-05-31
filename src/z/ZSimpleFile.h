@@ -31,6 +31,7 @@
 
 
 #include "ZMemPool.h"
+#include "ZTypes.h"
 
 class ZSimpleFile
 {
@@ -93,7 +94,7 @@ class ZSimpleFile
       void * Data;
       ZElement * Element;
 
-      if (Tail.Pred == &Head) return(0);
+      if (Tail.Pred == &Head) return nullptr;
       Element = Tail.Pred;
       Element->Pred->Next = Element->Next;
       Element->Next->Pred = Element->Pred;

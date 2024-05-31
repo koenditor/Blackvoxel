@@ -19,17 +19,20 @@
 
 #pragma once
 
-#include "ZWorld.h"
-
-#include "ZVoxelType.h"
-
-#include "ZTextureManager.h"
-
 #include "ZSectorSphere.h"
-
 #include "ZRender_Sorter.h"
-
 #include "GL/gl.h"
+#include "ZSpecial_RadiusZoning.h"
+#include "z/ZObject.h"
+#include "z/ZType_ZVector3d.h"
+#include "z/ZTypes.h"
+
+class ZCamera;
+class ZTextureManager;
+class ZVoxelSector;
+class ZVoxelTypeManager;
+class ZVoxelWorld;
+struct ZRayCast_out;
 
 
 extern GLuint TextureName[1024];
@@ -116,9 +119,9 @@ class ZRender_Basic
     {
       hRenderRadius = 1;  // 8
       vRenderRadius = 1;  // 3
-      World = 0;
-      VoxelTypeManager = 0;
-      TextureManager = 0;
+      World = nullptr;
+      VoxelTypeManager = nullptr;
+      TextureManager = nullptr;
       Stat_RenderDrawFaces = 0;
       Stat_FaceTop = 0;
       Stat_FaceFront = 0;
@@ -126,9 +129,9 @@ class ZRender_Basic
       Stat_FaceLeft = 0;
       Stat_FaceBottom = 0;
       Stat_FaceBack = 0;
-      PointedVoxel = 0;
-      Camera = 0;
-      GameEnv = 0;
+      PointedVoxel = nullptr;
+      Camera = nullptr;
+      GameEnv = nullptr;
       Stat_RefreshWaitingSectorCount = 0;
       BvProp_CrossHairType = 1;
       BvProp_DisplayCrossHair     = true;

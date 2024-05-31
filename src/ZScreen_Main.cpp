@@ -25,7 +25,16 @@
 
 #include "ZScreen_Main.h"
 
+#include <SDL2/SDL_timer.h>
+#include <SDL2/SDL_video.h>
+
 #include "GL/gl.h"
+#include "ACompileSettings.h"
+#include "ZEventManager.h"
+#include "ZGame.h"
+#include "ZGui_FontFrame.h"
+#include "ZSettings_Hardware.h"
+#include "ZTileSets.h"
 
 
 ULong ZScreen_Main::ProcessScreen(ZGame * GameEnv)

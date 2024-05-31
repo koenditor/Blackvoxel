@@ -26,6 +26,14 @@
 #include "ZTool_Linker.h"
 
 #include "ZGame.h"
+#include "ZActorPhysics.h"
+#include "ZActor_Player.h"
+#include "ZGameWindow_Advertising.h"
+#include "ZVoxelSector.h"
+#include "ZVoxelType.h"
+#include "ZVoxelTypeManager.h"
+#include "ZWorld.h"
+#include "z/ZString.h"
 
 ZToolsPointer ZTool_Linker::Pointer;
 

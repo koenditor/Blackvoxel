@@ -25,13 +25,17 @@
 
 #include "ZGameWindow_ZProgRobot_Remote.h"
 
+#include <SDL2/SDL_mouse.h>
+#include <SDL2/SDL_stdinc.h>
+#include <math.h>
+
 #include "ZOs_Specific_ViewDoc.h"
-
-#include "ZOs_Specific_EditCode.h"
-
 #include "ZGame.h"
 #include "ZActorPhysics.h"
-#include "SDL2/SDL.h"
+#include "ZGame_Events.h"
+#include "ZInventory.h"
+#include "ZTileSets.h"
+#include "z/ZStream_File.h"
 
 
 void ZGameWindow_ProgRobot_Remote::DisplayProgramName()

@@ -26,6 +26,13 @@
 #include "ZVoxelType_SPS.h"
 
 #include "ZGame.h"
+#include "ZActorPhysics.h"
+#include "ZActor_Player.h"
+#include "ZGameWindow_SPS.h"
+#include "ZWorld.h"
+#include "z/ZString.h"
+#include "z/ZType_ZPolar3d.h"
+#include "z/ZType_ZVector3L.h"
 
 void ZVoxelType_SPS::Power_Start() {GameEnv->GameWindow_SPS->Show();}
 void ZVoxelType_SPS::Power_End()   {GameEnv->GameWindow_SPS->Hide();}

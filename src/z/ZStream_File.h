@@ -28,6 +28,8 @@
 #include "ZTypes.h"
 #include "ZStreams.h"
 #include "ZString.h"
+#include "ZType_ZVector3L.h"
+#include "ZType_ZVector3d.h"
 
 class ZStream_File : public ZStream
 {

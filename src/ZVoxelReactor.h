@@ -24,37 +24,18 @@
 
 
 #include "z/ZTypes.h"
-
 #include "ZVoxelSector.h"
-
-#include "ZVoxelType.h"
-
-#include "ZWorld.h"
-
-#include "ZVoxelTypeManager.h"
-
-#include "z/ZFastBit_Array.h"
-
 #include "z/ZFastRandom.h"
-
-#include "ZVoxelReaction.h"
-
-#include "ZVoxelExtension_FabMachine.h"
-
-#include "ZVoxelExtension_FabMachine2.h"
-
-#include "ZFabMachineInfos.h"
-
-#include "ZVoxelExtension_Programmable.h"
-
 #include "ZEgmyTargetManager.h"
-
 #include "ZInclusionProbabilizer.h"
-
+#include "z/ZType_ZVector3d.h"
 
 class ZGame;
-
 struct ZonePressure;
+class ZVector3L;
+class ZVoxelReaction;
+class ZVoxelTypeManager;
+class ZVoxelWorld;
 
 class ZVoxelReactor
 {

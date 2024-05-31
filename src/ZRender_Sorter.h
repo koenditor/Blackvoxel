@@ -73,8 +73,8 @@ class ZRender_Sorter
     CycleNum = 0;
     UsedBuckets = 0;
     Render_ActualBucket = 0;
-    for (i=0;i<65536;i++) { BucketHash[i].CycleNum = 0; BucketHash[i].Bucket = 0; }
-    for (i=0;i<ZVOXELBLOCSIZE_X * ZVOXELBLOCSIZE_Y * ZVOXELBLOCSIZE_Z;i++) { BucketTable[i] = 0; }
+    for (i=0;i<65536;i++) { BucketHash[i].CycleNum = 0; BucketHash[i].Bucket = nullptr; }
+    for (i=0;i<ZVOXELBLOCSIZE_X * ZVOXELBLOCSIZE_Y * ZVOXELBLOCSIZE_Z;i++) { BucketTable[i] = nullptr; }
   }
 
   ~ZRender_Sorter()
@@ -84,8 +84,8 @@ class ZRender_Sorter
     CycleNum = 0;
     UsedBuckets = 0;
     Render_ActualBucket = 0;
-    for (i=0;i<65536;i++) { BucketHash[i].CycleNum = 0; BucketHash[i].Bucket = 0; }
-    for (i=0;i<ZVOXELBLOCSIZE_X * ZVOXELBLOCSIZE_Y * ZVOXELBLOCSIZE_Z;i++) { if (BucketTable[i]) { delete BucketTable[i]; BucketTable[i]=0; } }
+    for (i=0;i<65536;i++) { BucketHash[i].CycleNum = 0; BucketHash[i].Bucket = nullptr; }
+    for (i=0;i<ZVOXELBLOCSIZE_X * ZVOXELBLOCSIZE_Y * ZVOXELBLOCSIZE_Z;i++) { if (BucketTable[i]) { delete BucketTable[i]; BucketTable[i]=nullptr; } }
   }
 
   protected:
@@ -151,7 +151,7 @@ class ZRender_Sorter
 
   RenderBucket * Rendering_GetNewBucket()
   {
-    if (Render_ActualBucket >= UsedBuckets) return(0);
+    if (Render_ActualBucket >= UsedBuckets) return nullptr;
     return(BucketTable[Render_ActualBucket++]);
   }
 

@@ -32,8 +32,6 @@
 
 #include "z/ZTypes.h"
 
-#include "ZVoxelSector.h"
-
 class ZSectorSphere
 {
   public:

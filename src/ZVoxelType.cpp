@@ -24,26 +24,26 @@
  */
 
 #include "ZVoxelType.h"
+
 #include <stdio.h>
+
 #include "z/ZString.h"
-
 #include "ACompileSettings.h"
-
 #include "z/ZStream_File.h"
-
 #include "ZFabMachineInfos.h"
-
 #include "ZToolsPointer.h"
-
 #include "ZFabMachineInfos2.h"
+#include "ZVoxelExtension.h"
+#include "z/ZBitmapImage.h"
+#include "z/ZType_ZVector3L.h"
 
 
 
 
 ZVoxelType::ZVoxelType(UShort VoxelType)
 {
-  VoxelTypeManager = 0;
-  MainTexture = 0;
+  VoxelTypeManager = nullptr;
+  MainTexture = nullptr;
   Is_PlayerCanPassThrough = false;
   this->VoxelType = VoxelType;
   Draw_TransparentRendering = false;
@@ -99,9 +99,9 @@ ZVoxelType::ZVoxelType(UShort VoxelType)
   LiquidDensity = 0.0;
   BlastResistance = 1;
   OpenGl_TextureRef = 0;
-  GameEnv = 0;
-  FabInfos = 0;
-  FabInfos2= 0;
+  GameEnv = nullptr;
+  FabInfos = nullptr;
+  FabInfos2= nullptr;
   Documentation_PageNum = 0;
 }
 

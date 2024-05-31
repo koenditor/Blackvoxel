@@ -27,12 +27,12 @@
 #include "ZVoxelType_WirelessReceiver.h"
 
 #include "ZVoxelExtension_WirelessTransmitter.h"
-
 #include "ZVoxelSector.h"
-
 #include "ZGame.h"
-
 #include "ZToolsPointer.h"
+#include "ZWorld.h"
+#include "z/ZString.h"
+#include "z/ZType_ZVector3L.h"
 
 
 

@@ -26,9 +26,12 @@
 
 
 #include "ZVoxelType_LightTransmitter.h"
-#include "ZGame.h"
 
+#include "ZGame.h"
 #include "z/ZFastRandom.h"
+#include "ZVoxelSector.h"
+#include "ZVoxelTypeManager.h"
+#include "ZWorld.h"
 
 
 ZVoxelType_LightTransmitter::ZBlocPosN ZVoxelType_LightTransmitter::nbp6[6] =

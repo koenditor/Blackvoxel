@@ -30,8 +30,10 @@
 #define Z_ZVCPU_EXPERIMENTAL_ASMCODE 0
 
 #include "ZVCPU_Chip_Interface.h"
-
 #include "z/ZStream_SpecialRamStream.h"
+#include "z/ZNumberFormat.h"
+#include "z/ZString.h"
+#include "z/ZTypes.h"
 
 /*
 unsigned char optable[]=
@@ -133,7 +135,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
     ProgramCounter = 0;
     StatusRegister.WholeRegister = 0;
     Interrupt_Pending = 0;
-    VMachine = 0;
+    VMachine = nullptr;
     ElapsedCycles = 0;
     FrameCycles = 0;
     StepMode = false;
@@ -2723,7 +2725,7 @@ class BlackCPU : public ZVCPU_Chip_Interface
   static ZString OutputOpcodeDatabase(ULong Fi)
   {
     ZString Out, Str;
-    void * Db = 0;
+    void * Db = nullptr;
     ZMemSize i,j;
 
     switch(Fi)

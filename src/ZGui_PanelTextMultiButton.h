@@ -26,8 +26,10 @@
 #pragma once 
 
 #include "ZGui.h"
-
 #include "ZGui_FontFrame.h"
+#include "z/ZTypes.h"
+
+class ZTileStyle;
 
 class ZPanelTextMultiButton : public ZFrame
 {
@@ -37,7 +39,6 @@ class ZPanelTextMultiButton : public ZFrame
     ULong AlternateTextureNum;
     ULong ButtonNumber;
     ULong * DataRef;
-    bool  Pushed;
   public:
 
   ZPanelTextMultiButton()
@@ -50,8 +51,8 @@ class ZPanelTextMultiButton : public ZFrame
     Margin_Right  = 10.0f;
     ButtonText.SetPosition(Margin_Left,Margin_Top);
     ButtonNumber = 0;
-    ButtonList = 0;
-    DataRef = 0;
+    ButtonList = nullptr;
+    DataRef = nullptr;
     this->SetTexture(10);
     this->SetAlternateTexture(17);
   }

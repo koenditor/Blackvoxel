@@ -24,18 +24,23 @@
  */
 
 #include "ZActorPhysics.h"
+
 #include <math.h>
 #include <stdio.h>
-#include "SDL2/SDL.h"
-#include "ZHighPerfTimer.h"
+#include <SDL2/SDL_stdinc.h>
 
 #include "ZVoxelType.h"
 #include "ZGame.h"
+#include "ZGameWindow_Advertising.h"
+#include "ZInventory.h"
+#include "ZVoxelTypeManager.h"
+#include "ZWorld.h"
+#include "z/ZString.h"
 
 ZActor::ZActor()
 {
   ULong i;
-  Next = Pred = 0;
+  Next = Pred = nullptr;
 
   Location.x = Location.y = Location.z = 0.0;
   Velocity.x = Velocity.y = Velocity.z = 0.0;
@@ -50,7 +55,7 @@ ZActor::ZActor()
   JumpDebounce = 0;
   BuildingMaterial = 1;
   for (i=0; i<8; i++) MouseButtonMatrix[i]=0;
-  Inventory = 0;
+  Inventory = nullptr;
   Camera.ColoredVision.Activate = false;
   Camera.ColoredVision.Blue = 1.0f;
   Camera.ColoredVision.Red  = 1.0f;
@@ -60,9 +65,9 @@ ZActor::ZActor()
   IsOnGround = false;
 
   order=false;
-  PhysicsEngine = 0;
+  PhysicsEngine = nullptr;
   DeathChronometer = 0.0;
-  GameEnv = 0;
+  GameEnv = nullptr;
 
   Time_TotalGameTime = 0;
   Time_ElapsedTimeSinceLastRespawn = 0;
@@ -120,7 +125,7 @@ void ZActor::Action_NextBuildingMaterial()
   ZVoxelType * VoxelType;
   if (!VoxelTypeManager) return;
   BuildingMaterial++;
-  if ( 0==(VoxelType = VoxelTypeManager->GetVoxelType(BuildingMaterial)) )
+  if ( nullptr==(VoxelType = VoxelTypeManager->GetVoxelType(BuildingMaterial)) )
   {
     BuildingMaterial--;
   }
@@ -136,7 +141,7 @@ void ZActor::Action_PrevBuildingMaterial()
   ZVoxelType * VoxelType;
   if (!VoxelTypeManager) return;
   if (BuildingMaterial >1) BuildingMaterial--;
-  if ( 0==(VoxelType = VoxelTypeManager->GetVoxelType(BuildingMaterial)) )
+  if ( nullptr==(VoxelType = VoxelTypeManager->GetVoxelType(BuildingMaterial)) )
   {
     BuildingMaterial++;
   }
@@ -314,35 +319,35 @@ void ZActorPhysicEngine::AddActor(ZActor * Actor)
   if (!ActorList)
   {
     ActorList = Actor;
-    Actor->Next = 0;
-    Actor->Pred = 0;
+    Actor->Next = nullptr;
+    Actor->Pred = nullptr;
     return;
   }
   Actor->Next = ActorList;
-  Actor->Pred = 0;
+  Actor->Pred = nullptr;
   ActorList->Pred = Actor;
   ActorList = Actor;
 }
 
 void ZActorPhysicEngine::RemoveActor(ZActor * Actor)
 {
-  if (Actor == ActorList) {ActorList = Actor->Next; Actor->Next = 0; Actor->Pred = 0; return;}
+  if (Actor == ActorList) {ActorList = Actor->Next; Actor->Next = nullptr; Actor->Pred = nullptr; return;}
   Actor->Next->Pred = Actor->Pred;
   Actor->Pred->Next = Actor->Next;
-  Actor->Next = 0;
-  Actor->Pred = 0;
+  Actor->Next = nullptr;
+  Actor->Pred = nullptr;
 }
 
 ZActorPhysicEngine::ZActorPhysicEngine()
 {
-  ActorList = 0;
-  SelectedActor = 0;
+  ActorList = nullptr;
+  SelectedActor = nullptr;
   Gravity.x = 0.0;
   Gravity.y = -9810.0;
   Gravity.z = 0.0;
-  VoxelTypeManager = 0;
-  World = 0;
-  ToolManager = 0;
+  VoxelTypeManager = nullptr;
+  World = nullptr;
+  ToolManager = nullptr;
 }
 
 ZActorPhysicEngine::~ZActorPhysicEngine()
@@ -358,7 +363,7 @@ ZActorPhysicEngine::~ZActorPhysicEngine()
     delete Actor;
     Actor = NextActor;
   }
-  ActorList = 0;
+  ActorList = nullptr;
 }
 
 
@@ -645,7 +650,7 @@ void ZActor::DoPhysic(UELong FrameTime)
   ZRayCast_out Out[32];
 
 
-  In.Camera = 0;
+  In.Camera = nullptr;
   In.MaxCubeIterations = ceil(DepLen / 256)+5; // 6;
   In.PlaneCubeDiff = In.MaxCubeIterations - 3;
   In.MaxDetectionDistance = 3000000.0;

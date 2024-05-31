@@ -26,8 +26,12 @@
 #pragma once
 
 #include "ZVoxelType.h"
+#include "z/ZTypes.h"
 
-#include "z/ZGenericTable.h"
+class ZString;
+class ZToolsPointer;
+class ZVector3L;
+class ZVoxelExtension;
 
 class ZVoxelType_WirelessTransmitter : public ZVoxelType
 {

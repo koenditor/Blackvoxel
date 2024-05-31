@@ -26,12 +26,13 @@
 #pragma once
 
 #include "z/ZTypes.h"
-
-#include "z/ZString.h"
-
 #include "z/ZObject.h"
-
 #include "ZSector_ModifTracker.h"
+
+class ZPolar3d;
+class ZString;
+class ZVector3L;
+class ZVector3d;
 
 
 
@@ -323,8 +324,8 @@ public:
 
     // Saving
 
-    Bool Save(ULong UniverseNum, char const * OptFileName = 0);
-    Bool Load(ULong UniverseNum, char const * OptFileName = 0);
+    Bool Save(ULong UniverseNum, char const * OptFileName = nullptr);
+    Bool Load(ULong UniverseNum, char const * OptFileName = nullptr);
     Bool DeleteSave(ULong UniverseNum); // Delete file on disk.
     Bool static GetSectorFileName(ULong UniverseNum, Long Pos_x, Long Pos_y, Long Pos_z, ZString & BaseDirectory, char * OutBuffer);
     Bool static GetSectorBaseDirectory(ZString & OutDirectory);

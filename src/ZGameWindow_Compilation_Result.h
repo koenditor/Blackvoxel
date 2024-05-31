@@ -26,12 +26,10 @@
 #pragma once 
 
 #include "z/ZString.h"
-
 #include "ZGui.h"
-
 #include "ZGui_TileFrame.h"
-
 #include "ZGui_FontFrame.h"
+#include "z/ZTypes.h"
 
 class ZGame;
 
@@ -58,7 +56,7 @@ class ZGameWindow_Compilation_Result : public ZFrame
   ZGameWindow_Compilation_Result()
   {
     MainWindow = this;
-    GameEnv = 0;
+    GameEnv = nullptr;
     Flag_Shown = false;
     Text_Title       = "ASSEMBLER ERROR";
   }

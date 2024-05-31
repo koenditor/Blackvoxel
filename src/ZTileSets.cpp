@@ -25,11 +25,9 @@
 
 #include "ZTileSets.h"
 
-#include <math.h>
-#include <stdio.h>
-#include "SDL2/SDL.h"
-
 #include "GL/gl.h"
+#include "ZTextureManager.h"
+#include "z/ZBitmapImage.h"
 
     ZTileSet::ZTileSet()
     {
@@ -155,12 +153,12 @@
       return(false);
     }
 
-    void ZTileSet::RenderFont(ZTileStyle const * TileStyle , ZBox3f const * DrawBox, char const * TextToRender, ZColor3f * Color=0)
+    void ZTileSet::RenderFont(ZTileStyle const * TileStyle , ZBox3f const * DrawBox, char const * TextToRender, ZColor3f * Color=nullptr)
     {
       float x,y, xp,yp, DimX, DimY, LimitX;// LimitY;
       ZColor3f DrawColor;
 
-      if (Color == 0) { Color = & DrawColor; DrawColor.r = 1.0; DrawColor.v = 1.0; DrawColor.b = 1.0; }
+      if (Color == nullptr) { Color = & DrawColor; DrawColor.r = 1.0; DrawColor.v = 1.0; DrawColor.b = 1.0; }
 
       ULong i;
       ZTileSet * TileSet;

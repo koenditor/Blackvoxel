@@ -26,13 +26,15 @@
 #include "ZVoxelType_SimpleButton.h"
 
 #include "ZGame.h"
-
 #include "ZWorld.h"
+#include "ZVoxelSector.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZVar.h"
 
 void  ZVoxelType_SimpleButton::UserAction_Activate(ZMemSize VoxelInfo, Long x, Long y, Long z)
 {
-  if (VoxelType == 214) GameEnv->World->SetVoxel_WithCullingUpdate(x,y,z,215,ZVoxelSector::CHANGE_CRITICAL,true,0);
-  if (VoxelType == 215) GameEnv->World->SetVoxel_WithCullingUpdate(x,y,z,214,ZVoxelSector::CHANGE_CRITICAL,true,0);
+  if (VoxelType == 214) GameEnv->World->SetVoxel_WithCullingUpdate(x,y,z,215,ZVoxelSector::CHANGE_CRITICAL,true,nullptr);
+  if (VoxelType == 215) GameEnv->World->SetVoxel_WithCullingUpdate(x,y,z,214,ZVoxelSector::CHANGE_CRITICAL,true,nullptr);
 }
 
 
@@ -83,7 +85,7 @@ bool ZVoxelType_SimpleButton::Interface_SetInfo(ZVoxelLocation * VLoc, ULong Inf
                }
                if (Info) NewVoxelValue++;
                ZVoxelWorld::Convert_Location_ToCoords(VLoc, &Coords); // Get the coordinates.
-               GameEnv->World->SetVoxel_WithCullingUpdate(Coords.x, Coords.y, Coords.z, NewVoxelValue, ZVoxelSector::CHANGE_CRITICAL, true, 0 );
+               GameEnv->World->SetVoxel_WithCullingUpdate(Coords.x, Coords.y, Coords.z, NewVoxelValue, ZVoxelSector::CHANGE_CRITICAL, true, nullptr );
              }
              break;
     default: return(false);break;

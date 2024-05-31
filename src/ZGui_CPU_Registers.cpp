@@ -26,6 +26,8 @@
 #include "ZGui_CPU_Registers.h"
 
 #include "ZGame.h"
+#include "ZTileSets.h"
+#include "ZVMachine.h"
 
 void ZCPURegisters::GetEffectiveHeight(float & Height)
 {

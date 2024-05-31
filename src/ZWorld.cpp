@@ -17,9 +17,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 #include "ZWorld.h"
+
+#include <SDL2/SDL_timer.h>
+#include <math.h>
+
 #include "stdio.h"
 #include "math.h"
-#include "SDL2/SDL.h"
+#include "ZCamera.h"
+#include "ZSectorLoader.h"
 
 // Sector deblocking coordinates
 
@@ -69,7 +74,7 @@ ZVoxelWorld::ZVoxelWorld()
 
   SectorEjectList = new ZSectorRingList(65536);
 
-  SectorTable = 0;
+  SectorTable = nullptr;
 
   Size_x = 64;
   Size_y = 64;
@@ -77,7 +82,7 @@ ZVoxelWorld::ZVoxelWorld()
 
   TableSize = Size_x * Size_y * Size_z;
   SectorTable = new ZVoxelSector * [TableSize];
-  for(i=0;i<TableSize;i++) SectorTable[i]=0;
+  for(i=0;i<TableSize;i++) SectorTable[i]=nullptr;
 
   WorkingFullSector    = new ZVoxelSector;
   WorkingFullSector->Fill(0x0001);
@@ -85,10 +90,10 @@ ZVoxelWorld::ZVoxelWorld()
   WorkingEmptySector->Fill(0);
   WorkingScratchSector = new ZVoxelSector;
 
-  SectorLoader = 0;
-  SectorList = 0;
+  SectorLoader = nullptr;
+  SectorList = nullptr;
   UniverseNum = 1;
-  VoxelTypeManager = 0;
+  VoxelTypeManager = nullptr;
 
   for(i=0;i<6;i++) ProxLoc[i]=ProxLoc_Init[i];
 
@@ -119,13 +124,13 @@ ZVoxelWorld::~ZVoxelWorld()
   if (SectorTable) { delete [] SectorTable; TableSize = 0; }
 
 
-  if (WorkingFullSector)   { delete WorkingFullSector;    WorkingFullSector = 0;   }
-  if (WorkingEmptySector)  { delete WorkingEmptySector;   WorkingEmptySector = 0;  }
-  if (WorkingScratchSector){ delete WorkingScratchSector; WorkingScratchSector = 0;}
-  SectorList = 0;
+  if (WorkingFullSector)   { delete WorkingFullSector;    WorkingFullSector = nullptr;   }
+  if (WorkingEmptySector)  { delete WorkingEmptySector;   WorkingEmptySector = nullptr;  }
+  if (WorkingScratchSector){ delete WorkingScratchSector; WorkingScratchSector = nullptr;}
+  SectorList = nullptr;
   UniverseNum = 0;
   if (SectorEjectList) delete SectorEjectList;
-  SectorEjectList = 0;
+  SectorEjectList = nullptr;
 }
 
 ZVoxelSector * ZVoxelWorld::FindSector (Long x, Long y, Long z)
@@ -159,7 +164,7 @@ ZVoxelSector * ZVoxelWorld::FindSector (Long x, Long y, Long z)
     if ( (SectorPointer->Pos_x == x) && (SectorPointer->Pos_y == y) && (SectorPointer->Pos_z == z) ) return(SectorPointer);
     SectorPointer = SectorPointer->Next;
   }
-  return(0);
+  return nullptr;
 }
 
 ZVoxelSector * ZVoxelWorld::FindSector_Secure(Long x, Long y, Long z) // Create sector if not in memory.
@@ -189,7 +194,7 @@ ZVoxelSector * ZVoxelWorld::FindSector_Secure(Long x, Long y, Long z) // Create 
     SDL_Delay(2);
     ProcessNewLoadedSectors();
   }
-  return(0);
+  return nullptr;
 }
 
 void ZVoxelWorld::AddSector( ZVoxelSector * Sector )
@@ -206,31 +211,31 @@ void ZVoxelWorld::AddSector( ZVoxelSector * Sector )
 
   Offset = x + y * Size_x + (z * Size_x * Size_y);
 
-  if ( SectorTable[Offset] == 0 )
+  if ( SectorTable[Offset] == nullptr )
   {
-    SectorTable[Offset] = Sector; Sector->Next = 0; Sector->Pred = 0;
+    SectorTable[Offset] = Sector; Sector->Next = nullptr; Sector->Pred = nullptr;
   }
   else
   {
     SectorPointer = SectorTable[Offset];
     while ( SectorPointer->Next ) SectorPointer = SectorPointer->Next;
     SectorPointer->Next = Sector;
-    Sector->Next = 0;
+    Sector->Next = nullptr;
     Sector->Pred = SectorPointer;
   }
 
   // Adding to sequential access global list
 
-  if (SectorList == 0)
+  if (SectorList == nullptr)
   {
     SectorList = Sector;
-    Sector->GlobalList_Next = 0;
-    Sector->GlobalList_Pred = 0;
+    Sector->GlobalList_Next = nullptr;
+    Sector->GlobalList_Pred = nullptr;
   }
   else
   {
     Sector->GlobalList_Next = SectorList;
-    Sector->GlobalList_Pred = 0;
+    Sector->GlobalList_Pred = nullptr;
     SectorList->GlobalList_Pred = Sector;
     SectorList = Sector;
   }
@@ -268,7 +273,7 @@ void ZVoxelWorld::RemoveSector( ZVoxelSector * Sector )
 
   // Zeroing fields
 
-  Sector->Next = 0; Sector->Pred = 0; Sector->GlobalList_Next = 0; Sector->GlobalList_Pred = 0;
+  Sector->Next = nullptr; Sector->Pred = nullptr; Sector->GlobalList_Next = nullptr; Sector->GlobalList_Pred = nullptr;
 
 }
 
@@ -327,7 +332,7 @@ void ZVoxelWorld::ProcessOldEjectedSectors()
 
     // printf("EjectPass : %lx %lu\n",Sector,++debug_ejectpass);
     RemoveSector(Sector);
-    if (Sector->DisplayData) {delete Sector->DisplayData; Sector->DisplayData = 0; }
+    if (Sector->DisplayData) {delete Sector->DisplayData; Sector->DisplayData = nullptr; }
     this->SectorLoader->Eject_Sector(Sector);
   }
 }
@@ -1988,13 +1993,13 @@ bool ZVoxelWorld::SetVoxel_WithCullingUpdate(Long x, Long y, Long z, UShort Voxe
 
   // Fetching sectors
 
-  if ( 0== (Sector[VOXEL_LEFT]    = FindSector( (x-1) >> ZVOXELBLOCSHIFT_X , (y)     >> ZVOXELBLOCSHIFT_Y , (z)   >> ZVOXELBLOCSHIFT_Z ) ) ) Sector[VOXEL_LEFT]    = this->WorkingScratchSector;
-  if ( 0== (Sector[VOXEL_RIGHT]   = FindSector( (x+1) >> ZVOXELBLOCSHIFT_X , (y)     >> ZVOXELBLOCSHIFT_Y , (z)   >> ZVOXELBLOCSHIFT_Z ) ) ) Sector[VOXEL_RIGHT]   = this->WorkingScratchSector;
-  if ( 0== (Sector[VOXEL_INFRONT] = FindSector( (x)   >> ZVOXELBLOCSHIFT_X , (y)     >> ZVOXELBLOCSHIFT_Y , (z-1) >> ZVOXELBLOCSHIFT_Z ) ) ) Sector[VOXEL_INFRONT] = this->WorkingScratchSector;
-  if ( 0== (Sector[VOXEL_BEHIND]  = FindSector( (x)   >> ZVOXELBLOCSHIFT_X , (y)     >> ZVOXELBLOCSHIFT_Y , (z+1) >> ZVOXELBLOCSHIFT_Z ) ) ) Sector[VOXEL_BEHIND]  = this->WorkingScratchSector;
-  if ( 0== (Sector[VOXEL_ABOVE]   = FindSector( (x)   >> ZVOXELBLOCSHIFT_X , (y + 1) >> ZVOXELBLOCSHIFT_Y , (z)   >> ZVOXELBLOCSHIFT_Z ) ) ) Sector[VOXEL_ABOVE]   = this->WorkingScratchSector;
-  if ( 0== (Sector[VOXEL_BELOW]   = FindSector( (x)   >> ZVOXELBLOCSHIFT_X , (y - 1) >> ZVOXELBLOCSHIFT_Y , (z)   >> ZVOXELBLOCSHIFT_Z ) ) ) Sector[VOXEL_BELOW]   = this->WorkingScratchSector;
-  if ( 0== (Sector[VOXEL_INCENTER]= FindSector( (x)   >> ZVOXELBLOCSHIFT_X , (y)     >> ZVOXELBLOCSHIFT_Y , (z)   >> ZVOXELBLOCSHIFT_Z ) ) ) return(false);
+  if ( nullptr== (Sector[VOXEL_LEFT]    = FindSector( (x-1) >> ZVOXELBLOCSHIFT_X , (y)     >> ZVOXELBLOCSHIFT_Y , (z)   >> ZVOXELBLOCSHIFT_Z ) ) ) Sector[VOXEL_LEFT]    = this->WorkingScratchSector;
+  if ( nullptr== (Sector[VOXEL_RIGHT]   = FindSector( (x+1) >> ZVOXELBLOCSHIFT_X , (y)     >> ZVOXELBLOCSHIFT_Y , (z)   >> ZVOXELBLOCSHIFT_Z ) ) ) Sector[VOXEL_RIGHT]   = this->WorkingScratchSector;
+  if ( nullptr== (Sector[VOXEL_INFRONT] = FindSector( (x)   >> ZVOXELBLOCSHIFT_X , (y)     >> ZVOXELBLOCSHIFT_Y , (z-1) >> ZVOXELBLOCSHIFT_Z ) ) ) Sector[VOXEL_INFRONT] = this->WorkingScratchSector;
+  if ( nullptr== (Sector[VOXEL_BEHIND]  = FindSector( (x)   >> ZVOXELBLOCSHIFT_X , (y)     >> ZVOXELBLOCSHIFT_Y , (z+1) >> ZVOXELBLOCSHIFT_Z ) ) ) Sector[VOXEL_BEHIND]  = this->WorkingScratchSector;
+  if ( nullptr== (Sector[VOXEL_ABOVE]   = FindSector( (x)   >> ZVOXELBLOCSHIFT_X , (y + 1) >> ZVOXELBLOCSHIFT_Y , (z)   >> ZVOXELBLOCSHIFT_Z ) ) ) Sector[VOXEL_ABOVE]   = this->WorkingScratchSector;
+  if ( nullptr== (Sector[VOXEL_BELOW]   = FindSector( (x)   >> ZVOXELBLOCSHIFT_X , (y - 1) >> ZVOXELBLOCSHIFT_Y , (z)   >> ZVOXELBLOCSHIFT_Z ) ) ) Sector[VOXEL_BELOW]   = this->WorkingScratchSector;
+  if ( nullptr== (Sector[VOXEL_INCENTER]= FindSector( (x)   >> ZVOXELBLOCSHIFT_X , (y)     >> ZVOXELBLOCSHIFT_Y , (z)   >> ZVOXELBLOCSHIFT_Z ) ) ) return(false);
 
   // Computing memory offsets from sector start
 

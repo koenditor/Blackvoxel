@@ -31,12 +31,11 @@
 
 
 #include "ZVoxelExtension.h"
-
-#include "ZVMachine_T1.h"
-
-#include "ZMacroAssembler.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZTypes.h"
 
 class ZActiveVoxelInterface;
+class ZStream_SpecialRamStream;
 
 class ZVoxelExtension_ProgRobot_Remote : public ZVoxelExtension
 {
@@ -53,7 +52,7 @@ class ZVoxelExtension_ProgRobot_Remote : public ZVoxelExtension
 
     virtual ZVoxelExtension * GetNewCopy()
     {
-      return(0);
+      return nullptr;
     }
 
     ZVoxelExtension_ProgRobot_Remote()

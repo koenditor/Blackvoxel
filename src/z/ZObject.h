@@ -27,6 +27,6 @@
 class ZObject
 {
   public:
-    virtual ZObject * GetCopy() {return(0);}
+    virtual ZObject * GetCopy() {return nullptr;}
     virtual ~ZObject() {};
 };

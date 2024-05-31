@@ -25,11 +25,11 @@
 
 #pragma once 
 
-#include "ZScripting.h"
-
 #include "z/ZString.h"
+#include "z/ZTypes.h"
 
 class ZGame;
+class ZVector3L;
 class ZVoxelExtension_Programmable;
 
 class ZScripting_Squirrel3

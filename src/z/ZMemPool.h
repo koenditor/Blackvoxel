@@ -41,10 +41,10 @@ class ZMemoryPool
 {
   public:
     virtual ~ZMemoryPool() {}
-    virtual void * AllocMem( const ZMemSize Size, ZMemSize & EffectiveSize) {return(0);}
+    virtual void * AllocMem( const ZMemSize Size, ZMemSize & EffectiveSize) {return nullptr;}
     virtual void FreeMem ( void * Block, const ZMemSize BlockSize) {}
 
-    virtual void * AllocMem( const ZMemSize Size ) {return(0);}
+    virtual void * AllocMem( const ZMemSize Size ) {return nullptr;}
     virtual void FreeMem( void * Block ) {}
 };
 
@@ -81,7 +81,7 @@ class ZBasicMemoryPool : public ZMemoryPool
     virtual void * AllocMem( const ZMemSize Size, ZMemSize & EffectiveSize);
     virtual void FreeMem ( void * Block, const ZMemSize BlockSize);
 
-    virtual void * AllocMem( const ZMemSize Size ) { return(0); };
+    virtual void * AllocMem( const ZMemSize Size ) { return nullptr; };
     virtual void FreeMem( void * Block )           { }
 };
 
@@ -112,7 +112,7 @@ class ZMonoSizeMemoryPool : public ZMemoryPool
 
     ZMonoSizeMemoryPool()
     {
-      MemoryPool = 0;
+      MemoryPool = nullptr;
       MemorySize = 0;
       AllocCount = 0;
       FreeCount  = 0;
@@ -131,7 +131,7 @@ class ZMonoSizeMemoryPool : public ZMemoryPool
         delete [] Node;
       }
 
-      MemoryPool = 0;
+      MemoryPool = nullptr;
       MemorySize = 0;
     }
 

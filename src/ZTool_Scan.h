@@ -31,6 +31,7 @@
 
 
 #include "ZTools.h"
+#include "z/ZTypes.h"
 
 class ZTool_Scan : public ZTool
 {

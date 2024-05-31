@@ -24,15 +24,18 @@
  */
 
 #include "ZString.h"
+
 #include <stdio.h>
-#include <string.h>
+
+#include "ZMemPool_Optimized.h"
+#include "ZNumberFormat.h"
 
 
 //ZBasicMemoryPool ZStringBasicMemoryPool;
 
 ZMemPool_Optimized ZStringBasicMemoryPool;
 
-ZMemoryPool * ZStringCurrentMemoryPool=0;
+ZMemoryPool * ZStringCurrentMemoryPool=nullptr;
 
 ZString::ZStringBaseData ZString::_ZStringBaseConvert[] =
 {
@@ -213,7 +216,7 @@ double ZString::GetDouble()
 
 ZString::ZString()
 {
-  if (ZStringCurrentMemoryPool == 0) ZStringCurrentMemoryPool = &ZStringBasicMemoryPool;
+  if (ZStringCurrentMemoryPool == nullptr) ZStringCurrentMemoryPool = &ZStringBasicMemoryPool;
   MemPool = ZStringCurrentMemoryPool;
 
   String = (char *)"";
@@ -233,7 +236,7 @@ ZString::ZString( const char * SourceString )
 {
   ZMemSize i, StrLen;
 
-  if (ZStringCurrentMemoryPool == 0) ZStringCurrentMemoryPool = &ZStringBasicMemoryPool;
+  if (ZStringCurrentMemoryPool == nullptr) ZStringCurrentMemoryPool = &ZStringBasicMemoryPool;
   MemPool = ZStringCurrentMemoryPool;
 
   MemLen = 0;
@@ -253,7 +256,7 @@ ZString::ZString( const ZString & Str )
 {
   ZMemSize i;
 
-  if (ZStringCurrentMemoryPool == 0) ZStringCurrentMemoryPool = &ZStringBasicMemoryPool;
+  if (ZStringCurrentMemoryPool == nullptr) ZStringCurrentMemoryPool = &ZStringBasicMemoryPool;
   MemPool = ZStringCurrentMemoryPool;
 
   MemLen = 0;
@@ -269,7 +272,7 @@ ZString::ZString( const ZString & Str )
 
 ZString::ZString( const float Number )
 {
-  if (ZStringCurrentMemoryPool == 0) ZStringCurrentMemoryPool = &ZStringBasicMemoryPool;
+  if (ZStringCurrentMemoryPool == nullptr) ZStringCurrentMemoryPool = &ZStringBasicMemoryPool;
   MemPool = ZStringCurrentMemoryPool;
 
   MemLen = 0;
@@ -285,7 +288,7 @@ ZString::ZString( const float Number )
 
 ZString::ZString( const ULong Number )
 {
-  if (ZStringCurrentMemoryPool == 0) ZStringCurrentMemoryPool = &ZStringBasicMemoryPool;
+  if (ZStringCurrentMemoryPool == nullptr) ZStringCurrentMemoryPool = &ZStringBasicMemoryPool;
   MemPool = ZStringCurrentMemoryPool;
   MemLen = 0;
   Settings.Display_TrailZero = 1;
@@ -297,7 +300,7 @@ ZString::ZString( const ULong Number )
 
 ZString::ZString( const Long Number )
 {
-  if (ZStringCurrentMemoryPool == 0) ZStringCurrentMemoryPool = &ZStringBasicMemoryPool;
+  if (ZStringCurrentMemoryPool == nullptr) ZStringCurrentMemoryPool = &ZStringBasicMemoryPool;
   MemPool = ZStringCurrentMemoryPool;
 
   MemLen = 0;
@@ -670,7 +673,7 @@ Bool ZString::LoadFromFile(const char * FileName)
   FILE * Fl;
   size_t ReadSize, TrueRead;
 
-  if ((Fl = fopen(FileName, "rb")) == 0) return(false);
+  if ((Fl = fopen(FileName, "rb")) == nullptr) return(false);
 
   ReadSize = 1024;
   Len = 0;
@@ -693,7 +696,7 @@ bool ZString::SaveToFile  (const char * FileName)
   FILE * Fl;
   size_t WriteSize;
 
-  if ((Fl = fopen(FileName, "wb")) == 0) return(false);
+  if ((Fl = fopen(FileName, "wb")) == nullptr) return(false);
   WriteSize = fwrite(String,Len,1, Fl);
   fclose(Fl);
 

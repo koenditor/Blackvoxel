@@ -26,6 +26,9 @@
 #include "ZGameWindow_SPS.h"
 
 #include "ZGame.h"
+#include "ZActorPhysics.h"
+#include "ZTileSets.h"
+#include "z/ZTypes.h"
 
 void ZGameWindow_SPS::Show()
 {

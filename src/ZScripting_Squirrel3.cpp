@@ -24,22 +24,30 @@
  */
 
 #include "ACompileSettings.h"
-
+#include "ZActorPhysics.h"
+#include "ZEventManager.h"
+#include "ZFabMachineInfos.h"
+#include "ZGameInfo.h"
+#include "ZSector_ModifTracker.h"
+#include "ZVoxelSector.h"
+#include "ZVoxelType.h"
+#include "ZVoxelTypeManager.h"
+#include "ZWorld.h"
+#include "z/ZBitmapImage.h"
+#include "z/ZFastRandom.h"
+#include "z/ZType_ZPolar3d.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZType_ZVector3d.h"
+#include "z/ZVar.h"
 #include "ZScripting_Squirrel3.h"
-
 #include "ZVoxelExtension_Programmable.h"
-
-#include "ZHighPerfTimer.h"
-
 #include "ZGame.h"
-
-#include "ZTextureManager.h"
-
 #include "z/ZGenericCanva_2.h"
-
+#include "ZFabMachineInfos2.h"
+#include "ZGameWindow_Advertising.h"
+#include "ZTileSets.h"
 #include <stdarg.h>
 #include <stdio.h>
-
 #include "squirrel.h"
 #include "sqstdio.h"
 #include "sqstdaux.h"
@@ -53,7 +61,7 @@ extern ZGame * Ge;
 class ZStoreSq3
 {
   public:
-    ZStoreSq3() {GameEnv=Ge; Allow_WorldManipulations = false; v=0; VoxelPosition = 0; HasMoved = false; Extension = 0;LaunchContext=0; Running=0; }
+    ZStoreSq3() {GameEnv=Ge; Allow_WorldManipulations = false; v=nullptr; VoxelPosition = 0; HasMoved = false; Extension = nullptr;LaunchContext=0; Running=0; }
     HSQUIRRELVM v;
     ZGame * GameEnv;
     ZVoxelExtension_Programmable * Extension;
@@ -233,7 +241,7 @@ SQInteger function_PickVoxel(HSQUIRRELVM v)
 
   if (1==S->Extension->StoreBlocks( VoxelType, 1))
   {
-    S->GameEnv->World->SetVoxel_WithCullingUpdate(NewLocation.x,NewLocation.y,NewLocation.z, 0, ZVoxelSector::CHANGE_IMPORTANT , true, 0 );
+    S->GameEnv->World->SetVoxel_WithCullingUpdate(NewLocation.x,NewLocation.y,NewLocation.z, 0, ZVoxelSector::CHANGE_IMPORTANT , true, nullptr );
     sq_pushbool(v,SQTrue);
   }
   else
@@ -359,7 +367,7 @@ SQInteger function_PlaceVoxel(HSQUIRRELVM v)
   if (!Found) { sq_pushbool(v,SQFalse); return(1); }
 
   S->Extension->VoxelQuantity[SlotNum]--; if (S->Extension->VoxelQuantity[SlotNum] == 0) S->Extension->VoxelType[SlotNum] = 0;
-  S->GameEnv->World->SetVoxel_WithCullingUpdate(NewLocation.x,NewLocation.y,NewLocation.z, InVal2, ZVoxelSector::CHANGE_IMPORTANT, true, 0 );
+  S->GameEnv->World->SetVoxel_WithCullingUpdate(NewLocation.x,NewLocation.y,NewLocation.z, InVal2, ZVoxelSector::CHANGE_IMPORTANT, true, nullptr );
   sq_pushbool(v,SQTrue);
   return(1);
 }
@@ -408,7 +416,7 @@ SQInteger function_PlaceVoxel3D(HSQUIRRELVM v)
   S->Extension->UnstoreBlocks(SlotNum, 1, &tmp2 );
 
   // Set voxel and moved flag
-  S->GameEnv->World->SetVoxel_WithCullingUpdate(NewLocation.x, NewLocation.y, NewLocation.z ,VoxelType, ZVoxelSector::CHANGE_IMPORTANT, true, 0);
+  S->GameEnv->World->SetVoxel_WithCullingUpdate(NewLocation.x, NewLocation.y, NewLocation.z ,VoxelType, ZVoxelSector::CHANGE_IMPORTANT, true, nullptr);
   Loc.Sector->ModifTracker.Set(Loc.Offset);
 
   sq_pushbool(v,SQTrue);
@@ -447,7 +455,7 @@ SQInteger function_UnofficialFastPlot(HSQUIRRELVM v)
   if (!S->GameEnv->World->GetVoxelLocation(&Loc, &NewLocation)) { sq_pushbool(v,SQFalse); return(1); };
 
   // Set voxel and moved flag
-  S->GameEnv->World->SetVoxel_WithCullingUpdate(NewLocation.x, NewLocation.y, NewLocation.z ,VoxelType, ZVoxelSector::CHANGE_IMPORTANT, true, 0);
+  S->GameEnv->World->SetVoxel_WithCullingUpdate(NewLocation.x, NewLocation.y, NewLocation.z ,VoxelType, ZVoxelSector::CHANGE_IMPORTANT, true, nullptr);
   Loc.Sector->ModifTracker.Set(Loc.Offset);
 
   sq_pushbool(v,SQTrue);
@@ -497,7 +505,7 @@ SQInteger function_PickVoxel3D(HSQUIRRELVM v)
   // Destroy the Voxel and store it into robot's inventory.
   if (1==S->Extension->StoreBlocks( VoxelType, 1))
   {
-    S->GameEnv->World->SetVoxel_WithCullingUpdate(NewLocation.x,NewLocation.y,NewLocation.z, 0, ZVoxelSector::CHANGE_IMPORTANT, true, 0 );
+    S->GameEnv->World->SetVoxel_WithCullingUpdate(NewLocation.x,NewLocation.y,NewLocation.z, 0, ZVoxelSector::CHANGE_IMPORTANT, true, nullptr );
     sq_pushbool(v,SQTrue);
   }
   else
@@ -1350,7 +1358,7 @@ SQInteger function_Image_New(HSQUIRRELVM v)
   // Delete existing image
 
   Image = S->Extension->ImageTable[ImageNum];
-  if (Image) { delete Image; S->Extension->ImageTable[ImageNum] = 0;}
+  if (Image) { delete Image; S->Extension->ImageTable[ImageNum] = nullptr;}
 
   // Create the new image
 
@@ -1769,7 +1777,7 @@ SQInteger function_Image_Load(HSQUIRRELVM v)
 
   // Delete existing image
 
-  if (Image) { delete Image; S->Extension->ImageTable[ImageNum] = 0;}
+  if (Image) { delete Image; S->Extension->ImageTable[ImageNum] = nullptr;}
 
   // Create the new image
 
@@ -1892,7 +1900,7 @@ SQInteger function_GetFab_Find(HSQUIRRELVM v)
     if (Vt->FabInfos2)
     {
 
-      for (ZFabInfos2::ZTransformation * Transformation = Vt->FabInfos2->GetFirstTransformation(); Transformation != 0; Transformation = Transformation->Next)
+      for (ZFabInfos2::ZTransformation * Transformation = Vt->FabInfos2->GetFirstTransformation(); Transformation != nullptr; Transformation = Transformation->Next)
       {
 
         for (ResultIndex=0; ResultIndex < Transformation->ResultCount; ResultIndex++)
@@ -1966,7 +1974,7 @@ bool _GetEntryFromIndex(ZFabInfos2 * Fb2, ULong  EntryIndex, ZFabInfos2::ZTransf
   ULong i;
 
   i=0;
-  for (  Transformation = Fb2->GetFirstTransformation(); Transformation != 0; Transformation = Transformation->Next)
+  for (  Transformation = Fb2->GetFirstTransformation(); Transformation != nullptr; Transformation = Transformation->Next)
   {
     if (i==EntryIndex) return(true);
     i++;
@@ -2513,7 +2521,7 @@ SQInteger function_GetFab_Count(HSQUIRRELVM v)
     {
       ZFabInfos2::ZTransformation * Transformation;
 
-      for (Transformation = Vt->FabInfos2->GetFirstTransformation(); Transformation !=0 ; Transformation = Transformation->Next)
+      for (Transformation = Vt->FabInfos2->GetFirstTransformation(); Transformation !=nullptr ; Transformation = Transformation->Next)
       {
         for (ResultIndex=0; ResultIndex < Transformation->ResultCount; ResultIndex++)
         {
@@ -2623,7 +2631,7 @@ bool ZScripting_Squirrel3::Init()
   // Create Squirrel virtual machine instance
 
   S->v = sq_open(1024); // creates a VM with initial stack size 1024
-  if (S->v == 0) return(false);
+  if (S->v == nullptr) return(false);
 
   // printf("Create %ul -> %ul\n",S,S->v);
   // Set error handlers
@@ -2760,10 +2768,10 @@ void ZScripting_Squirrel3::Cleanup()
 //  printf("Cleanup: %ul -> %ul\n",S,S->v);
   if (S)
   {
-    if (S->v !=0) sq_close(S->v);
-    S->v = 0;
+    if (S->v !=nullptr) sq_close(S->v);
+    S->v = nullptr;
     delete S;
-    Ls = 0;
+    Ls = nullptr;
   }
   ScriptCompiledOK = false;
   IsReady = false;
@@ -2843,7 +2851,7 @@ bool ZScripting_Squirrel3::LoadAndCompileScript()
 
 ZScripting_Squirrel3::ZScripting_Squirrel3()
 {
-  Ls = 0;
+  Ls = nullptr;
   ScriptCompiledOK = false;
   GameEnv = Ge;
   IsReady = false;

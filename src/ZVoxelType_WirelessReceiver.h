@@ -31,8 +31,11 @@
 
 
 #include "ZVoxelType.h"
+#include "z/ZTypes.h"
 
-#include "z/ZGenericTable.h"
+class ZString;
+class ZToolsPointer;
+class ZVector3L;
 
 class ZVoxelType_WirelessReceiver : public ZVoxelType
 {

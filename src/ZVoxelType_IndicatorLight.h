@@ -31,6 +31,9 @@
 
 
 #include "ZVoxelType.h"
+#include "z/ZTypes.h"
+
+class ZVar;
 
 class ZVoxelType_IndicatorLight : public ZVoxelType
 {

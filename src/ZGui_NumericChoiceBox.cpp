@@ -24,15 +24,18 @@
  */
 
 #include "ZGui_NumericChoiceBox.h"
+
 #include <math.h>
+
 #include "z/ZString.h"
+#include "ZTileSets.h"
 
 
 ZFrame_NumericChoiceBox::ZFrame_NumericChoiceBox()
 {
   FrameType = MulticharConst('N','C','B','X');
-  FontTileStyle = 0;
-  GUITileSet = 0;
+  FontTileStyle = nullptr;
+  GUITileSet = nullptr;
   Flag_Show_Frame = false;
   Event_ChoiceChange = false;
 

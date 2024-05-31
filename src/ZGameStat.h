@@ -60,10 +60,10 @@ class ZGameStat
       SectorRender_Count = 0;
       SectorRender_TotalTime = 0;
       SectorRefresh_Waiting = 0;
-      GameEnv = 0;
+      GameEnv = nullptr;
       BufferOffset = 0;
 
-      for (i=0;i<64;i++) Log_Buffer[i] = 0;
+      for (i=0;i<64;i++) Log_Buffer[i] = nullptr;
       #if COMPILEOPTION_FINETIMINGTRACKING == 1
         for (i=0;i<8;i++) {Log_Buffer[i] = new ULong[1000000]; if (!Log_Buffer[i]) throw(0);}
       #endif
@@ -73,7 +73,7 @@ class ZGameStat
     {
       ULong i;
 
-      for ( i=0; i<64; i++ ) if (Log_Buffer[i]) {delete Log_Buffer[i]; Log_Buffer[i] = 0; }
+      for ( i=0; i<64; i++ ) if (Log_Buffer[i]) {delete Log_Buffer[i]; Log_Buffer[i] = nullptr; }
     }
 
     bool Start()

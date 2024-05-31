@@ -26,6 +26,9 @@
 #pragma once 
 
 #include "ZGui_InventoryBox.h"
+#include "z/ZTypes.h"
+
+class ZFrame;
 
 class ZVoxelQuantityBox : public ZInventoryBox
 {

@@ -25,16 +25,20 @@
 
 
 #include "ZVoxelType_PlaneZ1.h"
-#include "ZGame.h"
 
-#include "ZVoxelExtension_PlaneZ1.h"
+#include "ZGame.h"
+#include "ZActorPhysics.h"
+#include "ZVoxelExtension_Storage.h"
+#include "ZVoxelSector.h"
+
+class ZVoxelExtension;
 
 
 
 
 ZVoxelExtension * ZVoxelType_PlaneZ1::CreateVoxelExtension(bool IsLoadingPhase)
 {
-  ZVoxelExtension * NewVoxelExtension = 0;
+  ZVoxelExtension * NewVoxelExtension = nullptr;
 
   NewVoxelExtension = new ZVoxelExtension_Storage;
 

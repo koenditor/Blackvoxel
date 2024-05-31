@@ -24,10 +24,10 @@
  */
 
 #include "ZGame.h"
-
 #include "ZVoxelExtension_Programmable.h"
-
 #include "z/ZGenericCanva_2.h"
+#include "ZGameInfo.h"
+#include "z/ZStream_SpecialRamStream.h"
 
 extern ZGame * Ge;
 

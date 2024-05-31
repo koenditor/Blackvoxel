@@ -25,10 +25,11 @@
 
 #include "ZGui_VoxelViewBox.h"
 
-#include "SDL2/SDL.h"
 #include "ZGui_InventoryBox.h"
-
 #include "GL/gl.h"
+#include "ZVoxelType.h"
+#include "ZVoxelTypeManager.h"
+#include "z/ZObject_Lists.h"
 
 void ZVoxelViewBox::Render(Frame_Dimensions * ParentPosition)
 {

@@ -26,14 +26,11 @@
 #pragma once
 
 #include "z/ZTypes.h"
-
 #include "z/ZObject.h"
-
 #include "z/ZObject_Array.h"
 
-#include "ZTextureManager.h"
-
 class ZTileSet;
+class ZTextureManager;
 
 class ZTileStyle : public ZObject
 {
@@ -113,7 +110,7 @@ class ZTileSet : public ZObject
     float GetTileWidth (UByte TileNum) { return( CoordTable[TileNum].Tile_Width ); }
     float GetTileHeight(UByte TileNum) { return( CoordTable[TileNum].Tile_Height); }
 
-    void  RenderTile( ZVector3f * TopLeft, ZVector3f * BottomRight, UByte TileNum, ZColor3f * Color = 0);
+    void  RenderTile( ZVector3f * TopLeft, ZVector3f * BottomRight, UByte TileNum, ZColor3f * Color = nullptr);
     void  RenderFont(ZTileStyle const * TileStyle , ZBox3f const * DrawBox, char const * TextToRender, ZColor3f * Color );
     void  GetFontRenderSize(ZTileStyle const * TileStyle , char const * TextToRender, ZVector2f * OutSize);
     ULong GetTilePixel(UByte TileNum, ULong x, ULong y);

@@ -25,12 +25,8 @@
 
 #pragma once 
 
-
-
-
-
-
 #include "ZVoxelExtension.h"
+#include "z/ZStream_SpecialRamStream.h"
 
 class ZVoxelExtension_FusionElement : public ZVoxelExtension
 {

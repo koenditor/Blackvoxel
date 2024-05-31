@@ -24,19 +24,20 @@
  */
 
 #include "ZDestructionProgress.h"
-
 #include "ZGame.h"
+#include "ACompileSettings.h"
+#include "ZGameWindow_ProgressBar.h"
+#include "ZSound.h"
 
-#include<stdio.h>
 
 ZDestructionProgress::ZDestructionProgress()
 {
-  GameEnv = 0;
+  GameEnv = nullptr;
   MiningNoTarget = true;
   MiningInProgress = false;
   Mining_Hardness = 1000000.0;
   Mining_MaterialResistanceCounter = 0;
-  SoundHandle = 0;
+  SoundHandle = nullptr;
 }
 
 void ZDestructionProgress::Start(double MiningHardness, ZVoxelCoords & PointedVoxel)
@@ -46,7 +47,7 @@ void ZDestructionProgress::Start(double MiningHardness, ZVoxelCoords & PointedVo
   GameEnv->GameProgressBar->SetCompletion(0.0f);
   GameEnv->GameProgressBar->Show();
   #if COMPILEOPTION_FNX_SOUNDS_1 == 1
-  if (SoundHandle == 0) SoundHandle = GameEnv->Sound->Start_PlaySound(5,true,true,1.0,0);
+  if (SoundHandle == nullptr) SoundHandle = GameEnv->Sound->Start_PlaySound(5,true,true,1.0,nullptr);
   #endif
 }
 
@@ -78,7 +79,7 @@ void ZDestructionProgress::Stop()
   GameEnv->GameProgressBar->SetCompletion(0.0f);
   GameEnv->GameProgressBar->Hide();
   #if COMPILEOPTION_FNX_SOUNDS_1 == 1
-  if (SoundHandle != 0) { GameEnv->Sound->Stop_PlaySound(SoundHandle); SoundHandle = 0; }
+  if (SoundHandle != nullptr) { GameEnv->Sound->Stop_PlaySound(SoundHandle); SoundHandle = nullptr; }
   #endif
 }
 
@@ -95,7 +96,7 @@ bool ZDestructionProgress::DoMine(double Amount)
      Mining_MaterialResistanceCounter = 100000.0;
      #if COMPILEOPTION_FNX_SOUNDS_1 == 1
      GameEnv->Sound->PlaySound(6);
-     if (SoundHandle != 0) { GameEnv->Sound->Stop_PlaySound(SoundHandle); SoundHandle = 0; }
+     if (SoundHandle != nullptr) { GameEnv->Sound->Stop_PlaySound(SoundHandle); SoundHandle = nullptr; }
      #endif
      return(true);
    }

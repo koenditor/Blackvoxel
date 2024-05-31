@@ -26,10 +26,10 @@
 
 #pragma once
 
+#include <math.h>
+
 #include "ZTypes.h"
-
 #include "ZBitmapImage.h"
-
 #include "ZString.h"
 
 template <typename Type>
@@ -50,8 +50,8 @@ class ZGenericCanva
       this->Width = Width; this->Height = Height;
       ElementCount = Width * Height;
       Canva = new Type[ElementCount];
-      MinMax_H = 0;
-      MinMax_V = 0;
+      MinMax_H = nullptr;
+      MinMax_V = nullptr;
     }
 
     ZGenericCanva()
@@ -59,9 +59,9 @@ class ZGenericCanva
       Width = 0;
       Height = 0;
       ElementCount = 0;
-      Canva = 0;
-      MinMax_H = 0;
-      MinMax_V = 0;
+      Canva = nullptr;
+      MinMax_H = nullptr;
+      MinMax_V = nullptr;
     }
 
     void SetSize(Long Width, Long Height)
@@ -78,11 +78,11 @@ class ZGenericCanva
       if (MinMax_V) { delete MinMax_V;  }
       if (Canva) delete[] Canva;
 
-      Canva = 0;
+      Canva = nullptr;
       ElementCount = 0;
       Width = Height = 0;
-      MinMax_H = 0;
-      MinMax_V = 0;
+      MinMax_H = nullptr;
+      MinMax_V = nullptr;
     }
 
     void Clear(Type ClearData = 0)
@@ -370,7 +370,7 @@ class ZGenericCanva
       if (yStart<0) {ySize += yStart; yStart = 0;}
       if (xSize > (Width  - xStart)) xSize = Width - xStart;
       if (ySize > (Height - yStart)) ySize = Height - yStart;
-      if (xSize <=0 || ySize<=0 ) return(0);
+      if (xSize <=0 || ySize<=0 ) return nullptr;
 
       NewCanva = new ZGenericCanva(xSize,ySize);
 

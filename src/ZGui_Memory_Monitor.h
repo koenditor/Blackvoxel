@@ -26,10 +26,14 @@
 #pragma once 
 
 #include "ZGui_Scrolling_Digit.h"
-
 #include "ZGui_PanelTextMultiButton.h"
-
 #include "z/ZCharFilter.h"
+#include "ZGui.h"
+#include "ZGui_FontFrame.h"
+#include "z/ZString.h"
+#include "z/ZTypes.h"
+
+class ZGame;
 
 #define ZFRAME_MEMORYMONITOR_DISPLAYLINES 18
 
@@ -59,11 +63,11 @@ class ZFrame_MemoryMonitor : public ZFrame
       ULong i;
 
       FrameType = MulticharConst('M','M','O','N');
-      GameEnv = 0;
+      GameEnv = nullptr;
       MemoryAddress = 0;
-      VMachine = 0;
+      VMachine = nullptr;
       for (i=0;i<3;i++) DispSize_List[i] = &DispSize[i];
-      DispSize_List[3]=0;
+      DispSize_List[3]=nullptr;
       Text_DispSize[0]="B";
       Text_DispSize[1]="W";
       Text_DispSize[2]="L";

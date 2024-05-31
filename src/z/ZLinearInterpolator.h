@@ -30,6 +30,8 @@
 
 
 
+#include <math.h>
+
 #include "ZTypes.h"
 
 class ZLinearInterpolator
@@ -41,7 +43,7 @@ class ZLinearInterpolator
     double DeltaVal,Factor;
 
   public:
-    ZLinearInterpolator() { ValuesTable = 0; nValues = 0; Start = 0.0; End = 0.0; }
+    ZLinearInterpolator() { ValuesTable = nullptr; nValues = 0; Start = 0.0; End = 0.0; }
     ZLinearInterpolator( double & ValuesTable, ULong ValuesCount ) { this->ValuesTable = & ValuesTable; nValues = ValuesCount; Start = 0.0; End = 0.0;  }
     ZLinearInterpolator( double * ValuesTable, ULong ValuesCount)  { this->ValuesTable = ValuesTable;   nValues = ValuesCount; Start = 0.0; End = 0.0; }
     inline void SetValuesTable( double & ValuesTable, ULong ValuesCount ) { this->ValuesTable = & ValuesTable; nValues = ValuesCount; }

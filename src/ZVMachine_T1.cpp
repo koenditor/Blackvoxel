@@ -7,9 +7,10 @@
 
 #include "ZVMachine_T1.h"
 
-#include "z/ZStream_SpecialRamStream.h"
-
 #include <stdio.h>
+
+#include "z/ZStream_SpecialRamStream.h"
+#include "z/ZString.h"
 
 bool ZVMachine_T1::BinaryLoad(ZString * BinaryFile)
 {

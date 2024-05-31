@@ -24,14 +24,18 @@
  */
 
 #include "ZVoxelType_Storage.h"
-#include "ZGame.h"
 
+#include "ZGame.h"
 #include "ZVoxelExtension_Storage.h"
+#include "ZGameWindow_Storage.h"
+#include "ZVoxelSector.h"
+
+class ZVoxelExtension;
 
 
 ZVoxelExtension * ZVoxelType_Storage::CreateVoxelExtension(bool IsLoadingPhase)
 {
-  ZVoxelExtension * NewVoxelExtension = 0;
+  ZVoxelExtension * NewVoxelExtension = nullptr;
 
   NewVoxelExtension = new ZVoxelExtension_Storage;
 

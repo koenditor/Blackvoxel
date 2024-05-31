@@ -25,15 +25,15 @@
 
 #pragma once 
 
+#include <SDL2/SDL_scancode.h>
+
 #include "z/ZString.h"
-
 #include "ZGui.h"
-
-#include "ZTileSets.h"
-
 #include "ZGui_FontFrame.h"
+#include "z/ZTypes.h"
 
-#include "ZGui_TileFrame.h"
+class ZTileSet;
+class ZTileStyle;
 
 class ZFrame_KeyChooser : public ZFrame
 {
@@ -54,8 +54,8 @@ class ZFrame_KeyChooser : public ZFrame
     ZFrame_KeyChooser()
     {
       FrameType = MulticharConst('K','C','H','O');
-      FontTileStyle = 0;
-      GUITileSet = 0;
+      FontTileStyle = nullptr;
+      GUITileSet = nullptr;
       //BackTile.SetTile(6);
       Actual_KeySet = SDL_SCANCODE_A;
       Text.SetDisplayText("A");

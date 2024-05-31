@@ -26,40 +26,14 @@
 #pragma once 
 
 #include "z/ZTypes.h"
-
-#include "z/ZObject.h"
-
-#include "z/ZObject_Lists.h"
-
-#include "z/ZMemPool.h"
-
-#include "ZVoxelSector.h"
-
 #include "ZSectorLoader.h"
-
-#include "ZVoxelType.h"
-
-#include "ZVoxelTypeManager.h"
-
-
 #include "ZSectorRingList.h"
-
 #include "ZSectorRequestRingList.h"
-
 #include "ZSectorTagHash.h"
-
-#include "SDL2/SDL_thread.h"
-
 #include "ZWorldGenesis.h"
 
-#include "ACompileSettings.h"
-
-
-
-
-
-
-class ZGame;
+class ZVoxelSector;
+class ZVoxelTypeManager;
 
 
 

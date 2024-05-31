@@ -31,10 +31,9 @@
 
 
 #include "ZTools.h"
-
 #include "ZDestructionProgress.h"
-
 #include "SDL2/SDL_stdinc.h"
+#include "z/ZTypes.h"
 
 class ZGame;
 
@@ -66,15 +65,15 @@ class ZTool_Constructor : public ZTool
       ToolCompatibleTypes[1] = true;
     }
 
-    void SetGameEnv(ZGame * GameEnv) { this->GameEnv = GameEnv; MiningProgress.SetGameEnv(GameEnv);  }
-    virtual bool Tool_MouseButtonClick(ULong Button);
-    virtual bool Tool_MouseButtonRelease(ULong Button);
+    void SetGameEnv(ZGame * GameEnv) override { this->GameEnv = GameEnv; MiningProgress.SetGameEnv(GameEnv);  }
+    virtual bool Tool_MouseButtonClick(ULong Button) override;
+    virtual bool Tool_MouseButtonRelease(ULong Button) override;
 
     bool Tool_StillEvents(double FrameTime, bool * MouseButtonMatrix, const Uint8 * KeyboardMatrix ) override;
 
-    virtual void Start_Tool();
-    virtual void End_Tool();
-    virtual void Display();
+    virtual void Start_Tool() override;
+    virtual void End_Tool() override;
+    virtual void Display() override;
 
 };
 

@@ -26,12 +26,9 @@
 #pragma once 
 
 #include "z/ZString.h"
-
 #include "ZGui.h"
-
 #include "ZGui_FontFrame.h"
-
-#include "ZGui_TileFrame.h"
+#include "z/ZTypes.h"
 
 class ZGame;
 
@@ -53,7 +50,7 @@ class ZGameWindow_RTFM : public ZFrame
 
   ZGameWindow_RTFM()
   {
-    GameEnv = 0;
+    GameEnv = nullptr;
     MainWindow = this;
     Flag_Shown = false;
     Text_MainTitle = "GETTING STARTED";

@@ -47,10 +47,9 @@
 
 
 #include "ZTypes.h"
-
-#include "ZObject.h"
-
 #include "ZGeneralObject.h"
+
+class ZObject;
 
 #define ZOA_INITIALSIZE 80
 

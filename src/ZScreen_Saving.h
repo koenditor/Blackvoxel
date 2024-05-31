@@ -25,16 +25,10 @@
 
 #pragma once 
 
-
-
-
-
-
 #include "ZGui.h"
+#include "z/ZTypes.h"
 
-#include "ZGui_FontFrame.h"
-
-#include "ZGame.h"
+class ZGame;
 
 class ZScreen_Saving: public ZScreen
 {

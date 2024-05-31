@@ -25,8 +25,6 @@
  */
 
 #include "ZGenericCanva_2.h"
-#include <stdio.h>
-#include <math.h>
 
 
 

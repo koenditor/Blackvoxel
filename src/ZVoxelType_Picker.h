@@ -26,6 +26,9 @@
 #pragma once
 
 #include "ZVoxelType.h"
+#include "z/ZTypes.h"
+
+class ZVoxelExtension;
 
 class ZVoxelType_Picker : public ZVoxelType
 {

@@ -25,17 +25,16 @@
 
 #pragma once 
 
+#include <stdio.h>
+
 #include "z/ZParser.h"
-
 #include "ZVCPU.h"
-
 #include "z/ZSimpleHash.h"
-
 #include "z/ZGenericTable.h"
-
 #include "z/ZStream_SpecialRamStream.h"
-
-#include <string.h>
+#include "z/ZKeywordSet.h"
+#include "z/ZString.h"
+#include "z/ZTypes.h"
 
 class ZMacroAssembler
 {
@@ -83,18 +82,18 @@ class ZMacroAssembler
 
         ZCompilationStatus()
         {
-          Error = 0;
+          Error = nullptr;
           CompilationResult = false;
         }
         ~ZCompilationStatus()
         {
           if (Error) delete Error;
-          Error = 0;
+          Error = nullptr;
         }
         void Clear()
         {
           if (Error) delete Error;
-          Error = 0;
+          Error = nullptr;
         }
     };
 
@@ -117,13 +116,13 @@ class ZMacroAssembler
           ZMemSize FoundHash;
           ZEntry * Entry;
 
-          if ( !(Entry = Hash.FindItem(Name, FoundHash))) return(0);
+          if ( !(Entry = Hash.FindItem(Name, FoundHash))) return nullptr;
           do
           {
             if (Entry->Label == Name) { return(Entry); }
           } while ((Entry = Hash.FindNext(FoundHash)));
 
-          return(0);
+          return nullptr;
         }
 
       public:

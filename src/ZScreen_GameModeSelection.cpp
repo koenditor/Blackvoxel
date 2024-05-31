@@ -25,18 +25,17 @@
 
 #include "ZScreen_GameModeSelection.h"
 
-
+#include <SDL2/SDL_timer.h>
+#include <SDL2/SDL_video.h>
+#include <cmath>
 
 #include "z/ZString.h"
-
 #include "ZGame.h"
-
-#include "ZOs_Specific_ViewDoc.h"
-
-
-#include "SDL2/SDL.h"
-
 #include "GL/gl.h"
+#include "ZEventManager.h"
+#include "ZGui_FontFrame.h"
+#include "ZSettings_Hardware.h"
+#include "ZTileSets.h"
 
 //define COMPILEOPTION_ONLYSCHOOLMODE
 #define ZMODESELECTION_SLOTCOUNT 2
@@ -241,9 +240,6 @@ glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT ); SDL_GL_SwapWindow(GameEnv-
 
       for(i=0;i<2;i++)
       {
-        #ifdef COMPILEOPTION_ONLYSCHOOLMODE
-        //if (i!=0)
-        #endif
         if (Slot[i].Is_MouseIn())
         {
           Slot[i].SetTexture( (!i) ? 22 : 24 );

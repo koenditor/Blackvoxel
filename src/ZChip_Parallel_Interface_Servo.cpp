@@ -26,10 +26,12 @@
 #include "ZChip_Parallel_Interface_Servo.h"
 
 #include "ZVMachine_T1.h"
-
 #include "ZActiveVoxelInterface.h"
-
 #include "ZVoxelSector.h"
+#include "ZVCPU.h"
+#include "ZVoxelType.h"
+#include "ZVoxelTypeManager.h"
+#include "z/ZType_ZVector3L.h"
 
 // Bit 0 X axis servo on
 // Bit 1 X axis servo direction

@@ -20,10 +20,9 @@
 #pragma once
 
 #include "ZMemPool.h"
+#include "ZTypes.h"
 
-#include "ZMemPool_Optimized.h"
-
-#include "ZNumberFormat.h"
+class ZNumberFormat;
 
 #define ZSTRING_CONVERSIONSIZE 128
 #define ZSTRING_MINIMUMSTRINGSIZE 256
@@ -45,7 +44,7 @@ class ZString
 
 
   // Private Utility functions
-    inline ZMemSize   GetOldCStringLen(const char * Texte)   { ZMemSize Len; for (Len=0;Texte[Len];Len++); return(Len); }
+    inline ZMemSize   GetOldCStringLen(const char * Texte)   { ZMemSize Len=0; while(Texte[Len]){Len++;} return(Len); }
     char *            ULongToAsc(ULong Num, ZMemSize &EffectiveMemSize, ZMemSize & Len);
     char *            LongToAsc(long Num,   ZMemSize &EffectiveMemSize, ZMemSize & Len);
     bool inline       AtoULong(char * Txt, ZMemSize &Len, ULong &Value);

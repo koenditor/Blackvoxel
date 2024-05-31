@@ -26,8 +26,10 @@
 #pragma once
 
 #include "ZVoxelType.h"
+#include "z/ZTypes.h"
 
-#include "z/ZFastBit_Array.h"
+class ZString;
+class ZVoxelExtension;
 
 class ZVoxelType_FabMachine2 : public ZVoxelType
 {

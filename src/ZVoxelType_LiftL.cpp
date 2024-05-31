@@ -25,13 +25,17 @@
 
 #include "ZGame.h"
 #include "ZVoxelType_LiftL.h"
-
 #include "ZVoxelExtension_LiftL.h"
+#include "ZActorPhysics.h"
+#include "ZVoxelExtension_Storage.h"
+#include "ZVoxelSector.h"
+
+class ZVoxelExtension;
 
 
 ZVoxelExtension * ZVoxelType_LiftL::CreateVoxelExtension(bool IsLoadingPhase)
 {
-  ZVoxelExtension * NewVoxelExtension = 0;
+  ZVoxelExtension * NewVoxelExtension = nullptr;
 
   NewVoxelExtension = new ZVoxelExtension_LiftL;
 

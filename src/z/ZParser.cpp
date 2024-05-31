@@ -24,7 +24,10 @@
  */
 
 #include "ZParser.h"
+
 #include <stdio.h>
+
+#include "ZKeywordSet.h"
 /* */
 
 
@@ -51,15 +54,15 @@ ZParser::ZParser()
   ParseConst = true;
   ParseIdent = true;
   NoErrorOnEof = false;
-  ErrorPoint = 0;
+  ErrorPoint = nullptr;
 
-  Tp = 0;
+  Tp = nullptr;
   LineCount = 0;
   TotalLen = 0;
-  LineP = 0;
-  KeyWordSet = 0;
+  LineP = nullptr;
+  KeyWordSet = nullptr;
   RLen = 0;
-  DocumentP = 0;
+  DocumentP = nullptr;
 }
 
 Bool ZParser::Init(char * Text,ULong Len, ZKeyWordSet * KeyWordSet)

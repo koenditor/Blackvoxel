@@ -57,7 +57,7 @@ class ZFabInfos
       {
         ZMemSize i;
 
-        FabList = 0;
+        FabList = nullptr;
         EntryCount = 0;
         MaxEntryCount = 0;
 
@@ -84,11 +84,11 @@ class ZFabInfos
 
     ZFabInfos()
     {
-      MaterialTable = 0;
+      MaterialTable = nullptr;
       MaterialCount    = 0;
       MaxMaterialCount = 0;
 
-      TransformationTable    = 0;
+      TransformationTable    = nullptr;
       TransformationCount    = 0;
       MaxTransformationCount = 0;
       PurgeSlot = 0;
@@ -102,12 +102,12 @@ class ZFabInfos
       if (MaterialTable)
       {
         delete MaterialTable;
-        MaterialTable = 0;
+        MaterialTable = nullptr;
       }
       if (TransformationTable)
       {
         delete [] TransformationTable;
-        TransformationTable = 0;
+        TransformationTable = nullptr;
       }
 
       MaterialCount    = 0;

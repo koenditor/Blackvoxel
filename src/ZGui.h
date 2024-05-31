@@ -25,24 +25,15 @@
 
 #pragma once 
 
-#include "ZGui.h"
-
-#include "z/ZTypes.h"
-
-#include "z/ZObject.h"
-
+#include "SDL2/SDL_scancode.h"
 #include "z/ZObject_Lists.h"
-
-#include "ZTextureManager.h"
-
 #include "ZEventManager.h"
-
-#include <stdio.h>
-
-#include "SDL2/SDL_keycode.h"
+#include "z/ZObject.h"
+#include "z/ZTypes.h"
 
 typedef ZBox3f Frame_Dimensions;
 
+class ZTextureManager;
 class ZGraphicUserManager;
 class ZGame;
 
@@ -143,9 +134,9 @@ class ZFrame : public ZObject
       Flag_Enable_Proc_KeyDown      = false;
       Flag_Enable_Proc_KeyUp        = false;
 
-      GuiManager  = 0;
+      GuiManager  = nullptr;
       TextureNum  = 0;
-      ParentFrame = 0;
+      ParentFrame = nullptr;
 
       DrawColor.r = 1.0f; DrawColor.v = 1.0f; DrawColor.b = 1.0f;
     }

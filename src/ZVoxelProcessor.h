@@ -26,27 +26,18 @@
 #pragma once 
 
 
-#include "z/ZTypes.h"
-
 #include "z/ZObject.h"
-
-#include "ZWorld.h"
-
-#include "ZActorPhysics.h"
-
-#include "SDL2/SDL_thread.h"
-
-#include "ACompileSettings.h"
-
 #include "ZVoxelReactor.h"
-
 #include "ZHighPerfTimer.h"
-
 #include "ZEgmyScatter.h"
-
 #include "ZRemoteRobotManager.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZType_ZVector3d.h"
 
 class ZGame;
+class ZActorPhysicEngine;
+class ZVoxelSector;
+class ZVoxelWorld;
 
 class test {};
 

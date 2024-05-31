@@ -64,14 +64,14 @@ class ZVoxelType_UniverseBorder : public ZVoxelType
 
 
 
-      GameEnv = 0;
-      VoxelTypeManager = 0;
+      GameEnv = nullptr;
+      VoxelTypeManager = nullptr;
       VoxelTypeName = "Universe Border";
       Draw_TransparentRendering = false;
       Draw_FullVoxelOpacity     = false;
       DrawInfo = ZVOXEL_DRAWINFO_DRAWFULLVOXELOPACITY;
       this->VoxelType = VoxelType;
-      MainTexture = 0;
+      MainTexture = nullptr;
       OpenGl_TextureRef = 0;
 
       Is_NoType = false;
@@ -125,8 +125,8 @@ class ZVoxelType_UniverseBorder : public ZVoxelType
       Is_Rideable = false;
       Is_HasHelpingMessage = false;
       BvProp_FastMoving = false;
-      FabInfos = 0;
-      FabInfos2= 0;
+      FabInfos = nullptr;
+      FabInfos2= nullptr;
       Documentation_PageNum = false;
     }
 

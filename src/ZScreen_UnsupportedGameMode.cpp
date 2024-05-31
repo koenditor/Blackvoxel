@@ -25,9 +25,14 @@
 
 #include "ZScreen_UnsupportedGameMode.h"
 
-#include "GL/gl.h"
+#include <SDL2/SDL_timer.h>
+#include <SDL2/SDL_video.h>
 
+#include "GL/gl.h"
 #include "ZGui_FontFrame.h"
+#include "ZEventManager.h"
+#include "ZGame.h"
+#include "ZTileSets.h"
 
 ULong ZScreen_UnsupportedGameMode::ProcessScreen(ZGame * GameEnv)
 {

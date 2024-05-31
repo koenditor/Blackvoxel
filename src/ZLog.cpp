@@ -43,7 +43,7 @@ void ZLog::Log(ULong MessageID, ZLog::TInfoType InfoType, ZString & String)
   ZString As;
 
   // If logfile is not opened then open it.
-  if (Stream==0)
+  if (Stream==nullptr)
   {
     ZStream_File * FileStream;
     FileStream = new ZStream_File;
@@ -53,7 +53,7 @@ void ZLog::Log(ULong MessageID, ZLog::TInfoType InfoType, ZString & String)
   }
 
   // If logfile creation failled, then retry to do in the home directory.
-  if (Stream==0)
+  if (Stream==nullptr)
   {
     ZString Filespec;
     ZStream_File * FileStream;
@@ -67,7 +67,7 @@ void ZLog::Log(ULong MessageID, ZLog::TInfoType InfoType, ZString & String)
   }
 
 
-  if (Stream!=0)
+  if (Stream!=nullptr)
   {
     As.Clear() << "[" << Section << "." << MessageID << "]";
     if (COMPILEOPTION_VERBOSELOGS || InfoType == FAIL || InfoType == IMINFO)

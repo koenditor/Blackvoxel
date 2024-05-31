@@ -60,7 +60,7 @@ class ZFabInfos2
         {
           ULong i;
 
-          Next = 0;
+          Next = nullptr;
           FabListEntryCount = 0;
           ResultCount = 0;
 
@@ -82,7 +82,7 @@ class ZFabInfos2
         {
           ULong i;
 
-          if (Next) {delete Next; Next = 0;}
+          if (Next) {delete Next; Next = nullptr;}
 
           FabListEntryCount = 0;
           ResultCount = 0;
@@ -172,7 +172,7 @@ class ZFabInfos2
 
     ZFabInfos2()
     {
-      TransformationList = 0;
+      TransformationList = nullptr;
       ValidatorVoxelType = 1;
       MaterialTag.InitSize(65536);
       MaterialCount = 0;

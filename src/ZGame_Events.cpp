@@ -24,27 +24,46 @@
  */
 
 #include <stdio.h>
+#include <SDL2/SDL_mouse.h>
+
 #include "ZGame_Events.h"
 #include "ZGame.h"
 #include "ZActorPhysics.h"
 #include "ZSettings_Hardware.h"
-
-
-#include "ZVoxelGfx_Tree.h"
-
 #include "ZRender_Basic.h"
-
 #include "ZWorld_Stat.h"
-
-#include "ZVoxelExtensionType_VoxelFluid.h"
-
 #include "ZOs_Specific_ViewDoc.h"
-
 #include "ZGameWindow_ResumeRequest_Little.h"
-
 #include "ZGameWindow_ZProgRobot_Remote.h"
-
 #include "ZVoxelSprite.h"
+#include "ACompileSettings.h"
+#include "ZActor_Player.h"
+#include "ZGameEventSequencer.h"
+#include "ZGameInfo.h"
+#include "ZGameWindow_Advertising.h"
+#include "ZGameWindow_AsmDebug.h"
+#include "ZGameWindow_AsmHardware.h"
+#include "ZGameWindow_DisplayInfos.h"
+#include "ZGameWindow_Inventory.h"
+#include "ZGameWindow_Programmable.h"
+#include "ZGameWindow_ResumeRequest.h"
+#include "ZGameWindow_Sequencer.h"
+#include "ZGameWindow_Storage.h"
+#include "ZGameWindow_UserTextureTransformer.h"
+#include "ZGameWindow_ZProgRobot_Asm.h"
+#include "ZInventory.h"
+#include "ZPointList.h"
+#include "ZSound.h"
+#include "ZVoxelSector.h"
+#include "ZVoxelType.h"
+#include "ZVoxelTypeManager.h"
+#include "ZWorld.h"
+#include "z/ZStream_File.h"
+#include "z/ZStream_SpecialRamStream.h"
+#include "z/ZString.h"
+#include "z/ZType_ZPolar3d.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZType_ZVector3d.h"
 
 Bool ZGame_Events::KeyDown( SDL_Scancode KeySym )
 {
@@ -417,7 +436,7 @@ void ZGame_Events::Process_StillEvents()
     if ( Keyboard_Matrix[SDL_SCANCODE_KP_7] && COMPILEOPTION_DEBUGFACILITY)
     {
       //GameEnv->Sound->PlaySound(1);
-      GameEnv->Sound->Start_PlaySound(1,false,0.125,0);
+      GameEnv->Sound->Start_PlaySound(1,false,true,0.125);
       // Keyboard_Matrix[SDL_SCANCODE_KP_7] = 0;
       printf("x,y,z : %lf,%lf,%lf\n",Actor->Location.x, Actor->Location.y, Actor->Location.z);
 
@@ -488,10 +507,10 @@ void ZGame_Events::Process_StillEvents()
       ULong c=0;
 
       Actor = GameEnv->PhysicEngine->GetSelectedActor();
-      if (Actor != 0)
+      if (Actor != nullptr)
       {
         Inventory = Actor->Inventory;
-        if (Inventory!=0)
+        if (Inventory!=nullptr)
         {
           Inventory->SetSlot(c++,1,4096);  // 01
           Inventory->SetSlot(c++,2,4096);  // 02

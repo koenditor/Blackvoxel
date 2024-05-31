@@ -31,8 +31,9 @@
 
 
 #include "ZTools.h"
-
 #include "ZToolsPointer.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZTypes.h"
 
 
 class ZTool_Linker : public ZTool

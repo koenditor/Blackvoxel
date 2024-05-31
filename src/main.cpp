@@ -18,79 +18,39 @@
 */
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
+#include <SDL2/SDL_mouse.h>
+#include <SDL2/SDL_stdinc.h>
+#include <SDL2/SDL_video.h>
+
 #include "z/ZTypes.h"
-#include "GL/gl.h"
-
-#include "SDL2/SDL.h"
-#include "bmploader.h"
-
-#include "math.h"
-
-#include "ZCamera.h"
 #include "ZWorld.h"
-
-#include "ZVoxelType.h"
-
 #include "ZRender_Basic.h"
 #include "ZActorPhysics.h"
-#include "ZActor_Player.h"
-
 #include "z/ZString.h"
-
-#include "ZSound.h"
-
-#include "ZSectorStreamLoader.h"
-
 #include "ZVoxelProcessor.h"
-
-#include "ZTextureManager.h"
-
 #include "ZGui.h"
-
-#include "ZGui_FontFrame.h"
-
-#include "ZTileSets.h"
-
 #include "ZEventManager.h"
-
 #include "ZGame.h"
-
 #include "ZScreen_Main.h"
-
 #include "ZScreen_SlotSelection.h"
-
 #include "ZScreen_Loading.h"
-
 #include "ZScreen_Saving.h"
-
 #include "ZScreen_Options_Display.h"
-
 #include "ZScreen_ChooseOption.h"
-
 #include "ZScreen_Options_Sound.h"
-
 #include "ZScreen_Options_Gameplay.h"
-
 #include "ZScreen_Options_Keymap.h"
-
 #include "ZScreen_GameModeSelection.h"
-
-#include "ZScreen_UnsupportedGameMode.h"
-
-#include "ZScreen_Message.h"
-
-#include "ZWorldConvert.h"
-
 #include "ZHighPerfTimer.h"
-
-#include "z/ZFastRandom.h"
-
 #include "ACompileSettings.h"
-
-#include "ZRandom_MakeGoodNumbers.h"
-
-#include "z/ZGenericCanva_2.h"
+#include "ZGameEventSequencer.h"
+#include "ZGameInfo.h"
+#include "ZGameStat.h"
+#include "ZGameWindow_Advertising.h"
+#include "ZGameWindow_DisplayInfos.h"
+#include "ZGame_Events.h"
+#include "ZTools.h"
+#include "z/ZType_ZVector3d.h"
 
 
 ZGame * Ge;
@@ -113,13 +73,6 @@ int main(int argc, char *argv[])
     printf ("Starting BlackVoxel...\n");
 
   // Test Code
-
-  #if DEVELOPPEMENT_ON == 1
-/*
-     ZTest_Parts TestParts;
-     if (!TestParts.RunTestCode()) exit(0);
-*/
-  #endif
 
   // Game main object
 
@@ -245,7 +198,6 @@ int main(int argc, char *argv[])
           // Pre-Gameloop Initialisations.
 
           FrameTime = 20.0;
-          ULong MoveShipCounter = 0;
           GameEnv.Time_FrameTime = 20000;
           ZHighPerfTimer Timer;
           double ReadableDisplayCounter = 0.0;
@@ -272,7 +224,6 @@ int main(int argc, char *argv[])
 
             GameEnv.World->ProcessNewLoadedSectors();
 
-            // if (MoveShipCounter>125 ) {GameEnv.MoveShip(); MoveShipCounter = 0; }
 
             // Player physics
 
@@ -331,7 +282,6 @@ int main(int argc, char *argv[])
             if (GameEnv.Time_GameLoop > 64.0) GameEnv.Time_GameLoop = 64.0; // Game cannot make too long frames because inaccuracy. In this case, game must slow down.
             GameEnv.GameStat->FrameTime = (ULong) FrameTime;
             GameEnv.GameStat->DoLogRecord();
-            MoveShipCounter += FrameTime;
 
             // Frametime Display;
 

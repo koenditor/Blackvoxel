@@ -7,8 +7,6 @@
 
 #pragma once 
 
-#include "z/ZTypes.h"
-
 class ZHardwareInfo
 {
   protected:

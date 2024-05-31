@@ -25,15 +25,17 @@
 
 #include "ZGui_CyclingChoiceBox.h"
 
+#include "ZTileSets.h"
+
 
 ZFrame_CyclingChoiceBox::ZFrame_CyclingChoiceBox()
 {
   FrameType = MulticharConst('C','Y','C','L');
-  FontTileStyle = 0;
-  GUITileSet = 0;
+  FontTileStyle = nullptr;
+  GUITileSet = nullptr;
   Flag_Show_Frame = false;
   Event_ChoiceChange = false;
-  ChoiceList = 0;
+  ChoiceList = nullptr;
   ChoiceCount = 0;
   ActualChoice = 0;
 }

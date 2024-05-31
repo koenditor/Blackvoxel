@@ -25,10 +25,7 @@
 
 
 #include "ZTypes.h"
-
 #include "ZGeneralObject.h"
-
-#include <stdio.h>
 
 class ZBitmapImage : public ZGeneralObject
 {

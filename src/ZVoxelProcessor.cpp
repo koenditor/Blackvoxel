@@ -24,9 +24,18 @@
  */
 
 #include "ZVoxelProcessor.h"
-#include "SDL2/SDL.h"
+
+#include <SDL2/SDL_thread.h>
+#include <SDL2/SDL_timer.h>
+#include <math.h>
+#include <stddef.h>
 
 #include "ZGame.h"
+#include "ZGameEventSequencer.h"
+#include "ZSettings_Hardware.h"
+#include "ZVoxelSector.h"
+#include "ZWorld.h"
+#include "z/ZTypes.h"
 
 
 ULong debug_DeleteRequests = 0;
@@ -49,12 +58,12 @@ int ZVoxelProcessor::thread_func(void * Data)
 
 ZVoxelProcessor::ZVoxelProcessor()
 {
-  World = 0;
-  PhysicEngine = 0;
+  World = nullptr;
+  PhysicEngine = nullptr;
   SectorEjectDistance = 1000000.0;
-  Thread = 0;
+  Thread = nullptr;
   ThreadContinue = false;
-  GameEnv = 0;
+  GameEnv = nullptr;
 }
 
 ZVoxelProcessor::~ZVoxelProcessor()
@@ -81,10 +90,8 @@ void ZVoxelProcessor::MakeTasks()
   // Block processing
 
   ZVoxelSector * Sector;
-  ULong cnt;
 
 
-  cnt=0;
 
   Timer.Start();
 
@@ -99,11 +106,9 @@ void ZVoxelProcessor::MakeTasks()
   {
     if (!Sector->Flag_DeletePending) MakeSectorTasks(Sector);
     Sector = Sector->GlobalList_Next;
-    cnt++;
   }
 
   if (GameEnv->Enable_MVI) VoxelReactor.ProcessSectors( ((double)Timer.GetResult()) / 1000.0 );
-  // printf("Processed: %lu Sectors\n", cnt);
   SDL_Delay(200); // 2
   Timer.End();
 }

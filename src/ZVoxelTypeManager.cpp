@@ -24,84 +24,58 @@
  */
 
 #include "ZVoxelTypeManager.h"
+
 #include <stdio.h>
 
-
 #include "ZVoxelType_Storage.h"
-
 #include "ZVoxelType_UserTextureTransformer.h"
-
 #include "ZVoxelType_PlaneZ1.h"
-
 #include "ZVoxelType_YellowGas.h"
-
 #include "ZVoxelType_LightTransmitter.h"
-
 #include "ZVoxelType_FabMachine.h"
-
 #include "ZVoxelType_FabMachine2.h"
-
 #include "ZVoxelType_Programmable.h"
-
 #include "ZVoxelType_ProgRobot_Asm.h"
-
 #include "ZVoxelType_FusionElement.h"
-
 #include "ZVoxelType_BlastFurnace.h"
-
 #include "ZVoxelType_MiningRobot_xr1.h"
-
 #include "ZVoxelType_Sequencer.h"
-
 #include "ZVoxelType_Picker.h"
-
 #include "ZVoxelType_Mover.h"
-
 #include "ZVoxelType_Egmy_T1.h"
-
 #include "ZVoxelType_SimpleButton.h"
-
 #include "ZVoxelType_IndicatorLight.h"
-
 #include "ZVoxelType_RTFM.h"
-
 #include "ZVoxelType_Concrete.h"
-
 #include "ZVoxelType_Example.h"
-
 #include "ZVoxelType_Void.h"
-
 #include "ZVoxelType_SPS.h"
-
 #include "ZVoxelType_UniverseBorder.h"
-
 #include "ZVoxelType_WirelessTransmitter.h"
-
 #include "ZVoxelType_WirelessReceiver.h"
-
 #include "ZVoxelType_ProgRobot_Remote.h"
-
 #include "ZVoxelType_CarH.h"
-
 #include "ZVoxelType_TrainT.h"
-
 #include "ZVoxelType_LiftL.h"
-
 #include "ZVoxelType_Spinner.h"
+#include "ZFabMachineInfos2.h"
+#include "ZVoxelType.h"
+#include "z/ZFastBit_Array.h"
+#include "z/ZString.h"
 
 
 ZVoxelTypeManager::ZVoxelTypeManager()
 {
   ULong i;
 
-  GameEnv = 0;
+  GameEnv = nullptr;
   LoadedTexturesCount = 0;
   ActiveTable = new ZFastBit_Array_64k;
   ActiveTable->Clear();
   VoxelTable = new ZVoxelType * [65536];
   for (i=0;i<65536;i++)
   {
-    VoxelTable[i]=0;
+    VoxelTable[i]=nullptr;
   }
 
 }
@@ -117,16 +91,16 @@ ZVoxelTypeManager::~ZVoxelTypeManager()
     {
       if (VoxelTable[i])
       {
-        if (VoxelTable[i]->VoxelType == i) {delete VoxelTable[i]; VoxelTable[i]=0;}
+        if (VoxelTable[i]->VoxelType == i) {delete VoxelTable[i]; VoxelTable[i]=nullptr;}
       }
     }
     delete [] VoxelTable;
-    VoxelTable = 0;
+    VoxelTable = nullptr;
   }
 
   // Delete the active Table
 
-  if (ActiveTable) { delete ActiveTable; ActiveTable = 0; }
+  if (ActiveTable) { delete ActiveTable; ActiveTable = nullptr; }
 
 }
 
@@ -155,7 +129,7 @@ void ZVoxelTypeManager::FillZeroSlots(UShort VoxelTypeUsedToFill)
 
   for (i=0;i<65536;i++)
   {
-    if (VoxelTable[i]==0) VoxelTable[i] = VoxelTable[VoxelTypeUsedToFill];
+    if (VoxelTable[i]==nullptr) VoxelTable[i] = VoxelTable[VoxelTypeUsedToFill];
   }
 }
 
@@ -211,7 +185,7 @@ void ZVoxelTypeManager::OutFabInfos()
     if ( (FabInfos2 = VoxelTable[VoxelType]->FabInfos2))
     {
 
-      for (ZFabInfos2::ZTransformation * Transformation = FabInfos2->GetFirstTransformation() ; Transformation!=0 ; Transformation = Transformation->Next)
+      for (ZFabInfos2::ZTransformation * Transformation = FabInfos2->GetFirstTransformation() ; Transformation!=nullptr ; Transformation = Transformation->Next)
       {
         for (ResultNum= 0; ResultNum < Transformation->ResultCount; ResultNum++)
         {

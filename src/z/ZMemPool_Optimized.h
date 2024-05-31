@@ -31,6 +31,7 @@
 
 
 #include "ZMemPool.h"
+#include "ZTypes.h"
 
 #define Z_ZMEMPOOL_OPTIMISED_POOLSIZE 64
 #define Z_ZMEMPOOL_OPTIMISED_MINSIZE  128
@@ -61,7 +62,7 @@ class ZMemPool_Optimized : public ZMemoryPool
     {
       ZMemSize i,Size,Index;
 
-      for(i=0;i<Z_ZMEMPOOL_OPTIMISED_POOLSIZE;i++) MemTable[i] = 0;
+      for(i=0;i<Z_ZMEMPOOL_OPTIMISED_POOLSIZE;i++) MemTable[i] = nullptr;
 
       // Init the
 

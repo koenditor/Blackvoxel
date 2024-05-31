@@ -25,6 +25,8 @@
 
 #include "ZVoxelType_Picker.h"
 
+class ZVoxelExtension;
+
 
 ZVoxelExtension * ZVoxelType_Picker::CreateVoxelExtension(bool IsLoadingPhase)
 {

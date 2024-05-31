@@ -26,6 +26,9 @@
 #pragma once 
 
 #include "ZGui.h"
+#include "z/ZTypes.h"
+
+class ZGame;
 
 class ZScreen_ModeSelection : public ZScreen
 {

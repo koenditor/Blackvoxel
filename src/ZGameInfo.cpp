@@ -23,13 +23,10 @@
  *      Author: laurent
  */
 
-#include <stdio.h>
-
 #include "ZGameInfo.h"
-
 #include "z/ZStream_File.h"
-
 #include "ACompileSettings.h"
+#include "z/ZString.h"
 
 ZGameInfo::ZGameInfo()
 {

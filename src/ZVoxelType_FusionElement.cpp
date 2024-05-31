@@ -25,13 +25,16 @@
 
 #include "ZVoxelType_FusionElement.h"
 
-#include "ZVoxelExtension_FusionElement.h"
-
 #include <stdio.h>
+
+#include "ZVoxelExtension_FusionElement.h"
+#include "z/ZString.h"
+
+class ZVoxelExtension;
 
 ZVoxelExtension * ZVoxelType_FusionElement::CreateVoxelExtension(bool IsLoadingPhase)
 {
-  ZVoxelExtension * NewVoxelExtension = 0;
+  ZVoxelExtension * NewVoxelExtension = nullptr;
 
   NewVoxelExtension = new ZVoxelExtension_FusionElement;
 

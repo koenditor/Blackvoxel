@@ -27,11 +27,12 @@
 #include "ZVoxel.h"
 
 #include "ZVoxelTypeManager.h"
-
 #include "z/ZStream_SpecialRamStream.h"
+#include "ZVoxelExtension.h"
+#include "ZVoxelType.h"
 
 
-ZVoxelTypeManager * ZVoxel::VoxelTypeManager=0;
+ZVoxelTypeManager * ZVoxel::VoxelTypeManager=nullptr;
 
 ZVoxel::~ZVoxel()
 {

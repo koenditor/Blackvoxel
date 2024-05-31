@@ -24,14 +24,12 @@
  */
 
 #include "ZOs_Specific_ViewDoc.h"
-
 #include "z/ZString.h"
+#include "ACompileSettings.h"
+#include "z/ZTypes.h"
 
 
 #ifdef ZENV_OS_LINUX
-
-#include <stdlib.h>
-#include <unistd.h>
 
 extern void SystemWithReturn(char * CommandLine);
 

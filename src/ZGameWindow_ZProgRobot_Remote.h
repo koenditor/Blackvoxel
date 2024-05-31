@@ -26,20 +26,17 @@
 #pragma once 
 
 #include "ZGui.h"
-
 #include "ZGui_InventoryBox.h"
-
 #include "ZGui_FontFrame.h"
-
 #include "ZGui_NumericChoiceBox.h"
-
 #include "ZGui_PanelTextButton.h"
-
-#include "ZVoxelTypeManager.h"
-
 #include "ZVoxelExtension_ProgRobot_Remote.h"
+#include "ZGui_TileFrame.h"
+#include "z/ZString.h"
+#include "z/ZTypes.h"
 
 class ZGame;
+class ZVoxelExtension;
 
 class ZGameWindow_ProgRobot_Remote : public ZFrame
 {
@@ -89,8 +86,8 @@ class ZGameWindow_ProgRobot_Remote : public ZFrame
     ZGameWindow_ProgRobot_Remote()
   {
     MainWindow = this;
-    GameEnv = 0;
-    VoxelExtension = 0;
+    GameEnv = nullptr;
+    VoxelExtension = nullptr;
     i1=i2=i3 = 0;
     Q1=Q2=Q3 = 0;
     MainStorage = new ZInventoryBox[128];

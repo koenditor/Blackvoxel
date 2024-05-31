@@ -26,13 +26,12 @@
 #pragma once 
 
 #include "z/ZString.h"
-
 #include "ZGui.h"
-
 #include "ZGui_FontFrame.h"
-
+#include "z/ZTypes.h"
 
 class ZVMachine;
+class ZGame;
 
 #define ZDISASSEMBLERFRAME_MAXLINECOUNT 64
 
@@ -50,11 +49,11 @@ class ZDisassemblerFrame : public ZFrame
     ZDisassemblerFrame ()
     {
       FrameType = MulticharConst('D','A','S','M');
-      VMachine = 0;
+      VMachine = nullptr;
       Margin = 2.0f;
       LineHeight = 12.0;
       LineCount = ZDISASSEMBLERFRAME_MAXLINECOUNT;
-      GameEnv = 0;
+      GameEnv = nullptr;
     }
 
     virtual void AddedToFrameCallback(ZFrame * Frame);

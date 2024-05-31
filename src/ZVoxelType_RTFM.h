@@ -26,6 +26,10 @@
 #pragma once
 
 #include "ZVoxelType.h"
+#include "z/ZString.h"
+#include "z/ZTypes.h"
+
+class ZVector3L;
 
 class ZVoxelType_RTFM : public ZVoxelType
 {

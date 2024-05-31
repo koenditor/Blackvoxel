@@ -25,7 +25,10 @@
 
 
 #include "ZGui_PanelTextMultiButton.h"
+
 #include "GL/gl.h"
+#include "ZTextureManager.h"
+#include "z/ZObject_Lists.h"
 
 
 void ZPanelTextMultiButton::Render(Frame_Dimensions * ParentPosition)

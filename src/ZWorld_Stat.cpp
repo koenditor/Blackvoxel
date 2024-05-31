@@ -23,9 +23,11 @@
  *      Author: laurent
  */
 
-#include <string.h>
+#include <stdio.h>
 
 #include "ZWorld_Stat.h"
+#include "ZVoxelSector.h"
+#include "ZWorld.h"
 
 
 void ZWorld_Stat::Get_Stat_DistanceToMineForVoxelType(UShort VoxelType)

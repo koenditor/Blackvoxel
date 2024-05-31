@@ -31,18 +31,9 @@
 
 
 #include "ZGui.h"
+#include "z/ZTypes.h"
 
-#include "ZGui_FontFrame.h"
-
-#include "ZGui_TileFrame.h"
-
-#include "ZGui_CyclingChoiceBox.h"
-
-#include "ZGui_NumericChoiceBox.h"
-
-#include "ZGui_CheckBox.h"
-
-#include "ZGame.h"
+class ZGame;
 
 class ZScreen_Options_Sound : public ZScreen
 {

@@ -24,7 +24,14 @@
  */
 
 #include "ZVoxelGfx_Tree_Straight.h"
-#include <stdio.h>
+
+#include <math.h>
+
+#include "ZVoxelSector.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZType_ZVector3L_CrossFunc.h"
+#include "z/ZType_ZVector3d.h"
+#include "z/ZType_ZVector3d_CrossFunc.h"
 
 ULong ZVoxelGfx_Tree_Straight::Seed = 0;
 

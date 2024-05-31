@@ -25,7 +25,12 @@
 
 #include "ZGui_Disassembler.h"
 
+#include <cmath>
+
 #include "ZGame.h"
+#include "ZTileSets.h"
+#include "ZVMachine.h"
+#include "z/ZNumberFormat.h"
 
 void ZDisassemblerFrame::SetSize(float Width, float Height)
 {

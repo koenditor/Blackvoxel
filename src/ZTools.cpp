@@ -24,8 +24,10 @@
  */
 
 #include "ZTools.h"
+
 #include "ZActorPhysics.h"
 #include "ZGame.h"
+#include "ZInventory.h"
 
 void ZToolManager::ProcessAndDisplay()
 {

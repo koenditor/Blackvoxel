@@ -26,8 +26,10 @@
 #include "ZVoxelType_IndicatorLight.h"
 
 #include "ZGame.h"
-
 #include "ZWorld.h"
+#include "ZVoxelSector.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZVar.h"
 
 
 bool ZVoxelType_IndicatorLight::Interface_GetInfo(ZVoxelLocation * VLoc, ULong InfoNum, ZVar * Out)
@@ -76,7 +78,7 @@ bool ZVoxelType_IndicatorLight::Interface_SetInfo(ZVoxelLocation * VLoc, ULong I
                }
                NewVoxelValue+=Info;
                ZVoxelWorld::Convert_Location_ToCoords(VLoc, &Coords); // Get the coordinates.
-               GameEnv->World->SetVoxel_WithCullingUpdate(Coords.x, Coords.y, Coords.z, NewVoxelValue, ZVoxelSector::CHANGE_CRITICAL, true, 0 );
+               GameEnv->World->SetVoxel_WithCullingUpdate(Coords.x, Coords.y, Coords.z, NewVoxelValue, ZVoxelSector::CHANGE_CRITICAL, true, nullptr );
              }
              break;
     default: return(false);break;

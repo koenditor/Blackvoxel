@@ -50,7 +50,7 @@ UELong ZHighPerfTimer::GetActualTime()
 
   UELong time;
 
-  gettimeofday(&t,0);
+  gettimeofday(&t,nullptr);
 
   time = ((UELong)t.tv_sec * 1000000ULL) + (UELong)t.tv_usec;
 

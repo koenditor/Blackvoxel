@@ -25,7 +25,15 @@
 
 #include "ZScreen_Message.h"
 
+#include <SDL2/SDL_scancode.h>
+#include <SDL2/SDL_timer.h>
+#include <SDL2/SDL_video.h>
+
 #include "GL/gl.h"
+#include "ZEventManager.h"
+#include "ZGame.h"
+#include "ZGui_FontFrame.h"
+#include "ZTileSets.h"
 
 
 ULong ZScreen_Message::ProcessScreen(ZGame * GameEnv)

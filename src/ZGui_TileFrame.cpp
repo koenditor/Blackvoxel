@@ -25,6 +25,9 @@
 
 #include "ZGui_TileFrame.h"
 
+#include "ZTileSets.h"
+#include "z/ZObject_Lists.h"
+
 
 void ZTileFrame::Render(Frame_Dimensions * ParentPosition)
 {

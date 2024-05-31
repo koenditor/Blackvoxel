@@ -27,6 +27,8 @@
 
 #include "ZVoxelExtension_FabMachine2.h"
 
+#include "z/ZStream_SpecialRamStream.h"
+
 bool ZVoxelExtension_FabMachine2::Load(ZStream_SpecialRamStream * Stream)
 {
   bool Ok;

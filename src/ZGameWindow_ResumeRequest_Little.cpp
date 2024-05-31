@@ -25,8 +25,13 @@
 
 #include "ZGameWindow_ResumeRequest_Little.h"
 
+#include <SDL2/SDL_mouse.h>
+#include <SDL2/SDL_stdinc.h>
+
 #include "ZGame.h"
-#include "SDL2/SDL.h"
+#include "ZActorPhysics.h"
+#include "ZGame_Events.h"
+#include "ZTileSets.h"
 
 void ZGameWindow_ResumeRequest_Little::Show()
 {

@@ -26,6 +26,7 @@
 #pragma once
 
 #include "ZChip_Parallel_Interface.h"
+#include "z/ZTypes.h"
 
 
 

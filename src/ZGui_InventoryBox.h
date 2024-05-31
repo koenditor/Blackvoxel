@@ -25,15 +25,11 @@
 
 #pragma once 
 
-#include "ZGui_InventoryBox.h"
-
+#include "z/ZTypes.h"
 #include "ZGui.h"
 
-#include "ZVoxelType.h"
-
-#include "ZVoxelTypeManager.h"
-
-#include "ZTileSets.h"
+class ZTileStyle;
+class ZVoxelTypeManager;
 
 class ZInventoryBox : public ZFrame
 {
@@ -50,11 +46,11 @@ class ZInventoryBox : public ZFrame
     {
       FrameType = MulticharConst('I','B','O','X'); // = InventoryBox;
       Flag_Cap_Dragable = true;
-      VoxelType = 0;
-      Quantity = 0;
-      VoxelTypeManager = 0;
-      TileStyle = 0;
-      TileStyle_Reduced = 0;
+      VoxelType = nullptr;
+      Quantity = nullptr;
+      VoxelTypeManager = nullptr;
+      TileStyle = nullptr;
+      TileStyle_Reduced = nullptr;
       ReducedFontThreshold = 4;
     }
 

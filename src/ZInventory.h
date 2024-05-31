@@ -27,9 +27,8 @@
 
 #include "z/ZTypes.h"
 
-#include "z/ZStream_SpecialRamStream.h"
-
 class ZVoxelTypeManager;
+class ZStream_SpecialRamStream;
 
 class ZInventory
 {

@@ -24,10 +24,25 @@
  */
 
 #include "ZTool_Constructor.h"
+
+#include <SDL2/SDL_stdinc.h>
+
 #include "ZActorPhysics.h"
 #include "ZGame.h"
-
 #include "ZSound.h"
+#include "ACompileSettings.h"
+#include "ZActor_Player.h"
+#include "ZGameWindow_Advertising.h"
+#include "ZGameWindow_ProgressBar.h"
+#include "ZGameWindow_VoxelTypeBar.h"
+#include "ZGui_InventoryBox.h"
+#include "ZInventory.h"
+#include "ZVoxelSector.h"
+#include "ZVoxelType.h"
+#include "ZVoxelTypeManager.h"
+#include "ZWorld.h"
+#include "z/ZString.h"
+#include "z/ZType_ZVector3d.h"
 
 
 bool ZTool_Constructor::Tool_MouseButtonClick(ULong Button)

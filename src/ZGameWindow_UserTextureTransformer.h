@@ -26,24 +26,17 @@
 #pragma once 
 
 #include "ZGui.h"
-
 #include "ZGui_InventoryBox.h"
-
 #include "ZGui_VoxelViewBox.h"
-
 #include "ZGui_FontFrame.h"
-
 #include "ZGui_PanelTextButton.h"
-
 #include "ZGui_TileFrame.h"
-
-#include "ZVoxelTypeManager.h"
-
 #include "ZVoxelExtension_UserTextureTransformer.h"
-
-
+#include "z/ZString.h"
+#include "z/ZTypes.h"
 
 class ZGame;
+class ZVoxelExtension;
 
 class ZGameWindow_UserTextureTransformer : public ZFrame
 {
@@ -92,7 +85,7 @@ class ZGameWindow_UserTextureTransformer : public ZFrame
     Text_StorageTitle = "WORKING ZONE : PUT MATERIALS HERE";
     Text_InventoryTitle = "INVENTORY";
     Text_Get = "GET IT";
-    VoxelExtension_UserTextureTransformer = 0;
+    VoxelExtension_UserTextureTransformer = nullptr;
   }
 
   ~ZGameWindow_UserTextureTransformer()

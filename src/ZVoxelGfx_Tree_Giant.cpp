@@ -24,7 +24,18 @@
  */
 
 #include "ZVoxelGfx_Tree_Giant.h"
-#include <stdio.h>
+
+#include <math.h>
+
+#include "ZVoxelSector.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZType_ZVector3L_CrossFunc.h"
+#include "z/ZType_ZVector3d.h"
+#include "z/ZType_ZVector3d_CrossFunc.h"
+#include "z/ZFastRandom.h"
+#include "z/ZLinearInterpolator.h"
+#include "z/ZType_ZPolar3d.h"
+#include "z/ZTypes.h"
 
 ULong ZVoxelGfx_Tree_Giant::Seed = 0;
 

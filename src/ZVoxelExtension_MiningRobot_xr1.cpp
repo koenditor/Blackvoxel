@@ -26,8 +26,13 @@
 #include <stdio.h>
 
 #include "ZGame.h"
-
 #include "ZVoxelExtension_MiningRobot_xr1.h"
+#include "ZVoxelReactor.h"
+#include "ZVoxelSector.h"
+#include "ZVoxelType.h"
+#include "ZVoxelTypeManager.h"
+#include "ZWorld.h"
+#include "z/ZStream_SpecialRamStream.h"
 
 void ZVoxelExtension_MiningRobot_xr1::DebugOut()
 {
@@ -265,7 +270,7 @@ void ZVoxelExtension_MiningRobot_xr1::Robot_Move( ZVector3L * Pos, ZGame * GameE
                     case 6: VoxelType2 = 158; break;
                   }
                   if (!GameEnv->VoxelTypeManager.VoxelTable[VoxelType]->Interface_PushBlock_Push(&Loc, VoxelType2, 1)) break;
-                  World->SetVoxel_WithCullingUpdate(Pos->x, Pos->y,Pos->z, 0, ZVoxelSector::CHANGE_UNIMPORTANT, true, 0);
+                  World->SetVoxel_WithCullingUpdate(Pos->x, Pos->y,Pos->z, 0, ZVoxelSector::CHANGE_UNIMPORTANT, true, nullptr);
                   // § State = 32;
                   return;
                 }
@@ -303,7 +308,7 @@ void ZVoxelExtension_MiningRobot_xr1::Robot_Move( ZVector3L * Pos, ZGame * GameE
                     case 5: VoxelType = 157; break;
                     case 6: VoxelType = 158; break;
                   }
-                  World->SetVoxel_WithCullingUpdate(Pos->x, Pos->y,Pos->z, VoxelType, true, true, 0);
+                  World->SetVoxel_WithCullingUpdate(Pos->x, Pos->y,Pos->z, VoxelType, true, true, nullptr);
                 }
 
               }

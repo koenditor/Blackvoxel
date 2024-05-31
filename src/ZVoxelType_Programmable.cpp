@@ -24,14 +24,20 @@
  */
 
 #include "ZVoxelType_Programmable.h"
-#include "ZGame.h"
 
+#include "ZGame.h"
 #include "ZVoxelExtension_Programmable.h"
+#include "ZGameInfo.h"
+#include "ZGameWindow_Programmable.h"
+#include "ZScripting_Squirrel3.h"
+#include "ZVoxelSector.h"
+
+class ZVoxelExtension;
 
 
 ZVoxelExtension * ZVoxelType_Programmable::CreateVoxelExtension(bool IsLoadingPhase)
 {
-  ZVoxelExtension_Programmable * NewVoxelExtension = 0;
+  ZVoxelExtension_Programmable * NewVoxelExtension = nullptr;
 
   NewVoxelExtension = new ZVoxelExtension_Programmable;
 

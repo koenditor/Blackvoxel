@@ -26,8 +26,8 @@
 #pragma once 
 
 #include "z/ZStreams.h"
-
 #include "z/ZString.h"
+#include "z/ZTypes.h"
 
 class ZLog
 {
@@ -53,7 +53,7 @@ class ZLog
     {
       Section = 0;
       OutputFilespec = "Log.txt";
-      Stream = 0;
+      Stream = nullptr;
     }
 
     ~ZLog()

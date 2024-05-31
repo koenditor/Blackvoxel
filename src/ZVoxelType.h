@@ -25,13 +25,13 @@
 
 #pragma once
 
-#include "z/ZBitmapImage.h"
-
 #include "z/ZString.h"
+#include "z/ZTypes.h"
 
-#include "ZVoxelExtension.h"
-
-#include "z/ZVar.h"
+class ZBitmapImage;
+class ZVar;
+class ZVector3L;
+class ZVoxelExtension;
 
 
 #define ZVOXEL_DRAWINFO_VOID 0
@@ -43,7 +43,6 @@
 #define ZVOXEL_DRAWINFO_CULLINGBITS (ZVOXEL_DRAWINFO_NOTVOID | ZVOXEL_DRAWINFO_DRAWFULLVOXELOPACITY | ZVOXEL_DRAWINFO_DRAWTRANSPARENTRENDERING)
 
 class ZGame;
-class ZStream_SpecialRamStream;
 class ZFabInfos;
 class ZFabInfos2;
 class ZVoxelTypeManager;
@@ -160,7 +159,7 @@ class ZVoxelType
     virtual Bool LoadVoxelInformations();
 
     // Voxel Extensions;
-    virtual ZVoxelExtension * CreateVoxelExtension(bool IsLoadingPhase = false) { return(0); }
+    virtual ZVoxelExtension * CreateVoxelExtension(bool IsLoadingPhase = false) { return nullptr; }
     virtual void  DeleteVoxelExtension(ZMemSize VoxelExtension, bool IsUnloadingPhase = false);
 
     //

@@ -24,14 +24,17 @@
  */
 
 #include "ZVoxelType_Sequencer.h"
-#include "ZGame.h"
 
+#include "ZGame.h"
 #include "ZVoxelExtension_Sequencer.h"
+#include "ZGameWindow_Sequencer.h"
+
+class ZVoxelExtension;
 
 
 ZVoxelExtension * ZVoxelType_Sequencer::CreateVoxelExtension(bool IsLoadingPhase)
 {
-  ZVoxelExtension * NewVoxelExtension = 0;
+  ZVoxelExtension * NewVoxelExtension = nullptr;
 
   NewVoxelExtension = new ZVoxelExtension_Sequencer;
 

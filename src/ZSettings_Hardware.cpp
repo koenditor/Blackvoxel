@@ -24,13 +24,12 @@
  */
 
 #include "ZSettings_Hardware.h"
-#include <stdio.h>
+
+#include <SDL2/SDL_scancode.h>
 
 #include "ACompileSettings.h"
-
 #include "z/ZStream_File.h"
-
-#include "ACompileSettings.h"
+#include "ZOs_Specific_HardwareDependent.h"
 
 ZSettings_Hardware::ZSettings_Hardware()
 {

@@ -25,10 +25,10 @@
 
 #include "ZGameWindow_Advertising.h"
 
-
 #include "ZGame.h"
-#include "ZActorPhysics.h"
-#include "SDL2/SDL.h"
+#include "ACompileSettings.h"
+#include "ZSound.h"
+#include "ZTileSets.h"
 
 void ZGameWindow_Advertising::Show()
 {
@@ -147,7 +147,7 @@ void ZGameWindow_Advertising::Advertising_Actions(double FrameTime)
       GameEnv->GuiManager.RemoveFrame(&Frame_Text);
       ActualText.Clear();
       delete ActualyDisplayedEntry;
-      ActualyDisplayedEntry = 0;
+      ActualyDisplayedEntry = nullptr;
     }
 
 
@@ -163,7 +163,7 @@ void ZGameWindow_Advertising::Clear()
     GameEnv->GuiManager.RemoveFrame(&Frame_Text);
     ActualText.Clear();
     delete ActualyDisplayedEntry;
-    ActualyDisplayedEntry = 0;
+    ActualyDisplayedEntry = nullptr;
   }
   while ((Entry = (DisplayEntry *)DisplayFile.PullFromFile())) delete Entry;
 }

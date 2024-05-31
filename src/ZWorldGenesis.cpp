@@ -24,26 +24,23 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "ZWorldGenesis.h"
 #include "math.h"
-#include "stdlib.h"
-
 #include "z/ZGenericCanva_2.h"
-
 #include "ZVoxelGfx_Tree_Straight.h"
-
 #include "ZVoxelGfx_Tree_Giant.h"
-
 #include "ZVoxelExtension_Storage.h"
-
 #include "ACompileSettings.h"
-
 #include "ZInclusionProbabilizer.h"
-
 #include "ZGame.h"
-
 #include "z/ZStream_File.h"
+#include "ZVoxelGfx_Tree.h"
+#include "z/ZBitmapImage.h"
+#include "z/ZString.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZType_ZVector3d.h"
 
 
 extern ZGame * Ge;

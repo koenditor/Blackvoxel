@@ -24,13 +24,16 @@
  */
 
 #include "ZStream_File.h"
+
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <limits.h>
+#include <stdlib.h>
+#include <sys/stat.h>
 
 #ifdef ZENV_OS_LINUX
 #include "stdlib.h"
-#include "linux/limits.h"
 #include "sys/stat.h"
 #endif
 
@@ -52,7 +55,7 @@ void ZStream_File::AddToSavedLen(ULong &Len, UShort x){Len += sizeof(UShort);}
 void ZStream_File::AddToSavedLen(ULong &Len, Short x) {Len += sizeof(Short);}
 void ZStream_File::AddToSavedLen(ULong &Len, UByte x) {Len += sizeof(UByte);}
 void ZStream_File::AddToSavedLen(ULong &Len, Byte x)  {Len += sizeof(Byte);}
-void ZStream_File::AddToSavedLen(ULong &Len, char * String) {ULong i;for (i=0;String[i]!=0;i++);Len+=i+sizeof(ULong);}
+void ZStream_File::AddToSavedLen(ULong &Len, char * String) {ULong i=0; while(String[i]){i++;} Len+=i+sizeof(ULong);}
 void ZStream_File::AddToSavedLen(ULong &Len, ZString * String) {Len += String->Len + sizeof(ULong);}
 void ZStream_File::AddToSavedLen(ULong &Len, ZString & String) {Len += String.Len + sizeof(ULong);}
 
@@ -542,7 +545,7 @@ bool ZStream_File::Close()
   if (Fl)
   {
     fclose((FILE *)Fl);
-    Fl = 0;
+    Fl = nullptr;
     return(true);
   }
   Error = true;
@@ -583,7 +586,7 @@ bool ZStream_File::OpenRead()
 
 ZStream_File::ZStream_File()
 {
-  Fl = 0;
+  Fl = nullptr;
   ReadOk =  false;
   WriteOk = false;
   Error   = false;
@@ -613,7 +616,7 @@ ZString ZStream_File::Get_CurrentDirectory()
 #ifdef ZENV_OS_LINUX
   ZString Buffer;
   Buffer.RaiseMem_DiscardContent(PATH_MAX);
-  if (0 == getcwd(Buffer.String, PATH_MAX)) Buffer.Clear();
+  if (nullptr == getcwd(Buffer.String, PATH_MAX)) Buffer.Clear();
   return(Buffer);
 #endif
 #ifdef ZENV_OS_WINDOWS
@@ -802,7 +805,7 @@ bool ZStream_File::GetFileContent(ZString & Result)
   if (Fl)
   {
     fclose((FILE *)Fl);
-    Fl = 0;
+    Fl = nullptr;
     return(true);
   }
   Error = true;

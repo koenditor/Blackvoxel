@@ -26,8 +26,8 @@
 #pragma once
 
 #include "ACompileSettings.h"
-
 #include "z/ZTypes.h"
+#include "z/ZType_ZVector3L.h"
 
 // UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE
 // UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE UNUSED FILE
@@ -45,7 +45,7 @@ class ZVoxelMap
 
   ZVoxelMap()
   {
-    VoxelTable = 0;
+    VoxelTable = nullptr;
     Size = 0;
     HandlePoint = 0;
     TableSize = 0;

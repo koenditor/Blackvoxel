@@ -26,8 +26,9 @@
 #pragma once 
 
 #include "ZGui.h"
+#include "z/ZTypes.h"
 
-#include "ZTileSets.h"
+class ZTileStyle;
 
 class ZFrame_FontFrame : public ZFrame
 {
@@ -36,7 +37,7 @@ class ZFrame_FontFrame : public ZFrame
     ZTileStyle * TileStyle;
   public:
 
-    ZFrame_FontFrame()         {FrameType = MulticharConst('T','E','X','T');TileStyle = 0; TextToDisplay = (char *)""; }
+    ZFrame_FontFrame()         {FrameType = MulticharConst('T','E','X','T');TileStyle = nullptr; TextToDisplay = (char *)""; }
     virtual void  SetDisplayText(char const * TextToDisplay)   { this->TextToDisplay = (char *)TextToDisplay; }
     virtual void  SetStyle      (ZTileStyle * TileStyle) { this->TileStyle = TileStyle;         }
     virtual void  GetTextDisplaySize(ZVector2f * OutSize);

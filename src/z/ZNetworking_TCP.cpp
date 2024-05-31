@@ -25,6 +25,13 @@
 
 #include "ZNetworking_TCP.h"
 
+#include <arpa/inet.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <string.h>
+#include <sys/time.h>
+#include <unistd.h>
+
 #ifdef ZENV_OS_WINDOWS
   #include <windows.h>
   #include <winsock2.h>
@@ -51,7 +58,7 @@ ZTCPNet_Connection::ZTCPNet_Connection()
 ZTCPNet_Connection::~ZTCPNet_Connection()
 {
   if (ValidConnection) Close();
-  if (Address) {delete Address; Address=0;}
+  if (Address) {delete Address; Address=nullptr;}
 }
 
 
@@ -160,7 +167,7 @@ ZTCPNet_Socket::ZTCPNet_Socket()
 ZTCPNet_Socket::~ZTCPNet_Socket()
 {
   if (Initialized_Socket) Close();
-  if (Address) {delete Address; Address=0;}
+  if (Address) {delete Address; Address=nullptr;}
 }
 
 bool ZTCPNet_Socket::Init()

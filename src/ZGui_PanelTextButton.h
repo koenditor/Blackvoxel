@@ -26,8 +26,10 @@
 #pragma once 
 
 #include "ZGui.h"
-
 #include "ZGui_FontFrame.h"
+#include "z/ZTypes.h"
+
+class ZTileStyle;
 
 class ZPanelTextButton : public ZFrame
 {

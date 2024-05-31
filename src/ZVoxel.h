@@ -32,8 +32,6 @@
 
 #include "z/ZTypes.h"
 
-#include "ZVoxelExtension.h"
-
 class ZVoxelTypeManager;
 class ZStream_SpecialRamStream;
 

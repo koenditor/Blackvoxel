@@ -79,7 +79,7 @@ class ZGenericTable
 
     inline Type * CreateNewPnt()
     {
-      if (ElementCount >= TableLen) return(0);
+      if (ElementCount >= TableLen) return nullptr;
       return( &Table[ElementCount++] );
     }
 

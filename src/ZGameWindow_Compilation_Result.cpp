@@ -26,8 +26,13 @@
 
 #include "ZGameWindow_Compilation_Result.h"
 
+#include <SDL2/SDL_mouse.h>
+#include <SDL2/SDL_stdinc.h>
+
 #include "ZGame.h"
-#include "SDL2/SDL.h"
+#include "ZActorPhysics.h"
+#include "ZGame_Events.h"
+#include "ZTileSets.h"
 
 void ZGameWindow_Compilation_Result::Show()
 {

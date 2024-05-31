@@ -25,13 +25,11 @@
 
 #pragma once 
 
+#include <SDL2/SDL_scancode.h>
+
 #include "z/ZTypes.h"
-
 #include "z/ZObject.h"
-
 #include "z/ZObject_Lists.h"
-
-#include "SDL2/SDL_keycode.h"
 
 
 class ZEventTable

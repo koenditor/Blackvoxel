@@ -26,6 +26,9 @@
 #pragma once 
 
 #include "z/ZTypes.h"
+#include "z/ZType_ZPolar3d.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZType_ZVector3d.h"
 
 class ZDirs
 {

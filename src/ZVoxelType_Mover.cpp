@@ -25,6 +25,8 @@
 
 #include "ZVoxelType_Mover.h"
 
+class ZVoxelExtension;
+
 
 ZVoxelExtension * ZVoxelType_Mover::CreateVoxelExtension(bool IsLoadingPhase)
 {

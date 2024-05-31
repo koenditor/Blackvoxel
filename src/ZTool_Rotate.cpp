@@ -26,8 +26,14 @@
 #include "ZTool_Rotate.h"
 
 #include "ZActorPhysics.h"
-
 #include "ZGame.h"
+#include "ZActor_Player.h"
+#include "ZGameWindow_Advertising.h"
+#include "ZSound.h"
+#include "ZVoxelSector.h"
+#include "ZVoxelType.h"
+#include "ZVoxelTypeManager.h"
+#include "ZWorld.h"
 
 bool ZTool_Rotate::Tool_MouseButtonClick(ULong Button)
 {
@@ -79,7 +85,7 @@ bool ZTool_Rotate::Tool_MouseButtonClick(ULong Button)
                 }
                 if (Change)
                 {
-                  if (GameEnv->World->SetVoxel_WithCullingUpdate(Actor->PointedVoxel.PointedVoxel.x, Actor->PointedVoxel.PointedVoxel.y, Actor->PointedVoxel.PointedVoxel.z, NewVoxelType, ZVoxelSector::CHANGE_CRITICAL, true, 0)) Loc.Sector ->Flag_HighPriorityRefresh = true;
+                  if (GameEnv->World->SetVoxel_WithCullingUpdate(Actor->PointedVoxel.PointedVoxel.x, Actor->PointedVoxel.PointedVoxel.y, Actor->PointedVoxel.PointedVoxel.z, NewVoxelType, ZVoxelSector::CHANGE_CRITICAL, true, nullptr)) Loc.Sector ->Flag_HighPriorityRefresh = true;
                   GameEnv->Sound->PlaySound(7);
                 }
 
@@ -106,7 +112,7 @@ bool ZTool_Rotate::Tool_MouseButtonClick(ULong Button)
                 }
                 if (Change)
                 {
-                  if (GameEnv->World->SetVoxel_WithCullingUpdate(Actor->PointedVoxel.PointedVoxel.x, Actor->PointedVoxel.PointedVoxel.y, Actor->PointedVoxel.PointedVoxel.z, NewVoxelType, ZVoxelSector::CHANGE_CRITICAL, true, 0)) Loc.Sector ->Flag_HighPriorityRefresh = true;
+                  if (GameEnv->World->SetVoxel_WithCullingUpdate(Actor->PointedVoxel.PointedVoxel.x, Actor->PointedVoxel.PointedVoxel.y, Actor->PointedVoxel.PointedVoxel.z, NewVoxelType, ZVoxelSector::CHANGE_CRITICAL, true, nullptr)) Loc.Sector ->Flag_HighPriorityRefresh = true;
                   GameEnv->Sound->PlaySound(7);
                 }
 

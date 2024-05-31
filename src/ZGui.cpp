@@ -25,17 +25,19 @@
 
 #include "ZGui.h"
 
-#include <math.h>
-#include <stdio.h>
-#include "SDL2/SDL.h"
+#include <SDL2/SDL_scancode.h>
+
 #include "GL/gl.h"
+#include "ZTextureManager.h"
+#include "z/ZObject_Lists.h"
+#include "z/ZTypes.h"
 
 ZGraphicUserManager::ZGraphicUserManager()
 {
-  TextureManager = 0;
+  TextureManager = nullptr;
   FirstFrame = new ZFrame();
   FirstFrame->GuiManager = this;
-  FirstFrame->ParentFrame = 0;
+  FirstFrame->ParentFrame = nullptr;
   FirstFrame->Show_Frame(false);
 
   // Init MouseOver stack imbrication tables
@@ -49,7 +51,7 @@ ZGraphicUserManager::ZGraphicUserManager()
   Actual_FocusStackSize = 0;
   Previous_FocusStackSize = 0;
   Modal_StackSize = 0;
-  DragingFrame = 0;
+  DragingFrame = nullptr;
 }
 
 ZGraphicUserManager::~ZGraphicUserManager()
@@ -237,7 +239,7 @@ Bool ZGraphicUserManager::MouseButtonRelease(UShort nButton, Short Absolute_x, S
     if (DragingFrame)
     {
       DragingFrame->Flag_Draging = false;
-      DragingFrame = 0;
+      DragingFrame = nullptr;
     }
 
   }
@@ -283,7 +285,7 @@ void ZGraphicUserManager::Frame_PopModal()
   if (Modal_StackSize)
   {
     Modal_StackSize--;
-    Modal_Stack[Modal_StackSize+1]=0;
+    Modal_Stack[Modal_StackSize+1]=nullptr;
   }
 }
 

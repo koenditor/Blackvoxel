@@ -25,23 +25,20 @@
 
 #pragma once
 
-
-#include "ZWorld.h"
-
 #include "ZCamera.h"
-
-#include "ZVoxelType.h"
-
-#include "ZInventory.h"
-
-#include "ZTools.h"
-
-#include "z/ZStream_SpecialRamStream.h"
-
 #include "SDL2/SDL_stdinc.h"
+#include "z/ZType_ZPolar3d.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZType_ZVector3d.h"
+#include "z/ZTypes.h"
 
 class ZActorPhysicEngine;
 class ZGame;
+class ZInventory;
+class ZStream_SpecialRamStream;
+class ZToolManager;
+class ZVoxelTypeManager;
+class ZVoxelWorld;
 
 class ZActor
 {
@@ -175,7 +172,7 @@ class ZActor
 
 
     virtual void Start_Riding(Long x, Long y, Long z) {}
-    virtual void Stop_Riding() {}
+    virtual void Stop_Riding(bool RegiveVoxel=true) {}
     virtual void Action_GetInOutOfVehicle() {}
 
     virtual void Process_Powers() {}

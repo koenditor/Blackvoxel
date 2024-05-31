@@ -72,7 +72,7 @@ class ZPointList
 
       Entry = &List[ (Pointer - PositionNum) & 0xF ];
 
-      if (!Entry->Used) return(0);
+      if (!Entry->Used) return nullptr;
 
       return ( &Entry->Position );
     }

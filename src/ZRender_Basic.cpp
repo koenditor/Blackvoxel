@@ -19,17 +19,21 @@
 
 #include <math.h>
 #include <stdio.h>
-#include "SDL2/SDL.h"
+#include <GL/gl.h>
 
 #include "ZRender_Basic.h"
-
 #include "ZHighPerfTimer.h"
-
 #include "ZGame.h"
-
 #include "ZGameStat.h"
-
 #include "GL/glu.h"
+#include "ACompileSettings.h"
+#include "ZCamera.h"
+#include "ZTextureManager.h"
+#include "ZVoxelSector.h"
+#include "ZVoxelType.h"
+#include "ZVoxelTypeManager.h"
+#include "ZWorld.h"
+#include "z/ZBitmapImage.h"
 
 
 void ZRender_Basic::SetWorld( ZVoxelWorld * World )
@@ -189,7 +193,6 @@ void ZRender_Basic::Render()
   ZHighPerfTimer Timer_SectorRefresh;
   ULong Time;
 #endif
-  ULong RenderedSectors;
   Long i;
 
    Timer.Start();
@@ -292,7 +295,6 @@ void ZRender_Basic::Render()
 
     ZVoxelSector * Sector;
     Long Priority, PriorityBoost;
-    ULong Sector_Refresh_Count;
 
 
   // Transforming Camera coords to sector coords. One Voxel is 256 observer units. One sector is 16x16x32.
@@ -312,8 +314,6 @@ void ZRender_Basic::Render()
 
   // Preparation and first rendering pass
 
-    RenderedSectors = 0;
-    Sector_Refresh_Count = 0;
     ZVector3d Cv, Cv2;
     ZSectorSphere::ZSphereEntry * SectorSphereEntry;
     ULong SectorsToProcess = SectorSphere.GetEntryCount();
@@ -366,7 +366,6 @@ void ZRender_Basic::Render()
                 //Sector->Flag_IsDebug = false;
               }
 
-              // if (Sector_Refresh_Count < 5 || Priority==4)
               if ((RefreshToDo[Sector->RefreshWaitCount]) || Sector->Flag_HighPriorityRefresh )
               {
 
@@ -381,7 +380,6 @@ void ZRender_Basic::Render()
                     || COMPILEOPTION_FORCE_SORTED_RENDERING ) MakeSectorRenderingData_Sorted(Sector);
                 else                                          MakeSectorRenderingData(Sector);
 
-                Sector_Refresh_Count++;
                 Sector->RefreshWaitCount = 0;
                 Stat->SectorRefresh_Count++;
 
@@ -405,7 +403,7 @@ void ZRender_Basic::Render()
             // Rendering first pass
             if (   Sector->Flag_IsVisibleAtLastRendering
                 && (!Sector->Flag_Void_Regular)
-                && (Sector->DisplayData != 0)
+                && (Sector->DisplayData != nullptr)
                 && (((ZRender_basic_displaydata *)Sector->DisplayData)->DisplayList_Regular != 0)
                 )
               {
@@ -415,7 +413,7 @@ void ZRender_Basic::Render()
                 #endif
 
                 glCallList( ((ZRender_basic_displaydata *)Sector->DisplayData)->DisplayList_Regular );
-                Stat->SectorRender_Count++;RenderedSectors++;
+                Stat->SectorRender_Count++;
 
                 #if COMPILEOPTION_FINETIMINGTRACKING == 1
                 Timer_SectorRefresh.End(); Time = Timer_SectorRefresh.GetResult(); Stat->SectorRender_TotalTime += Time;
@@ -450,7 +448,7 @@ void ZRender_Basic::Render()
           {
             if (  Sector->Flag_IsVisibleAtLastRendering
                && (!Sector->Flag_Void_Transparent)
-               && (Sector->DisplayData != 0)
+               && (Sector->DisplayData != nullptr)
                && (((ZRender_basic_displaydata *)Sector->DisplayData)->DisplayList_Transparent != 0)
                )
             {
@@ -614,12 +612,6 @@ void ZRender_Basic::Render()
 
 
     Timer.End();
-
-    /*printf("Frame Time : %lu Rend Sects: %lu Draw Faces :%lu Top:%lu Bot:%lu Le:%lu Ri:%lu Front:%lu Back:%lu\n",Timer.GetResult(), RenderedSectors, Stat_RenderDrawFaces, Stat_FaceTop, Stat_FaceBottom,
-           Stat_FaceLeft,Stat_FaceRight,Stat_FaceFront,Stat_FaceBack);*/
-
-    //printf("RenderedSectors : %lu\n",RenderedSectors);
-    //SDL_GL_SwapWindow(GameEnv->screen);
 }
 
 /*
@@ -881,7 +873,7 @@ void ZRender_Basic::MakeSectorRenderingData(ZVoxelSector * Sector)
 
   // Display list creation or reuse.
 
-  if (Sector->DisplayData == 0) { Sector->DisplayData = new ZRender_basic_displaydata; }
+  if (Sector->DisplayData == nullptr) { Sector->DisplayData = new ZRender_basic_displaydata; }
   DisplayData = (ZRender_basic_displaydata *)Sector->DisplayData;
   if ( DisplayData->DisplayList_Regular == 0 )    DisplayData->DisplayList_Regular = glGenLists(1);
   if ( DisplayData->DisplayList_Transparent == 0) DisplayData->DisplayList_Transparent = glGenLists(1);
@@ -1113,7 +1105,7 @@ void ZRender_Basic::MakeSectorRenderingData_Sorted(ZVoxelSector * Sector)
 
   // Display list creation or reuse.
 
-  if (Sector->DisplayData == 0) { Sector->DisplayData = new ZRender_basic_displaydata; }
+  if (Sector->DisplayData == nullptr) { Sector->DisplayData = new ZRender_basic_displaydata; }
   DisplayData = (ZRender_basic_displaydata *)Sector->DisplayData;
   if ( (!Sector->Flag_Void_Regular)     && (DisplayData->DisplayList_Regular == 0) )    DisplayData->DisplayList_Regular = glGenLists(1);
   if ( (!Sector->Flag_Void_Transparent) && (DisplayData->DisplayList_Transparent == 0) ) DisplayData->DisplayList_Transparent = glGenLists(1);

@@ -24,18 +24,11 @@
  */
 
 
-#include "SDL2/SDL.h"
-
 #include "ACompileSettings.h"
-
 #include "z/ZBitmapImage.h"
-
 #include "z/ZString.h"
-
 #include "ZLoadingScreen.h"
-
 #include "GL/gl.h"
-
 #include "GL/glu.h"
 
 // Display a loading screen.

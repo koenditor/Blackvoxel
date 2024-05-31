@@ -26,8 +26,10 @@
 #include "ZVoxelType_Concrete.h"
 
 #include "ZVoxelSector.h"
-
 #include "ZVoxelExtensionType_VoxelFluid.h"
+#include "z/ZString.h"
+
+class ZVoxelExtension;
 
 ZVoxelExtension * ZVoxelType_Concrete::CreateVoxelExtension(bool IsLoadingPhase)
 {
@@ -37,7 +39,7 @@ ZVoxelExtension * ZVoxelType_Concrete::CreateVoxelExtension(bool IsLoadingPhase)
     ZVoxelExtension * Extension;
   };
 
-  Extension = 0;
+  Extension = nullptr;
   Pressure  = 0.0;
 
   return( Extension );

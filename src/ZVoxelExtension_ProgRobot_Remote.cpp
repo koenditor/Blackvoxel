@@ -23,9 +23,10 @@
  *      Author: laurent
  */
 
-#include "ZGame.h"
-
 #include "ZVoxelExtension_ProgRobot_Remote.h"
+#include "z/ZStream_SpecialRamStream.h"
+
+class ZGame;
 
 
 extern ZGame * Ge;

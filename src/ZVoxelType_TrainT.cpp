@@ -25,13 +25,16 @@
 
 #include "ZGame.h"
 #include "ZVoxelType_TrainT.h"
+#include "ZActorPhysics.h"
+#include "ZVoxelExtension_Storage.h"
+#include "ZVoxelSector.h"
 
-#include "ZVoxelExtension_TrainT.h"
+class ZVoxelExtension;
 
 
 ZVoxelExtension * ZVoxelType_TrainT::CreateVoxelExtension(bool IsLoadingPhase)
 {
-  ZVoxelExtension * NewVoxelExtension = 0;
+  ZVoxelExtension * NewVoxelExtension = nullptr;
 
   NewVoxelExtension = new ZVoxelExtension_Storage;
 

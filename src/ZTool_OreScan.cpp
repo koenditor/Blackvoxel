@@ -26,9 +26,17 @@
 
 #include "ZTool_OreScan.h"
 
-#include "ZActorPhysics.h"
+#include <stdio.h>
 
+#include "ZActorPhysics.h"
 #include "ZGame.h"
+#include "ACompileSettings.h"
+#include "ZActor_Player.h"
+#include "ZGameWindow_Scan.h"
+#include "ZVoxelType.h"
+#include "ZVoxelTypeManager.h"
+#include "ZWorld.h"
+#include "z/ZType_ZVector3L.h"
 
 
 void ZTool_OreScan::MakeScan(ZVector3L * ScanPoint, ZVector3L * ScanDimensions, ZString * Result)
@@ -36,12 +44,10 @@ void ZTool_OreScan::MakeScan(ZVector3L * ScanPoint, ZVector3L * ScanDimensions, 
   ULong Table[65536];
   ULong i;
   UShort VoxelType;
-  ULong TotalVoxels;
   ULong TotalNonVoidVoxels;
   Long x,y,z;
   ZString Line;
 
-  TotalVoxels = 0;
   TotalNonVoidVoxels = 0;
 
   // Clear Table
@@ -58,7 +64,6 @@ void ZTool_OreScan::MakeScan(ZVector3L * ScanPoint, ZVector3L * ScanDimensions, 
       {
         VoxelType = GameEnv->World->GetVoxel(x,y,z);
         Table[VoxelType]++;
-        TotalVoxels++;
         if (VoxelType) TotalNonVoidVoxels++;
       }
     }

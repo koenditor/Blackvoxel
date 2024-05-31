@@ -26,10 +26,10 @@
 #pragma once 
 
 #include "ZTypes.h"
-
 #include "ZStreams.h"
-
-class ZString;
+#include "ZMemPool.h"
+#include "ZString.h"
+#include "ZType_ZVector3L.h"
 
 class ZStream_SpecialRamStream
 {
@@ -50,7 +50,7 @@ class ZStream_SpecialRamStream
 
   ZStream_SpecialRamStream()
   {
-    Stream = 0;
+    Stream = nullptr;
     BufferSize = 1024 * 1024 * 5;
     ReadCount = 0;
     Buffer = (char *)MemPool.AllocMem(BufferSize);
@@ -60,7 +60,7 @@ class ZStream_SpecialRamStream
   ~ZStream_SpecialRamStream()
   {
     if (Buffer) MemPool.FreeMem(Buffer);
-    Buffer = 0;
+    Buffer = nullptr;
   }
 
   void SetStream( ZStream * Stream ) { this->Stream = Stream; }

@@ -26,12 +26,8 @@
 #pragma once 
 
 #include "ZGui.h"
-
 #include "ZGui_InventoryBox.h"
-
-#include "ZGui_FontFrame.h"
-
-#include "ZVoxelTypeManager.h"
+#include "z/ZTypes.h"
 
 class ZGame;
 

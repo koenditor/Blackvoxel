@@ -47,7 +47,7 @@ class ZSimpleHash
     {
       HashSize = 0;
       SizePowerOfTwo = 0;
-      Table = 0;
+      Table = nullptr;
       Mask = 0;
     }
 
@@ -72,7 +72,7 @@ class ZSimpleHash
     ~ZSimpleHash()
     {
       if (Table) delete [] Table;
-     Table = 0;
+     Table = nullptr;
       HashSize = 0;
     }
 
@@ -81,7 +81,7 @@ class ZSimpleHash
       ZMemSize i;
 
       if (!Table) return;
-      for (i=0;i<HashSize;i++) Table[i] = 0;
+      for (i=0;i<HashSize;i++) Table[i] = nullptr;
     }
 
     inline void AddItem(char const * String, Type * Data)
@@ -102,7 +102,7 @@ class ZSimpleHash
     {
 
       FoundHash = ComputeHash(String);
-      if (FoundHash >= HashSize) return(0);
+      if (FoundHash >= HashSize) return nullptr;
 
       return(Table[FoundHash]);
     }

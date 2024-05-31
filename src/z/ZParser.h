@@ -26,10 +26,10 @@
 #pragma once
 
 #include "ZTypes.h"
-
-#include "ZKeywordSet.h"
-
 #include "ZSeparatorSets.h"
+#include "ZString.h"
+
+class ZKeyWordSet;
 
 
 // ***********************************************************************

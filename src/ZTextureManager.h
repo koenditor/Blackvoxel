@@ -20,15 +20,9 @@
 #pragma once
 
 #include "z/ZTypes.h"
-
 #include "z/ZObject.h"
-
 #include "z/ZObject_Array.h"
-
 #include "z/ZBitmapImage.h"
-
-
-#include <stdio.h>
 
 class ZTexture_Entry : public ZObject
 {
@@ -39,14 +33,14 @@ class ZTexture_Entry : public ZObject
 
     ZTexture_Entry()
     {
-      Texture = 0;
+      Texture = nullptr;
       LinearInterpolation = 0;
       OpenGl_TextureRef = 0;
     }
     ~ZTexture_Entry()
     {
       if (Texture) delete Texture;
-      Texture = 0;
+      Texture = nullptr;
       LinearInterpolation = 0;
       OpenGl_TextureRef = 0;
     }

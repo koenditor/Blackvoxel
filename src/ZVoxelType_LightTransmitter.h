@@ -31,8 +31,9 @@
 
 
 #include "ZVoxelType.h"
-
 #include "z/ZGenericTable.h"
+#include "z/ZType_ZVector3L.h"
+#include "z/ZTypes.h"
 
 class ZVoxelType_LightTransmitter : public ZVoxelType
 {

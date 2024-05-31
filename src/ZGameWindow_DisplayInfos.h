@@ -25,12 +25,8 @@
 
 #pragma once 
 
-#include "z/ZTypes.h"
-
 #include "z/ZString.h"
-
 #include "ZGui.h"
-
 #include "ZGui_FontFrame.h"
 
 class ZGame;
@@ -51,7 +47,7 @@ class ZGameWindow_DisplayInfos
     ZGameWindow_DisplayInfos()
   {
     Flag_Shown = false;
-    GameEnv = 0;
+    GameEnv = nullptr;
   }
 
   ~ZGameWindow_DisplayInfos()

@@ -24,9 +24,10 @@
  */
 
 #include "ZGameWindow_RTFM.h"
+
 #include "ZGame.h"
 #include "ZActorPhysics.h"
-#include "SDL2/SDL.h"
+#include "ZTileSets.h"
 
 void ZGameWindow_RTFM::Show()
 {

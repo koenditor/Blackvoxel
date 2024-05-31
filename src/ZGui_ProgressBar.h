@@ -26,8 +26,9 @@
 #pragma once 
 
 #include "ZGui.h"
+#include "z/ZTypes.h"
 
-#include "ZTileSets.h"
+class ZTileSet;
 
 class ZFrame_ProgressBar : public ZFrame
 {

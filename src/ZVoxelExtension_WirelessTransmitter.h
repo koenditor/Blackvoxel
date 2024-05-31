@@ -25,16 +25,10 @@
 
 #pragma once 
 
-
-
-
-
-
 #include "ZVoxelExtension.h"
-
 #include "z/ZGenericTable.h"
-
 #include "z/ZSpinLock.h"
+#include "z/ZStream_SpecialRamStream.h"
 
 class ZVoxelExtension_WirelessTransmitter : public ZVoxelExtension
 {

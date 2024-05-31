@@ -27,7 +27,8 @@
 
 #include "ZGame.h"
 #include "ZActorPhysics.h"
-#include "SDL2/SDL.h"
+#include "ZInventory.h"
+#include "ZTileSets.h"
 
 void ZGameWindow_VoxelTypeBar::Show()
 {

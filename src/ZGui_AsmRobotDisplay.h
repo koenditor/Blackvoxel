@@ -26,10 +26,11 @@
 #pragma once 
 
 #include "z/ZString.h"
-
 #include "ZGui.h"
-
 #include "ZGui_FontFrame.h"
+#include "z/ZTypes.h"
+
+class ZGame;
 
 #define ZASMROBOTDISPLAY_MAXLINECOUNT 30
 
@@ -49,10 +50,10 @@ class ZAsmRobotDisplay : public ZFrame
     ZAsmRobotDisplay ()
     {
       FrameType = MulticharConst('A','D','I','S');
-      VMachine = 0;
+      VMachine = nullptr;
       Margin = 2.0f;
       LineHeight = 8.0;
-      GameEnv = 0;
+      GameEnv = nullptr;
       DisplaySlots = 0;
     }
 
