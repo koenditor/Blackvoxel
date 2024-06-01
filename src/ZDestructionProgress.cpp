@@ -53,7 +53,13 @@ void ZDestructionProgress::Start(double MiningHardness, ZVoxelCoords & PointedVo
 
 void ZDestructionProgress::SetNewtarget(double MiningHardness, ZVoxelCoords & PointedVoxel)
 {
-  Mining_MaterialResistanceCounter = MiningHardness;
+  if (LastMinedVoxel == PointedVoxel){
+    std::swap(Mining_MaterialResistanceCounter, Last_Mining_MaterialResistanceCounter);
+  } else {
+    Last_Mining_MaterialResistanceCounter = Mining_MaterialResistanceCounter;
+    Mining_MaterialResistanceCounter = MiningHardness;
+  }
+  LastMinedVoxel = MinedVoxel;
   this->Mining_Hardness            = MiningHardness;
   MiningInProgress                 = true;
   MiningNoTarget                   = false;
@@ -74,6 +80,7 @@ void ZDestructionProgress::Stop()
   if (!MiningInProgress) return;
 
   Mining_MaterialResistanceCounter = 0;
+  Last_Mining_MaterialResistanceCounter = 0;
   MiningInProgress = false;
   MiningNoTarget = true;
   GameEnv->GameProgressBar->SetCompletion(0.0f);

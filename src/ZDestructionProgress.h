@@ -36,8 +36,10 @@ class ZDestructionProgress
     bool         MiningInProgress;
     bool         MiningNoTarget;
     ZVoxelCoords MinedVoxel;
+    ZVoxelCoords LastMinedVoxel;
     double       Mining_Hardness;
     double       Mining_MaterialResistanceCounter;
+    double       Last_Mining_MaterialResistanceCounter;
     void *       SoundHandle;
   public:
     ZDestructionProgress();

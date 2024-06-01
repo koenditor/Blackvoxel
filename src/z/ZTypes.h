@@ -121,6 +121,11 @@ class ZVoxelCoords
         return(false);
       }
 
+      bool operator == (const ZVoxelCoords & Other ) const
+      {
+        return x==Other.x && y==Other.y && z==Other.z;
+      }
+
       void GetVoxelCenterCoords(ZVector3d * VoxelCoords)
       {
         ELong nx,ny,nz;
