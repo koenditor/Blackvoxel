@@ -26,6 +26,7 @@
 #pragma once 
 
 #include <SDL2/SDL_scancode.h>
+#include <SDL2/SDL_keyboard.h>
 
 #include "z/ZTypes.h"
 #include "z/ZObject.h"
@@ -57,7 +58,7 @@ class ZEventManager
   public:
     // Actual state
 
-    UByte * Keyboard_Matrix;
+    const Uint8* Keyboard_Matrix;
     UShort MouseX,MouseY;
     bool  MouseButton[64];
 
@@ -65,13 +66,12 @@ class ZEventManager
     {
       ULong i;
 
-      Keyboard_Matrix = new UByte[4096];
+      Keyboard_Matrix = SDL_GetKeyboardState(NULL);
       for (i = 0; i<64;i++) MouseButton[i]=false;
-      for (i=0;i<4096;i++) Keyboard_Matrix[i]=0;
       MouseX = 0;
       MouseY = 0;
     }
-   ~ZEventManager() { if (Keyboard_Matrix) delete [] Keyboard_Matrix; }
+   ~ZEventManager() {}
 
     void AddConsumer_ToTail ( ZEventConsumer * EventConsumer )
     {
@@ -91,13 +91,9 @@ class ZEventManager
 
     bool ProcessEvents();
 
-    bool Is_KeyPressed(UShort KeyCode, bool Reset)
+    bool Is_KeyPressed(UShort KeyCode, bool)
     {
-      bool IsPressed;
-
-      IsPressed = Keyboard_Matrix[KeyCode] ? true : false;
-      if (Reset) Keyboard_Matrix[KeyCode] = 0;
-      return IsPressed;
+      return Keyboard_Matrix[KeyCode];
     }
 
     bool Is_MouseButtonPressed(UShort ButtonCode, bool Reset)

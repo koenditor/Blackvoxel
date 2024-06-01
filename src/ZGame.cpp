@@ -43,7 +43,6 @@
 #include "ZTool_Rotate.h"
 #include "ZTool_OreScan.h"
 #include "ZTool_Linker.h"
-#include "ZLoadingScreen.h"
 #include "ZGameWindow_ZProgRobot_Remote.h"
 #include "ZGameWindow_ResumeRequest_Little.h"
 #include "ACompileSettings.h"
@@ -565,22 +564,6 @@ bool ZGame::Cleanup_OpenGLGameSettings(ZLog * InitLog)
 {
   InitLog->Log(0, ZLog::INFO, "Cleanup : OpenGL Game Settings");
   Initialized_OpenGLGameSettings = false;
-  return(true);
-}
-
-bool ZGame::Init_LoadingScreen(ZLog * InitLog)
-{
-  InitLog->Log(1, ZLog::INFO, "Starting : LoadingScreen");
-  ZLoadingScreen::Display(HardwareResolution.x, HardwareResolution.y, screen);
-  InitLog->Log(0, ZLog::INFO, "Ended Ok : LoadingScreen");
-  Initialized_LoadingScreen = true;
-  return(true);
-}
-
-bool ZGame::Cleanup_LoadingScreen(ZLog * InitLog)
-{
-  InitLog->Log(0, ZLog::INFO, "Cleanup : LoadingScreen");
-  Initialized_LoadingScreen = false;
   return(true);
 }
 

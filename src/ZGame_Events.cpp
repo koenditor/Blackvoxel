@@ -69,7 +69,6 @@ Bool ZGame_Events::KeyDown( SDL_Scancode KeySym )
 {
   ZActor * Actor;
 
-  // Keyboard_Matrix[KeySym] = 1;
   Actor = GameEnv->PhysicEngine->GetSelectedActor();
 
   switch(KeySym)
@@ -77,14 +76,6 @@ Bool ZGame_Events::KeyDown( SDL_Scancode KeySym )
 
     case SDL_SCANCODE_KP_DIVIDE:
 
-    // Keyboard mouse emulation
-/*
-    case SDL_SCANCODE_C:  { Mouse_Matrix[1] = true; Actor->Action_MouseButtonClick(0); break; }
-    case SDL_SCANCODE_V:  { Mouse_Matrix[2] = true; Actor->Action_MouseButtonClick(1); break; }
-    case SDL_SCANCODE_B:  { Mouse_Matrix[3] = true; Actor->Action_MouseButtonClick(2); break; }
-    case SDL_SCANCODE_X:  { Mouse_Matrix[4] = true; Actor->Action_MouseButtonClick(3); break; }
-    case SDL_SCANCODE_N:  { Mouse_Matrix[5] = true; Actor->Action_MouseButtonClick(4); break; }
-*/
     case SDL_SCANCODE_C:  { GameEnv->EventManager.ManualCall_MouseButtonClick(1); break; }
     case SDL_SCANCODE_V:  { GameEnv->EventManager.ManualCall_MouseButtonClick(2); break; }
     case SDL_SCANCODE_B:  { GameEnv->EventManager.ManualCall_MouseButtonClick(3); break; }
@@ -322,19 +313,8 @@ Bool ZGame_Events::KeyDown( SDL_Scancode KeySym )
 
 Bool ZGame_Events::KeyUp( SDL_Scancode KeySym )
 {
-  //ZActor_Player * Actor;
-
-  // Keyboard_Matrix[KeySym] = 0;
-  //Actor = (ZActor_Player *)GameEnv->PhysicEngine->GetSelectedActor();
-
   switch(KeySym)
   {
-    /*
-    case SDL_SCANCODE_C:  { Mouse_Matrix[1] = false; Actor->Action_MouseButtonRelease(0); break; }
-    case SDL_SCANCODE_V:  { Mouse_Matrix[2] = false; Actor->Action_MouseButtonRelease(1); break; }
-    case SDL_SCANCODE_B:  { Mouse_Matrix[3] = false; Actor->Action_MouseButtonRelease(2); break; }
-    case SDL_SCANCODE_X:  { Mouse_Matrix[4] = false; Actor->Action_MouseButtonRelease(3); break; }
-    case SDL_SCANCODE_N:  { Mouse_Matrix[5] = false; Actor->Action_MouseButtonRelease(4); break; }*/
     case SDL_SCANCODE_C:  { GameEnv->EventManager.ManualCall_MouseButtonRelease(1); break; }
     case SDL_SCANCODE_V:  { GameEnv->EventManager.ManualCall_MouseButtonRelease(2); break; }
     case SDL_SCANCODE_B:  { GameEnv->EventManager.ManualCall_MouseButtonRelease(3); break; }

@@ -88,7 +88,6 @@ class ZGame
              Initialized_TextureManager =
              Initialized_GuiManager =
              Initialized_OpenGLGameSettings =
-             Initialized_LoadingScreen =
              Initialized_VoxelTypeManager =
              Initialized_EventManager =
              Initialized_TileSetsAndFonts =
@@ -250,7 +249,6 @@ class ZGame
   bool Initialized_UserDataStorage;
   bool Initialized_Settings;
   bool Initialized_HardwareInfo;
-  bool Initialized_LoadingScreen;
   bool Initialized_SDL;
   bool Initialized_GraphicMode;
   bool Initialized_TextureManager;
@@ -302,7 +300,6 @@ class ZGame
   bool Init_Settings(ZLog * InitLog);
   bool Init_SDL(ZLog * InitLog);
   bool Init_GraphicMode(ZLog * InitLog);
-  bool Init_LoadingScreen(ZLog * InitLog);
   bool Init_VoxelTypeManager(ZLog * InitLog);
   bool Init_TextureManager(ZLog * InitLog);
   bool Init_OpenGLGameSettings(ZLog * InitLog);
@@ -322,7 +319,6 @@ class ZGame
   bool Cleanup_GuiManager(ZLog * InitLog);
   bool Cleanup_EventManager(ZLog * InitLog);
   bool Cleanup_OpenGLGameSettings(ZLog * InitLog);
-  bool Cleanup_LoadingScreen(ZLog * InitLog);
   bool Cleanup_TileSetsAndFonts(ZLog * InitLog);
   bool Cleanup_Renderer(ZLog * InitLog);
   bool Cleanup_Sound(ZLog * InitLog);
@@ -366,7 +362,6 @@ class ZGame
     result = Init_SDL(InitLog.Sec(1030));                if (!result) return(false);
     result = Init_GraphicMode(InitLog.Sec(1040));        if (!result) return(false);
     result = SDL_GL_CreateContext(this->screen);;        if (!result) return(false);
-    result = Init_LoadingScreen(InitLog.Sec(1055));      if (!result) return(false);
     result = Init_VoxelTypeManager(InitLog.Sec(1060));   if (!result) return(false);
     result = Init_TextureManager(InitLog.Sec(1070));     if (!result) return(false);
     result = Init_OpenGLGameSettings(InitLog.Sec(1080)); if (!result) return(false);
