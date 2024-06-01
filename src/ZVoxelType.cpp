@@ -63,7 +63,6 @@ ZVoxelType::ZVoxelType(UShort VoxelType)
   Grip_Vertical = 0.0;
   Weight = 1.0;
   Is_SpaceGripType = false;
-  Is_KeepControlOnJumping = true;
   HarmingLifePointsPerSecond = 0.0;
   Is_Active = false;
   Is_CanBeReplacedBy_Water = false;
@@ -218,7 +217,6 @@ Bool ZVoxelType::LoadVoxelInformations()
       if (Token == "FrictionCoef")            { FrictionCoef            = Line.GetDouble(); if (FrictionCoef == 0.0)    FrictionCoef =1.0; }
       if (Token == "Grip_Horizontal")         { Grip_Horizontal         = Line.GetDouble(); if (Grip_Horizontal == 0.0) Grip_Horizontal =1.0; }
       if (Token == "Grip_Vertical")           { Grip_Vertical           = Line.GetDouble(); if (Grip_Vertical == 0.0)   Grip_Vertical =1.0; }
-      if (Token == "BvProp_KeepControlOnJumping") { Is_KeepControlOnJumping = (Line.GetULong()!=0) ? true:false; }
       if (Token == "HarmingLifePointsPerSecond") { HarmingLifePointsPerSecond = Line.GetDouble(); }
       if (Token == "BvProp_CombinableWith_GreenAcid") { Is_CombinableWith_GreenAcid = (Line.GetULong()!=0) ? true:false; }
       if (Token == "BvProp_CanBeReplacedBy_MustardGaz") { Is_CanBeReplacedBy_MustardGaz = (Line.GetULong()!=0) ? true:false; }

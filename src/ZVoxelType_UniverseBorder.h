@@ -42,7 +42,6 @@ class ZVoxelType_UniverseBorder : public ZVoxelType
       Grip_Vertical = 0.0;
       Grip_Horizontal = 0.0;
       Is_SpaceGripType = false;
-      Is_KeepControlOnJumping = true;
       Is_Active = false;
       Is_CanBeReplacedBy_Water = false;
       Is_CombinableWith_GreenAcid = false;
@@ -95,7 +94,6 @@ class ZVoxelType_UniverseBorder : public ZVoxelType
       BvProp_PrRobotMoveMinLevel = 255;
       BlastResistance = 0x7FFFFFFF;
       Is_SpaceGripType = false;
-      Is_KeepControlOnJumping = false;
 
       Is_Harming = false;
       Is_Active  = false;

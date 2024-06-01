@@ -59,7 +59,6 @@ class ZActor
     Bool      CollideWithVoxels;
     Bool      CollideWithActors;
     bool      Flag_ActivateAntiFall;
-    bool      KeepControlOnJumping;
     bool      IsDead;
     bool      IsOnGround;
     Bool      TakesGravity;

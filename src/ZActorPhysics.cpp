@@ -60,7 +60,6 @@ ZActor::ZActor()
   Camera.ColoredVision.Blue = 1.0f;
   Camera.ColoredVision.Red  = 1.0f;
   Camera.ColoredVision.Green= 1.0f;
-  KeepControlOnJumping = true;
   IsDead = false;
   IsOnGround = false;
 
@@ -534,18 +533,6 @@ void ZActor::DoPhysic(UELong FrameTime)
 
     if (CycleTime > 160.0) CycleTime = 160.0; // Limit frame time
 
-    // Jumping from certain blocks won't permit you any motion control in space...
-
-    bool ForceLostControll = false;;
-    if (!GameEnv->VoxelTypeManager.VoxelTable[Voxel[20]]->Is_PlayerCanPassThrough)
-    {
-      KeepControlOnJumping = GameEnv->VoxelTypeManager.VoxelTable[Voxel[20]]->Is_KeepControlOnJumping;
-    }
-    else
-    {
-      if ( !KeepControlOnJumping ) {Deplacement = 0.0; ForceLostControll = true; } // Cancel space control if you jump from these blocks...
-    }
-
     // The gravity...
     double Gravity, CubeY;
     CubeY = Location.y / 256.0;
@@ -562,7 +549,7 @@ void ZActor::DoPhysic(UELong FrameTime)
     GripFactor.z = GripFactor.x;
     GripFactor.y = GameEnv->VoxelTypeManager.VoxelTable[Voxel[22]]->Grip_Vertical;
     WalkSpeed = Deplacement * 50.0;
-    if (GameEnv->VoxelTypeManager.VoxelTable[Voxel[20]]->Is_SpaceGripType || ForceLostControll)
+    if (GameEnv->VoxelTypeManager.VoxelTable[Voxel[20]]->Is_SpaceGripType)
     {
       VelocityIncrease = WalkSpeed * (CycleTime / 16.0)* GripFactor;
       if (WalkSpeed.x > 0.0) {if (Velocity.x > WalkSpeed.x) if (VelocityIncrease.x>0.0) VelocityIncrease.x = 0.0; }

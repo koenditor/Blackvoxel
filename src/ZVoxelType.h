@@ -98,7 +98,6 @@ class ZVoxelType
     // Control and
 
     bool Is_SpaceGripType;
-    bool Is_KeepControlOnJumping;
 
     //
 

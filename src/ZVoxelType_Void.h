@@ -42,7 +42,6 @@ class ZVoxelType_Void : public ZVoxelType
       Grip_Vertical = 0.0;
       Grip_Horizontal = 0.8;
       Is_SpaceGripType = false;
-      Is_KeepControlOnJumping = true;
       Is_Active = false;
       Is_CanBeReplacedBy_Water = true;
       Is_CombinableWith_GreenAcid = false;
