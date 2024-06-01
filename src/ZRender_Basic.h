@@ -92,7 +92,7 @@ class ZRender_Basic
 
     ZVector2L ViewportResolution;
     double    VerticalFOV;
-    double    FocusDistance;
+    double    NearClip;
     double    PixelAspectRatio;
     double    Optimisation_FCullingFactor;
 
@@ -138,8 +138,8 @@ class ZRender_Basic
       BvProp_DisplayVoxelSelector = true;
       ViewportResolution.x = 1920;
       ViewportResolution.y = 1200;
-      VerticalFOV = 63.597825649;
-      FocusDistance = 50.0;
+      VerticalFOV = 110; //TODO: FOV
+      NearClip = 8.0;
       PixelAspectRatio = 1.0;
       Optimisation_FCullingFactor = 1.0;
 
@@ -191,8 +191,6 @@ class ZRender_Basic
 
     void FreeDisplayData(ZVoxelSector * Sector);
 
-    // void RenderSector2(ZVoxelSector * Sector);
-
     inline bool Is_PointVisible(ZVector3d::ZTransformParam * TransformParam, ZVector3d * const Point)
     {
       ZVector3d Cv;
@@ -207,8 +205,8 @@ class ZRender_Basic
 
       // Projection
 
-      Cv.x = Cv.x / Cv.z * FocusDistance;  // Number replaced by FocusDistance was 50.0
-      Cv.y = Cv.y / Cv.z * FocusDistance;
+      Cv.x = Cv.x / Cv.z * NearClip;
+      Cv.y = Cv.y / Cv.z * NearClip;
 
       // Visibility test
 

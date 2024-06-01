@@ -62,7 +62,7 @@ WARNING := -Wall -Wextra
 #WARNING += -Wformat=2 -Wnull-dereference -Wold-style-cast -Wshadow -Wuseless-cast -Wdouble-promotion
 
 # TODO: remove these
-# WARNING += -Wno-unused-parameter -Wno-maybe-uninitialized
+WARNING += -Wno-unused-parameter -Wno-maybe-uninitialized
 # WARNING += -Wno-tautological-bitwise-compare -Wno-unused-parameter -Wno-shadow -Wno-old-style-cast -Wno-unsafe-buffer-usage
 # WARNING += -Wno-gnu-case-range
 

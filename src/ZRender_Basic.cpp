@@ -256,21 +256,14 @@ void ZRender_Basic::Render()
   // Computing Frustum and Setting up Projection
 
    Aspect_Ratio = ((double)ViewportResolution.x / (double)ViewportResolution.y) * PixelAspectRatio;
-   if (VerticalFOV < 5.0 ) VerticalFOV = 5.0;
-   if (VerticalFOV > 160.0 ) VerticalFOV = 160.0;
-   Frustum_V = tan(VerticalFOV / 2.0 * 0.017453293) * FocusDistance;
+
+   Frustum_V = tan(VerticalFOV / 2.0 * 0.017453293) * NearClip;
    Frustum_H = Frustum_V * Aspect_Ratio;
-
    Frustum_CullingLimit = ((Frustum_H > Frustum_V) ? Frustum_H : Frustum_V) * Optimisation_FCullingFactor;
-
 
    glMatrixMode(GL_PROJECTION);
    glLoadIdentity();
-   glFrustum(Frustum_H, -Frustum_H, -Frustum_V, Frustum_V, FocusDistance, 1000000.0); // Official Way
-// glFrustum(50.0, -50.0, -31.0, 31.0, 50.0, 1000000.0); // Official Way
-
-    // glFrustum(165.0, -165.0, -31.0, 31.0, 50.0, 1000000.0); // Eyefinity setting.
-
+   gluPerspective(VerticalFOV, -Aspect_Ratio, NearClip, 1000000.0);
 
   // Objects of the world are translated and rotated to position camera at the right place.
 
@@ -1267,28 +1260,19 @@ void ZRender_Basic::MakeSectorRenderingData_Sorted(ZVoxelSector * Sector)
   }
 }
 
-
+//TODO: FOV
 void ZRender_Basic::ComputeAndSetAspectRatio(double VerticalFOV, double PixelAspectRatio, ZVector2L & ViewportResolution)
 {
-  double FocusDistance = 50.0;
-  VerticalFOV = 63.597825649;
+  VerticalFOV = 110.0; 
   PixelAspectRatio = 1.0;
 
-  double Frustum_V;
-  double Frustum_H;
-  double Aspect_Ratio;
-
-  Aspect_Ratio = (ViewportResolution.x / ViewportResolution.y) * PixelAspectRatio;
+  Aspect_Ratio = ((float)ViewportResolution.x / ViewportResolution.y) * PixelAspectRatio;
 
   // FOV Limitation to safe values.
 
   if (VerticalFOV < 5.0 ) VerticalFOV = 5.0;
   if (VerticalFOV > 160.0 ) VerticalFOV = 160.0;
 
-  Frustum_V = tan(VerticalFOV / 2.0) * FocusDistance;
-  Frustum_H = Frustum_V * Aspect_Ratio;
-
-  glFrustum(Frustum_H, -Frustum_H, -Frustum_V, Frustum_V, FocusDistance, 1000000.0); // Official Way
-
+  gluPerspective(VerticalFOV, -Aspect_Ratio, NearClip, 1000000.0);
 }
 
