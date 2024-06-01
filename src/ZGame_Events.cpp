@@ -288,6 +288,32 @@ Bool ZGame_Events::KeyDown( SDL_Scancode KeySym )
                     Vs.PutIntoWorld(GameEnv->World,&Position2,3);
                   }
                   break;
+    case SDL_SCANCODE_E:
+                  if      (GameEnv->GameWindow_Storage->Is_Shown())           { GameEnv->GameWindow_Storage->Hide();}
+                  else if (GameEnv->GameWindow_Programmable->Is_Shown())      { GameEnv->GameWindow_Programmable->Hide();}
+                  else if (GameEnv->GameWindow_ProgRobot_Asm->Is_Shown())     { GameEnv->GameWindow_ProgRobot_Asm->Hide();}
+                  else if (GameEnv->GameWindow_UserTextureTransformer->Is_Shown()) {GameEnv->GameWindow_UserTextureTransformer->Hide();}
+                  else if (GameEnv->GameWindow_Sequencer->Is_Shown())         { GameEnv->GameWindow_Sequencer->Hide();}
+                  else if (GameEnv->GameWindow_AsmDebug->Is_Shown())          { GameEnv->GameWindow_AsmDebug->Hide(); if (GameEnv->GameWindow_AsmHardware->Is_Shown()) GameEnv->GameWindow_AsmHardware->Hide(); }
+                  else if (GameEnv->GameWindow_ProgRobot_Remote->Is_Shown())         { GameEnv->GameWindow_ProgRobot_Remote->Hide();}
+                  else
+                  {
+                    GameEnv->GameWindow_Inventory->SetGameEnv(GameEnv);
+                    if (GameEnv->GameWindow_Inventory->Is_Shown()) GameEnv->GameWindow_Inventory->Hide();
+                    else                                           GameEnv->GameWindow_Inventory->Show();
+                  }
+                  break;
+    case SDL_SCANCODE_ESCAPE:
+                  if      (GameEnv->GameWindow_Storage->Is_Shown())           { GameEnv->GameWindow_Storage->Hide();}
+                  else if (GameEnv->GameWindow_Programmable->Is_Shown())      { GameEnv->GameWindow_Programmable->Hide();}
+                  else if (GameEnv->GameWindow_ProgRobot_Asm->Is_Shown())     { GameEnv->GameWindow_ProgRobot_Asm->Hide();}
+                  else if (GameEnv->GameWindow_UserTextureTransformer->Is_Shown()) {GameEnv->GameWindow_UserTextureTransformer->Hide();}
+                  else if (GameEnv->GameWindow_Sequencer->Is_Shown())         { GameEnv->GameWindow_Sequencer->Hide();}
+                  else if (GameEnv->GameWindow_AsmDebug->Is_Shown())          { GameEnv->GameWindow_AsmDebug->Hide(); if (GameEnv->GameWindow_AsmHardware->Is_Shown()) GameEnv->GameWindow_AsmHardware->Hide(); }
+                  else if (GameEnv->GameWindow_ProgRobot_Remote->Is_Shown())         { GameEnv->GameWindow_ProgRobot_Remote->Hide();}
+                  else if (GameEnv->GameWindow_Inventory->Is_Shown()) GameEnv->GameWindow_Inventory->Hide();
+                  else {SDL_SetRelativeMouseMode(SDL_FALSE);  GameEnv->Game_Run = false;}
+                  break;
     default:
                   break;
   }
@@ -408,7 +434,7 @@ void ZGame_Events::Process_StillEvents()
       else Actor->Action_GoDown();
     }
     if ( Keyboard_Matrix[Settings_Hardware->Setting_Key_Jump])           { Actor->Action_Jump();}
-    if ( Keyboard_Matrix[SDL_SCANCODE_E])                                        { Actor->Action_GetInOutOfVehicle();}
+    if ( Keyboard_Matrix[SDL_SCANCODE_LCTRL])                                        { Actor->Action_GetInOutOfVehicle();}
     //if ( Keyboard_Matrix[SDL_SCANCODE_A] )                                     { Actor->Action_GoUp(GameEnv->Time_GameLoop  * 1.5); }
     if ( Keyboard_Matrix[SDL_SCANCODE_H] && COMPILEOPTION_DEBUGFACILITY )        { Actor->Action_GoFastForward(500.0); }
     if ( Keyboard_Matrix[SDL_SCANCODE_DELETE] && !COMPILEOPTION_DEBUGFACILITY ) { Actor->LifePoints = 0.0; }
@@ -937,43 +963,6 @@ void ZGame_Events::Process_StillEvents()
       Zone.x = Position.x >> 8; Zone.y = 0; Zone.z = Position.z >> 8;
 
       printf("Pos (%ld,%ld,%ld) Sector (%ld,%ld,%ld) Zone (%ld,%ld,%ld)\n",(UNum)Position.x,(UNum)Position.y,(UNum)Position.z,(UNum)Sector.x,(UNum)Sector.y,(UNum)Sector.z,(UNum)Zone.x,(UNum)Zone.y,(UNum)Zone.z);
-    }
-    if ( Keyboard_Matrix[SDL_SCANCODE_ESCAPE] )  { SDL_SetRelativeMouseMode(SDL_FALSE);  GameEnv->Game_Run = false; }
-
-/*
-    if ( Keyboard_Matrix[SDL_SCANCODE_F11] )
-    {
-      printf("Sectors in Memory:%lu ", (UNum)GameEnv->World->Info_GetSectorsInMemory()); //World.Info_PrintHashStats();
-      // Needs GL_NVX_gpu_memory_info extension
-      GLint Availlable_VRam = 0;
-       glGetIntegerv(/ *GL_GPU_MEM_INFO_CURRENT_AVAILABLE_MEM_NVX* / 0x9049, &Availlable_VRam);
-      GLint Total_Memory = 0;
-      glGetIntegerv(/ *GL_GPU_MEM_INFO_TOTAL_AVAILABLE_MEM_NVX* / 0x9048,&Total_Memory);
-      printf("GPU MEMORY (Ko) Free/Total/Used: %d/%d/%d\n",Availlable_VRam, Total_Memory, Total_Memory - Availlable_VRam  );
-      Keyboard_Matrix[SDL_SCANCODE_F11]=0;
-    }
-*/
-
-
-    if (Keyboard_Matrix[SDL_SCANCODE_I])
-    {
-
-      // Keyboard_Matrix[SDL_SCANCODE_I] = 0;
-
-
-      if      (GameEnv->GameWindow_Storage->Is_Shown())           { GameEnv->GameWindow_Storage->Hide();}
-      else if (GameEnv->GameWindow_Programmable->Is_Shown())      { GameEnv->GameWindow_Programmable->Hide();}
-      else if (GameEnv->GameWindow_ProgRobot_Asm->Is_Shown())     { GameEnv->GameWindow_ProgRobot_Asm->Hide();}
-      else if (GameEnv->GameWindow_UserTextureTransformer->Is_Shown()) {GameEnv->GameWindow_UserTextureTransformer->Hide();}
-      else if (GameEnv->GameWindow_Sequencer->Is_Shown())         { GameEnv->GameWindow_Sequencer->Hide();}
-      else if (GameEnv->GameWindow_AsmDebug->Is_Shown())          { GameEnv->GameWindow_AsmDebug->Hide(); if (GameEnv->GameWindow_AsmHardware->Is_Shown()) GameEnv->GameWindow_AsmHardware->Hide(); }
-      else if (GameEnv->GameWindow_ProgRobot_Remote->Is_Shown())         { GameEnv->GameWindow_ProgRobot_Remote->Hide();}
-      else
-      {
-        GameEnv->GameWindow_Inventory->SetGameEnv(GameEnv);
-        if (GameEnv->GameWindow_Inventory->Is_Shown()) GameEnv->GameWindow_Inventory->Hide();
-        else                                           GameEnv->GameWindow_Inventory->Show();
-      }
     }
 
     if (Keyboard_Matrix[SDL_SCANCODE_F7])

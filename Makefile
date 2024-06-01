@@ -52,7 +52,8 @@ SRC := $(wildcard src/*.cpp) $(wildcard src/z/*.cpp)
 OBJ := $(patsubst src/%.cpp,obj/%.o,$(SRC))
 DEP := $(patsubst src/%.cpp,obj/%.d,$(SRC))
 
-WARNING := -Wall -Wextra -Wzero-as-null-pointer-constant
+WARNING := -Wall -Wextra
+# -Wzero-as-null-pointer-constant
 # WARNING := -Weverything
 # -Wduplicated-cond -Wduplicated-branches
 # -Wlogical-op -Wrestrict -Wunused-function -Werror
@@ -62,8 +63,8 @@ WARNING := -Wall -Wextra -Wzero-as-null-pointer-constant
 
 # TODO: remove these
 # WARNING += -Wno-unused-parameter -Wno-maybe-uninitialized
-WARNING += -Wno-tautological-bitwise-compare -Wno-unused-parameter -Wno-shadow -Wno-old-style-cast -Wno-unsafe-buffer-usage
-WARNING += -Wno-gnu-case-range
+# WARNING += -Wno-tautological-bitwise-compare -Wno-unused-parameter -Wno-shadow -Wno-old-style-cast -Wno-unsafe-buffer-usage
+# WARNING += -Wno-gnu-case-range
 
 # Operating system and architecture detection
 
